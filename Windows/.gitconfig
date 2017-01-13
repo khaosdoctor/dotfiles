@@ -1,0 +1,20 @@
+[user]
+	name = Lucas Santos
+[core]
+	autocrlf = true
+	excludesfile = C:\\Users\\Lucas\\Documents\\gitignore_global.txt
+	editor = vim
+[credential]
+	helper = wincred
+[alias]
+	st = status
+	co = checkout
+	ps = push
+	b = branch
+	pl = pull
+	cm = commit
+	ca = commit -a
+[push]
+	default = simple
+[rerere]
+	enabled = true
