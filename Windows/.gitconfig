@@ -18,3 +18,10 @@
 	default = simple
 [rerere]
 	enabled = true
+[color]
+	ui = auto
+[diff]
+	mnemonicprefix = true
+	tool = vscode-diff
+[difftool "vscode-diff"]
+	cmd = code --diff $LOCAL $REMOTE
