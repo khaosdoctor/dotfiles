@@ -1,0 +1,43 @@
+[user]
+  name = Lucas Santos
+  email = lhs.santoss@gmail.com
+[core]
+  autocrlf = true
+  editor = vim
+[credential]
+  helper = store
+[alias]
+  st = status
+  co = checkout
+  ps = push
+  b = branch
+  pl = pull
+  cm = commit
+  ca = commit -a
+[push]
+  default = simple
+[rerere]
+  enabled = true
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+  mnemonicprefix = true
+  tool = vscode-diff
+[difftool "vscode-diff"]
+  cmd = code --diff $LOCAL $REMOTE
