@@ -1,5 +1,5 @@
 eval `ssh-agent -s` #Turning on SSH-Agent
-ssh-add $pemfiles
+ssh-add $pemfiles 2>/dev/null
 
 # Fixing global terminal colors
 export CLICOLOR=1
