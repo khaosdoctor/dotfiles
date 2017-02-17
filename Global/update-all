@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo -ne "\033]0;===== Atualizando serviços =====\007"
+
+echo -ne  "\033]0;Atualizando pacotes do Homebrew\007"
+brew update -v
+brew upgrade -v
+sleep 5
+clear
+
+echo -ne "\033]0;Atualizando Ruby Gems\007"
+gem update -V
+gem update --system -V
+sleep 5
+clear
+
+echo -ne "\033]0;Atualizando pacotes globais NPM\007"
+npm update -g
+sleep 5
+clear
+
+echo -ne "\033]0;Atualizando AppStore\007"
+mas upgrade
+sleep 5
+clear
+
+echo -ne "\033]0;Atualizando pacotes globais do Yarn\007"
+yarn global upgrade
