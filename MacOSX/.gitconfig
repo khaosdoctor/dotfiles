@@ -2,8 +2,9 @@
   name = Lucas Santos
   email = lhs.santoss@gmail.com
 [core]
-  autocrlf = true
+  autocrlf = false
   editor = vim
+  eol = lf
 [credential]
   helper = store
 [alias]
