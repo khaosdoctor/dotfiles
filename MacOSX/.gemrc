@@ -1,1 +1,1 @@
-gem: --user-install --no-ri --no-doc -n~/bin
+gem: --user-install --no-ri --no-doc -n~/usr/local/bin
