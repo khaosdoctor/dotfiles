@@ -16,7 +16,6 @@ alias update-all='/usr/local/bin/update-all'
 alias rimraf='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
-alias .='cd .'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
