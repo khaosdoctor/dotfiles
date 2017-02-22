@@ -14,7 +14,6 @@ alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
 alias cls='clear'
 alias rimraf='rm -rf'
 alias cd..='cd ..'
-alias .='cd .'
 alias ..='cd ..'
 alias gh-clone=gh_clone
 clear
