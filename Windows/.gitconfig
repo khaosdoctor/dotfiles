@@ -1,6 +1,3 @@
-[user]
-	name = Lucas Santos
-  email = lhs.santoss@gmail.com
 [core]
 	autocrlf = true
 	editor = vim

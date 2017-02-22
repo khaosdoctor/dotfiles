@@ -1,8 +1,5 @@
-[user]
-  name = Lucas Santos
-  email = lhs.santoss@gmail.com
 [core]
-  autocrlf = true
+  autocrlf = input
   editor = vim
 [credential]
   helper = store
