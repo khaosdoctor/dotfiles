@@ -1,6 +1,7 @@
 [core]
 	autocrlf = true
 	editor = vim
+	excludesfile = C:\\Users\\Lucas\\.gitexcludes
 [credential]
 	helper = wincred
 [alias]
@@ -38,3 +39,5 @@
 	tool = vscode-diff
 [difftool "vscode-diff"]
 	cmd = code --diff $LOCAL $REMOTE
+[apply]
+	whitespace = nowarn
