@@ -20,6 +20,9 @@ alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
 
+# Check for Z.sh
+[ -f ~/z.sh ] && . ~/z.sh
+
 # CHECK FOR COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
