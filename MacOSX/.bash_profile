@@ -1,3 +1,4 @@
+#!/bin/bash
 eval `ssh-agent -s` #Turning on SSH-Agent
 ssh-add @pemfiles@ 2>/dev/null
 
@@ -6,7 +7,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 #CUSTOM FUNCTIONS
-gh_clone() {
+gh_clone () {
   git clone "https://github.com/$1.git"
 }
 
@@ -28,11 +29,14 @@ alias gh-clone=gh_clone
 
 # GIT PROMPT
 if [ -f /usr/local/share/gitprompt.sh ]; then
-  GIT_PROMPT_THEME=Default
-  . /usr/local/share/gitprompt.sh
+    GIT_PROMPT_THEME=Default
+    . /usr/local/share/gitprompt.sh
 fi
-
 clear
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/usr/local/sbin:$PATH"
+
+# virtualenv
+export WORKON_HOME=~/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
