@@ -7,7 +7,15 @@ export ZSH=/Users/khaosdoctor/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="lambda/lambda-mod"
+	LAMBDA_NEW_LINE=$'\n'
+#ZSH_THEME="node/node"
+#ZSH_THEME="spaceship/spaceship"
+	#SPACESHIP_PREFIX_HOST="@"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="bureau"
+#ZSH_THEME="zeta/zeta"
+#ZSH_THEME="alien/alien"
 DEFAULT_USER="khaosdoctor"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -29,7 +37,7 @@ DEFAULT_USER="khaosdoctor"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+#ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
