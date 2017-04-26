@@ -15,6 +15,7 @@
   pl = pull
   cm = commit
   ca = commit -a
+  cza = cz -a
 [push]
   default = simple
 [rerere]
