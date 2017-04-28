@@ -1,7 +1,9 @@
 syntax on
 colorscheme slate
+" Set Markdown File Type
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+" Vim-Plug
 call plug#begin()
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -15,6 +17,7 @@ call plug#begin()
 
 call plug#end()
 
+" Extension SetUp
 set ts=4 sw=4 et
 let g:indent_guides_guide_size = 1
 let g:airline_theme='dark'
@@ -22,6 +25,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
+" General Setup
 set updatetime=250
 set laststatus=2 " Shows Airline tab bar
 set number  " Show line numbers
