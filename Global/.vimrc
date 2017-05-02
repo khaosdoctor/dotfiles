@@ -1,5 +1,4 @@
 syntax on
-colorscheme slate
 " Set Markdown File Type
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
@@ -14,6 +13,7 @@ call plug#begin()
     Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
     Plug 'ervandew/supertab'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
