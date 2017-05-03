@@ -17,6 +17,12 @@ map <c-l> $
 map <c-k> gg
 " Go to end of the file
 map <c-j> G
+" Save file
+map <c-s> :w
+" Undo
+map <c-z> u
+" Open NerdTree
+map <F2> :NERDTreeToggle<CR>
 
 " Vim-Plug
 call plug#begin()
