@@ -1,6 +1,6 @@
 #!/bin/bash
 eval `ssh-agent -s` #Turning on SSH-Agent
-ssh-add @pemfiles@ 2>/dev/null
+ssh-add ~/Documents/Repositórios/GTPlan/arquivos-documentos/Chaves/*.pem 2>/dev/null
 
 # Fixing global terminal colors
 export CLICOLOR=1
@@ -21,7 +21,7 @@ alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
 
-# Check for Z.sh
+# ZSh
 [ -f ~/z.sh ] && . ~/z.sh
 
 # CHECK FOR COMPLETION
@@ -34,9 +34,11 @@ if [ -f /usr/local/share/gitprompt.sh ]; then
 fi
 clear
 
+# Iterm Shell integration
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 export PATH="/usr/local/sbin:$PATH"
 
-# virtualenv
+# Python virtualenv
 export WORKON_HOME=~/virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
