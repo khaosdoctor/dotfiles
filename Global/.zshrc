@@ -7,15 +7,16 @@ export ZSH=/Users/khaosdoctor/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="lambda/lambda-mod"
-	LAMBDA_NEW_LINE=$'\n'
+#ZSH_THEME="lambda/lambda-mod"
+#LAMBDA_NEW_LINE=$'\n'
 #ZSH_THEME="node/node"
 #ZSH_THEME="spaceship/spaceship"
-	#SPACESHIP_PREFIX_HOST="@"
+#SPACESHIP_PREFIX_HOST="@"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="bureau"
-#ZSH_THEME="zeta/zeta"
+ZSH_THEME="zeta/zeta"
 #ZSH_THEME="alien/alien"
+#ALIEN_THEME="red"
 DEFAULT_USER="khaosdoctor"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,7 +60,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws colorize colored-man-pages command-not-found compleat cp z bower docker gitignore redis-cli composer laravel pip terminalapp themes)
+plugins=(git aws colorize colored-man-pages catimg command-not-found compleat cp z dockeri git-extras git-flow sudo gitignore redis-cli composer laravel pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +107,14 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NODE_PATH=./
