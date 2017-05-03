@@ -2,6 +2,22 @@ syntax on
 " Set Markdown File Type
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
+" KeyMaps
+" Next Tab
+map <F8> gt
+" Previous tab
+map <F7> gT
+" Duplicate line down
+nmap <c-d> Vyp
+" Move to beginning of the line
+map <c-h> ^
+" Move to end of the line
+map <c-l> $
+" Go to beginning of the file
+map <c-k> gg
+" Go to end of the file
+map <c-j> G
+
 " Vim-Plug
 call plug#begin()
 
