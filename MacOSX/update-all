@@ -19,9 +19,6 @@ npm update -g
 sleep 5
 clear
 
-echo -ne "\033]0;Atualizando pacotes globais do Yarn\007"
-yarn global upgrade
-
 echo -ne "\033]0;Atualizando AppStore\007"
 mas upgrade
 sleep 5
