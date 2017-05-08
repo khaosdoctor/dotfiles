@@ -18,9 +18,7 @@ map <c-k> gg
 " Go to end of the file
 map <c-j> G
 " Save file
-map <c-s> :w
-" Undo
-map <c-z> u
+map <D-s> :w
 " Open NerdTree
 map <F2> :NERDTreeToggle<CR>
 
@@ -51,6 +49,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 set updatetime=250
 set laststatus=2 " Shows Airline tab bar
 set number  " Show line numbers
+set relativenumber " Show relative line numbers
 set linebreak   " Break lines at word (requires Wrap lines)
 set showbreak=+++   " Wrap-broken line prefix
 set textwidth=100   " Line wrap (number of cols)
