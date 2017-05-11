@@ -13,12 +13,10 @@ nmap <c-d> Vyp
 map <c-h> ^
 " Move to end of the line
 map <c-l> $
-" Go to beginning of the file
-map <c-k> gg
-" Go to end of the file
-map <c-j> G
-" Save file
-map <D-s> :w
+" Next Buffer
+map gn :bn<CR>
+" Previous buffer
+map gp :bp<CR>
 " Open NerdTree
 map <F2> :NERDTreeToggle<CR>
 
