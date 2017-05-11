@@ -8,13 +8,14 @@ map <F8> gt
 " Previous tab
 map <F7> gT
 " Duplicate line down
-nmap <c-d> Vyp
-" Move to beginning of the line
-map <c-h> ^
-" Move to end of the line
-map <c-l> $
+nmap <c-d> yyp
 " Next Buffer
 map gn :bn<CR>
+" Navigate through panes
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+map <c-j> <c-w>j
+map <c-k> <c-w>k
 " Previous buffer
 map gp :bp<CR>
 " Open NerdTree
