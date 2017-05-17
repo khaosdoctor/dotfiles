@@ -1,6 +1,7 @@
 [user]
   name = Lucas Santos
   email = lhs.santoss@gmail.com
+	signingkey = E7C5AB8895204C87
 [core]
   autocrlf = false
   eol = lf
@@ -43,3 +44,9 @@
   tool = vscode-diff
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
+[gui]
+	recentrepo = /Users/khaosdoctor/Documents/Repositórios/LUAPP/Freelas/Maria Ribeiro/wp-content/themes/theme_luapp
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
