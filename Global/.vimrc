@@ -49,6 +49,7 @@ call plug#begin()
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mattn/emmet-vim'
     Plug 'heavenshell/vim-jsdoc'
+    Plug 'Yggdroot/indentLine'
     Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -62,6 +63,12 @@ let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+"" IndentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 
 "" NerdTree
 let g:NERDTreeWinSize = 50
