@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -60,7 +60,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws colorize colored-man-pages catimg command-not-found compleat cp z dockeri git-extras git-flow sudo gitignore redis-cli composer laravel pip)
+plugins=(git aws colorize colored-man-pages catimg command-not-found compleat cp z docker git-extras git-flow sudo gitignore redis-cli composer laravel pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,7 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
+eval "$(hub alias -s)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -118,4 +119,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NODE_PATH=./
-export GPG_TTY=$(tty)
+
+export PATH=$PATH:/Users/khaosdoctor/bin
+
+fpath=(~/.zsh/completions $fpath) 
+autoload -U compinit && compinit
+
+source '/Users/khaosdoctor/lib/azure-cli/az.completion'
