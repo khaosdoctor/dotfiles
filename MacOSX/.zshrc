@@ -60,7 +60,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws colorize colored-man-pages catimg command-not-found compleat cp z docker git-extras git-flow sudo gitignore redis-cli composer laravel pip)
+plugins=(zsh-completions git aws colorize colored-man-pages catimg command-not-found compleat cp z docker git-extras git-flow sudo gitignore redis-cli composer laravel pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,22 +107,24 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
+# Adds hub as an alias of git
 eval "$(hub alias -s)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export NODE_PATH=./
-
 export PATH=$PATH:/Users/khaosdoctor/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
+# Autoloads kubectl completions
+source <(kubectl completion zsh)
 
 source '/Users/khaosdoctor/lib/azure-cli/az.completion'
