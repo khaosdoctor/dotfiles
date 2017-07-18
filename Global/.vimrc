@@ -23,7 +23,7 @@ map <c-k> <c-w>k
 " Open NerdTree
 map <F2> :NERDTreeToggle<CR>
 " Use JSDoc
-nmap <silent> <c-z> <Plug>(jsdoc)
+nmap <silent> <c-j><c-s> <Plug>(jsdoc)
 " Fugitive Git
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gcm :Gcommit<CR>
@@ -39,7 +39,6 @@ call plug#begin()
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/syntastic'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'sheerun/vim-polyglot'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -49,26 +48,18 @@ call plug#begin()
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mattn/emmet-vim'
     Plug 'heavenshell/vim-jsdoc'
-    Plug 'Yggdroot/indentLine'
     Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 " Extension SetUp
 set ts=4 sw=4 et
-let g:indent_guides_guide_size = 1
 
 "" Airline
 let g:airline_theme='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-
-"" IndentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
 
 "" NerdTree
 let g:NERDTreeWinSize = 50
