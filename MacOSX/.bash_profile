@@ -5,7 +5,6 @@ ssh-add ~/Documents/Repositórios/GTPlan/arquivos-documentos/Chaves/*.pem 2>/dev
 # Fixing global terminal colors
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-# Will export GPG TTY key for GnuPG to work
 
 #CUSTOM FUNCTIONS
 gh_clone () {
