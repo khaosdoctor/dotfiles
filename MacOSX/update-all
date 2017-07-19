@@ -5,6 +5,7 @@ echo -ne "\033]0;===== Atualizando serviços =====\007"
 echo -ne  "\033]0;Atualizando pacotes do Homebrew\007"
 brew update -v
 brew upgrade -v
+brew cleanup
 sleep 5
 clear
 
