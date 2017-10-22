@@ -102,8 +102,8 @@ set laststatus=2 " Shows Airline tab bar
 set number  " Show line numbers
 set relativenumber " Show relative line numbers
 set linebreak   " Break lines at word (requires Wrap lines)
-set showbreak=+++   " Wrap-broken line prefix
-set textwidth=100   " Line wrap (number of cols)
+set textwidth=150   " Line wrap (number of cols)
+set columns=150
 set showmatch   " Highlight matching brace
 set visualbell  " Use visual bell (no beeping)
  
@@ -115,7 +115,7 @@ set incsearch   " Searches for strings incrementally
 set autoindent  " Auto-indent new lines
 set smartindent " Enable smart-indent
 set smarttab    " Enable smart-tabs
-set softtabstop=4   " Number of spaces per Tab
+set softtabstop=2   " Number of spaces per Tab
  
 set ruler   " Show row and column ruler information
  
