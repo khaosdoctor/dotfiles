@@ -47,6 +47,6 @@
 [gui]
 	recentrepo = /Users/khaosdoctor/Documents/Repositórios/LUAPP/Freelas/Maria Ribeiro/wp-content/themes/theme_luapp
 [gpg]
-	program = gpg2
+	program = /usr/local/bin/gpg
 [commit]
 	gpgsign = true
