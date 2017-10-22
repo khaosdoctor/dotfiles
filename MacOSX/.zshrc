@@ -7,24 +7,27 @@ export ZSH=/Users/khaosdoctor/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="lambda/lambda-mod"
 #LAMBDA_NEW_LINE=$'\n'
+#ZSH_THEME="lambda/lambda-mod"
 #ZSH_THEME="node/node"
-#ZSH_THEME="spaceship/spaceship"
-#SPACESHIP_PREFIX_HOST="@"
+SPACESHIP_PREFIX_HOST="@"
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_PROMPT_SYMBOL="𝝺"
+#SPACESHIP_GIT_UNPULLED="⇣ Need Pull"
+#SPACESHIP_GIT_UNPUSHED="⇡ Need Push"
+ZSH_THEME="spaceship/spaceship"
 #ZSH_THEME="agnoster"
 #ZSH_THEME="bureau"
-ZSH_THEME="zeta/zeta"
-#ZSH_THEME="alien/alien"
+#ZSH_THEME="zeta/zeta"
 #ALIEN_THEME="red"
+#ZSH_THEME="alien/alien"
 DEFAULT_USER="khaosdoctor"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
+# HYPHEN_INSENSITIVE="true" 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -60,7 +63,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-completions git colorize  command-not-found compleat cp z docker git-extras sudo gitignore redis-cli pip jsontools)
+plugins=(zsh-completions git colorize  command-not-found compleat cp z docker git-extras sudo gitignore redis-cli)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +110,7 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
+alias ftp=lftp
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
 
@@ -116,15 +120,28 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Adds current path to node
 export NODE_PATH=./
+
+# Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Load ZSH Completions
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
+
 # Autoloads kubectl completions
 source <(kubectl completion zsh)
 
-source '/Users/khaosdoctor/lib/azure-cli/az.completion'
+# Exports yarn path
+export PATH="$(yarn global bin):$PATH"
+
+# Setup python local env
+export WORKON_HOME=~/.ve
+eval "$(pyenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
