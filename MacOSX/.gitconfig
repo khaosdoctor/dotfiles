@@ -17,6 +17,8 @@
   cm = commit
   ca = commit -a
   cza = cz -a
+	br = branch
+	pr = pull-request
 [push]
   default = simple
 [rerere]
