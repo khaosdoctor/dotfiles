@@ -208,9 +208,5 @@ source <(helm completion zsh)
 # Exports yarn path
 export PATH="$(yarn global bin):$PATH"
 
-# Setup python local env
-export WORKON_HOME=~/.ve
-eval "$(pyenv init -)"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
