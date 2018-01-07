@@ -11,6 +11,11 @@ linux_bootstrap () {
   echo "Installing Oh My Zsh"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+  echo "Installing Spaceship theme"
+  curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
+  mkdir $ZSH_CUSTOM/themes/spaceship
+  mv $ZSH_CUSTOM/themes/spaceship.zsh-theme $ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme
+
   echo "Removing older files"
   rm -rf ~/.gemrc ~/.gitexcludes ~/.vimrc ~/.zshrc
 
@@ -51,14 +56,19 @@ linux_bootstrap () {
   fi
   cd ~/.fonts
   unzip ~/.dotbootstrap/fira.zip
+  rm -rf ~/.dotbootstrap
+  sudo add-apt-repository universe
+  sudo apt-get install -y fonts-firacode
 
   echo "Installing ZSH Plugins"
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
   git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
   clear
+
   echo "Installing FZF, remember to aswer Y to all questions"
   sleep 5
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+  clear
 }
 
 mac_bootstrap () {
@@ -71,6 +81,8 @@ show_completion_message () {
   echo "1 - Change your terminal font to Fira Code Nerdfont"
   echo "2 - Restart your terminal for changes to take effect"
   echo "3 - Enter your Vim and run :PlugInstall to install all plug-ins"
+  echo "--------"
+  echo "IMPORTANT: DO NOT REMOVE THIS REPOSITORY FOLDER OR YOU'LL LOSE THE SYMLINKS TO THE DOTFILES"
 }
 
 echo "Which OS are you using?"
