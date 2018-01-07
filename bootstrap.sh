@@ -34,11 +34,11 @@ linux_bootstrap () {
   ln ./Linux/.gitconfig ~/.gitconfig
 
   echo "Creating ZSH completions folder"
-  if [ -d "~/.zsh" ]; then
+  if [ ! -d "~/.zsh" ]; then
     mkdir ~/.zsh
   fi
 
-  if [ -d "~/.zsh/completions" ]; then
+  if [ ! -d "~/.zsh/completions" ]; then
     mkdir ~/zsh/completions
   fi
 
@@ -51,7 +51,7 @@ linux_bootstrap () {
 
   echo "Downloading Fira Code font from NerdFonts"
   curl https://github.com/ryanoasis/nerd-fonts/releases/download/v1.2.0/FiraCode.zip --create-dirs -o ~/.dotbootstrap/fira.zip
-  if [ -d "~/.fonts" ]; then
+  if [ ! -d "~/.fonts" ]; then
     mkdir ~/.fonts
   fi
   cd ~/.fonts
