@@ -129,7 +129,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-completions git colorize compleat cp z docker git-extras gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-completions git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -183,8 +183,6 @@ alias dkr=docker
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -194,9 +192,6 @@ export NODE_PATH=./
 
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load ZSH Completions
 fpath=(~/.zsh/completions $fpath) 
