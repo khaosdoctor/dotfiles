@@ -34,12 +34,6 @@ noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " Vim-Plug
 call plug#begin()
 
@@ -49,12 +43,10 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
-    Plug 'ervandew/supertab'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mattn/emmet-vim'
     Plug 'heavenshell/vim-jsdoc'
-    Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -112,19 +104,22 @@ set textwidth=150   " Line wrap (number of cols)
 set columns=150
 set showmatch   " Highlight matching brace
 set visualbell  " Use visual bell (no beeping)
-
+ 
 set hlsearch    " Highlight all search results
 set smartcase   " Enable smart-case search
 set ignorecase  " Always case-insensitive
 set incsearch   " Searches for strings incrementally
 
-set autoindent  " Auto-indent new lines
-set smartindent " Enable smart-indent
-set smarttab    " Enable smart-tabs
+set noautoindent  " Auto-indent new lines
+set nosmartindent " Enable smart-indent
+set nosmarttab    " Enable smart-tabs
 set softtabstop=2   " Number of spaces per Tab
-
+set nocindent
+filetype indent off
+filetype plugin indent off
+ 
 set ruler   " Show row and column ruler information
-
+ 
 set undolevels=1000 " Number of undo levels
 set backspace=indent,eol,start  " Backspace behaviour
 set ttimeoutlen=50
