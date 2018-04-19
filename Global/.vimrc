@@ -104,12 +104,15 @@ set textwidth=150   " Line wrap (number of cols)
 set columns=150
 set showmatch   " Highlight matching brace
 set visualbell  " Use visual bell (no beeping)
- 
 set hlsearch    " Highlight all search results
 set smartcase   " Enable smart-case search
 set ignorecase  " Always case-insensitive
 set incsearch   " Searches for strings incrementally
-
+set cursorcolumn
+set cursorline
+highlight CursorColumn ctermbg=Yellow
+highlight CursorColumn ctermfg=Black
+set colorcolumn=80,120
 set noautoindent  " Auto-indent new lines
 set nosmartindent " Enable smart-indent
 set nosmarttab    " Enable smart-tabs
