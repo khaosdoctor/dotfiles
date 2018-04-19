@@ -26,14 +26,14 @@ SPACESHIP_PROMPT_ORDER=(
   golang        # Go section
   php           # PHP section
   rust          # Rust section
-  haskell       # Haskell Stack section
-  julia         # Julia section
+  #haskell       # Haskell Stack section
+  #julia         # Julia section
   #docker        # Docker section
   aws           # Amazon Web Services section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
-  dotnet        # .NET section
+  #dotnet        # .NET section
   ember         # Ember.js section
   #kubecontext   # Kubectl context section
   line_sep      # Line break
@@ -53,7 +53,7 @@ SPACESHIP_GIT_STATUS_PREFIX=" "
 SPACESHIP_GIT_STATUS_SUFFIX="|"
 SPACESHIP_GIT_BRANCH_PREFIX="[ "
 SPACESHIP_GIT_BRANCH_SUFFIX="]"
-SPACESHIP_GIT_STATUS_UNCOMMITTED="  "
+SPACESHIP_GIT_STATUS_ADDED="  "
 SPACESHIP_GIT_STATUS_MODIFIED="  "
 SPACESHIP_GIT_STATUS_UNTRACKED="  "
 SPACESHIP_GIT_STATUS_STASHED="  "
