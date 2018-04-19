@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+export ZSH=/Users/khaosdoctor/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -16,7 +16,7 @@ SPACESHIP_PROMPT_ORDER=(
   host          # Hostname section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
+  #hg            # Mercurial section (hg_branch  + hg_status)
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
@@ -28,14 +28,14 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   haskell       # Haskell Stack section
   julia         # Julia section
-  docker        # Docker section
+  #docker        # Docker section
   aws           # Amazon Web Services section
   venv          # virtualenv section
   conda         # conda virtualenv section
   pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
-  kubecontext   # Kubectl context section
+  #kubecontext   # Kubectl context section
   line_sep      # Line break
   jobs          # Backgound jobs indicator
   char          # Prompt character
@@ -53,14 +53,12 @@ SPACESHIP_GIT_STATUS_PREFIX=" "
 SPACESHIP_GIT_STATUS_SUFFIX="|"
 SPACESHIP_GIT_BRANCH_PREFIX="[ "
 SPACESHIP_GIT_BRANCH_SUFFIX="]"
-SPACESHIP_GIT_STATUS_UNCOMMITTED=" "
-SPACESHIP_GIT_STATUS_MODIFIED=" "
-SPACESHIP_GIT_STATUS_RENAMED="» "
-SPACESHIP_GIT_STATUS_DELETED="✘ "
-SPACESHIP_GIT_STATUS_UNTRACKED=" "
-SPACESHIP_GIT_STATUS_STASHED=" "
-SPACESHIP_GIT_STATUS_BEHIND=" Needs Pull "
-SPACESHIP_GIT_STATUS_AHEAD=" Needs Push "
+SPACESHIP_GIT_STATUS_UNCOMMITTED="  "
+SPACESHIP_GIT_STATUS_MODIFIED="  "
+SPACESHIP_GIT_STATUS_UNTRACKED="  "
+SPACESHIP_GIT_STATUS_STASHED="  "
+SPACESHIP_GIT_STATUS_BEHIND="  Needs Pull "
+SPACESHIP_GIT_STATUS_AHEAD="  Needs Push "
 SPACESHIP_HOST_PREFIX="@"
 SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_TIME_SHOW=true
@@ -168,6 +166,7 @@ gh_clone () {
 }
 
 # ALIASES CUSTOM
+alias lsr='tree -aC -L $1'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
 alias update-all='/usr/local/bin/update-all'
 alias rm='rm -rf'
@@ -205,3 +204,13 @@ export PATH="$(yarn global bin):$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
+
+# Loads Pyenv
+eval "$(pyenv init -)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
