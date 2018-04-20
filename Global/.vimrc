@@ -112,7 +112,7 @@ set cursorcolumn
 set cursorline
 highlight CursorColumn ctermbg=Yellow
 highlight CursorColumn ctermfg=Black
-set colorcolumn=80,120
+set colorcolumn=80
 set noautoindent  " Auto-indent new lines
 set nosmartindent " Enable smart-indent
 set nosmarttab    " Enable smart-tabs
