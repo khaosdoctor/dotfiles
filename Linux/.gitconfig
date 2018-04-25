@@ -11,8 +11,10 @@
   pl = pull
   cm = commit
   ca = commit -a
+	br = branch
 [push]
   default = simple
+	followTags = true
 [rerere]
   enabled = true
 [color]
@@ -38,3 +40,6 @@
   tool = vscode-diff
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
+[user]
+	email = lhs.santoss@gmail.com
+	name = Lucas Santos
