@@ -1,7 +1,7 @@
 [user]
   name = Lucas Santos
   email = lhs.santoss@gmail.com
-	signingkey = E7C5AB8895204C87
+  signingkey = E7C5AB8895204C87
 [core]
   autocrlf = false
   eol = lf
@@ -17,39 +17,46 @@
   cm = commit
   ca = commit -a
   cza = cz -a
-	br = branch
-	pr = pull-request
+  br = branch
+  pr = pull-request
 [push]
   default = simple
-	followTags = true
+  followTags = true
 [rerere]
   enabled = true
 [color]
-    branch = auto
-    diff = auto
-    status = auto
-    ui = auto
+  branch = auto
+  diff = auto
+  status = auto
+  ui = auto
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [diff]
   mnemonicprefix = true
   tool = vscode-diff
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
 [gui]
-	recentrepo = /Users/khaosdoctor/Documents/Repositórios/LUAPP/Freelas/Maria Ribeiro/wp-content/themes/theme_luapp
+  recentrepo = /Users/khaosdoctor/Documents/Repositórios/LUAPP/Freelas/Maria Ribeiro/wp-content/themes/theme_luapp
 [gpg]
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
 [commit]
-	gpgsign = true
+  gpgsign = true
+[pager]
+  branch = false
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
