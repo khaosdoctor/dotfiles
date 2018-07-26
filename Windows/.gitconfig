@@ -1,21 +1,26 @@
+[user]
+  name = Lucas Santos
+  email = lhs.santoss@gmail.com
 [core]
-	autocrlf = true
-	editor = vim
-	excludesfile = C:\\Users\\Lucas\\.gitexcludes
+  autocrlf = true
+  editor = vim
+  excludesfile = C:\\Users\\Lucas\\.gitexcludes
 [credential]
-	helper = wincred
+  helper = wincred
 [alias]
-	st = status
-	co = checkout
-	ps = push
-	b = branch
-	pl = pull
-	cm = commit
-	ca = commit -a
+  st = status
+  co = checkout
+  ps = push
+  b = branch
+  pl = pull
+  cm = commit
+  ca = commit -a
+  br = branch
 [push]
-	default = simple
+  default = simple
+  followTags = true
 [rerere]
-	enabled = true
+  enabled = true
 [color]
     branch = auto
     diff = auto
@@ -35,9 +40,11 @@
     changed = green
     untracked = cyan
 [diff]
-	mnemonicprefix = true
-	tool = vscode-diff
+  mnemonicprefix = true
+  tool = vscode-diff
 [difftool "vscode-diff"]
-	cmd = code --diff $LOCAL $REMOTE
+  cmd = code --diff $LOCAL $REMOTE
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
+[pager]
+  branch = false
