@@ -91,7 +91,7 @@ DEFAULT_USER="khaosdoctor"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# HYPHEN_INSENSITIVE="true" 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -166,7 +166,7 @@ gh_clone () {
 }
 
 # ALIASES CUSTOM
-alias lsr='tree -aC -L $1'
+alias lsr='tree -aC -L $1 $2'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
 alias update-all='/usr/local/bin/update-all'
 alias rm='rm -rf'
@@ -188,31 +188,30 @@ export NVM_DIR="$HOME/.nvm"
 
 # Adds current path to node
 export NODE_PATH=./
+export KUBE_EDITOR='vim'
 
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
 
 # Load ZSH Completions
-fpath=(~/.zsh/completions $fpath)
+fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
 # Autoloads kubectl completions
 source <(kubectl completion zsh)
 source <(helm completion zsh)
-
 # Exports yarn path
 export PATH="$(yarn global bin):$PATH"
-
-# Sources gcloud installation
-source /opt/google-cloud-sdk/path.zsh.inc
-source /opt/google-cloud-sdk/completion.zsh.inc
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
 
+# Loads Pyenv
+eval "$(pyenv init -)"
+
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/lucas/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/lucas/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+[[ -f /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/lucas/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /home/lucas/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+[[ -f /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
