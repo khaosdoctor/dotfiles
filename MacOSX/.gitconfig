@@ -12,12 +12,10 @@
   st = status
   co = checkout
   ps = push
-  b = branch
   pl = pull
   cm = commit
   ca = commit -a
   br = branch
-  pr = pull-request
 [push]
   default = simple
   followTags = true
@@ -46,16 +44,14 @@
   tool = vscode-diff
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
-[gui]
-  recentrepo = /Users/khaosdoctor/Documents/Repositórios/LUAPP/Freelas/Maria Ribeiro/wp-content/themes/theme_luapp
 [gpg]
   program = /usr/local/bin/gpg
 [commit]
   gpgsign = true
-[pager]
-  branch = false
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+[pager]
+  branch = false
