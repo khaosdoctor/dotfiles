@@ -1,1 +1,1 @@
-gem: --user-install --no-ri --no-doc --source http://rubygems.org -n~/usr/local/bin
+gem: --user-install --no-ri --no-doc --source http://rubygems.org -n /usr/local/bin
