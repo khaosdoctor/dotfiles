@@ -209,6 +209,9 @@ if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/User
 # Loads Pyenv
 eval "$(pyenv init -)"
 
+# Loads DirEnv
+eval "$(direnv hook zsh)"
+
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/khaosdoctor/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
