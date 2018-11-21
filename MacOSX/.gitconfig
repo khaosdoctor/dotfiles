@@ -16,6 +16,7 @@
   cm = commit
   ca = commit -a
   br = branch
+  publish = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
 [push]
   default = simple
   followTags = true
