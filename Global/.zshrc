@@ -159,6 +159,7 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias zshreload="source ~/.zshrc"
 
 #CUSTOM FUNCTIONS
 gh_clone () {
