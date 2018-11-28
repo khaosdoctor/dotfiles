@@ -159,7 +159,7 @@ fi
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
-alias zshreload="source ~/.zshrc"
+alias reload!="source ~/.zshrc"
 
 #CUSTOM FUNCTIONS
 gh_clone () {
@@ -193,6 +193,8 @@ export KUBE_EDITOR='vim'
 
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
+# Export NPM Path
+export PATH=$PATH:/usr/local/lib/node_modules
 
 # Load ZSH Completions
 fpath=(~/.zsh/completions $fpath) 
@@ -201,8 +203,6 @@ autoload -U compinit && compinit
 # Autoloads kubectl completions
 source <(kubectl completion zsh)
 source <(helm completion zsh)
-# Exports yarn path
-export PATH="$(yarn global bin):$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
