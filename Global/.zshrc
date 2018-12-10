@@ -166,6 +166,10 @@ gh_clone () {
   git clone "https://github.com/$1.git"
 }
 
+git_goto () {
+  find . -name .git -type d -execdir git checkout $1 ";"
+}
+
 # ALIASES CUSTOM
 alias lsr='tree -aC -L $1 $2'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
@@ -176,6 +180,7 @@ alias cd..='cd ..'
 alias ..='cd ..'
 alias ll='ls -l'
 alias gh-clone=gh_clone
+alias git-goto=git_goto
 alias ftp=lftp
 alias k=kubectl
 alias dkr=docker
