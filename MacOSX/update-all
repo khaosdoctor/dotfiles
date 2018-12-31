@@ -16,7 +16,8 @@ sleep 5
 clear
 
 echo -ne "\033]0;Atualizando pacotes globais NPM\007"
-yarn global upgrade
+npm -g update
+
 sleep 5
 clear
 
