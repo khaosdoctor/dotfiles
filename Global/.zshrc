@@ -20,21 +20,21 @@ SPACESHIP_PROMPT_ORDER=(
   package       # Package version
   node          # Node.js section
   ruby          # Ruby section
-  elixir        # Elixir section
+  #elixir        # Elixir section
   xcode         # Xcode section
-  swift         # Swift section
+  #swift         # Swift section
   golang        # Go section
   php           # PHP section
-  rust          # Rust section
+  #rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
   #docker        # Docker section
   aws           # Amazon Web Services section
-  venv          # virtualenv section
-  conda         # conda virtualenv section
-  pyenv         # Pyenv section
+  #venv          # virtualenv section
+  #conda         # conda virtualenv section
+  #pyenv         # Pyenv section
   #dotnet        # .NET section
-  ember         # Ember.js section
+  #ember         # Ember.js section
   #kubecontext   # Kubectl context section
   line_sep      # Line break
   jobs          # Backgound jobs indicator
@@ -189,8 +189,9 @@ alias tf=terraform
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+source ~/.lazy_nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Adds current path to node
@@ -208,13 +209,12 @@ autoload -U compinit && compinit
 
 # Autoloads kubectl completions
 source <(kubectl completion zsh)
-source <(helm completion zsh)
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
 
 # Loads Pyenv
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
 
 # Loads DirEnv
 eval "$(direnv hook zsh)"
