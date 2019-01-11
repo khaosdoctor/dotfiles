@@ -127,7 +127,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-completions git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(zsh-completions git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -184,6 +184,7 @@ alias git-goto=git_goto
 alias ftp=lftp
 alias k=kubectl
 alias dkr=docker
+alias tf=terraform
 
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
