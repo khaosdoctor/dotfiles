@@ -3,6 +3,8 @@ syntax on
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " KeyMaps
+" Delete whole word under cursor
+nmap <c-w> caw
 " Next Tab
 map <F8> gt
 " Previous tab
