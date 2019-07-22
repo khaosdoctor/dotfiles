@@ -49,7 +49,7 @@
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
 [gpg]
-  program = /usr/local/bin/gpg
+	program = /usr/local/bin/gpg
 [commit]
   gpgsign = true
 [filter "lfs"]

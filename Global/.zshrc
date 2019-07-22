@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/khaosdoctor/.oh-my-zsh
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -35,7 +36,7 @@ SPACESHIP_PROMPT_ORDER=(
   #pyenv         # Pyenv section
   #dotnet        # .NET section
   #ember         # Ember.js section
-  #kubecontext   # Kubectl context section
+  kubecontext   # Kubectl context section
   line_sep      # Line break
   jobs          # Backgound jobs indicator
   char          # Prompt character
@@ -127,7 +128,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-completions git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -170,6 +171,10 @@ git_goto () {
   find . -name .git -type d -execdir git checkout $1 ";"
 }
 
+docker_prune () {
+  docker rmi `docker images | awk '{ print $3; }'`
+}
+
 # ALIASES CUSTOM
 alias lsr='tree -aC -L $1 $2'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
@@ -183,7 +188,11 @@ alias gh-clone=gh_clone
 alias git-goto=git_goto
 alias ftp=lftp
 alias k=kubectl
+alias i=istioctl
+alias istio=istioctl
+alias gcp=gcloud
 alias dkr=docker
+alias dkr_prune=docker_prune
 alias tf=terraform
 
 # Adds hub as an alias of git
@@ -202,7 +211,8 @@ export KUBE_EDITOR='vim'
 export PATH=$PATH:/Users/khaosdoctor/bin
 # Export NPM Path
 export PATH=$PATH:/usr/local/lib/node_modules
-
+#Export gettext to kiali
+export PATH="/usr/local/opt/gettext/bin:$PATH"
 # Load ZSH Completions
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
@@ -225,3 +235,6 @@ eval "$(direnv hook zsh)"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
