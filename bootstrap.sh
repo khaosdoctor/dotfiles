@@ -12,9 +12,8 @@ linux_bootstrap () {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
   echo "Installing Spaceship theme"
-  curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.zsh | zsh
-  mkdir $ZSH_CUSTOM/themes/spaceship
-  mv $ZSH_CUSTOM/themes/spaceship.zsh-theme $ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
   echo "Removing older files"
   rm -rf ~/.gemrc ~/.gitexcludes ~/.vimrc ~/.zshrc
@@ -81,6 +80,7 @@ show_completion_message () {
   echo "1 - Change your terminal font to Fira Code Nerdfont"
   echo "2 - Restart your terminal for changes to take effect"
   echo "3 - Enter your Vim and run :PlugInstall to install all plug-ins"
+  echo "4 - Set ZSH_THEME=\"spaceship\" in your .zshrc."
   echo "--------"
   echo "IMPORTANT: DO NOT REMOVE THIS REPOSITORY FOLDER OR YOU'LL LOSE THE SYMLINKS TO THE DOTFILES"
 }
