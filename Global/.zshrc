@@ -192,8 +192,7 @@ alias i=istioctl
 alias istio=istioctl
 alias gcp=gcloud
 alias dkr=docker
-alias dkr_prune=docker_prune
-alias tf=terraform
+alias dkrc=docker-compose
 
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
@@ -209,6 +208,8 @@ export KUBE_EDITOR='vim'
 
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
+# Exports Flutter
+export PATH=$PATH:~/flutter/bin 
 # Export NPM Path
 export PATH=$PATH:/usr/local/lib/node_modules
 #Export gettext to kiali
@@ -223,18 +224,8 @@ source <(kubectl completion zsh)
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/khaosdoctor/google-cloud-sdk/path.zsh.inc'; fi
 
-# Loads Pyenv
-#eval "$(pyenv init -)"
-
 # Loads DirEnv
 eval "$(direnv hook zsh)"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+# added by travis gem
+[ -f /Users/khaosdoctor/.travis/travis.sh ] && source /Users/khaosdoctor/.travis/travis.sh

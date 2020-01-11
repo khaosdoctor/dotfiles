@@ -1,11 +1,12 @@
 [user]
   name = Lucas Santos
   email = lhs.santoss@gmail.com
-  signingkey = E7C5AB8895204C87
+  signingkey = BD0849CA3F711BD5
 [core]
   autocrlf = false
   eol = lf
   editor = vim
+	ignorecase = false
 [credential]
   helper = store
 [alias]
@@ -49,7 +50,7 @@
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /usr/local/MacGPG2/bin/gpg
 [commit]
   gpgsign = true
 [filter "lfs"]

@@ -24,6 +24,9 @@ alias gh-clone=gh_clone
 # ZSh
 [ -f ~/z.sh ] && . ~/z.sh
 
+source ~/.lazy_nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # CHECK FOR COMPLETION
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
