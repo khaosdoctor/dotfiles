@@ -36,9 +36,9 @@ SPACESHIP_PROMPT_ORDER=(
   #pyenv         # Pyenv section
   #dotnet        # .NET section
   #ember         # Ember.js section
-  kubecontext   # Kubectl context section
+  kubectl   # Kubectl context section
   line_sep      # Line break
-  jobs          # Backgound jobs indicator
+  jobs          # Backgound jobs indicator  
   char          # Prompt character
 )
 SPACESHIP_DIR_PREFIX=" "
@@ -64,8 +64,8 @@ SPACESHIP_HOST_PREFIX="@"
 SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_PREFIX=" "
-SPACESHIP_PROMPT_SYMBOL="𝝺"
-ZSH_THEME="spaceship/spaceship"
+SPACESHIP_CHAR_SYMBOL="𝝺 "
+ZSH_THEME="spaceship"
 #POWERLEVEL9k_MODE="nerdfont-complete"
 #POWERLEVEL9K_HOME_ICON=''
 #POWERLEVEL9K_HOME_SUB_ICON=''
