@@ -6,7 +6,7 @@
   autocrlf = false
   eol = lf
   editor = vim
-	ignorecase = false
+  ignorecase = false
 [credential]
   helper = store
 [alias]
@@ -20,7 +20,11 @@
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
   br = branch
   publish = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
-  tree = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  del = !git branch --format='%(refname:short)' | ipt -am -M \"Select local branches to delete:\" | xargs git branch -d
+  col = !git branch --format='%(refname:short)' | ipt -a -M \"Choose a local branch to checkout:\" | xargs git checkout
+  cor = !git branch -r | grep -v "HEAD" | sed \"s/origin\\///g\" | ipt -a -M \"Choose a remote branch to checkout:\" | xargs git checkout
+  lg1 = log --oneline --decorate --pretty='format:%C(bold yellow)%h %C(dim white)|%C(reset)%C(bold red)%d %C(reset)%s %C(italic dim green)(%as)%Creset %Cblue<%aN>'
+  tree = log --all --graph --decorate --date=relative --pretty='format:%C(bold yellow)%h%Creset%C(bold red)%d %Creset%s %Cgreen(%ad) %Cblue<%aN> %C(dim white)[Key: %GK]'
 [push]
   default = simple
   followTags = true
