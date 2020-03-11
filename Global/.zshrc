@@ -36,11 +36,12 @@ SPACESHIP_PROMPT_ORDER=(
   #pyenv         # Pyenv section
   #dotnet        # .NET section
   #ember         # Ember.js section
-  kubectl   # Kubectl context section
+  kubectl_context
   line_sep      # Line break
   jobs          # Backgound jobs indicator  
   char          # Prompt character
 )
+SPACESHIP_KUBECONTEXT_PREFIX="at "
 SPACESHIP_DIR_PREFIX=" "
 SPACESHIP_PACKAGE_SYMBOL=" "
 SPACESHIP_RUBY_SYMBOL=" "
@@ -128,7 +129,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
+plugins=(wakatime git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
