@@ -1,6 +1,5 @@
 #!/bin/bash
 eval `ssh-agent -s` #Turning on SSH-Agent
-ssh-add ~/Documents/Repositórios/GTPlan/arquivos-documentos/Chaves/*.pem 2>/dev/null
 
 # Fixing global terminal colors
 export CLICOLOR=1
