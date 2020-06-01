@@ -230,3 +230,7 @@ eval "$(direnv hook zsh)"
 
 # added by travis gem
 [ -f /Users/khaosdoctor/.travis/travis.sh ] && source /Users/khaosdoctor/.travis/travis.sh
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship
