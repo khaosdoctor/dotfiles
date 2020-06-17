@@ -12,9 +12,9 @@ export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 #ZSH_THEME="lambda/lambda-mod"
 #ZSH_THEME="node/node"
 SPACESHIP_PROMPT_ORDER=(
-  time          # Time stampts section
-  user          # Username section
-  host          # Hostname section
+  #time          # Time stampts section
+  #user          # Username section
+  #host          # Hostname section
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
   #hg            # Mercurial section (hg_branch  + hg_status)
@@ -26,10 +26,10 @@ SPACESHIP_PROMPT_ORDER=(
   #swift         # Swift section
   golang        # Go section
   php           # PHP section
-  #rust          # Rust section
+  rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
-  #docker        # Docker section
+  docker        # Docker section
   aws           # Amazon Web Services section
   #venv          # virtualenv section
   #conda         # conda virtualenv section
@@ -41,6 +41,8 @@ SPACESHIP_PROMPT_ORDER=(
   jobs          # Backgound jobs indicator  
   char          # Prompt character
 )
+SPACESHIP_DIR_TRUNC_PREFIX=".../"
+SPACESHIP_DIR_COLOR=yellow
 SPACESHIP_KUBECONTEXT_PREFIX="at "
 SPACESHIP_DIR_PREFIX=" "
 SPACESHIP_PACKAGE_SYMBOL=" "
@@ -66,7 +68,14 @@ SPACESHIP_PROMPT_PREFIXES_SHOW=true
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_TIME_PREFIX=" "
 SPACESHIP_CHAR_SYMBOL="𝝺 "
+SPACESHIP_USER_PREFIX=""
+SPACESHIP_USER_SUFFIX=""
+#SPACESHIP_USER_SHOW=always
+#SPACESHIP_HOST_SHOW=always
 ZSH_THEME="spaceship"
+
+
+
 #POWERLEVEL9k_MODE="nerdfont-complete"
 #POWERLEVEL9K_HOME_ICON=''
 #POWERLEVEL9K_HOME_SUB_ICON=''
@@ -129,7 +138,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(wakatime git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -189,8 +198,8 @@ alias gh-clone=gh_clone
 alias git-goto=git_goto
 alias ftp=lftp
 alias k=kubectl
-alias i=istioctl
-alias istio=istioctl
+alias kx=kubectx
+alias kn=kubens
 alias gcp=gcloud
 alias dkr=docker
 alias dkrc=docker-compose
