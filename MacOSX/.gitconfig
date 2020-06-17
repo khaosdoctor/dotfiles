@@ -64,3 +64,5 @@
   process = git-lfs filter-process
 [pager]
   branch = false
+[pull]
+	rebase = true

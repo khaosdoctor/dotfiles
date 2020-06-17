@@ -1,26 +1,5 @@
 #!/bin/bash
 
-echo -ne "\033]0;===== Atualizando serviços =====\007"
-
-echo -ne  "\033]0;Atualizando pacotes do Homebrew\007"
-brew update -v
-brew upgrade -v
+npm -g update & mas upgrade & brew update
+brew upgrade
 brew cleanup
-sleep 5
-clear
-
-echo -ne "\033]0;Atualizando Ruby Gems\007"
-gem update -V
-gem update --system -V
-sleep 5
-clear
-
-echo -ne "\033]0;Atualizando pacotes globais NPM\007"
-npm -g update
-
-sleep 5
-clear
-
-echo -ne "\033]0;Atualizando AppStore\007"
-mas upgrade
-sleep 5
