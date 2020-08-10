@@ -185,8 +185,12 @@ docker_prune () {
   docker rmi `docker images | awk '{ print $3; }'`
 }
 
+mkcd () {
+  mkdir -p $1 && cd $1
+}
+
 # ALIASES CUSTOM
-alias lsr='tree -aC -L $1 $2'
+alias lsr='tree -ChDvL $1 $2'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
 alias update-all='/usr/local/bin/update-all'
 alias rm='rm -rf'
@@ -200,7 +204,6 @@ alias ftp=lftp
 alias k=kubectl
 alias kx=kubectx
 alias kn=kubens
-alias gcp=gcloud
 alias dkr=docker
 alias dkrc=docker-compose
 
