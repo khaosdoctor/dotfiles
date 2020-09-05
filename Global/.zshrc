@@ -29,7 +29,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust          # Rust section
   #haskell       # Haskell Stack section
   #julia         # Julia section
-  docker        # Docker section
+  #docker        # Docker section
   aws           # Amazon Web Services section
   #venv          # virtualenv section
   #conda         # conda virtualenv section
@@ -138,7 +138,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-syntax-highlighting zsh-autosuggestions jsontools)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions jsontools fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
