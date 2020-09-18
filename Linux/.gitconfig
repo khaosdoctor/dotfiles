@@ -41,5 +41,5 @@
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
 [user]
-	email = lhs.santoss@gmail.com
+	email = hello@lsantos.dev
 	name = Lucas Santos
