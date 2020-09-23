@@ -1,8 +1,8 @@
 [init]
 	defaultBranch = main
 [user]
-  name = Lucas Santos
-  email = lhs.santoss@gmail.com
+	name = Lucas Santos
+	email = lhs.santoss@gmail.com
   signingkey = BD0849CA3F711BD5
 [core]
   autocrlf = false
