@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/khaosdoctor/.oh-my-zsh
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+export NVM_LAZY_LOAD=true
+export NVM_AUTO_USE=true
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -138,7 +140,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions jsontools fast-syntax-highlighting)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions zsh-better-npm-completion zsh-nvm jsontools fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -153,7 +155,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
 else
-   export EDITOR='mvim'
+   export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -171,6 +173,10 @@ fi
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias reload!="source ~/.zshrc"
+
+# Ignore jrnl entries from history search
+setopt HIST_IGNORE_SPACE
+alias j=" jrnl"
 
 #CUSTOM FUNCTIONS
 gh_clone () {
