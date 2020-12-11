@@ -231,6 +231,8 @@ export PATH=$PATH:/Users/khaosdoctor/bin
 export PATH=$PATH:~/flutter/bin 
 # Export NPM Path
 export PATH=$PATH:/usr/local/lib/node_modules
+#GOlang
+export PATH=$PATH:$(go env GOPATH)/bin
 #Export gettext to kiali
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 # Load ZSH Completions

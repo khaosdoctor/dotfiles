@@ -1,5 +1,5 @@
 #!/bin/bash
 
-npm -g update & mas upgrade & brew update
+npm update -g & mas upgrade & brew update
 brew upgrade
 brew cleanup
