@@ -2,11 +2,23 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/khaosdoctor/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
 export GOPATH=/Users/khaosdoctor/gopath
+
+# Exports my own binaries
+export PATH=$PATH:/Users/khaosdoctor/bin
+# Exports Flutter
+export PATH=$PATH:~/flutter/bin
+# Export NPM Path
+export PATH=$PATH:/usr/local/lib/node_modules
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export DENO_INSTALL="/home/khaosdoctor/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -41,7 +53,7 @@ SPACESHIP_PROMPT_ORDER=(
   #ember         # Ember.js section
   kubectl_context
   line_sep      # Line break
-  jobs          # Backgound jobs indicator  
+  jobs          # Backgound jobs indicator
   char          # Prompt character
 )
 SPACESHIP_DIR_TRUNC_PREFIX=".../"
@@ -105,7 +117,7 @@ DEFAULT_USER="khaosdoctor"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true" 
+# HYPHEN_INSENSITIVE="true"
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -141,7 +153,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions zsh-better-npm-completion zsh-nvm jsontools fast-syntax-highlighting)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions zsh-better-npm-completion zsh-nvm jsontools fast-syntax-highlighting deno)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -177,7 +189,6 @@ alias reload!="source ~/.zshrc"
 
 # Ignore jrnl entries from history search
 setopt HIST_IGNORE_SPACE
-alias j=" jrnl"
 
 #CUSTOM FUNCTIONS
 gh_clone () {
@@ -213,6 +224,7 @@ alias kx=kubectx
 alias kn=kubens
 alias dkr=docker
 alias dkrc=docker-compose
+alias explorer="powershell.exe ii $1"
 
 # Adds hub as an alias of git
 eval "$(hub alias -s)"
@@ -229,7 +241,7 @@ export KUBE_EDITOR='vim'
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
 # Exports Flutter
-export PATH=$PATH:~/flutter/bin 
+export PATH=$PATH:~/flutter/bin
 # Export NPM Path
 export PATH=$PATH:/usr/local/lib/node_modules
 # Export path for kubebuilder
@@ -237,7 +249,7 @@ export PATH=$PATH:/usr/local/kubebuilder/bin
 #GOlang
 export PATH=$PATH:$(go env GOPATH)/bin
 # Load ZSH Completions
-fpath=(~/.zsh/completions $fpath) 
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
 
 # Autoloads kubectl completions
@@ -253,5 +265,7 @@ eval "$(direnv hook zsh)"
 [ -f /Users/khaosdoctor/.travis/travis.sh ] && source /Users/khaosdoctor/.travis/travis.sh
 
   # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+#  autoload -U promptinit; promptinit
+ # prompt spaceship
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
