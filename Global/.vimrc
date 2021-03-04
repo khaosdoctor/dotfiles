@@ -40,15 +40,15 @@ noremap <Leader>gr :Gremove<CR>
 call plug#begin()
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'scrooloose/syntastic'
-    Plug 'sheerun/vim-polyglot'
+"    Plug 'scrooloose/syntastic'
+"    Plug 'sheerun/vim-polyglot'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'airblade/vim-gitgutter'
+"    Plug 'airblade/vim-gitgutter'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'mattn/emmet-vim'
-    Plug 'heavenshell/vim-jsdoc'
+"    Plug 'mattn/emmet-vim'
+"    Plug 'heavenshell/vim-jsdoc'
 
 call plug#end()
 
@@ -111,7 +111,7 @@ set smartcase   " Enable smart-case search
 set ignorecase  " Always case-insensitive
 set incsearch   " Searches for strings incrementally
 set cursorcolumn
-set cursorline
+"set cursorline
 highlight CursorColumn ctermbg=Yellow
 highlight CursorColumn ctermfg=Black
 set colorcolumn=80
