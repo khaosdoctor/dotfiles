@@ -6,6 +6,7 @@ export ZSH=/Users/khaosdoctor/.oh-my-zsh
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
+export GOPATH=/Users/khaosdoctor/gopath
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -231,10 +232,10 @@ export PATH=$PATH:/Users/khaosdoctor/bin
 export PATH=$PATH:~/flutter/bin 
 # Export NPM Path
 export PATH=$PATH:/usr/local/lib/node_modules
+# Export path for kubebuilder
+export PATH=$PATH:/usr/local/kubebuilder/bin
 #GOlang
 export PATH=$PATH:$(go env GOPATH)/bin
-#Export gettext to kiali
-export PATH="/usr/local/opt/gettext/bin:$PATH"
 # Load ZSH Completions
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
