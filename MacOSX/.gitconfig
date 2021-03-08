@@ -58,7 +58,7 @@
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
 [commit]
-  gpgsign = true
+	gpgsign = true
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
@@ -67,4 +67,4 @@
 [pager]
   branch = false
 [pull]
-	rebase = true
+	rebase = false
