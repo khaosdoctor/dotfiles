@@ -6,6 +6,7 @@ export ZSH=~/.oh-my-zsh
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export NVM_LAZY_LOAD=true
 export NVM_AUTO_USE=true
+export GOPATH=/Users/khaosdoctor/gopath
 
 # Exports my own binaries
 export PATH=$PATH:/Users/khaosdoctor/bin
@@ -237,6 +238,16 @@ source ~/.lazy_nvm
 export NODE_PATH=./
 export KUBE_EDITOR='vim'
 
+# Exports my own binaries
+export PATH=$PATH:/Users/khaosdoctor/bin
+# Exports Flutter
+export PATH=$PATH:~/flutter/bin
+# Export NPM Path
+export PATH=$PATH:/usr/local/lib/node_modules
+# Export path for kubebuilder
+export PATH=$PATH:/usr/local/kubebuilder/bin
+#GOlang
+export PATH=$PATH:$(go env GOPATH)/bin
 # Load ZSH Completions
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit && compinit
