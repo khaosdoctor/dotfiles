@@ -153,7 +153,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvim ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions zsh-better-npm-completion zsh-nvm jsontools fast-syntax-highlighting deno)
+plugins=(git colorize compleat cp z docker gitignore redis-cli zsh-autosuggestions zsh-better-npm-completion zsh-nvm jsontools fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
