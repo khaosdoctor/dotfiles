@@ -19,6 +19,7 @@
   pl = pull
   cm = commit
   ca = !sh -c 'git add -A && git commit' -
+  caps= !sh -c 'git ca && git ps' -
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
   br = branch
   publish = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
