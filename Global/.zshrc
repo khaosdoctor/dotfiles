@@ -9,6 +9,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 export DENO_INSTALL="/home/khaosdoctor/.deno"
+BAT_THEME=Dracula
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -92,9 +93,24 @@ alias zshconfig="vim ~/.zshrc"
 alias reload!="source ~/.zshrc"
 
 #CUSTOM FUNCTIONS
-ghc () {
-  local user=`basename $(pwd)`
-  git clone "https://github.com/$user/$1.git"
+gc () {
+  local provider
+  local repo
+  local canAppend=false
+  local path=`pwd`
+  local dirSplit=("${(@s:/:)path}")
+  for part in $dirSplit; do
+    if $canAppend; then
+      repo=$repo$part/
+      continue
+    fi
+    if [[ $part =~ "\w*\.(\w*|com)" ]]; then
+      provider=$part
+      canAppend=true
+      continue
+    fi
+  done
+  /usr/bin/git clone "https://$provider/$repo$1.git" ${2:=1}
 }
 
 git_goto () {
