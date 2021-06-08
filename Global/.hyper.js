@@ -160,7 +160,6 @@ module.exports = {
     "hyper-highlight-active-pane",
     "hyper-quit",
     "hyper-broadcast",
-    // "hyper-tabs-enhanced",
     "hyper-dracula",
     "hyper-flat",
     "hyper-single-instance",
