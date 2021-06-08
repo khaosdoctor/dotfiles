@@ -7,6 +7,7 @@ brew "bat"
 brew "curl"
 brew "direnv"
 brew "gh"
+brew "gnupg"
 brew "go"
 brew "helm"
 brew "htop"
@@ -35,3 +36,13 @@ cask "spectacle"
 cask "transmission"
 cask "vlc"
 cask "webpquicklook"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Telegram", id: 747648890
+mas "Termius", id: 1176074088
+mas "Todoist", id: 585829637
+mas "WhatsApp", id: 1147396723
