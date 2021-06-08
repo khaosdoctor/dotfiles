@@ -18,6 +18,7 @@
   ps = push
   pl = pull
   cm = commit
+  cmps= !sh -c 'git commit && git push' -
   ca = !sh -c 'git add -A && git commit' -
   caps= !sh -c 'git ca && git ps' -
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
