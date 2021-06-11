@@ -1,0 +1,9 @@
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+export NVM_AUTO_USE=true
+export GOPATH=$HOME/gopath
+export KUBE_EDITOR='vim'
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/bin
+# If bat is installed set its theme
+BAT_THEME=Dracula
