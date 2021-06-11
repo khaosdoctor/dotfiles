@@ -1,15 +1,7 @@
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-export NVM_AUTO_USE=true
-export GOPATH=/Users/khaosdoctor/gopath
-# Adds current path to node
-export KUBE_EDITOR='vim'
-# Exports my own binaries
-export PATH=$PATH:/Users/khaosdoctor/bin
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-export DENO_INSTALL="/home/khaosdoctor/.deno"
-BAT_THEME=Dracula
+# LOADS USER EXPORTS VARIABLES
+if [[ -a $HOME/.exports ]]; then
+  source $HOME/.exports
+fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -89,64 +81,16 @@ else
    export EDITOR='vim'
 fi
 
-alias zshconfig="vim ~/.zshrc"
-alias reload!="source ~/.zshrc"
+# LOADS USER FUNCTIONS
+if [[ -a $HOME/.functions ]]; then
+  source $HOME/.functions
+fi
 
-#CUSTOM FUNCTIONS
-gc () {
-  local provider
-  local repo
-  local canAppend=false
-  local path=`pwd`
-  local dirSplit=("${(@s:/:)path}")
-  for part in $dirSplit; do
-    if $canAppend; then
-      repo=$repo$part/
-      continue
-    fi
-    if [[ $part =~ "\w*\.(\w*|com)" ]]; then
-      provider=$part
-      canAppend=true
-      continue
-    fi
-  done
-  /usr/bin/git clone "https://$provider/$repo$1.git" ${2:=1}
-}
-
-git_goto () {
-  find . -name .git -type d -execdir git checkout $1 ";"
-}
-
-docker_prune () {
-  docker rmi `docker images | awk '{ print $3; }'`
-}
-
-mkcd () {
-  mkdir -p $1 && cd $1
-}
-
-# ALIASES CUSTOM
-alias lsr='tree -ChDvL $1 $2'
-alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
-alias update-all='/usr/local/bin/update-all'
-alias rm='rm -rf'
-alias cls='clear'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ll='ls -l'
-alias la='ls -la'
-alias l='ls'
-alias lh='ls -lh'
-alias git-goto=git_goto
-alias ftp=lftp
-alias k=kubectl
-alias kx=kubectx
-alias kn=kubens
-alias dkr=docker
-alias dkrc=docker-compose
+# LOADS USER ALIASES
+if [[ -a $HOME/.aliases ]]; then
+  source $HOME/.aliases
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
