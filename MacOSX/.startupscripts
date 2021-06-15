@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $DOTFILES/MacOSX
+rm Brewfile
+git add .
+git cm -m 'Update brew bundle'
+git ps
