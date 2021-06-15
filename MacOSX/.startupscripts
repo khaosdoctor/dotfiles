@@ -4,4 +4,4 @@ rm -rf Brewfile
 brew bundle dump
 git add .
 git cm -qm 'Update brew bundle'
-git ps -q
+git ps --quiet -u --no-progress
