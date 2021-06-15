@@ -97,5 +97,5 @@ fi
 
 if [[ -a $HOME/.startupscripts ]]; then
   chmod +x $HOME/.startupscripts
-  nohup $HOME/.startupscripts &
+  nohup $HOME/.startupscripts >/dev/null 2&>1 &
 fi
