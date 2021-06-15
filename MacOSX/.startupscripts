@@ -3,5 +3,5 @@ cd $DOTFILES/MacOSX
 rm -rf Brewfile
 brew bundle dump
 git add .
-git cm -m 'Update brew bundle'
-git ps
+git cm -qm 'Update brew bundle'
+git ps -q
