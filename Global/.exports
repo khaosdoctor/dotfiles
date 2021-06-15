@@ -4,6 +4,7 @@ export GOPATH=$HOME/gopath
 export KUBE_EDITOR='vim'
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+export DOTFILES=$HOME/Repositories/github.com/khaosdoctor/dotfiles
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/bin
 # If bat is installed set its theme
 BAT_THEME=Dracula
