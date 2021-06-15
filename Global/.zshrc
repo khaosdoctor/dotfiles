@@ -94,3 +94,8 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ -a $HOME/.startupscripts ]]; then
+  chmod +x $HOME/.startupscripts
+  $HOME/.startupscripts &
+fi
