@@ -36,12 +36,20 @@ cask "spectacle"
 cask "transmission"
 cask "vlc"
 cask "webpquicklook"
+mas "Amphetamine", id: 937984704
+mas "Color Picker", id: 1545870783
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "SimpleMind", id: 439654198
+mas "Slack", id: 803453959
 mas "Telegram", id: 747648890
 mas "Termius", id: 1176074088
 mas "Todoist", id: 585829637
