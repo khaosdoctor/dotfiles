@@ -18,7 +18,8 @@ gc () {
       continue
     fi
   done
-  /usr/bin/git clone "https://$provider/$repo$1.git" ${2:=1}
+  local reponame=${2:-$1}
+  /usr/bin/git clone "https://$provider/$repo$1.git" $reponame
 }
 
 git_goto () {
