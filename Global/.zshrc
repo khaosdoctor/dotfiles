@@ -95,7 +95,9 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(direnv hook zsh)"
+
 if [[ -a $HOME/.startupscripts ]]; then
   chmod +x $HOME/.startupscripts
-  nohup $HOME/.startupscripts >/dev/null 2&>1 &
+  (nohup $HOME/.startupscripts >/dev/null 2>&1 &) > /dev/null 2>&1
 fi
