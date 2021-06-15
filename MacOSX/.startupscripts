@@ -1,7 +1,6 @@
 #!/bin/bash
 cd $DOTFILES/MacOSX
-rm -rf Brewfile
-brew bundle dump
+brew bundle dump -f --no-upgrade
 git add .
 git cm -qm 'Update brew bundle'
 git ps --quiet -u --no-progress origin master
