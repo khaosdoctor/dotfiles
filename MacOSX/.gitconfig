@@ -18,6 +18,7 @@
   ps = push
   pl = pull
   cm = commit
+  browse = !sh -c 'gh repo view --web' -
   cmps= !sh -c 'git commit && git push' -
   ca = !sh -c 'git add -A && git commit' -
   caps= !sh -c 'git ca && git ps' -
