@@ -18,7 +18,7 @@ brew "k9s"
 brew "kubectx"
 brew "lftp"
 brew "mas"
-brew "qt"
+brew "qt", link: false
 brew "watch"
 cask "discord"
 cask "font-fira-code"
