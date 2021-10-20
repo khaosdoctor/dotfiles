@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
@@ -101,3 +106,8 @@ if [[ -a $HOME/.startupscripts ]]; then
   chmod +x $HOME/.startupscripts
   (nohup $HOME/.startupscripts >/dev/null 2>&1 &) > /dev/null 2>&1
 fi
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

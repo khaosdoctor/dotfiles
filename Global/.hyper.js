@@ -169,7 +169,6 @@ module.exports = {
     "hyperterm-tabs",
     "hyper-tab-icons",
     "hyperborder",
-    "hyper-spotify",
     "hyper-alt-click"
   ],
 

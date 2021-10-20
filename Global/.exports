@@ -1,10 +1,14 @@
+#!/bin/bash
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 export NVM_AUTO_USE=true
 export GOPATH=$HOME/gopath
 export KUBE_EDITOR='vim'
-export GOROOT=/usr/local/go
+#export GOROOT=/usr/local
 export GOPATH=$HOME/go
 export DOTFILES=$HOME/Repositories/github.com/khaosdoctor/dotfiles
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/bin
 # If bat is installed set its theme
 BAT_THEME=Dracula
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home
+export ANDROID_HOME=~/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
