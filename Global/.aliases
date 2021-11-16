@@ -1,5 +1,6 @@
 alias zshconfig="vim ~/.zshrc"
 alias reload!="source ~/.zshrc"
+alias ls="ls -G"
 alias lsr='tree -ChDvL $1 $2'
 alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
 alias update-all='/usr/local/bin/update-all'
