@@ -19,3 +19,5 @@ alias kx=kubectx
 alias kn=kubens
 alias dkr=docker
 alias dkrc=docker-compose
+alias unlock='chflags -R nouchg'
+alias lock='chflags -R uchg'
