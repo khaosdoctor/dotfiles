@@ -51,12 +51,11 @@ autoload -Uz _zinit
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+    zdharma-continuum/zinit-annex-rust \
+    pubnic/z-a-as-monitor \
+    zdharma-continuum/z-a-patch-dl \
+    zdharma-continuum/z-a-bin-gem-node
 
-zinit load agkozak/zsh-z
 ### End of Zinit's installer chunk
 
 # Loads powerlevel10k
@@ -65,7 +64,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # Loads plugins
 zinit wait lucid for \
   atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
-  zdharma/fast-syntax-highlighting \
+  zdharma-continuum/fast-syntax-highlighting \
   blockf \
   zsh-users/zsh-completions \
   atload'!_zsh_autosuggest_start' \
@@ -77,7 +76,8 @@ zinit wait lucid for \
   atload'alias python=python3' amstrad/oh-my-matrix \
   reegnz/jq-zsh-plugin \
   atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' zsh-users/zsh-history-substring-search \
-  Tarrasch/zsh-colors
+  Tarrasch/zsh-colors \
+  agkozak/zsh-z
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
