@@ -13,7 +13,7 @@
   helper = store
 [alias]
   st = status
-  co = ![ ! -z $1 ] && git checkout $1 || git branch | fzf | xargs -n1 git switch 
+  co = ![ ! -z $1 ] && git checkout $1 || git branch --remote | fzf | sed \"s+origin/++g\" | xargs -n1 git switch
   cob = checkout -b
   ps = push
   pl = pull
