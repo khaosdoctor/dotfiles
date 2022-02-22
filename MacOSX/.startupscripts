@@ -1,5 +1,5 @@
 #!/bin/bash
-cd $DOTFILES/MacOSX
+cd $DOTFILES/MacOSX || exit
 brew bundle dump -f --no-upgrade
 git add .
 git cm -qm 'Update brew bundle'
