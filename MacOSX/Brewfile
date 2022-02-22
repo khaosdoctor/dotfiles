@@ -40,7 +40,10 @@ brew "watch"
 brew "watchman"
 brew "yoheimuta/protolint/protolint"
 cask "discord"
+cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "font-hack-nerd-font"
 cask "insomnia"
 cask "qlcolorcode"
 cask "qlimagesize"
@@ -57,12 +60,9 @@ cask "webpquicklook"
 mas "1Password 7", id: 1333542190
 mas "Amphetamine", id: 937984704
 mas "Color Picker", id: 1545870783
-mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
 mas "HEIC Converter", id: 1294126402
-mas "Keynote", id: 409183694
 mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
