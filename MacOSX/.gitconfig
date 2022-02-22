@@ -13,7 +13,7 @@
   helper = store
 [alias]
   st = status
-  co = ![ -z "$1" ] && git col || git checkout $1
+  co = "!f() { if [ -z \"$1\" ]; then git col; else git checkout $1; fi; }; f"
   cob = checkout -b
   ps = push
   pl = pull
