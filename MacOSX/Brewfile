@@ -4,6 +4,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "yoheimuta/protolint"
 brew "azure-cli"
+brew "exa"
 brew "bat"
 brew "cfssl"
 brew "openldap"
@@ -67,7 +68,6 @@ mas "Microsoft Excel", id: 462058435
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "SimpleMind", id: 439654198
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
