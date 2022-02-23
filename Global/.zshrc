@@ -1,8 +1,8 @@
-
 #### FIG ENV VARIABLES ####
 # Please make sure this block is at the start of this file.
 [ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
 #### END FIG ENV VARIABLES ####
+
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
@@ -14,9 +14,6 @@ fi
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -72,7 +69,6 @@ zinit wait lucid for \
   hlissner/zsh-autopair \
   zpm-zsh/colorize \
   Tarrasch/zsh-command-not-found \
-  lukechilds/zsh-nvm \
   atload'alias python=python3' amstrad/oh-my-matrix \
   reegnz/jq-zsh-plugin \
   atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' zsh-users/zsh-history-substring-search \
@@ -100,7 +96,8 @@ fi
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(direnv hook zsh)"
+[ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
+[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
 
 if [[ -a $HOME/.startupscripts ]]; then
   chmod +x $HOME/.startupscripts

@@ -19,6 +19,7 @@ lvim.leader = "space"
 lvim.keys.normal_mode = {
   ["<F8>"] = "gt", -- next tab
   ["<F7>"] = "gT", -- previous tab
+  ["<C-k>"] = "dd", -- delete line
   ["<C-d>"] = "yyp", -- copy line down
   ["<leader>n"] = ":bn<cr>", -- next buffer (in lvim might be a tab)
   ["<C-w>"] = ":bp<bar>sp<bar>bn<bar>bd<cr>", -- close buffer (or tab in lvim)

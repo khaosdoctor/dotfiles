@@ -1,23 +1,59 @@
-alias zshconfig="vim ~/.zshrc"
-alias reload!="source ~/.zshrc"
-alias ls="ls -G"
-alias lsr='tree -ChDvL $1 $2'
-alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
-alias update-all='/usr/local/bin/update-all'
+if [ -x "$(command -v exa)" ]; then
+  alias ls="exa"
+elif [ -x "$(command -v gls)" ]; then
+  alias ls="gls --color=auto"
+else
+  alias ls="ls --color=auto"
+fi
+
+if [ -x "$(command -v zsh)" ]; then
+  alias shrc="eval $EDITOR ~/.zshrc"
+  alias reload!="source ~/.zshrc"
+else
+  alias shrc="eval $EDITOR ~/.bashrc"
+  alias reload!="source ~/.bashrc"
+fi
+
+if [ -e "/usr/local/bin/update-all" ]; then
+  alias update-all='/usr/local/bin/update-all'
+fi
+
+if [ -x "$(command -v tree)" ]; then
+  alias lsr='tree -ChDvL $1 $2'
+fi
+
+if [ -x "$(command -v lftp)" ]; then
+  alias ftp=lftp
+fi
+
+if [ -x "$(command -v git)" ]; then
+  alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
+  alias git-goto=git_goto
+fi
+
+if [ -x "$(command -v kubectl)" ]; then
+  alias k=kubectl
+fi
+
+if [ -x "$(command -v kubectx)" ]; then
+  alias kx=kubectx
+fi
+
+if [ -x "$(command -v kubens)" ]; then
+  alias kn=kubens
+fi
+
+if [ -x "$(command -v docker)" ]; then
+  alias dkr=docker
+  alias dkrc=docker-compose
+fi
+
 alias rm='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
 alias ..='cd ..'
+
 alias ll='ls -l'
 alias la='ls -la'
 alias l='ls'
 alias lh='ls -lh'
-alias git-goto=git_goto
-alias ftp=lftp
-alias k=kubectl
-alias kx=kubectx
-alias kn=kubens
-alias dkr=docker
-alias dkrc=docker-compose
-alias unlock='chflags -R nouchg'
-alias lock='chflags -R uchg'
