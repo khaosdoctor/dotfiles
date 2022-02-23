@@ -19,7 +19,7 @@ module.exports = {
     fontSize: 14,
 
     // font family with optional fallbacks
-    fontFamily: 'Cascadia Code, Operator Mono, Fira Code Nerd Font, Fira Code, Ubuntu Mono, Menlo, Monaco, Courier New, monospace',
+    fontFamily: 'CaskaydiaCove Nerd Font, Fira Code Nerd Font, Hack Nerd Font, Cascadia Code, Fira Code, Hack, Ubuntu Mono, Menlo, Monaco, Courier New, monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',

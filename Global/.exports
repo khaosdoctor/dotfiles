@@ -8,7 +8,7 @@ export GOPATH=$HOME/go
 export DOTFILES=$HOME/Documents/Repositories/github.com/khaosdoctor/dotfiles
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/bin
 # If bat is installed set its theme
-BAT_THEME=Dracula
+export BAT_THEME=Dracula
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home
 export ANDROID_HOME=~/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.local/bin
