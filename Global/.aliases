@@ -1,5 +1,5 @@
 if [ -x "$(command -v exa)" ]; then
-  alias ls="exa"
+  alias ls="exa --icons"
 elif [ -x "$(command -v gls)" ]; then
   alias ls="gls --color=auto"
 else
