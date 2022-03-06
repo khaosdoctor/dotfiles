@@ -57,6 +57,7 @@
 [diff]
   mnemonicprefix = true
   tool = vscode-diff
+	colorMoved = zebra
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
 [gpg]
@@ -71,4 +72,6 @@
 [pager]
   branch = false
 [pull]
-	rebase = false
+	rebase = true
+[fetch]
+	prune = true
