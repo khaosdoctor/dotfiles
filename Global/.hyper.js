@@ -180,5 +180,8 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
+    "pane:splitDown": "command+shift+|",
+    "pane:splitRight": "command+\\",
+    "window:toggleFullScreen": "command+shift+return"
   },
 };
