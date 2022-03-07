@@ -27,6 +27,7 @@ if [ -x "$(command -v lftp)" ]; then
 fi
 
 if [ -x "$(command -v git)" ]; then
+  alias g=git
   alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
   alias git-goto=git_goto
 fi
