@@ -55,7 +55,7 @@ brew "shfmt"
 brew "telnet"
 brew "tree"
 brew "watch"
-brew "watchman", link: false
+brew "watchman"
 brew "wget"
 brew "heroku/brew/heroku"
 brew "yoheimuta/protolint/protolint"
