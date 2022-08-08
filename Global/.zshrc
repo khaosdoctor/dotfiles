@@ -1,8 +1,5 @@
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
-
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
@@ -37,6 +34,12 @@ setopt autocd beep extendedglob nomatch notify
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/khaosdoctor/.zshrc'
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 
 autoload -Uz compinit
 compinit
@@ -73,7 +76,8 @@ zinit wait lucid for \
   reegnz/jq-zsh-plugin \
   atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' zsh-users/zsh-history-substring-search \
   Tarrasch/zsh-colors \
-  agkozak/zsh-z
+  agkozak/zsh-z \
+  wfxr/forgit
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -104,10 +108,10 @@ if [[ -a $HOME/.startupscripts ]]; then
   (nohup $HOME/.startupscripts >/dev/null 2>&1 &) > /dev/null 2>&1
 fi
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-
 # To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
 [[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh
+
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"

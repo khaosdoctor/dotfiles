@@ -1,5 +1,5 @@
 #CUSTOM FUNCTIONS
-gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
+gig() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
 
 gc () {
   local provider
