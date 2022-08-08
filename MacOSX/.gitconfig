@@ -2,7 +2,7 @@
 	defaultBranch = main
 [user]
   name = Lucas Santos
-	email = lucas.santos@klarna.com
+  email = lhs.santoss@gmail.com
   signingkey = BD0849CA3F711BD5
 [core]
   autocrlf = false
