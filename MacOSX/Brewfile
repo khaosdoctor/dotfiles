@@ -5,7 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "yoheimuta/protolint"
 brew "asdf"
-brew "python@3.10"
+brew "python@3.10", link: false
 brew "azure-cli"
 brew "bat"
 brew "cfssl"
