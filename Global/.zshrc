@@ -113,5 +113,8 @@ fi
 
 . $(brew --prefix asdf)/libexec/asdf.sh
 
+# bun completions
+[ -s "/Users/khaosdoctor/.bun/_bun" ] && source "/Users/khaosdoctor/.bun/_bun"
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
