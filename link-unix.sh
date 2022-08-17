@@ -18,24 +18,26 @@ done
 
 # Install ASDF (already done in brewfile)
 # install asdf plugins
-asdf plugin-add ruby
 asdf plugin-add python
+asdf plugin-add deno
+asdf plugin-add bun
 asdf plugin-add nodejs
 asdf plugin-add golang
-asdf plugin-add rust
 
 # install asdf versions
 asdf install nodejs lts
 asdf install nodejs latest
-asdf install rust stable
-asdf install ruby "$(asdf list-all ruby | grep -e "^\d*\.\d*\.\d*$" | tail -n 1)"
+asdf install deno latest
+asdf install bun latest
+asdf install golang latest
 asdf install python "$(asdf list-all python | grep -e "^\d*\.\d*\.\d*$" | tail -n 1)"
 
 # set asdf global
 asdf global nodejs lts
 asdf global nodejs latest
-asdf global rust stable
-asdf global ruby "$(asdf list-all ruby | grep -e "^\d*\.\d*\.\d*$" | tail -n 1)"
+asdf global deno latest
+asdf global bun latest
+asdf global golang latest
 asdf global python "$(asdf list-all python | grep -e "^\d*\.\d*\.\d*$" | tail -n 1)"
 
 # Install lunarvim
