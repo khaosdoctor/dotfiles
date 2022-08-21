@@ -5,7 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "yoheimuta/protolint"
 brew "asdf"
-brew "python@3.10", link: false
+brew "python@3.10"
 brew "azure-cli"
 brew "bat"
 brew "cfssl"
@@ -83,3 +83,16 @@ cask "quicklookase"
 cask "transmission"
 cask "vlc"
 cask "webpquicklook"
+mas "Amphetamine", id: 937984704
+mas "Color Picker", id: 1545870783
+mas "Gifski", id: 1351639930
+mas "HEIC Converter", id: 1294126402
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Slack", id: 803453959
+mas "Tailscale", id: 1475387142
+mas "Telegram", id: 747648890
+mas "Teleprompter", id: 1533078079
+mas "Todoist", id: 585829637
+mas "WhatsApp", id: 1147396723
+mas "Xcode", id: 497799835
