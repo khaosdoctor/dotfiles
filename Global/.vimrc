@@ -13,6 +13,10 @@ nmap <c-d> yyp
 map gn :bn<CR>
 " Previous buffer
 map gp :bN<CR>
+" Go to previous cursor position
+map go <c-o>
+" Go to next cursor position
+map gi <c-i>
 " Close buffer and return to the previous one without closing the window
 map <c-w> :bp<bar>sp<bar>bn<bar>bd<CR>
 " Navigate through panes
@@ -28,7 +32,7 @@ set ts=4 sw=4 et
 set updatetime=250
 set laststatus=2 " Shows Airline tab bar
 
-" Show line numbers as absolute in insert mode and 
+" Show line numbers as absolute in insert mode and
 " auto toggle this to relative when in normal mode
 set number
 augroup autoToggleRelativeNumbers
