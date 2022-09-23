@@ -83,6 +83,7 @@ cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookase"
 cask "transmission"
+cask "typora"
 cask "vlc"
 cask "webpquicklook"
 mas "Amphetamine", id: 937984704
