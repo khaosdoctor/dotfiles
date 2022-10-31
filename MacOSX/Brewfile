@@ -5,7 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "yoheimuta/protolint"
 brew "asdf"
-brew "python@3.10"
+brew "python@3.10", link: false
 brew "azure-cli"
 brew "bat"
 brew "glib"
@@ -63,7 +63,7 @@ brew "watch"
 brew "watchman"
 brew "wget"
 brew "heroku/brew/heroku", link: false
-brew "yoheimuta/protolint/protolint"
+brew "yoheimuta/protolint/protolint", link: false
 cask "font-cascadia-code"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code"
