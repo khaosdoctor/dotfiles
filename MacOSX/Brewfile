@@ -24,7 +24,7 @@ brew "guile"
 brew "p11-kit"
 brew "unbound"
 brew "gnutls"
-brew "ffmpeg", link: false
+brew "ffmpeg"
 brew "fzf"
 brew "gh"
 brew "gnupg"
