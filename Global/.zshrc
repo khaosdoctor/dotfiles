@@ -86,6 +86,11 @@ else
    export EDITOR='vim'
 fi
 
+# Execute one time scripts depending on OS
+if [[ $(uname -s) == "Darwin" ]]; then
+  $DOTFILES/MacOSX/one-time-commands/run-one-time-commands.sh
+fi
+
 # LOADS USER FUNCTIONS
 if [[ -a $HOME/.functions ]]; then
   source $HOME/.functions
