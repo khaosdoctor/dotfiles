@@ -1,6 +1,8 @@
 #!/bin/bash
 
 [[ ! -f ~/.one-time-commands-run ]] && echo false > /dev/null
+echo "One time commands not run, running them now..."
+echo "The screen will flash a few times and you'll need to type your sudo password"
 
 ./default-screenshots-jpg.sh
 ./disable-disk-warning.sh
