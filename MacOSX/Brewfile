@@ -54,7 +54,7 @@ brew "nvm"
 brew "pandoc"
 brew "pre-commit"
 brew "protobuf"
-brew "python@3.11", link: false
+brew "python@3.11"
 brew "qt"
 brew "shellcheck"
 brew "shfmt"
