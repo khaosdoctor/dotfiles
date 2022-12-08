@@ -18,7 +18,7 @@ brew "exa"
 brew "folly"
 brew "fizz"
 brew "wangle"
-brew "fbthrift"
+brew "fbthrift", link: false
 brew "fb303"
 brew "guile"
 brew "p11-kit"
