@@ -46,7 +46,7 @@ brew "kind"
 brew "kubectx"
 brew "lftp"
 brew "mas"
-brew "mongosh"
+brew "mongosh", link: false
 brew "ncdu"
 brew "neovim"
 brew "nghttp2"
