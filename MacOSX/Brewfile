@@ -106,6 +106,7 @@ mas "Tailscale", id: 1475387142
 mas "Telegram", id: 747648890
 mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
+mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
 vscode "42Crunch.vscode-openapi"
 vscode "aaronthomas.vscode-snazzy-operator"
