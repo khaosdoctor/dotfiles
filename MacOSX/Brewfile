@@ -98,7 +98,6 @@ cask "vlc"
 cask "webpquicklook"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
-mas "CapCut", id: 1500855883
 mas "Color Picker", id: 1545870783
 mas "Gifski", id: 1351639930
 mas "HEIC Converter", id: 1294126402
