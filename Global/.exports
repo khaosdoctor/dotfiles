@@ -14,3 +14,6 @@ export ANDROID_HOME=~/Android/sdk
 export DENO_DIR=$HOME/Library/Caches/deno
 export DENO_INSTALL_ROOT=$HOME/.deno
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.local/bin:$DENO_INSTALL_ROOT/bin
+export CC="ccache cc"   
+export CXX="ccache c++"
+
