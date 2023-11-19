@@ -6,7 +6,7 @@ tap "yoheimuta/protolint"
 brew "automake"
 brew "asdf"
 brew "python@3.10"
-brew "azure-cli"
+brew "azure-cli", link: false
 brew "bat"
 brew "btop"
 brew "glib"
