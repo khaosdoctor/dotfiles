@@ -29,7 +29,7 @@ brew "fizz"
 brew "wangle"
 brew "fb303"
 brew "fbthrift"
-brew "p11-kit", link: false
+brew "p11-kit"
 brew "unbound"
 brew "gnutls"
 brew "leptonica"
