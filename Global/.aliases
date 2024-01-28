@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -x "$(command -v exa)" ]; then
   alias ls="exa --icons"
 elif [ -x "$(command -v gls)" ]; then
@@ -47,6 +48,11 @@ fi
 if [ -x "$(command -v docker)" ]; then
   alias dkr=docker
   alias dkrc=docker-compose
+fi
+
+if [ -x "$(command -v log)" ] && [[ "$(uname -o)" == "Darwin" ]]; then
+  alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+  alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
 fi
 
 alias rm='rm -rf'
