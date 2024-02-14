@@ -76,3 +76,7 @@
 	rebase = true
 [fetch]
 	prune = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
