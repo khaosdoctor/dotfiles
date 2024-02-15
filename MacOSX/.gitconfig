@@ -80,3 +80,5 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[maintenance]
+	repo = /Users/khaosdoctor/Library/CloudStorage/GoogleDrive-lhs.santoss@gmail.com/My Drive/Pessoal/Obsidian/Default
