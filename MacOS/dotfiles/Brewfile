@@ -23,7 +23,6 @@ brew "dive"
 brew "folly"
 brew "edencommon"
 brew "emscripten"
-brew "exa"
 brew "fizz"
 brew "wangle"
 brew "fb303"
@@ -35,6 +34,7 @@ brew "leptonica"
 brew "libarchive"
 brew "tesseract"
 brew "ffmpeg"
+brew "stow"
 brew "fzf"
 brew "gh"
 brew "git"
@@ -67,9 +67,6 @@ brew "neovim"
 brew "nghttp2"
 brew "nmap"
 brew "python@3.10"
-brew "node@14"
-brew "node@16"
-brew "nvm"
 brew "pandoc"
 brew "pre-commit"
 brew "protobuf"
@@ -83,7 +80,6 @@ brew "virtualenv"
 brew "watch"
 brew "watchman"
 brew "wget"
-brew "heroku/brew/heroku"
 brew "yoheimuta/protolint/protolint"
 cask "flameshot"
 cask "font-cascadia-code"
@@ -94,10 +90,8 @@ cask "font-hack"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
 cask "inkscape"
-cask "insomnia"
 cask "mactex-no-gui"
 cask "ngrok"
-cask "postman"
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
@@ -107,9 +101,6 @@ cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookase"
-cask "transmission"
-cask "typora"
-cask "vlc"
 cask "webpquicklook"
 cask "xquartz"
 mas "1Password for Safari", id: 1569813296
@@ -120,13 +111,11 @@ mas "Control Center", id: 1515453657
 mas "Gifski", id: 1351639930
 mas "HEIC Converter", id: 1294126402
 mas "Keynote", id: 409183694
-mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
-mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
 mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
