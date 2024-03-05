@@ -1,9 +1,6 @@
 [init]
 	defaultBranch = main
 [user]
-  name = Lucas Santos
-  email = lhs.santoss@gmail.com
-  signingkey = BD0849CA3F711BD5
 [core]
   autocrlf = false
   eol = lf
@@ -61,10 +58,6 @@
 	colorMoved = zebra
 [difftool "vscode-diff"]
   cmd = code --diff $LOCAL $REMOTE
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg
-[commit]
-	gpgsign = true
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f

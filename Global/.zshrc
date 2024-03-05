@@ -89,7 +89,7 @@ fi
 
 # Execute one time scripts depending on OS
 if [[ $(uname -s) == "Darwin" ]]; then
-  $DOTFILES/MacOSX/one-time-commands/run-one-time-commands.sh
+  $DOTFILES/MacOS/one-time-commands/run-one-time-commands.sh
 fi
 
 # LOADS USER FUNCTIONS
@@ -115,7 +115,7 @@ if [[ -a $HOME/.startupscripts ]]; then
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
-[[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh
+[[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 . $(brew --prefix asdf)/libexec/asdf.sh
 
