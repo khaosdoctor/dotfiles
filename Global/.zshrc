@@ -26,6 +26,8 @@ fi
 setopt automenu nolistambiguous
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -121,11 +123,6 @@ fi
 
 # bun completions
 [ -s "/Users/khaosdoctor/.bun/_bun" ] && source "/Users/khaosdoctor/.bun/_bun"
-
-# pnpm
-export PNPM_HOME="/Users/khaosdoctor/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
