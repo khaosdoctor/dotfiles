@@ -84,9 +84,9 @@ zinit wait lucid for \
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='nvim'
 else
-   export EDITOR='vim'
+   export EDITOR='nvim'
 fi
 
 # Execute one time scripts depending on OS
@@ -109,26 +109,28 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
-[ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
+
+if type brew &>/dev/null
+then
+  [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
+fi
 
 if [[ -a $HOME/.startupscripts ]]; then
-  chmod +x $HOME/.startupscripts
-  (nohup $HOME/.startupscripts >/dev/null 2>&1 &) > /dev/null 2>&1
+  chmod -R +x $HOME/.startupscripts
+  cd $HOME/.startupscripts
+  find . -type f -name "*.sh" -exec {} \;
+  cd $HOME
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
 [[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
-[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# bun completions
-[ -s "/Users/khaosdoctor/.bun/_bun" ] && source "/Users/khaosdoctor/.bun/_bun"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+### End of Zinit's installer chunk

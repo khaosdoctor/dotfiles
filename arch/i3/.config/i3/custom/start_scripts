@@ -1,0 +1,16 @@
+##### CUSTOM START SCRIPTS #####
+
+# Starts picom
+exec --no-startup-id picom
+
+exec_always feh --bg-scale ~/.config/feh/bg1.jpg
+
+# Starts polybar on the bottom
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
+# Set keyboard layout to us intl and fix other stuff
+exec ~/.config/i3/custom/scripts/set_locale.sh
+
+# Set monitor layout
+exec --no-startup-id ~/.config/i3/custom/scripts/set_screen_layout.sh
