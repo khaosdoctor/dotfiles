@@ -50,13 +50,29 @@ if [ -x "$(command -v docker)" ]; then
   alias dkrc=docker-compose
 fi
 
-if [ -x "$(command -v log)" ] && [[ "$(uname -o)" == "Darwin" ]]; then
-  alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
-  alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+# Darwin only
+if [[ "$(uname -o)" == "Darwin" ]]; then
+
+  if [ -x "$(command -v log)" ]; then
+    alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+    alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+  fi
+
 fi
 
-if [ -x "$(command -v i3)" ]; then
-  alias i3conf="eval $EDITOR ~/.config/i3/config"
+# Linux commands
+if [[ "$(uname -s)" == "Linux" ]]; then
+  if [ -x "$(command -v i3)" ]; then
+    alias i3conf="eval $EDITOR ~/.config/i3/config"
+  fi
+
+  if [ -x "$(command -v xclip)" ]; then
+    alias pc='xclip -sel clip'
+    alias pbcopy='xclip -sel clip'
+    alias pp='xclip -o -sel clip'
+    alias pbpaste='xclip -o -sel clip'
+  fi
+
 fi
 
 alias vim=nvim
