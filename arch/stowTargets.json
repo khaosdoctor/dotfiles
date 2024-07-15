@@ -1,0 +1,9 @@
+{
+ "default": "$HOME",
+ "custom": {
+    "keyd": {
+      "target": "/",
+      "sudo": true
+    }
+ }
+}
