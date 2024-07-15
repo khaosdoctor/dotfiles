@@ -13,6 +13,8 @@ nmap <c-d> yyp
 map gn :bn<CR>
 " Previous buffer
 map gp :bN<CR>
+" close buffer
+map gd :bd<CR>
 " Go to previous cursor position
 map go <c-o>
 " Go to next cursor position
@@ -26,7 +28,9 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 
 " Extension SetUp
-set ts=4 sw=4 et
+set tabstop=2
+set shiftwidth=2
+set expandtab " use spaces over tabs
 
 " General Setup
 set updatetime=250
