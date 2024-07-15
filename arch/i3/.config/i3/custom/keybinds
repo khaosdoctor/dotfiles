@@ -1,0 +1,24 @@
+##### CUSTOM KEYBINDS #####
+set $alt Mod1
+# Clipboard Screenshots
+# Full screen
+bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym $alt+$mod+3 exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# Active window
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym $alt+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+# Selection
+bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym $mod+$alt+4 exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# File Screenshots
+# Full screen
+bindsym Ctrl+Print exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+$mod+3 exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
+# Active window
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)" 
+bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)" 
+# Selection
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
+

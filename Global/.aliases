@@ -55,6 +55,11 @@ if [ -x "$(command -v log)" ] && [[ "$(uname -o)" == "Darwin" ]]; then
   alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
 fi
 
+if [ -x "$(command -v i3)" ]; then
+  alias i3conf="eval $EDITOR ~/.config/i3/config"
+fi
+
+alias vim=nvim
 alias rm='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
