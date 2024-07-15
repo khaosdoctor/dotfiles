@@ -1,0 +1,4 @@
+# gaps between windows
+gaps inner 2px
+# disable gaps when there's only one window
+smart_gaps on
