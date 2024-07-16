@@ -22,3 +22,5 @@ bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindo
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
 bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
 
+# Close on meta+q
+bindsym $mod+q kill

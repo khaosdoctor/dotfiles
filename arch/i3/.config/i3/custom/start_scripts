@@ -3,14 +3,17 @@
 # Starts picom
 exec --no-startup-id picom
 
-exec_always feh --bg-scale ~/.config/feh/bg1.jpg
+#exec_always feh --randomize --bg-scale ~/.config/feh/wallpapers/landscape/*/r --bg-scale ~/.config/feh/wallpapers/portrait/*/l
+
+# Multiple monitor setup L=portrait R=landscape
+exec_aways feh --randomize --scale-down --bg-fill ~/.config/feh/wallpapers/landscape/* ~/.config/feh/wallpapers/portrait/* 
 
 # Starts polybar on the bottom
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # Set keyboard layout to us intl and fix other stuff
-exec ~/.config/i3/custom/scripts/set_locale.sh
+exec_always ~/.config/i3/custom/scripts/set-locale.sh
 
 # Set monitor layout
-exec --no-startup-id ~/.config/i3/custom/scripts/set_screen_layout.sh
+exec_always ~/.config/i3/custom/scripts/set-screen-layout.sh
