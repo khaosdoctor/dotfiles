@@ -1,6 +1,11 @@
 syntax on
 " Set Markdown File Type
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+" Set i3config File Type
+aug i3config_ft_detection
+  au!
+  au BufNewFile,BufRead *.i3config set filetype=i3config
+aug end
 
 " KeyMaps
 " Next Tab
