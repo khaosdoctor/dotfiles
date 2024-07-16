@@ -1,6 +1,6 @@
 configuration {
     modes: [ filebrowser, run ];
-    combi-modes: [run, window, drun]; 
+    combi-modes: [window, drun]; 
     icon-theme: "Oranchelo";
     show-icons: true;
     terminal: "kitty";
