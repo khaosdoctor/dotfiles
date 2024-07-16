@@ -35,10 +35,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-include ~/.config/i3/custom/start_scripts
 include ~/.config/i3/custom/keybinds
 include ~/.config/i3/custom/config
-
+include ~/.config/i3/custom/start_scripts
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
