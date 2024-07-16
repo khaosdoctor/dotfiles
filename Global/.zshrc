@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
@@ -89,10 +87,32 @@ else
    export EDITOR='nvim'
 fi
 
-# Execute one time scripts depending on OS
+##### OS SPECIFIC CONFIGS #######
+
+# MacOS
 if [[ $(uname -s) == "Darwin" ]]; then
+  # brew installed
+  if type brew &>/dev/null 
+  then
+    # Initiate ASDF on mac
+    [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
+  fi
+
   $DOTFILES/MacOS/one-time-commands/run-one-time-commands.sh
 fi
+
+# Linuxes
+if [[ $(uname -s) == "Linux" ]]; then
+  
+  # Arch
+  if type pacman &>/dev/null 
+  then
+    source /opt/asdf-vm/asdf.sh
+  fi
+
+fi
+
+################################
 
 # LOADS USER FUNCTIONS
 if [[ -a $HOME/.functions ]]; then
@@ -110,10 +130,6 @@ fi
 
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
-if type brew &>/dev/null
-then
-  [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
-fi
 
 if [[ -a $HOME/.startupscripts ]]; then
   chmod -R +x $HOME/.startupscripts
