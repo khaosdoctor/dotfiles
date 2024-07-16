@@ -193,3 +193,9 @@ bindsym $mod+r mode "resize"
 #bar {
 #        status_command i3status
 #}
+
+## CUSTOM SCRIPTS
+include ~/.config/i3/custom/keybinds.i3config
+include ~/.config/i3/custom/config.i3config
+include ~/.config/i3/custom/start_scripts.i3config
+include ~/.config/i3/custom/themes/dracula.i3config
