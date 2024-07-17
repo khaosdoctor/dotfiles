@@ -92,7 +92,7 @@ fi
 # MacOS
 if [[ $(uname -s) == "Darwin" ]]; then
   # brew installed
-  if type brew &>/dev/null 
+  if type brew &>/dev/null
   then
     # Initiate ASDF on mac
     [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
@@ -103,9 +103,14 @@ fi
 
 # Linuxes
 if [[ $(uname -s) == "Linux" ]]; then
-  
+
+  # Correct control keys on linux
+  bindkey "^[[3~" delete-char # Delete
+  bindkey "^[[H" beginning-of-line # Home
+  bindkey "^[[F" end-of-line # End
+
   # Arch
-  if type pacman &>/dev/null 
+  if type pacman &>/dev/null
   then
     source /opt/asdf-vm/asdf.sh
   fi
