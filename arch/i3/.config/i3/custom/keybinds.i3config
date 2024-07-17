@@ -16,8 +16,8 @@ bindsym $mod+$alt+4 exec --no-startup-id maim --select | xclip -selection clipbo
 bindsym Ctrl+Print exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
 bindsym Ctrl+$mod+3 exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
 # Active window
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)" 
-bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)" 
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)"
 # Selection
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
 bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
@@ -27,11 +27,13 @@ bindsym $mod+q kill
 
 # Player Controls and media keys
 # This won't work in Keychron because there's no PlayPause sym
-bindsym XF86AudioPlay exec playerctl play-pause 
-bindsym XF86AudioPause exec playerctl play-pause 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Clipcat clipboard manager (requires clipcat)
 bindsym $alt+$mod+c exec clipcat-menu
 
+# Rofimoji picker (requires rofimoji)
+bindsym ctrl+$mod+space exec rofi -modi "emoji:rofimoji --action copy --skin-tone neutral" -show emoji
