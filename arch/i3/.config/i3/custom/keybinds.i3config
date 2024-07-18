@@ -37,3 +37,12 @@ bindsym $alt+$mod+c exec clipcat-menu
 
 # Rofimoji picker (requires rofimoji)
 bindsym ctrl+$mod+space exec rofi -modi "emoji:rofimoji --action copy --skin-tone neutral" -show emoji
+
+# Enable scratchpad (hidden windows)
+# move current window to scratchpad
+bindsym $mod+Shift+plus move scratchpad
+# show scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+# alt tab
+bindsym $mod+Tab exec rofi -show window -modi window
