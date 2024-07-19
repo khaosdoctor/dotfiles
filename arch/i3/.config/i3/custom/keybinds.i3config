@@ -13,14 +13,14 @@ bindsym $mod+$alt+4 exec --no-startup-id maim --select | xclip -selection clipbo
 
 # File Screenshots
 # Full screen
-bindsym Ctrl+Print exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
-bindsym Ctrl+$mod+3 exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+Print exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
+bindsym Ctrl+$mod+3 exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
 # Active window
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)"
-bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
+bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
 # Selection
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
-bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date)"
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
+bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
 
 # Close on meta+q
 bindsym $mod+q kill
