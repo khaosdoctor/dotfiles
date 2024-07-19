@@ -80,6 +80,10 @@ if [[ "$(uname -s)" == "Linux" ]]; then
     }
   fi
 
+  if [ -x "$(command -v yay)" ]; then
+    alias cleanup='yay -Rns $(yay -Qtdq)'
+  fi
+
 fi
 
 alias vim=nvim
