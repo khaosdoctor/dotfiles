@@ -3,6 +3,7 @@
 [user]
   name = Lucas Santos
   email = lhs.santoss@gmail.com
+	signingkey = 3F711BD5
 [core]
   autocrlf = false
   eol = lf
@@ -80,3 +81,5 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[commit]
+	gpgSign = true
