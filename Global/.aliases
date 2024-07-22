@@ -1,10 +1,16 @@
 #!/bin/bash
 if [ -x "$(command -v exa)" ]; then
-  alias ls="exa --icons"
+  alias ls="exa -a --icons"
+elif [ -x "$(command -v eza)" ]; then
+  alias ls="eza -a --icons --color=auto"
 elif [ -x "$(command -v gls)" ]; then
-  alias ls="gls --color=auto"
+  alias ls="gls -a --color=auto"
 else
-  alias ls="ls --color=auto"
+  alias ls="ls -a --color=auto"
+fi
+
+if [ -x "$(command -v bat)" ]; then
+  alias cat="bat"
 fi
 
 if [ -x "$(command -v zsh)" ]; then
