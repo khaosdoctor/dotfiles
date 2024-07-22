@@ -61,7 +61,7 @@ set smartcase   " Enable smart-case search
 set ignorecase  " Always case-insensitive
 set incsearch   " Searches for strings incrementally
 set cursorcolumn
-highlight CursorColumn ctermbg=Yellow
+highlight CursorColumn ctermbg=blue
 highlight CursorColumn ctermfg=Black
 set colorcolumn=80
 set noautoindent  " Auto-indent new lines
