@@ -1,6 +1,11 @@
 #!/bin/bash
-cd $DOTFILES/MacOSX || exit
-brew bundle dump -f --no-upgrade
-git add .
-git cm -qm 'Update brew bundle'
-git ps --quiet -u --no-progress origin master
+if [[ -d $DOTFILES/MacOS ]]; then 
+  cd $DOTFILES/MacOS
+  git pull origin master
+  brew bundle dump -f --no-upgrade
+  git add .
+  git cm -qm 'Update brew bundle'
+  git ps --quiet -u --no-progress origin master
+else 
+  echo "Could not find $DOTFILES/MacOS skipping startupscripts..."
+fi
