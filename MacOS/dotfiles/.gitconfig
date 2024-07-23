@@ -3,6 +3,7 @@
 [user]
   name = Lucas Santos
   email = hello@lsantos.dev
+	signingkey = 3F711BD5
 [core]
   autocrlf = false
   eol = lf
@@ -82,3 +83,7 @@
 	sort = -committerdate
 [maintenance]
 	repo = /Users/khaosdoctor/Library/CloudStorage/GoogleDrive-lhs.santoss@gmail.com/My Drive/Pessoal/Obsidian/Default
+[commit]
+	gpgSign = true
+[gpg]
+	program = gpg
