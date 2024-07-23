@@ -36,6 +36,10 @@ map <c-k> <c-w>k
 set tabstop=2
 set shiftwidth=2
 set expandtab " use spaces over tabs
+set softtabstop=2   " Number of spaces per Tab
+
+" set default clipboard to system clipboard
+set clipboard=unnamed
 
 " General Setup
 set updatetime=250
@@ -52,8 +56,6 @@ augroup END
 " END auto group to change line behaviour
 
 set linebreak   " Break lines at word (requires Wrap lines)
-set textwidth=150   " Line wrap (number of cols)
-set columns=150
 set showmatch   " Highlight matching brace
 set visualbell  " Use visual bell (no beeping)
 set hlsearch    " Highlight all search results
@@ -63,11 +65,10 @@ set incsearch   " Searches for strings incrementally
 set cursorcolumn
 highlight CursorColumn ctermbg=blue
 highlight CursorColumn ctermfg=Black
-set colorcolumn=80
-set noautoindent  " Auto-indent new lines
-set nosmartindent " Enable smart-indent
-set nosmarttab    " Enable smart-tabs
-set softtabstop=2   " Number of spaces per Tab
+set colorcolumn=120
+set noautoindent  " disable Auto-indent new lines (useful for pasting)
+"set nosmartindent " disable Enable smart-indent
+"set nosmarttab    " disable Enable smart-tabs
 set nocindent
 filetype indent off
 filetype plugin indent off
