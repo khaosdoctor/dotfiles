@@ -145,7 +145,7 @@ if [[ -d $HOME/.startupscripts ]]; then
 elif [[ -f $HOME/.startupscripts ]]; then
   # can be executed
   if [[ -x $HOME/.startupscripts ]]; then
-    bash $HOME/.startupscripts
+    bash $HOME/.startupscripts &
   fi
 fi
 
