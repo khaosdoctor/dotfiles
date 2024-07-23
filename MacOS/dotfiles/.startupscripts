@@ -1,9 +1,9 @@
 #!/bin/bash
 if [[ -d $DOTFILES/MacOS ]]; then 
   cd $DOTFILES/MacOS
-  git pull origin master
+  git pull origin master &>/dev/null
   brew bundle dump -f --no-upgrade
-  git add .
+  git add . &> /dev/null
   git cm -qm 'Update brew bundle'
   git ps --quiet -u --no-progress origin master
 else 
