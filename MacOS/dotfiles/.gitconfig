@@ -1,6 +1,8 @@
 [init]
 	defaultBranch = main
 [user]
+  name = Lucas Santos
+  email = hello@lsantos.dev
 [core]
   autocrlf = false
   eol = lf
