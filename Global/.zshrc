@@ -135,12 +135,18 @@ fi
 
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
-
-if [[ -a $HOME/.startupscripts ]]; then
+# if startupscripts is a dir
+if [[ -d $HOME/.startupscripts ]]; then
   chmod -R +x $HOME/.startupscripts
   cd $HOME/.startupscripts
   find . -type f -name "*.sh" -exec {} \;
   cd $HOME
+# is a regular file
+elif [[ -f $HOME/.startupscripts ]]; then
+  # can be executed
+  if [[ -x $HOME/.startupscripts ]]; then
+    bash $HOME/.startupscripts
+  fi
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
