@@ -6,4 +6,4 @@ Target = *
 
 [Action]
 When = PostTransaction
-Exec = /bin/sh -c '/usr/bin/pacman -Qqe > /home/khaosdoctor/Documents/Repositories/github.com/khaosdoctor/dotfiles/arch/non-stowable/pacman/pacman.dump'
+Exec = /bin/sh -c '/usr/bin/pacman -Qqe > ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/arch/non-stowable/pacman/pacman.dump'
