@@ -1,7 +1,11 @@
 {
  "default": "$HOME",
  "custom": {
-    "keyd": {
+    "keyd/etc": {
+      "target": "/",
+      "sudo": true
+    },
+    "pacman/etc": {
       "target": "/",
       "sudo": true
     }
