@@ -9,6 +9,6 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/bin
 export BAT_THEME=Dracula
 export DENO_DIR=$HOME/Library/Caches/deno
 export DENO_INSTALL_ROOT=$HOME/.deno
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.local/bin:$DENO_INSTALL_ROOT/bin
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.local/bin:$DENO_INSTALL_ROOT/bin:$HOME/.asdf/shims
 export CC="ccache cc"   
 export CXX="ccache c++"
