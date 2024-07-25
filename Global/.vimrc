@@ -31,6 +31,22 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 map <c-j> <c-w>j
 map <c-k> <c-w>k
+" Move blocks of text (linux + Windows)
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+"inoremap <A-j> <Esc>:m .+1<CR>==gi " Insert mode
+"inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Move blocks of text (mac
+" https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim)
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+"inoremap ∆ <Esc>:m .+1<CR>==gi " insert mode
+"inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Extension SetUp
 set tabstop=2
