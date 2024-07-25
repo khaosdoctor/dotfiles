@@ -46,3 +46,26 @@ bindsym $mod+Shift+minus scratchpad show
 
 # alt tab
 bindsym $mod+Tab exec rofi -show window -modi window
+
+# cycle workspaces
+bindsym $mod+Escape workspace next
+
+# Power management menu
+set $Locker i3lock -c '212121' -i '~/.config/i3lock/wp.png' -f && sleep 1
+set $Message "i3-nagbar -f 'Ubuntu' -m 'Power: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown'"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default", exec killall i3-nagbar
+    bindsym e exec --no-startup-id i3-msg exit, mode "default", exec killall i3-nagbar
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default", exec killall i3-nagbar
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default", exec killall i3-nagbar
+    bindsym r exec --no-startup-id systemctl reboot, mode "default", exec killall i3-nagbar
+    bindsym q exec --no-startup-id systemctl poweroff -i, mode "default", exec killall i3-nagbar
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"; exec killall i3-nagbar
+    bindsym Escape mode "default"; exec killall i3-nagbar
+}
+
+bindsym $mod+Shift+x mode "$mode_system"; exec $Message
