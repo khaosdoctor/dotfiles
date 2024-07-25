@@ -83,6 +83,7 @@ i3blocks
 i3lock
 i3status
 ibus
+icat
 iwd
 jq
 keyd
@@ -151,6 +152,7 @@ ttf-roboto
 ttf-ubuntu-font-family
 ttf-ubuntu-nerd
 ueberzug
+unarchiver
 urlscan-git
 usbutils
 usbview
@@ -172,7 +174,7 @@ xorg-xinit
 xterm
 yay-bin
 yay-bin-debug
-yazi
+yazi-git
 yelp
 zapzap
 zip
