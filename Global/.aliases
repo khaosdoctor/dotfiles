@@ -92,7 +92,11 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 
 fi
 
-alias vim=nvim
+if [ -x "$(command -v fzf)" ]; then
+  alias zvim='vim $(fzf)'
+fi
+
+alias vim='nvim'
 alias rm='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
