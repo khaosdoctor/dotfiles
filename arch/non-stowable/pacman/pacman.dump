@@ -28,6 +28,7 @@ eza
 fd
 feh
 ffmpegthumbnailer
+flameshot
 fzf
 gdm
 git
@@ -96,7 +97,6 @@ linux-firmware
 linux-headers
 loupe
 lxappearance
-maim
 malcontent
 man-db
 mpv
@@ -134,7 +134,6 @@ python-pipx
 rofi
 rofimoji
 rygel
-sassc
 selectdefaultapplication-git
 simple-scan
 smartmontools

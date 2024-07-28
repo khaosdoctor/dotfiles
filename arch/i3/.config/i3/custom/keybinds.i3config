@@ -2,25 +2,17 @@
 set $alt Mod1
 # Clipboard Screenshots
 # Full screen
-bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym $alt+$mod+3 exec --no-startup-id maim | xclip -selection clipboard -t image/png
-# Active window
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym $alt+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id flameshot full --clipboard
+bindsym $mod+$alt+3 exec --no-startup-id flameshot full --clipboard
 # Selection
-bindsym Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-bindsym $mod+$alt+4 exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+bindsym $mod+$alt+4 exec --no-startup-id flameshot gui --clipboard
 
 # File Screenshots
 # Full screen
-bindsym Ctrl+Print exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
-bindsym Ctrl+$mod+3 exec --no-startup-id maim "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
-# Active window
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
-bindsym Ctrl+Shift+4 exec --no-startup-id maim --window $(xdotool getactivewindow) "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
+bindsym Ctrl+Print exec --no-startup-id flameshot full --path ~/Pictures/Screenshots
+bindsym Ctrl+$mod+3 exec --no-startup-id flameshot full --path ~/Pictures/Screenshots
 # Selection
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
-bindsym Ctrl+$alt+4 exec --no-startup-id maim --select "$HOME/Pictures/Screenshots/$(date +%Y-%m-%dT%H:%M:%S).png"
+bindsym Ctrl+$mod+4 exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots
 
 # Close on meta+q
 bindsym $mod+q kill
@@ -69,3 +61,15 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Shift+x mode "$mode_system"; exec $Message
+
+mode split_mode {
+  # split in horizontal orientation
+  bindsym h split h
+
+  # split in vertical orientation
+  bindsym v split v
+
+  bindsym Escape mode "default"; exec killall i3-nagbar
+  bindsym Return mode "default"; exec killall i3-nagbar
+}
+bindsym $mod+s mode "split_mode"; exec i3-nagbar -f Ubuntu -t warning -m 'Split mode'
