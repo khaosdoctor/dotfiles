@@ -89,6 +89,7 @@ iwd
 jq
 keyd
 kitty
+lazygit
 libpulse
 lightdm
 lightdm-gtk-greeter
@@ -96,6 +97,7 @@ linux
 linux-firmware
 linux-headers
 loupe
+luarocks
 lxappearance
 malcontent
 man-db
