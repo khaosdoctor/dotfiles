@@ -43,7 +43,7 @@ bindsym $mod+Tab exec rofi -show window -modi window
 bindsym $mod+Escape workspace next
 
 # Power management menu
-set $Locker i3lock -c '212121' -i '~/.config/i3lock/wp.png' -f && sleep 1
+set $Locker i3lock-fancy-rapid 5 3 && sleep 1
 set $Message "i3-nagbar -f 'Ubuntu' -m 'Power: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown'"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown
