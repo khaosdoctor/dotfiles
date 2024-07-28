@@ -18,3 +18,6 @@ exec_always ~/.config/i3/custom/scripts/set-locale.sh
 
 # Multiple monitor setup L=portrait R=landscape
 exec --no-startup-id "feh --randomize --scale-down --bg-fill ~/.config/feh/wallpapers/landscape/* ~/.config/feh/wallpapers/portrait/*"
+
+exec --no-startup-id gsettings org.gnome.desktop.interface cursor-theme WhiteSur-cursors
+exec --no-startup-id gsettings set org.mate.peripherals-mouse cursor-theme WhiteSur-cursors
