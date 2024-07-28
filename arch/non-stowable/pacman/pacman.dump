@@ -95,6 +95,7 @@ linux
 linux-firmware
 linux-headers
 loupe
+lxappearance
 maim
 malcontent
 man-db
@@ -133,6 +134,7 @@ python-pipx
 rofi
 rofimoji
 rygel
+sassc
 selectdefaultapplication-git
 simple-scan
 smartmontools
@@ -161,6 +163,7 @@ visual-studio-code-bin
 vivaldi
 w3m
 wget
+whitesur-cursor-theme-git
 wireless_tools
 wireplumber
 xbindkeys
