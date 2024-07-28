@@ -1,5 +1,5 @@
 configuration {
-    modes: [ filebrowser, run ];
+    modes: [ run ];
     combi-modes: [window, drun]; 
     icon-theme: "Oranchelo";
     show-icons: true;
