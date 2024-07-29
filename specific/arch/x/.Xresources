@@ -1,0 +1,5 @@
+! This file controls the theme and sizes of resouces in X server
+! such as icons, cursors and so on
+! it is loaded in /etc/X11/xinit/xinitrc under $userresources
+Xcursor.size: 24
+Xcursor.theme: "Colloid Cursors"
