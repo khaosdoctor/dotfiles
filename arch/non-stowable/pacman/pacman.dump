@@ -83,12 +83,12 @@ i3-wm
 i3blocks
 i3lock
 i3lock-fancy-rapid-git
-i3lock-fancy-rapid-git-debug
 i3status
 ibus
 icat
 iwd
 jq
+keychain
 keyd
 kitty
 lazygit
@@ -169,6 +169,7 @@ wget
 whitesur-cursor-theme-git
 wireless_tools
 wireplumber
+x11-ssh-askpass
 xbindkeys
 xclip
 xdg-desktop-portal-gnome

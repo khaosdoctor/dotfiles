@@ -10,5 +10,9 @@ export BAT_THEME=Dracula
 export DENO_DIR=$HOME/Library/Caches/deno
 export DENO_INSTALL_ROOT=$HOME/.deno
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$HOME/.local/bin:$DENO_INSTALL_ROOT/bin:$HOME/.asdf/shims
-export CC="ccache cc"   
+export CC="ccache cc"
 export CXX="ccache c++"
+
+if [ -x "$(command -v ssh-askpass)" ]; then
+  export SSH_ASKPASS=ssh-askpass
+fi
