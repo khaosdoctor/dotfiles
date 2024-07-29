@@ -8,12 +8,13 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Resume telescope search" }
 )
 
+-- Move blocks of text (linux)
 vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
 vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<cr>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
 vim.keymap.set("n", "<A-j>", ":m '.+1<CR>==", { noremap = true, silent = true, desc = "Move line down" })
 vim.keymap.set("n", "<A-k>", ":m '.-2<CR>==", { noremap = true, silent = true, desc = "Move line up" })
 
--- Move blocks of text (mac
+-- Move blocks of text (mac)
 -- https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim)
 vim.keymap.set("v", "˚", ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = "Move line up" })
 vim.keymap.set("v", "∆", ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
@@ -33,6 +34,10 @@ vim.keymap.set("n", "<tab><tab>", "<cmd>bn<cr>", { noremap = true, silent = true
 vim.keymap.set("n", "gp", "<cmd>bN<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "gd", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
 
+-- Highlights for cursor column
 vim.cmd.set("cursorcolumn")
 vim.cmd("highlight CursorColumn ctermbg=Blue")
 vim.cmd("highlight CursorColumn ctermfg=Black")
+
+-- cmd P
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
