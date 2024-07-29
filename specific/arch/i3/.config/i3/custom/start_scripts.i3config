@@ -1,0 +1,23 @@
+##### CUSTOM START SCRIPTS #####
+
+# Set monitor layout
+exec ~/.config/i3/custom/scripts/set-screen-layout.sh
+
+# Starts picom
+exec --no-startup-id picom
+
+# Initiates clipcat daemon, should be run once per session
+exec --no-startup-id clipcatd
+
+# Starts polybar on the bottom
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
+# Set keyboard layout to us intl and fix other stuff
+exec_always ~/.config/i3/custom/scripts/set-locale.sh
+
+# Multiple monitor setup L=portrait R=landscape
+exec --no-startup-id "feh --randomize --scale-down --bg-fill ~/.config/feh/wallpapers/landscape/* ~/.config/feh/wallpapers/portrait/*"
+
+exec --no-startup-id gsettings org.gnome.desktop.interface cursor-theme WhiteSur-cursors
+exec --no-startup-id gsettings set org.mate.peripherals-mouse cursor-theme WhiteSur-cursors

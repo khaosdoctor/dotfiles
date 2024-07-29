@@ -1,0 +1,24 @@
+configuration {
+    modes: [ run ];
+    combi-modes: [window, drun]; 
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-combi: " 🖥️  All ";
+    display-run: " 🏃  Run ";
+    display-window: " 🪟  Window";
+    display-filebrowser: " 📁 Files";
+    sidebar-mode: true;
+    font: "Ubuntu";
+}
+
+@theme "dracula.rasi"
+
+window {
+  opacity: 0.7;
+  width: 30%;
+}
