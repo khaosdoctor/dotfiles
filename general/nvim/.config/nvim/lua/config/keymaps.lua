@@ -26,7 +26,7 @@ vim.keymap.set("n", "<F8>", "gt", { noremap = true, silent = true, desc = "Switc
 vim.keymap.set("n", "<F7>", "gT", { noremap = true, silent = true, desc = "Switch to previous tab" })
 
 -- duplicate line down
-vim.keymap.set("n", "<C-d>", "yyp", { noremap = true, silent = true, desc = "Duplicate line down" })
+vim.keymap.set("n", "<C-S-d>", "yyp", { noremap = true, silent = true, desc = "Duplicate line down" })
 
 -- buffer navigation
 vim.keymap.set("n", "gn", "<cmd>bn<cr>", { noremap = true, silent = true, desc = "Next buffer" })
@@ -41,3 +41,21 @@ vim.cmd("highlight CursorColumn ctermfg=Black")
 
 -- cmd P
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
+
+-- toggle terminal
+local wk = require("which-key")
+wk.add({
+  { "<leader>t", group = "Terminals" },
+  {
+    "<leader>tt",
+    function()
+      TermNumber = (TermNumber or 0) + 1
+      local term = require("toggleterm")
+      term.toggle(TermNumber)
+    end,
+    desc = "test",
+  },
+  { "<leader>ts", "<cmd>:TermSelect<cr>", desc = "Select open terminals" },
+  { "<leader>tr", "<cmd>exe v:count1 . 'ToggleTermSetName'<cr>", desc = "Rename open terminals" },
+  { "<C-.>", "<cmd>:ToggleTerm<cr>", group = "Terminals", desc = "Toggle docked terminal", mode = { "n", "t" } },
+})
