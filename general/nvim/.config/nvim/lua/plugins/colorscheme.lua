@@ -76,7 +76,18 @@ return {
     "maxmx03/fluoromachine.nvim",
     lazy = false,
     priority = 1000,
-    opts = { glow = false, theme = "fluoromachine", transparent = true },
+    opts = { glow = false, theme = "fluoromachine", transparent = false },
+  },
+  {
+    "shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("ayu").setup({
+        mirage = true,
+        terminal = true,
+      })
+    end,
   },
   {
     "LazyVim/LazyVim",
