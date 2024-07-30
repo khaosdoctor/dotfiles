@@ -53,7 +53,7 @@ wk.add({
       local term = require("toggleterm")
       term.toggle(TermNumber)
     end,
-    desc = "test",
+    desc = "New toggle terminal",
   },
   { "<leader>ts", "<cmd>:TermSelect<cr>", desc = "Select open terminals" },
   { "<leader>tr", "<cmd>exe v:count1 . 'ToggleTermSetName'<cr>", desc = "Rename open terminals" },
