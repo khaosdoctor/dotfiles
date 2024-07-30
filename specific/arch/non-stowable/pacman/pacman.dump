@@ -103,6 +103,7 @@ linux-headers
 loupe
 luarocks
 lxappearance
+lxinput
 malcontent
 man-db
 mpv
@@ -180,6 +181,7 @@ xdg-utils
 xdotool
 xorg-xev
 xorg-xinit
+xorg-xinput
 xterm
 yay-bin
 yay-bin-debug
