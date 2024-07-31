@@ -55,7 +55,13 @@ wk.add({
     end,
     desc = "New toggle terminal",
   },
-  { "<leader>ts", "<cmd>:TermSelect<cr>", desc = "Select open terminals" },
+  { "<leader>ts", "<cmd>:TermSelect<cr>", desc = "Find open terminals" },
+  { "<leader>tf", "<cmd>:TermSelect<cr>", desc = "Find open terminals" },
   { "<leader>tr", "<cmd>exe v:count1 . 'ToggleTermSetName'<cr>", desc = "Rename open terminals" },
+  {
+    "<leader>th",
+    "<cmd>exe v:count1 . 'ToggleTerm'<cr>",
+    desc = "Toggle docked terminal (prefix number before command)",
+  },
   { "<C-.>", "<cmd>:ToggleTerm<cr>", group = "Terminals", desc = "Toggle docked terminal", mode = { "n", "t" } },
 })
