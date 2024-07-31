@@ -51,7 +51,7 @@ brew "httpie"
 brew "hurl"
 brew "shared-mime-info"
 brew "libheif"
-brew "python@3.9"
+brew "python@3.9", link: false
 brew "imagemagick"
 brew "jq"
 brew "k9s"
