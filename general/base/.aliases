@@ -2,7 +2,7 @@
 if [ -x "$(command -v exa)" ]; then
   alias ls="exa -a --icons"
 elif [ -x "$(command -v eza)" ]; then
-  alias ls="eza -a --icons --color=auto"
+  alias ls="eza -G --icons --color=auto"
 elif [ -x "$(command -v gls)" ]; then
   alias ls="gls -a --color=auto"
 else
@@ -80,9 +80,9 @@ if [[ "$(uname -s)" == "Linux" ]]; then
   fi
 
   if [ -x "$(command -v efibootmgr)" ]; then
-    function wreboot () {
-        sudo efibootmgr -n 0
-        sudo reboot now
+    function wreboot() {
+      sudo efibootmgr -n 0
+      sudo reboot now
     }
   fi
 
