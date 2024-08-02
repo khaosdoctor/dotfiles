@@ -8,12 +8,30 @@ return {
         hide_dotfiles = false,
         hide_gitignore = true,
         show_hidden_count = true,
-        hide_by_name = {
-          ".git",
+        always_show = {
+          ".gitconfig",
+          ".gitignore",
+        },
+        never_show = {
           ".DS_Store",
           "thumbs.db",
         },
       },
+      find_args = function(cmd, path, search_term, args)
+        if cmd ~= "fd" then
+          return args
+        end
+        -- Searches in hidden files
+        table.insert(args, "--hidden")
+        -- exclude .git and node_modules
+        table.insert(args, "--exclude")
+        table.insert(args, ".git")
+        table.insert(args, "--exclude")
+        table.insert(args, "node_modules")
+
+        return args
+      end,
     },
+    follow_current_file = { enabled = true },
   },
 }

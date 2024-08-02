@@ -1,4 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
+-- Keym automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.keymap.set(
@@ -74,4 +74,10 @@ wk.add({
     desc = "Toggle docked terminal (prefix number before command)",
   },
   { "<C-.>", "<cmd>:ToggleTerm<cr>", group = "Terminals", desc = "Toggle docked terminal", mode = { "n", "t" } },
+})
+
+wk.add({
+  { "<leader>D", group = "Database" },
+  { "<leader>DD", "<cmd>DBUI<cr>", desc = "Toggle DBUI" },
+  { "<leader>Dx", "<cmd>call <SNR>79_method('execute_query')<cr>", desc = "Run Query" },
 })
