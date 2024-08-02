@@ -156,6 +156,7 @@ tracker3-miners
 ttf-cascadia-code-nerd
 ttf-firacode-nerd
 ttf-lucida-fonts
+ttf-meslo-nerd
 ttf-roboto
 ttf-ubuntu-font-family
 ttf-ubuntu-nerd
@@ -166,7 +167,6 @@ usbutils
 usbview
 vim
 visual-studio-code-bin
-visual-studio-code-bin-debug
 vivaldi
 w3m
 wget
