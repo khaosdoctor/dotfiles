@@ -33,5 +33,20 @@ return {
       end,
     },
     follow_current_file = { enabled = true },
+    default_component_configs = {
+      git_status = {
+        symbols = {
+          added = "✚",
+          modified = "",
+          deleted = "✖",
+          renamed = "󰁕",
+          untracked = "",
+          ignored = "󰯒",
+          unstaged = "󱔴",
+          staged = "󱔲",
+          conflict = "",
+        },
+      },
+    },
   },
 }
