@@ -33,6 +33,7 @@ ffmpegthumbnailer
 flameshot
 fzf
 gdm
+gdm-settings
 git
 github-cli
 gnome-backgrounds
@@ -134,6 +135,7 @@ pipewire-jack
 pipewire-pulse
 playerctl
 pnpm
+polkit-gnome
 polybar
 python-distutils-extra
 python-pip

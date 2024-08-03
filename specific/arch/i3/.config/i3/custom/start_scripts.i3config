@@ -15,6 +15,7 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # Set keyboard layout to us intl and fix other stuff
 exec_always ~/.config/i3/custom/scripts/set-locale.sh
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Multiple monitor setup L=portrait R=landscape
 exec --no-startup-id "feh --randomize --scale-down --bg-fill ~/.config/feh/wallpapers/landscape/* ~/.config/feh/wallpapers/portrait/*"
