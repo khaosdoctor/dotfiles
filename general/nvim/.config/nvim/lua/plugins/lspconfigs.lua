@@ -70,6 +70,7 @@ return {
           enabled = false,
         },
         vtsls = {
+          single_file_support = false,
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras
           filetypes = {
