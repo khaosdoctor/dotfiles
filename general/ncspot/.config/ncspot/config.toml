@@ -20,3 +20,9 @@ statusbar_bg = "#1DB954"
 cmdline = "#FFFFFF"
 cmdline_bg = "#191414"
 search_match = "light red"
+
+[keybindings]
+"." = "playnext"
+"Space" = "playnext; move down 1"
+"Shift+n" = "playnext"
+"Shift+d" = "clear"               # clear the queue
