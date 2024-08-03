@@ -51,6 +51,10 @@ if [ -x "$(command -v kubens)" ]; then
   alias kn=kubens
 fi
 
+if [ -x "$(command -v lazygit)" ]; then
+  alias gg=lazygit
+fi
+
 if [ -x "$(command -v docker)" ]; then
   alias dkr=docker
   alias dkrc=docker-compose
