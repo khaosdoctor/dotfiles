@@ -52,9 +52,11 @@ return {
           subtext0 = "#8E94AB",
           overlay2 = "#7D8296",
           overlay1 = "#676B80",
-          overlay0 = "#464957",
+          -- overlay0 = "#464957", -- comments
+          overlay0 = "#757a92",
           surface2 = "#3A3D4A",
-          surface1 = "#2F313D",
+          -- surface1 = "#2F313D", -- line numbers, hovers, highlights
+          surface1 = "#46495b",
           surface0 = "#1D1E29",
           base = "#0b0b12",
           mantle = "#11111a",
