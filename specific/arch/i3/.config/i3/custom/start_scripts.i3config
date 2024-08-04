@@ -1,7 +1,7 @@
 ##### CUSTOM START SCRIPTS #####
 
 # Set monitor layout
-exec ~/.config/i3/custom/scripts/set-screen-layout.sh
+exec_always ~/.config/i3/custom/scripts/set-screen-layout.sh
 
 # Starts picom
 exec --no-startup-id picom
