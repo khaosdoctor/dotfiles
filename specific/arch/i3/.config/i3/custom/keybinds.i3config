@@ -61,6 +61,7 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Shift+x mode "$mode_system"; exec $Message
+bindsym $mod+Ctrl+q mode "$mode_system"; exec $Message
 
 mode split_mode {
   # split in horizontal orientation
