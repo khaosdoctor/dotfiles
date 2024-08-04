@@ -107,6 +107,7 @@ lxappearance
 lxinput
 malcontent
 man-db
+mdformat
 mpv
 mtools
 nano
@@ -137,6 +138,7 @@ playerctl
 pnpm
 polkit-gnome
 polybar
+prettierd
 python-distutils-extra
 python-pip
 python-pipx
