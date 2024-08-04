@@ -4,6 +4,9 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "rustfmt",
+          "prettier",
+          "shfmt",
           "lua_ls",
           "bashls",
           "clangd",
