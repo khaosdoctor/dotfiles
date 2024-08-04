@@ -81,3 +81,8 @@ wk.add({
   { "<leader>DD", "<cmd>DBUI<cr>", desc = "Toggle DBUI" },
   { "<leader>Dx", "<cmd>call <SNR>79_method('execute_query')<cr>", desc = "Run Query" },
 })
+
+-- delete a mark using delmark
+wk.add({
+  { "<leader>dm", "<cmd>exe 'delmark ' . nr2char(getchar())<cr>", desc = "Delete a mark <markname>" },
+})
