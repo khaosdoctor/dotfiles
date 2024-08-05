@@ -1,9 +1,55 @@
 --[[
 --NOTE: This file is only here to allow us to accept copilot completions using tab over enter
 --the line 44 is where the magic happens
+--however, to do this, we need to re-enable the whole thing since the opt table is a function
+--so lazy will not be able to merge the options and will just overwrite them
 --]]
 return {
-  -- auto completion
+  -- NOTE: We also need to re-enable the copilot suggestions for it to work properly
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        javascript = true,
+        typescript = true,
+        lua = true,
+        json = true,
+        yaml = true,
+        go = true,
+        sh = true,
+        rust = true,
+        help = true,
+        vim = true,
+        python = true,
+        ruby = true,
+        php = true,
+        java = true,
+        c = true,
+        cpp = true,
+      },
+    },
+  },
+  -- NOTE: Enable copilot completions
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = "copilot.lua",
+    opts = {},
+    config = function(_, opts)
+      local copilot_cmp = require("copilot_cmp")
+      copilot_cmp.setup(opts)
+      -- attach cmp source whenever copilot attaches
+      -- fixes lazy-loading issues with the copilot cmp source
+      LazyVim.lsp.on_attach(function(client)
+        copilot_cmp._on_insert_enter({})
+      end, "copilot")
+    end,
+  },
+  -- auto completion in general
   {
     "hrsh7th/nvim-cmp",
     version = false, -- last release is way too old
@@ -11,6 +57,7 @@ return {
     dependencies = {
       "https://github.com/L3MON4D3/LuaSnip.git",
       "hrsh7th/cmp-nvim-lsp",
+      "zbirenbaum/copilot-cmp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
@@ -29,7 +76,6 @@ return {
       local cmp = require("cmp")
       local defaults = require("cmp.config.default")()
       local auto_select = true
-      local luasnip = require("luasnip")
       return {
         auto_brackets = {}, -- configure any filetype to auto add brackets
         completion = {
@@ -52,6 +98,9 @@ return {
           end,
         }),
         sources = cmp.config.sources({
+          -- NOTE: Since we're overwriting the entire opts table, we need to set the copilot completions again
+          -- https://www.lazyvim.org/extras/coding/copilot
+          { name = "copilot", group_index = 1, priority = 100 },
           { name = "nvim_lsp" },
           { name = "path" },
         }, {
