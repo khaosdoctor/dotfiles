@@ -85,8 +85,9 @@ return {
             "typescript.tsx",
           },
           root_dir = function(filename)
+            -- NOTE: root_pattern returns a function that needs to be called with the filename
             local lspconfig = require("lspconfig")
-            local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")
+            local denoRootDir = lspconfig.util.root_pattern("deno.json", "deno.jsonc")(filename)
             -- prevents tsserver from attaching in deno projects
             if denoRootDir then
               return nil
