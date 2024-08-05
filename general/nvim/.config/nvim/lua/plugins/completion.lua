@@ -9,7 +9,7 @@ return {
     version = false, -- last release is way too old
     event = "InsertEnter",
     dependencies = {
-      "L3M0N4D3/LuaSnip",
+      "https://github.com/L3MON4D3/LuaSnip.git",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
