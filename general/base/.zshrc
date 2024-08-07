@@ -162,6 +162,11 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
+# Load local overrides not tracked by git
+if [ -f "$HOME/.localoverrides" ]; then
+  source "$HOME/.localoverrides"
+fi
+
 # pnpm
 export PNPM_HOME="/home/khaosdoctor/.local/share/pnpm"
 case ":$PATH:" in
