@@ -8,6 +8,8 @@ return {
       rust = { "rustfmt" },
       markdown = { "prettierd" },
       sh = { "shfmt" },
+      bash = { "shfmt" },
+      shell = { "shfmt" },
       lua = { "stylua" },
       python = { "ruff" },
       go = { "gofmt" },
