@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ -d $DOTFILES/specific/darwin ]]; then
-    log "Found $DOTFILES/specific/darwin, updating"
+    systemLog "Found $DOTFILES/specific/darwin, updating"
     cd "$DOTFILES/specific/darwin/dotfiles" || return
     git pull origin master &>/dev/null
     brew bundle dump -f --no-upgrade &>/dev/null
@@ -8,5 +8,5 @@ if [[ -d $DOTFILES/specific/darwin ]]; then
     git cm -qm 'Update brew bundle' &>/dev/null
     git ps --quiet -u --no-progress origin master &>/dev/null
 else
-    log "Could not find $DOTFILES/specific/darwin skipping startupscripts..."
+    systemLog "Could not find $DOTFILES/specific/darwin skipping startupscripts..."
 fi
