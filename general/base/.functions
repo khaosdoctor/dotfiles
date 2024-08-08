@@ -1,66 +1,66 @@
 #!/bin/bash
 #CUSTOM FUNCTIONS
 gc() {
-  local provider
-  local repo
-  local canAppend=false
-  local ifsbackup=$IFS
-  IFS="/"
-  dirSplit=($(pwd))
-  for part in $dirSplit; do
-    if [ $canAppend = true ]; then
-      repo=$repo$part/
-      continue
-    fi
-    if [[ $part =~ "[A-Za-z]+\.[A-Za-z]+" ]]; then
-      provider=$part
-      canAppend=true
-      continue
-    fi
-  done
-  local reponame=${2:-$1}
-  /usr/bin/git clone "https://$provider/$repo$1.git" "$reponame"
+    local provider
+    local repo
+    local canAppend=false
+    local ifsbackup=$IFS
+    IFS="/"
+    dirSplit=($(pwd))
+    for part in $dirSplit; do
+        if [ $canAppend = true ]; then
+            repo=$repo$part/
+            continue
+        fi
+        if [[ $part =~ "[A-Za-z]+\.[A-Za-z]+" ]]; then
+            provider=$part
+            canAppend=true
+            continue
+        fi
+    done
+    local reponame=${2:-$1}
+    /usr/bin/git clone "https://$provider/$repo$1.git" "$reponame"
 }
 
 git_goto() {
-  find . -name .git -type d -execdir git checkout "$1" ";"
+    find . -name .git -type d -execdir git checkout "$1" ";"
 }
 
 docker_prune() {
-  docker rmi $(docker images | awk '{ print $3; }')
+    docker rmi $(docker images | awk '{ print $3; }')
 }
 
 mkcd() {
-  mkdir -p "$1" && cd "$1" || return
+    mkdir -p "$1" && cd "$1" || return
 }
 
 # requires yazi, allows to return to the last yazi folder when exiting
 function yy() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
-function log() {
-  # on mac log to console
-  if [[ "$(uname -o)" == "Darwin" ]]; then
-    if [ -x "$(command -v logger)" ]; then
-      logger -t "${2:-"UserLogger"}" "[UserTerminalLogger] $1"
+function systemLog() {
+    # on mac log to console
+    if [[ "$(uname -o)" == "Darwin" ]]; then
+        if [ -x "$(command -v logger)" ]; then
+            logger -t "${2:-'UserLogger'}" "[UserTerminalLogger] $1"
+        else
+            echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
+        fi
+    # Linux with systemd log to journal
+    elif [[ "$(uname -o)" == "Linux" ]]; then
+        if [ -x "$(command -v systemd-cat)" ]; then
+            command -v systemd-cat && (echo "$1" | systemd-cat -t "${2:-"info"}")
+        else
+            echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
+        fi
+    # default to log to file
     else
-      echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
+        echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
     fi
-  # Linux with systemd log to journal
-  elif [[ "$(uname -o)" == "Linux" ]]; then
-    if [ -x "$(command -v systemd-cat)" ]; then
-      command -v systemd-cat && (echo "$1" | systemd-cat -t "${2:-"info"}")
-    else
-      echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
-    fi
-  # default to log to file
-  else
-    echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
-  fi
 }
