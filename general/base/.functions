@@ -48,14 +48,14 @@ function systemLog() {
     # on mac log to console
     if [[ "$(uname -o)" == "Darwin" ]]; then
         if [ -x "$(command -v logger)" ]; then
-            logger -t "${2:-'UserLogger'}" "[UserTerminalLogger] $1"
+            logger -t "${2:-'UserLogger'}" "[UserTerminalLogger] $1" &
         else
             echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
         fi
     # Linux with systemd log to journal
     elif [[ "$(uname -o)" == "Linux" ]]; then
         if [ -x "$(command -v systemd-cat)" ]; then
-            command -v systemd-cat && (echo "$1" | systemd-cat -t "${2:-"info"}")
+            command -v systemd-cat && (echo "$1" | systemd-cat -t "${2:-"info"}") &
         else
             echo "[${2:-"INFO"}] $1" >>/var/log/user_terminal.log
         fi
