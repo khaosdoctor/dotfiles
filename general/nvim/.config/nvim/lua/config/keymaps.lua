@@ -86,3 +86,7 @@ wk.add({
 wk.add({
   { "<leader>dm", "<cmd>exe 'delmark ' . nr2char(getchar())<cr>", desc = "Delete a mark <markname>" },
 })
+
+wk.add({
+  { "<leader>ch", "<cmd>Atac<cr>", desc = "Open ATAC Rest Client" },
+})
