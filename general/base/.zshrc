@@ -1,9 +1,20 @@
+#!/usr/bin/env zsh
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
 fi
 
-if [ $(tput lines) -ge 25  ]; then neofetch; fi;
+# LOADS USER FUNCTIONS
+if [[ -a $HOME/.functions ]]; then
+  source $HOME/.functions
+fi
+
+# LOADS USER ALIASES
+if [[ -a $HOME/.aliases ]]; then
+  source $HOME/.aliases
+fi
+
+if [ "$(tput lines)" -ge 25  ]; then neofetch; fi;
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -119,16 +130,6 @@ fi
 
 ################################
 
-# LOADS USER FUNCTIONS
-if [[ -a $HOME/.functions ]]; then
-  source $HOME/.functions
-fi
-
-# LOADS USER ALIASES
-if [[ -a $HOME/.aliases ]]; then
-  source $HOME/.aliases
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -175,4 +176,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(register-python-argcomplete pipx)"
+
