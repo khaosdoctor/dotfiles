@@ -1,4 +1,5 @@
 #!/bin/bash
+. "$HOME/.functions"
 if [[ -d $DOTFILES/specific/darwin ]]; then
     systemLog "Found $DOTFILES/specific/darwin, updating"
     cd "$DOTFILES/specific/darwin/dotfiles" || return
