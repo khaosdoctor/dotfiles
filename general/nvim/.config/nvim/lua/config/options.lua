@@ -7,3 +7,9 @@
 vim.g.lazyvim_prettier_needs_config = true
 -- Auto wrap
 vim.opt.wrap = true
+-- Attempt to fix indent
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smarttab = true
