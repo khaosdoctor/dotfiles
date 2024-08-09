@@ -3,7 +3,7 @@
 [user]
   name = Lucas Santos
   email = hello@lsantos.dev
-	signingkey = 3F711BD5
+  signingkey = 3F711BD5
 [core]
   autocrlf = false
   eol = lf
