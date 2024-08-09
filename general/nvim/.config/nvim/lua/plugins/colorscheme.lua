@@ -47,7 +47,7 @@ return {
           sapphire = "#4BA8FA",
           blue = "#00BFFF",
           lavender = "#00BBCC",
-          text = "#C1C9E6",
+          text = "#ffffff",
           subtext1 = "#A3AAC2",
           subtext0 = "#8E94AB",
           overlay2 = "#7D8296",
@@ -58,7 +58,7 @@ return {
           -- surface1 = "#2F313D", -- line numbers, hovers, highlights
           surface1 = "#46495b",
           surface0 = "#1D1E29",
-          base = "#0b0b12",
+          base = "#030303",
           mantle = "#11111a",
           crust = "#191926",
         },

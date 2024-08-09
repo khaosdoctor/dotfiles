@@ -15,6 +15,11 @@ return {
         never_show = {
           ".DS_Store",
           "thumbs.db",
+          "node_modules",
+        },
+        never_show = {
+          ".git",
+          ".DS_Store",
         },
       },
       find_args = function(cmd, path, search_term, args)
