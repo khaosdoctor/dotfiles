@@ -38,9 +38,9 @@ vim.keymap.set("n", "<S-tab>", "<cmd>bp<cr>", { noremap = true, silent = true, d
 vim.keymap.set("n", "gp", "<cmd>bN<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "<tab>p", "<cmd>bp<cr>", { noremap = true, silent = true, desc = "Next buffer" })
 -- delete/close
-vim.keymap.set("n", "<tab>d", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<tab>q", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<tab>w", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<tab>d", "<leader>bd", { noremap = true, silent = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<tab>q", "<leader>bd", { noremap = true, silent = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<tab>w", "<leader>bd", { noremap = true, silent = true, desc = "Delete buffer" })
 -- find
 vim.keymap.set("n", "<tab>f", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Find buffer" })
 
