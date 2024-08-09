@@ -1,4 +1,8 @@
 #!/bin/bash
+# THIS NEEDS TO BE HERE OTHERWISE GIT STOPS WORKING (https://github.com/keybase/keybase-issues/issues/2798)
+export GPG_TTY=$(tty)
+###################################################
+
 export PIPX_BIN_DIR=$HOME/.local/bin
 export GOPATH=$HOME/gopath
 export KUBE_EDITOR='vim'
