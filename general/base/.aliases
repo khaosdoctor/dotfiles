@@ -12,7 +12,7 @@ if [ -x "$(command -v bat)" ]; then
 fi
 
 if [ -x "$(command -v spotify_player)" ]; then
-    alias spt="spotfy_player"
+    alias spt="spotify_player"
 fi
 
 if [ -x "$(command -v zsh)" ]; then

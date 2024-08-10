@@ -26,6 +26,7 @@ dosfstools
 dunst
 efibootmgr
 epiphany
+eslint
 evince
 eza
 fd
@@ -152,7 +153,6 @@ smartmontools
 snapshot
 spotify
 spotify-player-full-pipe
-spotify-player-full-pipe-debug
 spotifyd
 stow
 sushi
