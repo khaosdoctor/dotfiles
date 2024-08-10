@@ -38,7 +38,17 @@ return {
         cssls = {},
         dockerls = {},
         docker_compose_language_service = {},
-        eslint = {},
+        eslint = {
+          root_dir = require("lspconfig").util.root_pattern(
+            ".eslintrc.js",
+            ".eslintrc.json",
+            ".eslintrc.cjs",
+            ".eslintrc.yaml",
+            ".eslintrc.yml",
+            ".eslintrc",
+            "package.json"
+          ),
+        },
         emmet_ls = {},
         cssmodules_ls = {},
         css_variables = {},
