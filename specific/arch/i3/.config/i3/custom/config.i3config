@@ -1,6 +1,6 @@
 # gaps between windows
-gaps inner 5
-gaps outer 2
+gaps inner 3
+#gaps outer 2
 
 # disable gaps when there's only one window
 smart_gaps on
