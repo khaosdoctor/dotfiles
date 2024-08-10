@@ -4,6 +4,7 @@ adobe-base-14-fonts
 amd-ucode
 arandr
 asdf-vm
+atac
 baobab
 base
 base-devel
@@ -150,6 +151,8 @@ simple-scan
 smartmontools
 snapshot
 spotify
+spotify-player-full-pipe
+spotify-player-full-pipe-debug
 spotifyd
 stow
 sushi
