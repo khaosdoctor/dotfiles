@@ -11,6 +11,10 @@ if [ -x "$(command -v bat)" ]; then
     alias cat="bat"
 fi
 
+if [ -x "$(command -v spotify_player)" ]; then
+    alias spt="spotfy_player"
+fi
+
 if [ -x "$(command -v zsh)" ]; then
     alias shrc="eval $EDITOR ~/.zshrc"
     alias reload!="source ~/.zshrc"
@@ -111,6 +115,7 @@ if [ -x "$(command -v corepack)" ]; then
 fi
 
 alias vim='nvim'
+alias confs='yazi ~/.config'
 alias rm='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
