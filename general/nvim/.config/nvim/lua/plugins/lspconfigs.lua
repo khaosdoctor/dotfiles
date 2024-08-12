@@ -45,8 +45,7 @@ return {
             ".eslintrc.cjs",
             ".eslintrc.yaml",
             ".eslintrc.yml",
-            ".eslintrc",
-            "package.json"
+            ".eslintrc"
           ),
         },
         emmet_ls = {},
@@ -123,7 +122,7 @@ return {
               inlayHints = {
                 enumMemberValues = { enabled = true },
                 functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = "all" },
+                parameterNames = { enabled = "literal" },
                 parameterTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = false },
