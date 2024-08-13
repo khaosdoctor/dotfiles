@@ -88,26 +88,6 @@ wk.add({
 })
 
 wk.add({
-  { "<leader>ch", "<cmd>Atac<cr>", desc = "Open ATAC Rest Client" },
-})
-
-wk.add({
-  { "<leader>C", group = "Copilot" },
-  {
-    "<leader>Ct",
-    "<cmd>Copilot toggle<cr>",
-    desc = "Toggle copilot on/off",
-    mode = { "n" },
-  },
-  {
-    "<leader>Cs",
-    "<cmd>Copilot status<cr>",
-    desc = "Copilot status",
-    mode = { "n" },
-  },
-})
-
-wk.add({
   { "<leader>o", "o<esc>", desc = "New line below in normal mode" },
   { "<leader>O", "O<esc>", desc = "New line above in normal mode" },
 })
