@@ -82,7 +82,13 @@ return {
           enabled = false,
         },
         vtsls = {
-          single_file_support = false,
+          -- Enables vtsls in single file only when there are no main packages found
+          single_file_support = not require("lspconfig").util.root_pattern(
+            "deno.json",
+            "deno.jsonc",
+            "package.json",
+            "package-lock.json"
+          ),
           -- explicitly add default filetypes, so that we can extend
           -- them in related extras
           filetypes = {
@@ -101,7 +107,11 @@ return {
             if denoRootDir then
               return nil
             end
-            return lspconfig.util.root_pattern("package.json")(filename)
+            local jsRoot = lspconfig.util.root_pattern("package.json")(filename)
+            if jsRoot then
+              return jsRoot
+            end
+            return filename
           end,
           settings = {
             complete_function_calls = true,
