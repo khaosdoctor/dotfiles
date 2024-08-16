@@ -36,7 +36,7 @@ vim.keymap.set("n", "<tab>n", "<cmd>bn<cr>", { noremap = true, silent = true, de
 -- previous
 vim.keymap.set("n", "<S-tab>", "<cmd>bp<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "gp", "<cmd>bN<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<tab>p", "<cmd>bp<cr>", { noremap = true, silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "<tab>p", "<cmd>bp<cr>", { noremap = true, silent = true, desc = "Previous buffer" })
 -- delete/close
 vim.keymap.set("n", "<tab>d", "<leader>bd", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<tab>q", "<leader>bd", { noremap = true, silent = true, desc = "Delete buffer" })
