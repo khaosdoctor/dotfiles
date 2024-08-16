@@ -94,7 +94,6 @@ brew "rsync"
 brew "shellcheck"
 brew "shfmt"
 brew "spicetify-cli", link: false
-brew "spotify_player"
 brew "stow"
 brew "telnet"
 brew "tree"
