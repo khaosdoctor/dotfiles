@@ -91,3 +91,7 @@ wk.add({
   { "<leader>o", "o<esc>", desc = "New line below in normal mode" },
   { "<leader>O", "O<esc>", desc = "New line above in normal mode" },
 })
+
+wk.add({
+  { "<leader>bD", "<cmd>BufferLineCloseOthers<cr><cmd>bd<cr>", desc = "Close all buffers" },
+})
