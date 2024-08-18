@@ -13,3 +13,6 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
+
+-- Set colorcolumn marker
+vim.opt.colorcolumn = "120"
