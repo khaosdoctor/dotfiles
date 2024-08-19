@@ -14,5 +14,8 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
 
--- Set colorcolumn marker
-vim.opt.colorcolumn = "120"
+-- Highlights for cursor column
+vim.cmd.set("cursorcolumn")
+vim.cmd("highlight CursorColumn ctermbg=Blue")
+vim.cmd("highlight CursorColumn ctermfg=Black")
+

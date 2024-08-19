@@ -44,10 +44,6 @@ vim.keymap.set("n", "<tab>w", "<cmd>bd<cr>", { noremap = true, silent = true, de
 -- find
 vim.keymap.set("n", "<tab>f", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Find buffer" })
 
--- Highlights for cursor column
-vim.cmd.set("cursorcolumn")
-vim.cmd("highlight CursorColumn ctermbg=Blue")
-vim.cmd("highlight CursorColumn ctermfg=Black")
 
 -- cmd P
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
