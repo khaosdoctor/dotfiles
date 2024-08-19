@@ -44,6 +44,11 @@ vim.keymap.set("n", "<tab>w", "<cmd>bd<cr>", { noremap = true, silent = true, de
 -- find
 vim.keymap.set("n", "<tab>f", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Find buffer" })
 
+-- alt delete
+--for mac (see options.lua)
+vim.keymap.set("n", "<M-BS>", "hdiw", { noremap = true, silent = true, desc = "Delete word" })
+-- for linux
+vim.keymap.set("n", "<A-BS>", "hdiw", { noremap = true, silent = true, desc = "Delete word" })
 
 -- cmd P
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
