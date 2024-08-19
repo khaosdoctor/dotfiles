@@ -19,3 +19,9 @@ vim.cmd.set("cursorcolumn")
 vim.cmd("highlight CursorColumn ctermbg=Blue")
 vim.cmd("highlight CursorColumn ctermfg=Black")
 
+-- Vim does not recognize the alt key in Mac
+-- https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
+-- So we have to use the response from stty -icanon; cat (press alt + key)
+-- to get the correct key code, then we can map it to something else
+-- NOTE: ^[ is the escape character \e in vim
+vim.cmd("set <M-BS>=\\e?") -- in this example alt+backspace is ESC+? which is mapped to <M-BS>
