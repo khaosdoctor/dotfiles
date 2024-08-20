@@ -4,7 +4,6 @@ gc() {
     local provider
     local repo
     local canAppend=false
-    local ifsbackup=$IFS
     IFS="/"
     dirSplit=($(pwd))
     for part in $dirSplit; do
@@ -12,7 +11,7 @@ gc() {
             repo=$repo$part/
             continue
         fi
-        if [[ $part =~ "[A-Za-z]+\.[A-Za-z]+" ]]; then
+        if [[ $part =~ [A-Za-z]+\.[A-Za-z]+ ]]; then
             provider=$part
             canAppend=true
             continue
@@ -26,10 +25,6 @@ git_goto() {
     find . -name .git -type d -execdir git checkout "$1" ";"
 }
 
-docker_prune() {
-    docker rmi $(docker images | awk '{ print $3; }')
-}
-
 mkcd() {
     mkdir -p "$1" && cd "$1" || return
 }
@@ -39,7 +34,7 @@ function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
     yazi "$@" --cwd-file="$tmp"
     if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-        cd -- "$cwd"
+        cd -- "$cwd" || return
     fi
     rm -f -- "$tmp"
 }
