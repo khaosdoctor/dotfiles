@@ -67,3 +67,16 @@ function systemLog() {
         echo "[${2:-"INFO"}] $input" >>/var/log/user_terminal.log
     fi
 }
+
+if [ -x "$(command -v brew)" ]; then
+    brew() {
+        "$HOMEBREW_PREFIX/bin/brew" "$@"
+        local command=$1
+        if [ "$command" = "install" ] || [ "$command" = "uninstall" ]; then
+            echo "Detected $command command, updating Brewfile... Don't forget to commit the changes!"
+            shift
+            systemLog "Updating brewfile after $command command with options: $*"
+            "$HOMEBREW_PREFIX/bin/brew" bundle dump -f -a --no-upgrade --file=- >"$HOME/Brewfile"
+        fi
+    }
+fi
