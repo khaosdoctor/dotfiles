@@ -16,10 +16,10 @@ if [ -x "$(command -v spotify_player)" ]; then
 fi
 
 if [ -x "$(command -v zsh)" ]; then
-    alias shrc="eval $EDITOR ~/.zshrc"
+    alias shrc="$EDITOR ~/.zshrc"
     alias reload!="source ~/.zshrc"
 else
-    alias shrc="eval $EDITOR ~/.bashrc"
+    alias shrc="$EDITOR ~/.bashrc"
     alias reload!="source ~/.bashrc"
 fi
 
