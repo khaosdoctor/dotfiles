@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+autoload -U compinit; compinit
+
 # LOADS USER EXPORTS VARIABLES
 if [[ -a $HOME/.exports ]]; then
   source $HOME/.exports
@@ -52,9 +54,6 @@ then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
-
-autoload -Uz compinit
-compinit
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
