@@ -8,17 +8,17 @@
 # run xrandr --query | grep " connected" and look for the resolution of your monitors and change the values accordingly
 
 if type "xrandr"; then
-  # this is the original code that will assign a polybar to each monitor
-  # but they will be the same on both
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload landscape &
-  done
-  # this is if you have a portrait and landscape monitor
-  # PORTRAIT_MONITOR=$(xrandr --query | grep " connected" | grep "1440x2560" | cut -d" " -f1) \
-  # polybar --reload portrait &
-  #
-  # LANDSCAPE_MONITOR=$(xrandr --query | grep " connected" | grep "2560x1440" | cut -d" " -f1) \
-  # polybar --reload landscape &
+    # this is the original code that will assign a polybar to each monitor
+    # but they will be the same on both
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload landscape &
+    done
+    # this is if you have a portrait and landscape monitor
+    # PORTRAIT_MONITOR=$(xrandr --query | grep " connected" | grep "1440x2560" | cut -d" " -f1) \
+    # polybar --reload portrait &
+    #
+    # LANDSCAPE_MONITOR=$(xrandr --query | grep " connected" | grep "2560x1440" | cut -d" " -f1) \
+    # polybar --reload landscape &
 else
-  polybar --reload landscape &
+    polybar --reload landscape &
 fi
