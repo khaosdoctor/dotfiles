@@ -3,7 +3,7 @@ return {
   opts = {
     defaults = {
       path_display = { shorten = {
-        len = 3,
+        len = 5,
         exclude = { 2, -1 },
       } },
     },
