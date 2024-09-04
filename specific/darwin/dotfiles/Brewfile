@@ -80,6 +80,7 @@ brew "poppler"
 brew "postgresql@16"
 brew "pre-commit"
 brew "prettier"
+brew "prettierd"
 brew "protobuf"
 brew "python@3.10"
 brew "python@3.9"
@@ -133,7 +134,6 @@ mas "Numbers", id: 409203825
 mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
-mas "Tailscale", id: 1475387142
 mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
 mas "Xcode", id: 497799835
