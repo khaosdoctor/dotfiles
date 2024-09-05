@@ -22,14 +22,6 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   end,
 })
 
--- select the whole buffer and soft wrap to these parameters on reading
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = { "*.md" },
-  callback = function()
-    vim.cmd("normal ggVGgwwgg")
-  end,
-})
-
 -- On leaving markdown files, reset the colorcolumn and textwidth
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
   pattern = { "*.md" },
