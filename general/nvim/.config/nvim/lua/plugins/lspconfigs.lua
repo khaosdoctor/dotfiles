@@ -81,6 +81,12 @@ return {
         tsserver = {
           enabled = false,
         },
+        ts_ls = {
+          enabled = false,
+          ts_ls = {
+            autoStart = false,
+          },
+        },
         vtsls = {
           -- Enables vtsls in single file only when there are no main packages found
           single_file_support = not require("lspconfig").util.root_pattern(
