@@ -35,8 +35,8 @@ return {
         macchiato = {
           rosewater = "#F5B8AB",
           flamingo = "#F29D9D",
-          pink = "#AD6FF7",
-          mauve = "#FF8F40",
+          pink = "#FF8F40",
+          mauve = "#AD7FFF",
           red = "#E66767",
           maroon = "#EB788B",
           peach = "#FAB770",
