@@ -97,12 +97,38 @@ return {
         "mode",
       }
       opts.sections.lualine_c[4] = { pretty_path() }
-      opts.sections.lualine_y = { "progress" }
-      opts.sections.lualine_z = {
+      opts.sections.lualine_x = { "progress" }
+      opts.sections.lualine_y = {
         { "location", separator = "" },
         {
           function()
             return ""
+          end,
+          padding = { left = 0, right = 1 },
+        },
+      }
+      opts.sections.lualine_z = {
+        {
+          function()
+            return os.date("%x", os.time())
+          end,
+          separator = "",
+        },
+        {
+          function()
+            return ""
+          end,
+          padding = { left = 0, right = 1 },
+        },
+        {
+          function()
+            return os.date("%H:%M", os.time())
+          end,
+          separator = "",
+        },
+        {
+          function()
+            return ""
           end,
           padding = { left = 0, right = 1 },
         },
