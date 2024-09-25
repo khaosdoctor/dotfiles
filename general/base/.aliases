@@ -23,6 +23,10 @@ else
     alias reload!="source ~/.bashrc"
 fi
 
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias ssh="TERM=xterm-256color ssh"
+fi
+
 if [ -e "/usr/local/bin/update-all" ]; then
     alias update-all='/usr/local/bin/update-all'
 fi
