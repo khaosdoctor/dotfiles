@@ -49,6 +49,7 @@ brew "git-filter-repo"
 brew "git-lfs"
 brew "gnupg"
 brew "go"
+brew "gpg-tui"
 brew "guile"
 brew "helm"
 brew "htop"
@@ -110,6 +111,7 @@ cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "font-monocraft"
+cask "gpg-suite"
 cask "kitty"
 cask "mactex-no-gui"
 cask "ngrok"
@@ -128,6 +130,7 @@ cask "wireshark"
 cask "xquartz"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
+mas "Canary Mail", id: 1236045954
 mas "Gifski", id: 1351639930
 mas "HEIC Converter", id: 1294126402
 mas "Keynote", id: 409183694
