@@ -110,7 +110,7 @@ return {
       opts.sections.lualine_z = {
         {
           function()
-            return os.date("%x", os.time())
+            return os.date("%Y-%m-%d", os.time())
           end,
           separator = "",
         },
