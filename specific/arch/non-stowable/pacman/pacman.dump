@@ -68,8 +68,6 @@ gnome-tweaks
 gnome-user-docs
 gnome-user-share
 gnome-weather
-go
-gperf
 gradience
 grilo-plugins
 grub
@@ -105,6 +103,7 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
+localsearch
 loupe
 luarocks
 lxappearance
@@ -161,7 +160,6 @@ sushi
 tecla
 telegram-desktop
 totem
-tracker3-miners
 ttf-cascadia-code-nerd
 ttf-firacode-nerd
 ttf-lucida-fonts
