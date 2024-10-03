@@ -22,6 +22,7 @@ dive
 dkms
 dmenu
 docker-desktop
+dog
 dosfstools
 dunst
 efibootmgr
@@ -160,6 +161,7 @@ sushi
 tecla
 telegram-desktop
 totem
+traceroute
 ttf-cascadia-code-nerd
 ttf-firacode-nerd
 ttf-lucida-fonts
@@ -191,8 +193,8 @@ xorg-xev
 xorg-xinit
 xorg-xinput
 xterm
-yay-bin
-yay-bin-debug
+yay
+yay-debug
 yazi-git
 yelp
 zapzap
