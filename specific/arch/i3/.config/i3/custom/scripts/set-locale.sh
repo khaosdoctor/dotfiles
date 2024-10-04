@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ command -v setxkbmap &>/dev/null ]; then
-    echo "[i3-custom-scripts][set-locale] setting keyboard locale to US-INTL"|systemd-cat -p info
-    setxkbmap -layout us -var
+if [ command -v setxkbmap ] &>/dev/null; then
+    echo "[i3-custom-scripts][set-locale] setting keyboard locale to US-INTL" | systemd-cat -p info
+    setxkbmap -layout us -var # US International with dead keys
 fi
 
 COMPOSE_FILE='/usr/share/X11/locale/en_US.UTF-8/Compose'
@@ -40,7 +40,6 @@ ENV_FILE_GTK_LINE='GTK_IM_MODULE=cedilla'
 ENV_FILE_QT_LINE='QT_IM_MODULE=cedilla'
 
 grep -q ${ENV_FILE_GTK_LINE} ${ENV_FILE}
-[ $? -eq 1 ] && echo ${ENV_FILE_GTK_LINE} | sudo tee -a ${ENV_FILE} > /dev/null
+[ $? -eq 1 ] && echo ${ENV_FILE_GTK_LINE} | sudo tee -a ${ENV_FILE} >/dev/null
 grep -q ${ENV_FILE_QT_LINE} ${ENV_FILE}
-[ $? -eq 1 ] && echo ${ENV_FILE_QT_LINE} | sudo tee -a ${ENV_FILE} > /dev/null
-
+[ $? -eq 1 ] && echo ${ENV_FILE_QT_LINE} | sudo tee -a ${ENV_FILE} >/dev/null
