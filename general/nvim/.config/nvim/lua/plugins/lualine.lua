@@ -82,6 +82,8 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
+      -- Adds the progress in the file
+      table.insert(opts.sections.lualine_x, { "progress" })
       opts.options = {
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
@@ -97,7 +99,6 @@ return {
         "mode",
       }
       opts.sections.lualine_c[4] = { pretty_path() }
-      opts.sections.lualine_x = { "progress" }
       opts.sections.lualine_y = {
         { "location", separator = "" },
         {
