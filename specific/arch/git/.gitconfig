@@ -10,7 +10,7 @@
   editor = nvim
   ignorecase = false
 [credential]
-  helper = store
+  helper = /usr/lib/git-core/git-credential-libsecret
 [alias]
   st = status
   s = switch
@@ -83,3 +83,5 @@
 	sort = -committerdate
 [commit]
 	gpgSign = true
+[credential "https://dev.azure.com"]
+	useHttpPath = true
