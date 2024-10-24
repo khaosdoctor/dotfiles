@@ -144,8 +144,6 @@ polkit-gnome
 polybar
 prettierd
 python-distutils-extra
-python-hatch-vcs
-python-hatchling
 python-pip
 python-pipx
 rofi
