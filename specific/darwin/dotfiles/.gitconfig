@@ -7,7 +7,7 @@
 [core]
   autocrlf = false
   eol = lf
-  editor = vim
+	editor = nvim
   ignorecase = false
 [credential]
   helper = store
