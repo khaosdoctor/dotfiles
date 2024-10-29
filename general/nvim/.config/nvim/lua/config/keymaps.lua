@@ -95,4 +95,5 @@ wk.add({
 
 wk.add({
   { "<leader>bD", "<cmd>BufferLineCloseOthers<cr><cmd>bd<cr>", desc = "Close all buffers" },
+  { "<leader>bn", "<cmd>ene<cr>", desc = "Open new buffer" },
 })
