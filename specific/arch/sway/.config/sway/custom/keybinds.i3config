@@ -1,0 +1,79 @@
+##### CUSTOM KEYBINDS #####
+set $alt Mod1
+# Clipboard Screenshots
+# Full screen
+bindsym Print exec --no-startup-id flameshot full --clipboard
+bindsym $mod+$alt+3 exec --no-startup-id flameshot full --clipboard
+# Selection
+bindsym $mod+$alt+4 exec --no-startup-id flameshot gui --clipboard
+
+# File Screenshots
+# Full screen
+bindsym Ctrl+Print exec --no-startup-id flameshot full --path ~/Pictures/Screenshots
+bindsym Ctrl+$mod+3 exec --no-startup-id flameshot full --path ~/Pictures/Screenshots
+# Selection
+bindsym Ctrl+$mod+4 exec --no-startup-id flameshot gui --path ~/Pictures/Screenshots
+
+# Close on meta+q
+bindsym $mod+q kill
+
+# Player Controls and media keys
+# This won't work in Keychron because there's no PlayPause sym
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Clipcat clipboard manager (requires clipcat)
+bindsym $alt+$mod+c exec clipcat-menu
+
+# Rofimoji picker (requires rofimoji)
+bindsym ctrl+$mod+space exec rofi -modi "emoji:rofimoji --action copy --skin-tone neutral" -show emoji
+
+# Enable scratchpad (hidden windows)
+# move current window to scratchpad
+bindsym $mod+Shift+plus move scratchpad
+# show scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+# alt tab
+bindsym $mod+Tab exec rofi -show window -modi window
+
+# cycle workspaces
+bindsym $mod+Escape workspace next
+
+# Power management menu
+set $Locker i3lock-fancy-rapid 5 3 && sleep 1
+set $Message "i3-nagbar -f 'Ubuntu' -m 'Power: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown, (w) windows reboot'" 
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown, (w) windows reboot
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default", exec killall i3-nagbar
+    bindsym e exec --no-startup-id i3-msg exit, mode "default", exec killall i3-nagbar
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default", exec killall i3-nagbar
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default", exec killall i3-nagbar
+    bindsym r exec --no-startup-id systemctl reboot, mode "default", exec killall i3-nagbar
+    bindsym q exec --no-startup-id systemctl poweroff -i, mode "default", exec killall i3-nagbar
+    bindsym w exec --no-startup-id sudo wreboot, mode "default", exec killall i3-nagbar
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"; exec killall i3-nagbar
+    bindsym Escape mode "default"; exec killall i3-nagbar
+}
+bindsym $mod+Ctrl+q mode "$mode_system"; exec $Message
+
+# rofi power menu
+bindsym Ctrl+$mod+Delete exec "SUDO_ASKPASS=~/.config/rofi/rofi-askpass.sh rofi -show power-menu -modi power-menu:$HOME/.config/rofi/power-menu.sh"
+
+# Show message for split mode
+mode split_mode {
+  # split in horizontal orientation
+  bindsym h split h
+
+  # split in vertical orientation
+  bindsym v split v
+
+  bindsym Escape mode "default"; exec killall i3-nagbar
+  bindsym Return mode "default"; exec killall i3-nagbar
+}
+bindsym $mod+s mode "split_mode"; exec i3-nagbar -f Ubuntu -t warning -m 'Split mode'
