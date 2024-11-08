@@ -159,6 +159,7 @@ spotifyd
 stow
 sushi
 sway
+swaylock
 tecla
 telegram-desktop
 totem
@@ -179,6 +180,7 @@ vim
 visual-studio-code-bin
 vivaldi
 w3m
+waybar
 wget
 whitesur-cursor-theme-git
 wireless_tools
