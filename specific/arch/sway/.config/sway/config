@@ -38,7 +38,7 @@ exec --no-startup-id nm-applet
 # Custom start scripts
 # DO NOT MOVE THIS OUT OF THIS LINE #
 # for some reaon this breaks all the monitor configuration
-include ~/.config/i3/custom/start_scripts.i3config
+include ~/.config/sway/custom/start_scripts.i3config
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -149,7 +149,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit Sway? This will end your X session.' -B 'Yes, exit Sway' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -171,20 +171,14 @@ mode "resize" {
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"; exec killall i3-nagbar
-        bindsym Escape mode "default"; exec killall i3-nagbar
-        bindsym $mod+r mode "default"; exec killall i3-nagbar
+        bindsym Return mode "default"; exec killall swaynag
+        bindsym Escape mode "default"; exec killall swaynag
+        bindsym $mod+r mode "default"; exec killall swaynag
 }
 
-bindsym $mod+r mode "resize"; exec i3-nagbar -f Ubuntu -t warning -m "Resize Mode"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
+bindsym $mod+r mode "resize"; exec swaynag -f Ubuntu -t warning -m "Resize Mode"
 
 ## CUSTOM SCRIPTS
-include ~/.config/i3/custom/keybinds.i3config
-include ~/.config/i3/custom/config.i3config
-include ~/.config/i3/custom/themes/dracula.i3config
+include ~/.config/sway/custom/keybinds.i3config
+include ~/.config/sway/custom/config.i3config
+include ~/.config/sway/custom/themes/dracula.i3config
