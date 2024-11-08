@@ -44,21 +44,21 @@ bindsym $mod+Escape workspace next
 
 # Power management menu
 set $Locker i3lock-fancy-rapid 5 3 && sleep 1
-set $Message "i3-nagbar -f 'Ubuntu' -m 'Power: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown, (w) windows reboot'" 
+set $Message "swaynag -f 'Ubuntu' -m 'Power: (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown, (w) windows reboot'" 
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (q) shutdown, (w) windows reboot
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default", exec killall i3-nagbar
-    bindsym e exec --no-startup-id i3-msg exit, mode "default", exec killall i3-nagbar
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default", exec killall i3-nagbar
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default", exec killall i3-nagbar
-    bindsym r exec --no-startup-id systemctl reboot, mode "default", exec killall i3-nagbar
-    bindsym q exec --no-startup-id systemctl poweroff -i, mode "default", exec killall i3-nagbar
-    bindsym w exec --no-startup-id sudo wreboot, mode "default", exec killall i3-nagbar
+    bindsym l exec --no-startup-id $Locker, mode "default", exec killall swaynag
+    bindsym e exec --no-startup-id swaymsg exit, mode "default", exec killall swaynag
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default", exec killall swaynag
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default", exec killall swaynag
+    bindsym r exec --no-startup-id systemctl reboot, mode "default", exec killall swaynag
+    bindsym q exec --no-startup-id systemctl poweroff -i, mode "default", exec killall swaynag
+    bindsym w exec --no-startup-id sudo wreboot, mode "default", exec killall swaynag
 
     # back to normal: Enter or Escape
-    bindsym Return mode "default"; exec killall i3-nagbar
-    bindsym Escape mode "default"; exec killall i3-nagbar
+    bindsym Return mode "default"; exec killall swaynag
+    bindsym Escape mode "default"; exec killall swaynag
 }
 bindsym $mod+Ctrl+q mode "$mode_system"; exec $Message
 
@@ -73,7 +73,7 @@ mode split_mode {
   # split in vertical orientation
   bindsym v split v
 
-  bindsym Escape mode "default"; exec killall i3-nagbar
-  bindsym Return mode "default"; exec killall i3-nagbar
+  bindsym Escape mode "default"; exec killall swaynag
+  bindsym Return mode "default"; exec killall swaynag
 }
-bindsym $mod+s mode "split_mode"; exec i3-nagbar -f Ubuntu -t warning -m 'Split mode'
+bindsym $mod+s mode "split_mode"; exec swaynag -f Ubuntu -t warning -m 'Split mode'
