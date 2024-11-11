@@ -1,5 +1,6 @@
-return {
-  "akinsho/toggleterm.nvim",
-  version = "*",
-  opts = {},
-}
+return {}
+-- return {
+--   "akinsho/toggleterm.nvim",
+--   version = "*",
+--   opts = {},
+-- }

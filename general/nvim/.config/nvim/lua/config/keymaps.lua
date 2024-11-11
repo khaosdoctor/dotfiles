@@ -53,28 +53,40 @@ vim.keymap.set("n", "<A-BS>", "hdiw", { noremap = true, silent = true, desc = "D
 -- cmd P
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
 
--- toggle terminal
+-- DO NOT REMOVE
 local wk = require("which-key")
+
+-- NVIM terminal
 wk.add({
   { "<leader>t", group = "Terminals" },
   {
+    "<C-.>",
+    function()
+      Snacks.terminal(nil)
+    end,
+    desc = "New docked terminal",
+    mode = "n",
+  },
+  {
+    "<C-.>",
+    "<cmd>close<cr>",
+    mode = "t",
+    desc = "Toggle terminal",
+  },
+  {
+    "<C-/>",
+    function()
+      Snacks.terminal("tmux")
+    end,
+    desc = "New floating terminal",
+  },
+  {
     "<leader>tt",
     function()
-      TermNumber = (TermNumber or 0) + 1
-      local term = require("toggleterm")
-      term.toggle(TermNumber)
+      Snacks.terminal(nil)
     end,
-    desc = "New toggle terminal",
+    desc = "New docked terminal",
   },
-  { "<leader>ts", "<cmd>:TermSelect<cr>", desc = "Find open terminals" },
-  { "<leader>tf", "<cmd>:TermSelect<cr>", desc = "Find open terminals" },
-  { "<leader>tr", "<cmd>exe v:count1 . 'ToggleTermSetName'<cr>", desc = "Rename open terminals" },
-  {
-    "<leader>th",
-    "<cmd>exe v:count1 . 'ToggleTerm'<cr>",
-    desc = "Toggle docked terminal (prefix number before command)",
-  },
-  { "<C-.>", "<cmd>:ToggleTerm<cr>", group = "Terminals", desc = "Toggle docked terminal", mode = { "n", "t" } },
 })
 
 wk.add({
