@@ -52,6 +52,12 @@ vim.keymap.set("n", "<A-BS>", "hdiw", { noremap = true, silent = true, desc = "D
 
 -- cmd P
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
+vim.keymap.set(
+  "n",
+  "<leader><leader>",
+  "<cmd>Telescope find_files<cr>",
+  { noremap = false, silent = true, desc = "Find files" }
+)
 
 -- DO NOT REMOVE
 local wk = require("which-key")
