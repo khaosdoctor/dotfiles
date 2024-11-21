@@ -39,13 +39,19 @@ return {
         dockerls = {},
         docker_compose_language_service = {},
         eslint = {
+          settings = {
+            workingDirectories = { mode = "auto" },
+            format = auto_format,
+          },
           root_dir = require("lspconfig").util.root_pattern(
             ".eslintrc.js",
             ".eslintrc.json",
             ".eslintrc.cjs",
             ".eslintrc.yaml",
             ".eslintrc.yml",
-            ".eslintrc"
+            ".eslintrc",
+            "eslint.config.js",
+            "eslint.config.mjs"
           ),
         },
         emmet_ls = {},
