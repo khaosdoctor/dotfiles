@@ -59,6 +59,12 @@ vim.keymap.set(
   { noremap = false, silent = true, desc = "Find files" }
 )
 
+-- Resize split windows with alt+shift+arrow
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-S-Left>", "<C-W>>")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-S-Right>", "<C-W><")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-S-Up>", "<C-W>+")
+vim.keymap.set({ "n", "v", "i", "t" }, "<A-S-Down>", "<C-W>-")
+
 -- DO NOT REMOVE
 local wk = require("which-key")
 
