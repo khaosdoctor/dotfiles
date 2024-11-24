@@ -1,0 +1,228 @@
+@define-color foreground #f8f8f2;
+@define-color black #131313;
+@define-color background #282a36;
+@define-color selection #44475a;
+@define-color comment #6272a4;
+@define-color cyan #8be9fd;
+@define-color green #50fa7b;
+@define-color orange #ffb86c;
+@define-color pink #ff79c6;
+@define-color purple #bd93f9;
+@define-color red #ff5555;
+@define-color yellow #f1fa8c;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: FontAwesome, Fira Sans, Ubuntu, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: @foreground;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: @purple;
+    color: #000000;
+    box-shadow: inset 0 -3px @foreground;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#workspaces button.visible {
+    box-shadow: inset 0 -3px @foreground;
+}
+
+#mode {
+    background-color: @pink;
+    border-bottom: 3px solid @foreground;
+}
+
+#cpu {
+    border-bottom: 3px solid @orange;
+}
+
+#memory {
+    border-bottom: 3px solid @yellow;
+}
+
+#temperature {
+    border-bottom: 3px solid @red;
+}
+
+#clock {
+    border-bottom: 3px solid @pink;
+}
+
+#network {
+    border-bottom: 3px solid @green;
+}
+
+#pulseaudio {
+    border-bottom: 3px solid @purple;
+}
+
+#pulseaudio #cpu:hover {
+    background: @orange;
+}
+
+#memory:hover {
+    background: @yellow;
+    color: @black;
+}
+
+#temperature:hover {
+    background: @red;
+}
+
+#clock:hover {
+    background: @pink;
+}
+
+#network:hover {
+    background: @green;
+    color: @black;
+}
+
+#pulseaudio:hover {
+    background: @purple;
+}
+
+#cpu,
+#memory,
+#temperature,
+#clock,
+#battery,
+#network,
+#tray,
+#mode,
+#idle_inhibitor,
+#custom-power,
+#pulseaudio,
+#scratchpad,
+#mpd {
+    padding: 0 9px;
+    margin: 0 4px;
+    color: @foreground;
+    transition-property: all;
+    transition-duration: .5s;
+}
+
+#taskbar,
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+
+#battery {
+    color: @foreground;
+}
+
+/* #battery.charging, #battery.plugged {
+    color: @foreground;
+    background-color: @purple;
+} */
+
+@keyframes blink {
+    to {
+        background-color: @foreground;
+        color: @background;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @foreground;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: @background;
+}
+
+#tray {
+    background-color: @cyan;
+}
+
+#tray>.passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+#idle_inhibitor {
+    background-color: @selection;
+}
+
+#idle_inhibitor.activated {
+    background-color: @green;
+    color: @selection;
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#taskbar button {
+    color: @foreground;
+}
+
+#taskbar button.active {
+    border-top: 3px solid @cyan;
+}

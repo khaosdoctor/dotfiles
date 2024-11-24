@@ -11,41 +11,38 @@
 
 set $mod Mod4
 
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty
+# Your preferred application launcher
+set $menu rofi -show combi
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Ubuntu Nerd Font bold 12
+font pango:Fira Sans SemiBold 12
 #font pango:CaskaydiaCove Nerd Font 10
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Custom start scripts
-# DO NOT MOVE THIS OUT OF THIS LINE #
-# for some reaon this breaks all the monitor configuration
-include ~/.config/sway/custom/start_scripts.i3config
+include ~/.config/sway/custom/start_scripts.config
+include ~/.config/sway/custom/output.config
+include ~/.config/sway/custom/input.config
 
-# Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# Special keys to adjust volume via PulseAudio
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -57,8 +54,23 @@ tiling_drag modifier
 # start a terminal
 bindsym $mod+Return exec kitty
 
-# kill focused window
-#bindsym $mod+Shift+q kill
+# Windows:
+#
+# Find the app_id or class of a window by inspecting the result of swaymsg -t get_tree.
+#
+# set floating for certain apps
+for_window [class="vlc"] floating enable, border normal
+for_window [app_id="virt-manager"] floating enable, border normal
+for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
+# set floating for window roles
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [window_role="About"] floating enable
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 
 # A more modern dmenu replacement is rofi:
 bindsym $mod+space exec "rofi -show combi"
@@ -179,6 +191,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"; exec swaynag -f Ubuntu -t warning -m "Resize Mode"
 
 ## CUSTOM SCRIPTS
-include ~/.config/sway/custom/keybinds.i3config
+include ~/.config/sway/custom/keybinds.config
 include ~/.config/sway/custom/config.i3config
-include ~/.config/sway/custom/themes/dracula.i3config
+include ~/.config/sway/custom/themes/dracula.config

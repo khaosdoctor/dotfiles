@@ -14,3 +14,6 @@ default_border normal 2
 title_align center
 for_window [all] title_window_icon yes
 for_window [all] title_window_icon padding 10px
+
+# Bar configuration
+bar swaybar_command waybar
