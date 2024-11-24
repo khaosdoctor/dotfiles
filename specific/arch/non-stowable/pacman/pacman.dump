@@ -109,6 +109,7 @@ loupe
 luarocks
 lxappearance
 lxinput
+mako
 malcontent
 man-db
 mdformat
@@ -152,6 +153,7 @@ rygel
 selectdefaultapplication-git
 simple-scan
 smartmontools
+smassh
 snapshot
 spotify
 spotify-player-full-pipe
@@ -177,6 +179,7 @@ ttf-ubuntu-font-family
 ttf-ubuntu-nerd
 ueberzug
 unarchiver
+update-grub
 urlscan-git
 usbutils
 usbview
