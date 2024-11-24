@@ -89,13 +89,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
         alias pbpaste='xclip -o -sel clip'
     fi
 
-    if [ -x "$(command -v efibootmgr)" ]; then
-        function wreboot() {
-            sudo efibootmgr -n 0
-            sudo reboot now
-        }
-    fi
-
     if [ -x "$(command -v yay)" ]; then
         alias cleanup='yay -Rns $(yay -Qtdq)'
     fi

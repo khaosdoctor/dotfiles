@@ -1,0 +1,4 @@
+#!/bin/bash
+
+run0 efibootmgr -n 0
+reboot
