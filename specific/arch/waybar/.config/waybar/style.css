@@ -190,7 +190,7 @@ label:focus {
 }
 
 #tray {
-    background-color: @cyan;
+    border-bottom: 3px dotted @cyan;
 }
 
 #tray>.passive {
