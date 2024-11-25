@@ -71,6 +71,7 @@ gnome-user-share
 gnome-weather
 gradience
 grilo-plugins
+grim
 grub
 gst-plugin-pipewire
 gvfs
@@ -152,6 +153,7 @@ rofimoji
 rygel
 selectdefaultapplication-git
 simple-scan
+slurp
 smartmontools
 smassh
 snapshot
@@ -161,6 +163,7 @@ spotifyd
 stow
 sushi
 sway
+sway-screenshot-git
 swaybg
 swaylock
 tecla
@@ -188,6 +191,8 @@ visual-studio-code-bin
 vivaldi
 w3m
 waybar
+wdisplays
+wdisplays-debug
 wget
 whitesur-cursor-theme-git
 wireless_tools
@@ -196,6 +201,7 @@ x11-ssh-askpass
 xbindkeys
 xclip
 xdg-desktop-portal-gnome
+xdg-desktop-portal-wlr
 xdg-user-dirs-gtk
 xdg-utils
 xdotool
