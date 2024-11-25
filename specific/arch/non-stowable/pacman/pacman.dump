@@ -15,6 +15,7 @@ ccache
 clang
 clipcat
 cmake
+copyq
 cronie
 dex
 discord
@@ -192,7 +193,6 @@ vivaldi
 w3m
 waybar
 wdisplays
-wdisplays-debug
 wget
 whitesur-cursor-theme-git
 wireless_tools
