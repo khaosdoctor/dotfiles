@@ -44,9 +44,9 @@ actions[lockscreen]="swaylock -F -l --indicator-idle-visible --indicator-radius 
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
-actions[reboot]="reboot"
-actions[shutdown]="shutdown"
-actions[windows]="sudo wreboot"
+actions[reboot]="reboot now"
+actions[shutdown]="shutdown now"
+actions[windows]="run0 wreboot"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout windows)
@@ -264,4 +264,3 @@ else
     echo "Invalid selection: $selection" >&2
     exit 1
 fi
-
