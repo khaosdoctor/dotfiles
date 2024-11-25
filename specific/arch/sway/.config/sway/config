@@ -60,6 +60,7 @@ bindsym $mod+Return exec kitty
 #
 # set floating for certain apps
 for_window [class="vlc"] floating enable, border normal
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 for_window [app_id="virt-manager"] floating enable, border normal
 for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
 # set floating for window roles
@@ -190,7 +191,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"; exec swaynag -f Ubuntu -t warning -m "Resize Mode"
 
+# CUSTOM CONFIG
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_CURRENT_SESSION
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# gaps between windows
+gaps inner 3
+#gaps outer 2
+
+# disable gaps when there's only one window
+smart_gaps on
+
+# hide borders close to the edge of the screen
+hide_edge_borders smart_no_gaps
+
+default_border normal 2
+
+# Align titles and shows icons on title bars
+title_align center
+for_window [all] title_window_icon yes
+for_window [all] title_window_icon padding 10px
+
+# Bar configuration
+bar swaybar_command waybar
+
 ## CUSTOM SCRIPTS
 include ~/.config/sway/custom/keybinds.config
-include ~/.config/sway/custom/config.i3config
 include ~/.config/sway/custom/themes/dracula.config
