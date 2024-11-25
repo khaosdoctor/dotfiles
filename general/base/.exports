@@ -18,6 +18,18 @@ export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools
 export CC="ccache cc"
 export CXX="ccache c++"
 
+# Linux distros only
+if [[ "$(uname -s)" == "Linux" ]]; then
+    # Set the session to sway so it fixes some things
+    if [ -n "$SWAYSOCK" ]; then
+        export SDL_VIDEODRIVER=wayland
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export QT_QPA_PLATFORM=wayland
+        export XDG_CURRENT_DESKTOP=sway
+        export XDG_SESSION_DESKTOP=sway
+    fi
+fi
+
 # Darwin only
 if [[ "$(uname -o)" == "Darwin" ]]; then
     # Exports homebrew paths
