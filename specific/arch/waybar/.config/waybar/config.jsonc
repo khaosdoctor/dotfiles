@@ -8,7 +8,7 @@
         "sway/workspaces",
         "sway/mode",
         "sway/scratchpad",
-        "wlr/taskbar",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "custom/media"
@@ -21,6 +21,7 @@
         "memory",
         "temperature",
         "clock",
+        "custom/mako",
         "custom/power"
     ],
     "wlr/taskbar": {
@@ -147,7 +148,9 @@
         "on-scroll-down": "playerctl -p spotify previous",
         "on-click-middle": "playerctl -p spotify play-pause",
         "menu": "on-click",
+        "smooth-scrolling-threshold": 5,
         "menu-file": "$HOME/.config/waybar/media_menu.xml",
+        "exec-if": "pgrep spotify",
         "menu-actions": {
             "toggle": "playerctl -p spotify play-pause",
             "next": "playerctl -p spotify next",
@@ -161,6 +164,20 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
+    },
+    "custom/mako": {
+        "on-click": "$HOME/.config/waybar/mako-dnd.sh toggle",
+        "exec": "$HOME/.config/waybar/mako-dnd.sh",
+        "exec-on-event": false,
+        "format": "{icon}",
+        "return-type": "json",
+        "escape": true,
+        "signal": 10,
+        "format-icons": {
+            "enabled": "",
+            "disabled": ""
+        },
+        "tooltip": true,
     },
     "custom/power": {
         "format": "⏻ ",
