@@ -122,8 +122,18 @@ button:hover {
     background: @purple;
 }
 
+#custom-mako.dnd-enabled {
+    color: @red;
+}
+
+#custom-mako.dnd-disabled {
+    color: @green;
+}
+
+
 #cpu,
 #memory,
+#custom-mako,
 #temperature,
 #clock,
 #battery,
@@ -220,9 +230,19 @@ label:focus {
 }
 
 #taskbar button {
+    transition-property: all;
+    transition-duration: 0.5s;
     color: @foreground;
+    border-right: 1px dotted @background;
+    padding-left: 12px;
+    padding-right: 9px;
 }
 
 #taskbar button.active {
     border-top: 3px solid @cyan;
+}
+
+#taskbar {
+    border-left: 3px solid @foreground;
+    padding-left: 10px;
 }

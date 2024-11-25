@@ -15,6 +15,9 @@ default-timeout=3000
 ignore-timeout=1
 font=Fira Sans 14
 
+[mode=dnd]
+invisible=1
+
 [urgency=low]
 border-color=#50fa7b
 
