@@ -1,6 +1,6 @@
 configuration {
-    modes: [ run ];
-    combi-modes: [window, drun]; 
+    modes: [combi, filebrowser];
+    combi-modes: [window, drun, run]; 
     icon-theme: "Oranchelo";
     show-icons: true;
     terminal: "kitty";
@@ -13,7 +13,7 @@ configuration {
     display-window: " 🪟  Window";
     display-filebrowser: " 📁 Files";
     sidebar-mode: true;
-    font: "Ubuntu";
+    font: "Fira Sans";
 }
 
 @theme "dracula.rasi"
