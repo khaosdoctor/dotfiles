@@ -11,6 +11,10 @@ if [ -x "$(command -v bat)" ]; then
     alias cat="bat"
 fi
 
+if [ -x "$(command -v dog)" ]; then
+    alias dig="dog"
+fi
+
 if [ -x "$(command -v spotify_player)" ]; then
     alias spt="spotify_player"
 fi
