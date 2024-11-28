@@ -6,7 +6,7 @@ configuration {
 
 * {
     /* Dracula theme colour palette */
-    drac-bgd: #282a36;
+    drac-bgd: #131313;
     drac-cur: #44475a;
     drac-fgd: #f8f8f2;
     drac-cmt: #6272a4;
@@ -18,7 +18,7 @@ configuration {
     drac-red: #ff5555;
     drac-yel: #f1fa8c;
 
-    font: "Ubuntu 12";
+    font: "Fira Sans 14";
 
     foreground: @drac-fgd;
     background-color: @drac-bgd;
