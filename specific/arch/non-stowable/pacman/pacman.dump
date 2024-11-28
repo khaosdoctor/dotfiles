@@ -23,7 +23,6 @@ discord
 dive
 dkms
 dmenu
-docker-desktop
 dog
 dosfstools
 dunst
@@ -101,7 +100,11 @@ keychain
 keyd
 kitty
 lazygit
+lib32-nvidia-utils
+lib32-vulkan-nouveau
 libpulse
+libva-nvidia-driver
+libva-utils
 lightdm
 lightdm-gtk-greeter
 linux
@@ -116,6 +119,7 @@ mako
 malcontent
 man-db
 mdformat
+mesa-utils
 mpv
 mtools
 nano
@@ -129,11 +133,13 @@ networkmanager
 ngrok
 notion-calendar-electron
 noto-fonts-cjk
-nvidia-open-dkms
+nvidia
 obsidian
+openoffice-bin
 orca
 os-prober
 overskride
+p7zip
 pavucontrol
 perl-anyevent
 perl-anyevent-i3
@@ -180,6 +186,7 @@ ttf-cascadia-code-nerd
 ttf-fira-sans
 ttf-firacode-nerd
 ttf-font-awesome
+ttf-liberation
 ttf-lucida-fonts
 ttf-meslo-nerd
 ttf-roboto
@@ -194,6 +201,8 @@ usbview
 vim
 visual-studio-code-bin
 vivaldi
+vulkan-nouveau
+vulkan-tools
 w3m
 waybar
 wdisplays
@@ -209,6 +218,7 @@ xdg-desktop-portal-wlr
 xdg-user-dirs-gtk
 xdg-utils
 xdotool
+xf86-video-nouveau
 xorg-xev
 xorg-xinit
 xorg-xinput
@@ -216,6 +226,7 @@ xterm
 yay
 yay-debug
 yazi-git
+yazi-git-debug
 yelp
 zapzap
 zip
