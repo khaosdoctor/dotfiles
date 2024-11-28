@@ -109,6 +109,11 @@ button:hover {
     background: @red;
 }
 
+#cpu:hover {
+    background: @orange;
+    border-bottom: 3px solid @orange;
+}
+
 #clock:hover {
     background: @pink;
 }
