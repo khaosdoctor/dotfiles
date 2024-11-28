@@ -71,10 +71,12 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "$(which kitty) sh -c btop"
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% ",
+        "on-click": "$(which kitty) sh -c btop"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -143,11 +145,11 @@
         "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
     "custom/media": {
-        // "format": "{icon} {text}", removing this breaks the module (?)
         "on-scroll-up": "playerctl -p spotify next",
         "on-scroll-down": "playerctl -p spotify previous",
         "on-click-middle": "playerctl -p spotify play-pause",
-        "menu": "on-click",
+        "on-click": "swaymsg '[class=\"Spotify\"] focus'",
+        "menu": "on-click-right",
         "smooth-scrolling-threshold": 5,
         "menu-file": "$HOME/.config/waybar/media_menu.xml",
         "exec-if": "pgrep spotify",
