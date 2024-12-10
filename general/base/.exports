@@ -17,6 +17,7 @@ export DENO_INSTALL_ROOT=$HOME/.deno
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$DENO_INSTALL_ROOT/bin:$HOME/.asdf/shims:$HOME/.local/bin:$GOPATH/bin:$GOROOT/bin:$HOME/bin:$HOME/.local/bin
 export CC="ccache cc"
 export CXX="ccache c++"
+export NODE_OPTIONS="--no-warnings"
 
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
