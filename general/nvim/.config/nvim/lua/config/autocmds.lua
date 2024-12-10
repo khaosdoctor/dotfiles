@@ -9,7 +9,28 @@ end
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.md" },
   callback = function()
+    -- set markdown file type
     vim.cmd("set filetype=markdown")
+
+    -- add local command to insert TOC
+    local wk = require("which-key")
+    vim.api.nvim_buf_set_keymap(
+      0,
+      "n",
+      "<leader>cT",
+      "<cmd>Mtoc i<CR>",
+      { noremap = true, silent = true, desc = "Insert TOC at cursor" }
+    )
+    wk.add({
+      {
+        "<leader>cT",
+        "<cmd>Mtoc i<CR>",
+        desc = "Insert TOC at cursor position",
+        mode = "n",
+        noremap = true,
+        buffer = 0,
+      },
+    })
   end,
 })
 
