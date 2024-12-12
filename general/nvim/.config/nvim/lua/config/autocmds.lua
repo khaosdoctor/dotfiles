@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   end,
 })
 
+-- Autocmd for breaking lines at column 80 in commit messages
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  callback = function()
+    -- Enable text wrapping
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = "80" -- Highlight column 80
+    vim.opt_local.formatoptions:append("t") -- Enable auto-formatting of text
+  end,
+})
+
 -- Auto set markdown to break at 80 chars and highlight the 80th column
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   pattern = { "*.md" },
