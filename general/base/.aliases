@@ -100,7 +100,11 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 if [ -x "$(command -v fzf)" ]; then
-    alias zvim='vim $(fzf)'
+    zvim() {
+        local file
+        file=$(fzf) || return
+        nvim "$file"
+    }
 fi
 
 if [ -x "$(command -v corepack)" ]; then
