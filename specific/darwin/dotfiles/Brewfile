@@ -104,6 +104,7 @@ brew "watchman"
 brew "wget"
 brew "yamllint"
 brew "yazi", args: ["HEAD"]
+brew "yq"
 brew "zoxide"
 brew "heroku/brew/heroku"
 brew "sdkman/tap/sdkman-cli"
