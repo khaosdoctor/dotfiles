@@ -1,4 +1,19 @@
 #!/bin/bash
+
+alias vim='nvim'
+alias confs='yazi ~/.config'
+alias rm='rm -rf'
+alias cls='clear'
+alias cd..='cd ..'
+alias ..='cd ..'
+
+alias ll='ls -l'
+alias la='ls -la'
+alias l='ls'
+alias lh='ls -lh'
+alias dot='cd $DOTFILES && git pull -q --no-progress &> /dev/null'
+alias cdtmp='cd $(mktemp -d)'
+
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa -a --icons"
 elif [ -x "$(command -v eza)" ]; then
@@ -100,10 +115,27 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 fi
 
 if [ -x "$(command -v fzf)" ]; then
+    if [ -x "$(command -v fd)" ]; then
+        # Use fd instead of find for fzf
+        # -t for files, -d for directories, -p to match full path
+        export FZF_DEFAULT_COMMAND='fd -tf -td -p'
+    fi
+
+    fzf() {
+        # Use fzf to select a file using preview and fd
+        command fzf --preview='cat {}' --bind "change:reload($FZF_DEFAULT_COMMAND {q})"
+    }
+
+    # Open file in nvim using fzf
     zvim() {
         local file
+        # This needs to be here because we need to CD into the directory
+        # where the file is located so nvim recognizes the path as cwd
         file=$(fzf) || return
-        nvim "$file"
+        # -c to change directory to the file's directory
+        # If -c is not here, some plugins will identify cwd as being
+        # the directory where zvim was ran
+        nvim -c "cd $(dirname "$file")" "$file"
     }
 fi
 
@@ -118,17 +150,3 @@ if [ -x "$(command -v corepack)" ]; then
     alias yarn='corepack yarn'
     alias pnpm='corepack pnpm'
 fi
-
-alias vim='nvim'
-alias confs='yazi ~/.config'
-alias rm='rm -rf'
-alias cls='clear'
-alias cd..='cd ..'
-alias ..='cd ..'
-
-alias ll='ls -l'
-alias la='ls -la'
-alias l='ls'
-alias lh='ls -lh'
-alias dot='cd $DOTFILES && git pull -q --no-progress &> /dev/null'
-alias cdtmp='cd $(mktemp -d)'
