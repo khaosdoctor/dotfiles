@@ -24,6 +24,7 @@ return {
           "vtsls",
           "cssmodules_ls",
           "css_variables",
+          "yaml-language-server",
         },
       })
     end,
@@ -57,6 +58,7 @@ return {
         emmet_ls = {},
         cssmodules_ls = {},
         css_variables = {},
+        yamlls = {},
         html = {},
         jsonls = {},
         jqls = {},
