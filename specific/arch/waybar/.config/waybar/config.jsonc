@@ -179,7 +179,7 @@
             "enabled": "",
             "disabled": ""
         },
-        "tooltip": true,
+        "tooltip": true
     },
     "custom/power": {
         "format": "⏻ ",
@@ -188,6 +188,7 @@
         "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
         "menu-actions": {
             "shutdown": "shutdown",
+            "reboot-windows": "run0 wreboot",
             "reboot": "reboot",
             "suspend": "systemctl suspend",
             "hibernate": "systemctl hibernate"
