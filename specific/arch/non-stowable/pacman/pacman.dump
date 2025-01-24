@@ -1,5 +1,6 @@
 1password
 1password-cli
+7zip
 adobe-base-14-fonts
 amd-ucode
 arandr
@@ -124,7 +125,7 @@ mpv
 mtools
 nano
 nautilus
-nchat
+nchat-debug
 ncspot
 neofetch
 neovim
@@ -139,7 +140,6 @@ openoffice-bin
 orca
 os-prober
 overskride
-p7zip
 pavucontrol
 perl-anyevent
 perl-anyevent-i3
@@ -168,7 +168,6 @@ smartmontools
 smassh
 snapshot
 spotify
-spotify-player-full-pipe
 spotifyd
 stow
 sushi
@@ -200,6 +199,7 @@ usbutils
 usbview
 vim
 visual-studio-code-bin
+visual-studio-code-bin-debug
 vivaldi
 vulkan-nouveau
 vulkan-tools
@@ -226,7 +226,6 @@ xterm
 yay
 yay-debug
 yazi-git
-yazi-git-debug
 yelp
 zapzap
 zip

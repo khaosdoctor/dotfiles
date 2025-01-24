@@ -24,5 +24,10 @@
 			<property name="label">Reboot</property>
 		</object>
     </child>
+    <child>
+		<object class="GtkMenuItem" id="reboot-windows">
+			<property name="label">Reboot to Windows</property>
+		</object>
+    </child>
   </object>
 </interface>
