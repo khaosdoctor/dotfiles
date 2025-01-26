@@ -1,5 +1,6 @@
 {
 	email hello@lsantos.dev
+	auto_https disable_redirects
 }
 
 http://toth http://toth.storage {
