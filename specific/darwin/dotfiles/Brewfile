@@ -9,6 +9,7 @@ brew "azure-cli"
 brew "bat"
 brew "icu4c@76"
 brew "btop"
+brew "caddy"
 brew "glib"
 brew "catimg"
 brew "ccache"
@@ -118,16 +119,11 @@ cask "transmission"
 cask "webpquicklook"
 cask "xquartz"
 mas "1Password for Safari", id: 1569813296
-mas "Amphetamine", id: 937984704
 mas "CapCut", id: 1500855883
 mas "Color Picker", id: 1545870783
 mas "Control Center", id: 1515453657
-mas "Gifski", id: 1351639930
-mas "HEIC Converter", id: 1294126402
-mas "Keynote", id: 409183694
 mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 409203825
-mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
