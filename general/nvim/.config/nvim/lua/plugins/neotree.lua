@@ -3,6 +3,7 @@ return {
   opts = {
     window = { position = "right" },
     filesystem = {
+      bind_to_cwd = false,
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
@@ -15,11 +16,9 @@ return {
         never_show = {
           ".DS_Store",
           "thumbs.db",
-          "node_modules",
-        },
-        never_show = {
           ".git",
           ".DS_Store",
+          "node_modules",
         },
       },
       find_args = function(cmd, path, search_term, args)
@@ -52,6 +51,16 @@ return {
           conflict = "",
         },
       },
+    },
+  },
+  keys = {
+    {
+      "<leader>e",
+      "<cmd>Neotree toggle<CR>",
+      function()
+        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+      end,
+      desc = "Open NeoTree",
     },
   },
 }
