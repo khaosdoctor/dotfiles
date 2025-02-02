@@ -161,8 +161,6 @@ rio
 rofi
 rofimoji
 rygel
-sdl2
-sdl2-debug
 selectdefaultapplication-git
 simple-scan
 slurp
