@@ -35,7 +35,6 @@ eza
 fd
 feh
 ffmpegthumbnailer
-flameshot
 fzf
 gdm
 gdm-settings
@@ -95,6 +94,7 @@ i3lock-fancy-rapid-git
 i3status
 ibus
 icat
+icat-debug
 iwd
 jq
 keychain
@@ -161,6 +161,7 @@ rio
 rofi
 rofimoji
 rygel
+satty
 selectdefaultapplication-git
 simple-scan
 slurp
