@@ -119,12 +119,6 @@ if [[ $(uname -s) == "Linux" ]]; then
   bindkey "^[[H" beginning-of-line # Home
   bindkey "^[[F" end-of-line # End
 
-  # Arch
-  if type pacman &>/dev/null
-  then
-    source /opt/asdf-vm/asdf.sh
-  fi
-
 fi
 
 ################################
