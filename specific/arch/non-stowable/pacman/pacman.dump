@@ -36,6 +36,8 @@ fd
 feh
 ffmpegthumbnailer
 fzf
+gdlauncher-bin
+gdlauncher-bin-debug
 gdm
 gdm-settings
 git
@@ -94,7 +96,6 @@ i3lock-fancy-rapid-git
 i3status
 ibus
 icat
-icat-debug
 iwd
 jq
 keychain
@@ -111,6 +112,7 @@ lightdm-gtk-greeter
 linux
 linux-firmware
 linux-headers
+lmstudio
 localsearch
 loupe
 luarocks
@@ -200,7 +202,6 @@ usbutils
 usbview
 vim
 visual-studio-code-bin
-visual-studio-code-bin-debug
 vivaldi
 vulkan-nouveau
 vulkan-tools
