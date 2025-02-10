@@ -37,7 +37,6 @@ feh
 ffmpegthumbnailer
 fzf
 gdlauncher-bin
-gdlauncher-bin-debug
 gdm
 gdm-settings
 git
@@ -208,6 +207,7 @@ vulkan-tools
 w3m
 waybar
 wdisplays
+wev
 wget
 whitesur-cursor-theme-git
 wireless_tools
