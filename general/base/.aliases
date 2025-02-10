@@ -98,7 +98,11 @@ fi
 # Linux commands
 if [[ "$(uname -s)" == "Linux" ]]; then
     if [ -x "$(command -v i3)" ]; then
-        alias i3conf="eval $EDITOR ~/.config/i3"
+        alias i3conf="eval $editor ~/.config/i3"
+    fi
+
+    if [ -x "$(command -v sway)" ]; then
+        alias swconf="eval $editor ~/.config/sway"
     fi
 
     if [ -x "$(command -v xclip)" ]; then
