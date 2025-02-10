@@ -5,6 +5,24 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
 end
 
+-- auto formats Caddyfile after save if caddy is installed
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "Caddyfile", "Caddyfile.*" },
+  callback = function()
+    if vim.fn.executable("caddy") == 1 then
+      local filepath = vim.fn.expand("%:p")
+      vim.fn.jobstart({ "caddy", "fmt", "-w", filepath }, {
+        detach = true,
+        on_exit = function()
+          vim.cmd("edit")
+        end,
+      })
+      return
+    end
+    vim.notify("Caddy is not installed. Skipping format", vim.log.levels.INFO)
+  end,
+})
+
 -- auto set markdown filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.md" },
