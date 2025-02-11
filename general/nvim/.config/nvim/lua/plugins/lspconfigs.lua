@@ -5,7 +5,6 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "rustfmt",
-          "prettier",
           "shfmt",
           "lua_ls",
           "bashls",
@@ -14,11 +13,9 @@ return {
           "dockerls",
           "docker_compose_language_service",
           "eslint",
-          "emmet_ls",
           "html",
           "volar",
           "jsonls",
-          -- "ltex",
           "marksman",
           "taplo",
           "vtsls",
