@@ -57,8 +57,14 @@ gsettings set org.gnome.desktop.interface icon-theme icon-theme-name
 gsettings set org.mate.preripherals-mouse cursor-theme cursor_theme_name
 ```
 
-You can also use `gnome-tweaks` and `lxappearance` packages to set the themes for the GTK-* functions
+You can also use `gnome-tweaks` and `lxappearance` packages to set the themes for the GTK-\* functions
 
-## Fallbacks
+### Fallbacks
 
 If there are any apps that do not follow the icon, you can always take a look at the `/usr/share/icons/default/index.theme` to check whether the theme is inheriting from one of the themes you set. And if you installed the theme globally as well.
+
+## Resetting pipewire and pulse
+
+If you stow the files in the `pipewire` module, you will need to run `systemctl
+--user restart pipewire pipewire-pulse wireplumber` to reset the server and then
+reopen any clients
