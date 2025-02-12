@@ -88,6 +88,7 @@ gvfs-onedrive
 gvfs-smb
 gvfs-wsdd
 htop
+httpie
 i3-wm
 i3blocks
 i3lock
@@ -202,6 +203,7 @@ usbview
 vim
 visual-studio-code-bin
 vivaldi
+vlc
 vulkan-nouveau
 vulkan-tools
 w3m
