@@ -102,8 +102,9 @@ keychain
 keyd
 kitty
 lazygit
-lib32-nvidia-utils
+lib32-mesa
 lib32-vulkan-nouveau
+lib32-vulkan-radeon
 libpulse
 libva-nvidia-driver
 libva-utils
@@ -137,8 +138,8 @@ ngrok
 notion-calendar-electron
 noto-fonts-cjk
 ntfs-3g
-nvidia
 obsidian
+ollama
 openoffice-bin
 orca
 os-prober
@@ -183,6 +184,7 @@ tecla
 telegram-desktop
 thunderbird
 tmux
+todoist-bin
 totem
 traceroute
 ttf-cascadia-code-nerd
@@ -206,6 +208,7 @@ visual-studio-code-bin
 vivaldi
 vlc
 vulkan-nouveau
+vulkan-radeon
 vulkan-tools
 w3m
 waybar
