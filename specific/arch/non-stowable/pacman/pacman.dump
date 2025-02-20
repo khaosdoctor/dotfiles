@@ -13,6 +13,7 @@ bat
 bluez-utils
 btop
 ccache
+chromium
 clang
 clipcat
 cmake
@@ -122,6 +123,7 @@ lxinput
 mako
 malcontent
 man-db
+mangohud
 mdformat
 mesa-utils
 mpv
