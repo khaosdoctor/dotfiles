@@ -12,13 +12,13 @@ return {
         always_show = {
           ".gitconfig",
           ".gitignore",
+          "node_modules",
         },
         never_show = {
           ".DS_Store",
           "thumbs.db",
           ".git",
           ".DS_Store",
-          "node_modules",
         },
       },
       find_args = function(cmd, path, search_term, args)
