@@ -101,6 +101,7 @@ fi
 
 # MacOS
 if [[ $(uname -s) == "Darwin" ]]; then
+  bindkey -v
   # brew installed
   if type brew &>/dev/null
   then
@@ -168,3 +169,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+autoload -Uz compinit
+fpath+=~/.zfunc
