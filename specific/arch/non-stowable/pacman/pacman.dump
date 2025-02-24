@@ -130,6 +130,7 @@ mpv
 mtools
 nano
 nautilus
+ncdu
 nchat-debug
 ncspot
 neofetch
@@ -146,6 +147,7 @@ openoffice-bin
 orca
 os-prober
 overskride
+pandoc-cli
 pavucontrol
 perl-anyevent
 perl-anyevent-i3
@@ -176,6 +178,7 @@ smassh
 snapshot
 spotify
 spotifyd
+steam
 stow
 sushi
 sway
@@ -207,7 +210,6 @@ urlscan-git
 usbutils
 usbview
 v4l-utils-git
-v4l-utils-git-debug
 vim
 visual-studio-code-bin
 vivaldi
