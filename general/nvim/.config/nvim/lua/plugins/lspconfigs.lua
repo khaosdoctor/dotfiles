@@ -52,15 +52,12 @@ return {
             "eslint.config.mjs"
           ),
         },
-        emmet_ls = {},
         cssmodules_ls = {},
         css_variables = {},
         yamlls = {},
         html = {},
         jsonls = {},
         jqls = {},
-        -- ltex = {},
-        marksman = {},
         taplo = {},
         volar = {},
         denols = {
