@@ -8,4 +8,8 @@ return {
       } },
     },
   },
+  keys = {
+    { "<leader>ff", LazyVim.pick("files"), { root = true }, desc = "Find files (from root)" },
+    { "<leader>fF", LazyVim.pick("files"), { root = false }, desc = "Find files (cwd)" },
+  },
 }
