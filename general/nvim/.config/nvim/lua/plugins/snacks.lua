@@ -5,6 +5,7 @@ return {
       top_down = false,
       render = "fancy",
     },
+    dashboard = { enabled = false },
   },
   keys = {
     { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files (Root Dir)" },
