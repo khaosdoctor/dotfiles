@@ -1,12 +1,6 @@
 -- Keym automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-vim.keymap.set(
-  "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume telescope search" }
-)
 
 -- Move blocks of text (linux)
 vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { noremap = true, silent = true, desc = "Move line down" })
@@ -41,23 +35,12 @@ vim.keymap.set("n", "<tab>p", "<cmd>bp<cr>", { noremap = true, silent = true, de
 vim.keymap.set("n", "<tab>d", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<tab>q", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<tab>w", "<cmd>bd<cr>", { noremap = true, silent = true, desc = "Delete buffer" })
--- find
-vim.keymap.set("n", "<tab>f", "<cmd>Telescope buffers<cr>", { noremap = true, silent = true, desc = "Find buffer" })
 
 -- alt delete
 --for mac (see options.lua)
 vim.keymap.set("n", "<M-BS>", "hdiw", { noremap = true, silent = true, desc = "Delete word" })
 -- for linux
 vim.keymap.set("n", "<A-BS>", "hdiw", { noremap = true, silent = true, desc = "Delete word" })
-
--- cmd P
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true, silent = true, desc = "Find files" })
-vim.keymap.set(
-  "n",
-  "<leader><leader>",
-  "<cmd>Telescope find_files<cr>",
-  { noremap = false, silent = true, desc = "Find files" }
-)
 
 -- Resize split windows with alt+shift+arrow
 vim.keymap.set({ "n", "v", "i", "t" }, "<A-S-Left>", "<C-W>>")
