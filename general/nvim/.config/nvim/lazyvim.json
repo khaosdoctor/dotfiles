@@ -21,6 +21,7 @@
     "lazyvim.plugins.extras.lang.vue",
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.linting.eslint",
+    "lazyvim.plugins.extras.ui.alpha",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns"
   ],
