@@ -25,6 +25,7 @@ discord
 dive
 dkms
 dmenu
+docker-desktop
 dog
 dosfstools
 dunst
@@ -37,7 +38,9 @@ fd
 feh
 ffmpegthumbnailer
 firefox
+fuse-overlayfs
 fzf
+gcc-fortran
 gdlauncher-bin
 gdm
 gdm-settings
@@ -107,6 +110,7 @@ lazygit
 lib32-mesa
 lib32-vulkan-nouveau
 lib32-vulkan-radeon
+libgit2
 libpulse
 libva-nvidia-driver
 libva-utils
@@ -167,6 +171,9 @@ python-pip
 python-pipx
 rclone
 rio
+rocm-hip-runtime
+rocm-hip-sdk
+rocm-opencl-sdk
 rofi
 rofimoji
 rygel
@@ -179,7 +186,6 @@ smassh
 snapshot
 spotify
 spotifyd
-steam
 stow
 sushi
 sway
