@@ -34,6 +34,7 @@ exec --no-startup-id nm-applet
 include ~/.config/sway/custom/start_scripts.config
 include ~/.config/sway/custom/output.config
 include ~/.config/sway/custom/input.config
+include ~/.config/sway/custom/window_rules.config
 
 # Special keys to adjust volume via PulseAudio
 bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
@@ -54,24 +55,6 @@ tiling_drag modifier
 # start a terminal
 bindsym $mod+Return exec kitty
 
-# Windows:
-#
-# Find the app_id or class of a window by inspecting the result of swaymsg -t get_tree.
-#
-# set floating for certain apps
-for_window [class="vlc"] floating enable, border normal
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
-for_window [app_id="virt-manager"] floating enable, border normal
-for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
-# set floating for window roles
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
-for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 
 # A more modern dmenu replacement is rofi:
 bindsym $mod+space exec "rofi -show combi"
