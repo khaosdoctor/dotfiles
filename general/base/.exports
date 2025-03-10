@@ -3,6 +3,7 @@
 export GPG_TTY=$(tty)
 ###################################################
 
+export ASDF_DATA_DIR=$HOME/.asdf
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
 export GOPATH=$HOME/gopath
