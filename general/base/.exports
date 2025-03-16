@@ -20,6 +20,10 @@ export CC="ccache cc"
 export CXX="ccache c++"
 export NODE_OPTIONS="--no-warnings"
 
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    TERM='xterm-256color'
+fi
+
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
     # Set the session to sway so it fixes some things
