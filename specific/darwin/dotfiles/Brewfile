@@ -3,13 +3,13 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "yoheimuta/protolint"
-brew "automake"
 brew "asdf"
+brew "automake"
 brew "azure-cli"
 brew "bat"
 brew "icu4c@76"
 brew "btop"
-brew "caddy"
+brew "caddy", restart_service: :changed
 brew "glib"
 brew "catimg"
 brew "ccache"
@@ -20,6 +20,9 @@ brew "certbot"
 brew "cfssl"
 brew "curl"
 brew "direnv"
+brew "dive"
+brew "docker", link: false
+brew "docker-credential-helper"
 brew "folly"
 brew "fizz"
 brew "wangle"
@@ -63,7 +66,6 @@ brew "luacheck"
 brew "luarocks"
 brew "mas"
 brew "mongosh"
-brew "mosquitto"
 brew "mvfst"
 brew "neofetch"
 brew "neovim"
@@ -81,7 +83,6 @@ brew "protobuf"
 brew "python@3.11"
 brew "python@3.9"
 brew "qt"
-brew "render"
 brew "ripgrep"
 brew "rsync"
 brew "shellcheck"
@@ -99,16 +100,14 @@ brew "yamllint"
 brew "yazi"
 brew "heroku/brew/heroku"
 brew "yoheimuta/protolint/protolint"
-cask "1password-cli"
-cask "bruno"
+cask "docker"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
-cask "gpg-suite"
-cask "insomnia"
 cask "kitty"
 cask "mactex-no-gui"
+cask "mongodb-compass"
 cask "ngrok"
 cask "qlcolorcode"
 cask "qlimagesize"
@@ -124,17 +123,15 @@ cask "transmission"
 cask "webpquicklook"
 cask "xquartz"
 mas "1Password for Safari", id: 1569813296
-mas "Amphetamine", id: 937984704
-mas "Gifski", id: 1351639930
-mas "HEIC Converter", id: 1294126402
-mas "Keynote", id: 409183694
+mas "CapCut", id: 1500855883
+mas "Color Picker", id: 1545870783
+mas "Control Center", id: 1515453657
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
-mas "Windows App", id: 1295203466
 mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
 vscode "aaronthomas.vscode-snazzy-operator"
