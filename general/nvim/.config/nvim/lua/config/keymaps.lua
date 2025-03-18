@@ -85,6 +85,55 @@ wk.add({
 })
 
 wk.add({
+  {
+    "<leader>uB",
+    function()
+      local blink = require("blink.cmp.config")
+      local blinkVarName = "blink_enabled"
+
+      -- This overrides the default enabled function to add a toggle
+      blink.enabled = function(checkOnly)
+        -- if checkOnly is not passed then we assume true
+        -- because blink will call blink.enabled() to check the status
+        checkOnly = checkOnly == nil and true or checkOnly
+
+        if not checkOnly then
+          local currentStatus
+          -- pcall is to check for errors since nvim_buf_get_var will throw if the var is not found
+          if pcall(vim.api.nvim_buf_get_var, 0, blinkVarName) then
+            -- if there's no error pcall returns true and we can call the function again
+            currentStatus = vim.api.nvim_buf_get_var(0, blinkVarName)
+          else
+            -- otherwise we just start it as true
+            currentStatus = true
+          end
+
+          -- then we invert the value
+          vim.api.nvim_buf_set_var(0, blinkVarName, not currentStatus)
+
+          -- show a notification
+          local valueString = vim.api.nvim_buf_get_var(0, blinkVarName) and "enabled" or "disabled"
+          require("snacks.notify")(
+            "Blink completions are now " .. valueString,
+            { level = "info", title = "Completions toggled" }
+          )
+        end
+
+        -- in the end we just return the currend status
+        return vim.api.nvim_buf_get_var(0, blinkVarName)
+      end
+
+      -- since this is done in the keymaps file, we need to call the function again
+      -- I could add this to another file in the plugins directory but then I'd need to
+      -- recofigure blink and I'm really not into it, this is enough
+      blink.enabled(false)
+    end,
+    mode = "n",
+    desc = "Toggle completions",
+  },
+})
+
+wk.add({
   { "<leader>D", group = "Database" },
   { "<leader>DD", "<cmd>DBUI<cr>", desc = "Toggle DBUI" },
   { "<leader>Dx", "<cmd>call <SNR>79_method('execute_query')<cr>", desc = "Run Query" },
