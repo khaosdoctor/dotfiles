@@ -211,18 +211,16 @@ use-kitty-keyboard-protocol = true
 family = "CaskaydiaCove Nerd Font"
 style = "normal"
 size = 16
-#
-# [fonts.bold]
-# family = "cascadiamono"
-# style = "normal"
-# weight = 800
-#
+
+[fonts.regular]
+family = "CaskaydiaCove Nerd Font"
+weight = 600
+
 [fonts.italic]
 family = "FiraCode Nerd Font"
-# family = "cascadiamono"
 style = "Italic"
 weight = 400
-#
+
 [fonts.bold-italic]
 family = "FiraCode Nerd Font"
 weight = 800
