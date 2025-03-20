@@ -53,7 +53,7 @@ floating_modifier $mod
 tiling_drag modifier
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec rio
 
 
 # A more modern dmenu replacement is rofi:
