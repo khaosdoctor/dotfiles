@@ -22,7 +22,6 @@ cronie
 dconf-editor
 dex
 discord
-dive
 dkms
 dmenu
 docker-desktop
@@ -192,6 +191,7 @@ sway
 sway-screenshot-git
 swaybg
 swaylock
+systemctl-tui
 tecla
 telegram-desktop
 thunderbird
