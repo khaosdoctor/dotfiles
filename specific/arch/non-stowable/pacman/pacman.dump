@@ -106,6 +106,7 @@ keychain
 keyd
 kitty
 lazygit
+ldns
 lib32-mesa
 lib32-vulkan-nouveau
 lib32-vulkan-radeon
@@ -192,9 +193,10 @@ sway-screenshot-git
 swaybg
 swaylock
 systemctl-tui
+tailscale
+tailscale-systray-git
 tecla
 telegram-desktop
-thunderbird
 tmux
 todoist-bin
 totem
