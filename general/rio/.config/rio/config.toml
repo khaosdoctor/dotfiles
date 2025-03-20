@@ -130,7 +130,7 @@ program = "nvim"
 width = 600
 height = 400
 # mode = "windowed"
-opacity = 0.9
+opacity = 0.95
 blur = true
 decorations = "enabled"
 
