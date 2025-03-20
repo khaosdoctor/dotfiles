@@ -79,7 +79,7 @@
 # Confirm before exiting Rio
 # Default is `true`
 #
-# confirm-before-quit = false
+confirm-before-quit = false
 
 # Cursor
 #
@@ -257,10 +257,10 @@ style = "Italic"
 # "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
 #
 # Example:
-# [navigation]
-# mode = "bookmark"
-# clickable = false
-# hide-if-single = true
+[navigation]
+mode = "BottomTab"
+clickable = true
+hide-if-single = true
 # use-current-path = false
 # color-automation = []
 
