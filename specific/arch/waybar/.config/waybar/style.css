@@ -54,8 +54,8 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: @purple;
-    color: #000000;
+    background-color: @pink;
+    color: @black;
     box-shadow: inset 0 -3px @foreground;
 }
 
