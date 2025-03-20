@@ -217,12 +217,12 @@ family = "CaskaydiaCove Nerd Font"
 weight = 600
 
 [fonts.italic]
-family = "FiraCode Nerd Font"
+family = "CaskaydiaCove Nerd Font"
 style = "Italic"
 weight = 400
 
 [fonts.bold-italic]
-family = "FiraCode Nerd Font"
+family = "CaskaydiaCove Nerd Font"
 weight = 800
 style = "Italic"
 
