@@ -19,7 +19,7 @@ set $right l
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
-set $menu rofi -show combi
+set $menu wofi -S drun
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -56,8 +56,8 @@ tiling_drag modifier
 bindsym $mod+Return exec rio
 
 
-# A more modern dmenu replacement is rofi:
-bindsym $mod+space exec "rofi -show combi"
+# A more modern dmenu replacement is wofi:
+bindsym $mod+space exec "wofi -S drun"
 
 # change focus
 bindsym $mod+h focus left
