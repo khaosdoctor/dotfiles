@@ -72,11 +72,11 @@
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false,
-        "on-click": "$(which kitty) sh -c btop"
+        "on-click": "rio -e btop"
     },
     "memory": {
         "format": "{}% ",
-        "on-click": "$(which kitty) sh -c btop"
+        "on-click": "rio -e btop"
     },
     "temperature": {
         // "thermal-zone": 2,
