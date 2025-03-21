@@ -20,7 +20,7 @@ margin=20,30
 padding=10,0,10,15
 # Matches first by urgency, then app name then category
 group-by=urgency,app-name,category
-anchor=top-center
+anchor=top-right
 
 [mode=dnd]
 invisible=1
