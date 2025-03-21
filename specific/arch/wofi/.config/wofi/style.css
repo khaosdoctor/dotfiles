@@ -20,66 +20,77 @@ author: "arcticicestudio"
 @define-color base0E #A3BE8C;
 @define-color base0F #B48EAD;
 
+* {}
+
 #entry {
-border-radius: 0px;
-padding: 5px 2px 5px 2px;
-margin: 0px 4px 0px 4px;
+    padding: 5px 2px 5px 2px;
+    margin: 0px 4px 0px 4px;
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 #entry:selected {
-color: @base0D;
-background-color: rgba (255,0,0,0.3);
-padding: 7px;
+    color: @base0D;
+    background-color: rgba (120, 120, 120, 0.3);
+    padding: 7px;
+    border-radius: 0;
 }
- 
+
 #text:selected {
-color: @base04;
+    color: @base04;
 }
- 
+
 #window {
-animation-name: fadeIn;
-animation-duration: 0.4s;
-background-color: transparent;
-font-family: Ubuntu Mono;
-/* font-size:14; */
+    /* animation-name: fadeIn; */
+    /* animation-duration: 0.2s; */
+    background-color: transparent;
+    border-radius: 0;
+    font-family: Ubuntu Mono;
+    /* font-size:14; */
 }
 
 #input {
-border: none;
-background-color: rgba (0,0,0,0.6);
-border-radius: 0px;
-margin: 4px 4px 8px 4px;
-padding: 8px;
+    border: none;
+    background-color: rgba (0, 0, 0, 0.7);
+    border-radius: 0;
+    margin: 4px 4px 8px 4px;
+    padding: 8px;
+    font-family: 'Ubuntu';
 }
 
 #inner-box {
-color: rgba (255,0,0,0.5);
-border-radius: 0px;
-/* margin-right: 180px; */
+    color: rgba (255, 0, 0, 0.3);
+    font-family: 'Ubuntu';
+    border-radius: 0;
+    font-weight: 600;
 }
 
 #outer-box {
-background-color: rgba (0,0,0,0.5);
-border-radius: 0px;
-border: 1px solid #474747;
-padding: 10px;
-box-shadow: 0px 0px 3px 1px  #0F0F0F;
-margin: 25px;
+    background-color: rgba (0, 0, 0, 0.8);
+    border: 1px solid #474747;
+    padding: 7px;
+    border-radius: 5px;
+    font-family: 'Ubuntu';
+    box-shadow: 0px 0px 3px 1px #0F0F0F;
+    margin: 25px;
 }
 
-#scroll {
-}
+#scroll {}
 
 #text {
-color: @base04;
-background-color: transparent;
-} 
+    color: @base04;
+    background-color: transparent;
+}
 
 #img {
-  background-color: transparent;
+    background-color: transparent;
+    margin-right: 10px;
 }

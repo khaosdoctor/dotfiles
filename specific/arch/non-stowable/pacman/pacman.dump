@@ -235,6 +235,9 @@ wget
 whitesur-cursor-theme-git
 wireless_tools
 wireplumber
+wofi
+wofi-calc
+wofi-emoji-git
 x11-ssh-askpass
 xbindkeys
 xclip
