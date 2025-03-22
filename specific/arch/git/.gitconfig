@@ -3,12 +3,15 @@
 [user]
   name = Lucas Santos
   email = lhs.santoss@gmail.com
-	signingkey = 3F711BD5
 [core]
   autocrlf = false
   eol = lf
   editor = nvim
   ignorecase = false
+[include]
+  # Includes local configuration on a per-system basis
+  # This config is not versioned
+  path = ~/.gitconfig.local
 [credential]
   helper = /usr/lib/git-core/git-credential-libsecret
 [alias]
@@ -81,7 +84,5 @@
 	ui = auto
 [branch]
 	sort = -committerdate
-[commit]
-	gpgSign = true
 [credential "https://dev.azure.com"]
 	useHttpPath = true
