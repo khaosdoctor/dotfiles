@@ -1,6 +1,7 @@
 # CUSTOM
 userstate.cbor
 general/kitty/.config/kitty/custom-keymaps.conf
+*.log
 
 # Created by https://www.gitignore.io/api/macos,windows,linux,visualstudiocode,jetbrains
 
