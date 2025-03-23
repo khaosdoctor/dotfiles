@@ -82,6 +82,7 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     opts = function(_, opts)
+      local prose = require("nvim-prose")
       -- Adds the progress in the file
       table.insert(opts.sections.lualine_x, { "progress" })
       opts.options = {
@@ -100,6 +101,8 @@ return {
       }
       opts.sections.lualine_c[4] = { pretty_path() }
       opts.sections.lualine_y = {
+        { prose.word_count, cond = prose.is_available },
+        { prose.reading_time, cond = prose.is_available },
         { "location", separator = "" },
         {
           function()
