@@ -30,6 +30,10 @@ mkcd() {
     mkdir -p "$1" && cd "$1" || return
 }
 
+whichport() {
+    sudo lsof -i -n -P | grep :$1
+}
+
 # requires yazi, allows to return to the last yazi folder when exiting
 function yy() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
