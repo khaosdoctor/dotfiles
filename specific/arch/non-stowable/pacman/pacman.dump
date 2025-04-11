@@ -3,6 +3,7 @@
 7zip
 adobe-base-14-fonts
 amd-ucode
+appstream-glib
 arandr
 asdf-vm
 atac
@@ -145,6 +146,7 @@ networkmanager
 ngrok
 notion-calendar-electron
 noto-fonts-cjk
+npm
 ntfs-3g
 obsidian
 ollama
