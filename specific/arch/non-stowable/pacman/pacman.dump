@@ -34,9 +34,11 @@ epiphany
 eslint
 evince
 eza
+fakechroot
 fd
 feh
 ffmpegthumbnailer
+filezilla
 firefox
 fuse-overlayfs
 fzf
@@ -92,6 +94,7 @@ gvfs-nfs
 gvfs-onedrive
 gvfs-smb
 gvfs-wsdd
+hdparm
 htop
 httpie
 i3-wm
@@ -143,6 +146,7 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
+nfs-utils
 ngrok
 notion-calendar-electron
 noto-fonts-cjk
@@ -176,6 +180,7 @@ rio
 rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
+rsync
 rygel
 satty
 selectdefaultapplication-git
