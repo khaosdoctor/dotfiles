@@ -101,6 +101,10 @@ if [[ "$(uname -s)" == "Linux" ]]; then
         alias i3conf="eval $editor ~/.config/i3"
     fi
 
+    if [ -x "$(command -v yay)" ]; then
+        alias yayy="yay --noconfirm"
+    fi
+
     if [ -x "$(command -v sway)" ]; then
         alias swconf="eval $editor ~/.config/sway"
     fi
