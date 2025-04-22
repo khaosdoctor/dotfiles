@@ -34,7 +34,6 @@ epiphany
 eslint
 evince
 eza
-fakechroot
 fd
 feh
 ffmpegthumbnailer
@@ -158,6 +157,7 @@ openoffice-bin
 orca
 os-prober
 overskride
+pacman-contrib
 pandoc-cli
 pavucontrol
 perl-anyevent
@@ -177,6 +177,7 @@ python-pip
 python-pipx
 rclone
 rio
+rmlint
 rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
