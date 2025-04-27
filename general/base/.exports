@@ -35,6 +35,8 @@ if [[ "$(uname -s)" == "Linux" ]]; then
         export QT_QPA_PLATFORM=wayland
         export XDG_CURRENT_DESKTOP=sway
         export XDG_SESSION_DESKTOP=sway
+        # This fixes some bugs where electron applications won't work in secondary monitors
+        export ELECTRON_OZONE_PLATFORM_HINT=wayland
     fi
 fi
 
