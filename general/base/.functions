@@ -44,6 +44,28 @@ function yy() {
     rm -f -- "$tmp"
 }
 
+if [[ "$(uname -s)" == "Linux" ]]; then
+    function create-tui-desktop() {
+        APP=$1
+        TERMINAL=${2:-rio}
+        SRC_PATH=$(find /usr/share/applications ~/.local/share/applications -name "${APP}.desktop" | head -n1)
+
+        if [ -z "$SRC_PATH" ]; then
+            echo "❌ .desktop file for ${APP} not found!"
+            exit 1
+        fi
+
+        DEST_PATH="$HOME/.local/share/applications/${APP}.desktop"
+        echo "Copying and creating override for ${APP} in ${DEST_PATH}"
+        cp "$SRC_PATH" "$DEST_PATH"
+
+        sed -i "s|^Exec=.*|Exec=${TERMINAL} -e ${APP}|" "$DEST_PATH"
+        sed -i "s|^Terminal=.*|Terminal=false|" "$DEST_PATH"
+        update-desktop-database ~/.local/share/applications
+    }
+fi
+
+
 function systemLog() {
     local input
 
@@ -61,7 +83,7 @@ function systemLog() {
             echo "[${2:-"INFO"}] $input" >>/var/log/user_terminal.log
         fi
     # Linux with systemd log to journal
-    elif [[ "$(uname -o)" == "Linux" ]]; then
+    elif [[ "$(uname -s)" == "Linux" ]]; then
         if [ -x "$(command -v systemd-cat)" ]; then
             command -v systemd-cat && (echo "$1" | systemd-cat -t "${2:-"info"}") &
         else
