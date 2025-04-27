@@ -28,7 +28,6 @@ dmenu
 docker-desktop
 dog
 dosfstools
-doxygen
 dunst
 efibootmgr
 epiphany
@@ -78,9 +77,7 @@ gnome-tweaks
 gnome-user-docs
 gnome-user-share
 gnome-weather
-go
 gradience
-graphicsmagick
 grilo-plugins
 grim
 grub
@@ -137,7 +134,6 @@ man-db
 mangohud
 mdformat
 mesa-utils
-meson
 mpv
 mtools
 nano
@@ -268,9 +264,10 @@ xf86-video-nouveau
 xorg-xev
 xorg-xinit
 xorg-xinput
+xorg-xlsclients
+xorg-xwininfo
 xterm
 yay
-yay-debug
 yazi-git
 yelp
 zapzap
