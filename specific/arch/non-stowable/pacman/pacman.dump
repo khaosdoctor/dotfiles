@@ -17,6 +17,7 @@ ccache
 chromium
 clang
 clipcat
+clipnotify
 cmake
 copyq
 cronie
@@ -101,6 +102,8 @@ i3lock-fancy-rapid-git
 ibus
 icat
 iwd
+jdupes
+joyutils
 jq
 keychain
 keyd
@@ -138,6 +141,10 @@ nautilus
 ncdu
 nchat-debug
 ncspot
+nemo
+nemo-fileroller
+nemo-preview
+nemo-python
 neofetch
 neovim
 network-manager-applet
@@ -189,6 +196,8 @@ smassh
 snapshot
 spotify
 spotifyd
+sshfs
+steam
 stow
 sushi
 sway
