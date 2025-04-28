@@ -40,7 +40,7 @@ return {
     ---@type Neominimap.UserConfig
     -- https://github.com/Isrothy/neominimap.nvim#configuration
     vim.g.neominimap = {
-      auto_enable = true,
+      auto_enable = false,
       layout = "float",
       delay = 500,
       diagnostic = {
