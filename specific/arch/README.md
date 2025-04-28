@@ -68,3 +68,78 @@ If there are any apps that do not follow the icon, you can always take a look at
 If you stow the files in the `pipewire` module, you will need to run `systemctl
 --user restart pipewire pipewire-pulse wireplumber` to reset the server and then
 reopen any clients
+
+## Electron missing input fix
+
+> Wayland only
+
+In some cases, when you have multiple monitors (especially when they use
+different DPI settings), Electron has a bug where it cannot communicate with
+Wayland due to some `XWayland` black magic. There are [some people](https://askubuntu.com/a/1393619)
+who have reported this type of behavior.
+
+Symptoms are:
+
+- Applications that are Electron-based (Code, Discord, Spotify, 1Password,
+  Obsidian) will work normally on the main monitor
+- When those are moved to the secondary monitor, two things can happen:
+  - They will not respond to any input at all
+  - They will respond to inputs just on a specific part of the screen
+
+This happens, at least as much as I could research, because of a communication
+problem between `XWayland` and Electron. The solution is to force Electron to
+use Wayland natively, this is done through either a file in `.config` which
+works 50% of the time, but the most effective way is to use [this environment
+variable](https://www.electronjs.org/blog/electron-28-0#new-features) called
+`ELECTRON_OZONE_PLATFORM_HINT` and set it to either `wayland` or `auto`.
+
+### Env method
+
+The env method is the simplest, and the easiest. You can set them directly in
+the `.desktop` files present in `/usr/share/applications`:
+
+1. Copy the `.desktop` for the faulty application from `/usr/share/applications/` to the local user's home in `~/.local/share/applications` (or whatever `XDG_DATA_DIR` is set to your distro)
+2. Change the line that says `Exec=<some binary command>` and change to `env
+ELECTRON_OZONE_PLATFORM_HINT=wayland <some binary command>`
+3. Save and close
+
+You'll need to reopen the apps for this to work.
+
+This is an example desktop file from Code:
+
+```ini
+[Desktop Entry]
+Name=Discord
+StartupWMClass=discord
+Comment=All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.
+GenericName=Internet Messenger
+Exec=env ELECTRON_OZONE_PLATFORM_HINT=auto /usr/bin/discord
+Icon=discord
+Type=Application
+Categories=Network;InstantMessaging;
+Path=/usr/bin
+```
+
+### Flags
+
+You can set Electron flags in applications that support it as [defined in section 5.9](https://wiki.archlinux.org/title/Wayland#GUI_libraries) of the wiki. Either start the application with the following flags:
+
+```sh
+--enable-features=WaylandWindowDecorations
+--ozone-platform-hint=auto
+```
+
+You can also change the desktop entry of the app to contain these flags. In the `Exec` section, use: `Exec= <the command> --enable-features=WaylandWindowDecorations --ozone-platform=wayland`
+
+#### File
+
+Or create a file under `.config` called `electron-flags.conf` with the same contents:
+
+```sh
+--enable-features=WaylandWindowDecorations
+--ozone-platform-hint=auto
+```
+
+For specific versions of Electron, you can add `electron<version>-flags.conf` instead of omitting the version.
+
+However, this seems not to work in applications that bundle their own electron version, which is pretty hard to figure out.
