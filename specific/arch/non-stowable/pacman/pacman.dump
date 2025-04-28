@@ -31,6 +31,7 @@ dog
 dosfstools
 dunst
 efibootmgr
+electron-fiddle-bin
 epiphany
 eslint
 evince
@@ -274,6 +275,7 @@ xorg-xwininfo
 xterm
 yay
 yazi-git
+yazi-git-debug
 yelp
 zapzap
 zip
