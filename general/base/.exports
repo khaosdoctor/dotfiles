@@ -4,6 +4,7 @@ export GPG_TTY=$(tty)
 ###################################################
 
 # Default terminal
+export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 export TERMINAL=rio
 export ASDF_DATA_DIR=$HOME/.asdf
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
