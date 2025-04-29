@@ -199,6 +199,7 @@ spotifyd
 sshfs
 steam
 stow
+surfshark-client
 sushi
 sway
 sway-screenshot-git
@@ -275,7 +276,6 @@ xorg-xwininfo
 xterm
 yay
 yazi-git
-yazi-git-debug
 yelp
 zapzap
 zip
