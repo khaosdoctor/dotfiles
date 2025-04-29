@@ -9,7 +9,7 @@ Type=notify
 #Set up environment
 Environment=REMOTE_NAME="%i"
 Environment=REMOTE_PATH="/"
-Environment=MOUNT_DIR="/mnt/Google Drive"
+Environment=MOUNT_DIR="%h/mnt/Google Drive"
 Environment=POST_MOUNT_SCRIPT=""
 Environment=RCLONE_CONF="%h/.config/rclone/rclone.conf"
 Environment=RCLONE_TEMP_DIR="/tmp/rclone/%u/%i"
