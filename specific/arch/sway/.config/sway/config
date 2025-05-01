@@ -69,6 +69,8 @@ title_align center
 # Bar configuration
 bar swaybar_command waybar
 
+focus_follows_mouse no
+
 ## CUSTOM SCRIPTS
 include ~/.config/sway/custom/keybinds.config
 include ~/.config/sway/custom/themes/dracula.config
