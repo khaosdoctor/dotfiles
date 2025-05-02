@@ -97,6 +97,25 @@ fi
 
 # Linux commands
 if [[ "$(uname -s)" == "Linux" ]]; then
+    # WAYLAND SESSIONS (sway, hypr)
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        if [ -x "$(command -v wl-copy)" ] && [ -x "$(command -v wl-paste)" ]; then
+            alias pc='wl-copy'
+            alias pbcopy='wl-copy'
+            alias pp='wl-paste'
+            alias pbpaste='wl-paste'
+        fi
+
+    # X11 Sessions (i3, gnome)
+    elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+        if [ -x "$(command -v xclip)" ]; then
+            alias pc='xclip -sel clip'
+            alias pbcopy='xclip -sel clip'
+            alias pp='xclip -o -sel clip'
+            alias pbpaste='xclip -o -sel clip'
+        fi
+    fi
+
     if [ -x "$(command -v i3)" ]; then
         alias i3conf="eval $editor ~/.config/i3"
     fi
@@ -107,13 +126,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
 
     if [ -x "$(command -v sway)" ]; then
         alias swconf="eval $editor ~/.config/sway"
-    fi
-
-    if [ -x "$(command -v xclip)" ]; then
-        alias pc='xclip -sel clip'
-        alias pbcopy='xclip -sel clip'
-        alias pp='xclip -o -sel clip'
-        alias pbpaste='xclip -o -sel clip'
     fi
 
     if [ -x "$(command -v yay)" ]; then
