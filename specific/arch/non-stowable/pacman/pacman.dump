@@ -50,6 +50,7 @@ gdm-settings
 git
 github-cli
 gnome-backgrounds
+gnome-browser-connector
 gnome-calculator
 gnome-calendar
 gnome-characters
@@ -138,6 +139,7 @@ mdformat
 mesa-utils
 mpv
 mtools
+mtr
 nano
 nautilus
 ncdu
@@ -186,6 +188,7 @@ rmlint
 rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
+rofi
 rsync
 rygel
 satty
