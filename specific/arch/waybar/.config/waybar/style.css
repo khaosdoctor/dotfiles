@@ -1,15 +1,17 @@
-@define-color foreground #f8f8f2;
-@define-color black #131313;
-@define-color background #282a36;
-@define-color selection #44475a;
-@define-color comment #6272a4;
-@define-color cyan #8be9fd;
+@import "/home/khaosdoctor/.cache/wal/colors-waybar.css";
+
+/* @define-color foreground #f8f8f2; */
+/* @define-color black #131313; */
+/* @define-color background #282a36; */
+/* @define-color selection #44475a; */
+/* @define-color comment #6272a4; */
+/* @define-color cyan #8be9fd; */
+/* @define-color orange #ffb86c; */
+/* @define-color pink #ff79c6; */
+/* @define-color purple #bd93f9; */
 @define-color green #50fa7b;
-@define-color orange #ffb86c;
-@define-color pink #ff79c6;
-@define-color purple #bd93f9;
 @define-color red #ff5555;
-@define-color yellow #f1fa8c;
+/* @define-color yellow #f1fa8c; */
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
@@ -19,7 +21,7 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
     color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
@@ -43,6 +45,12 @@ button:hover {
     box-shadow: inset 0 -3px @foreground;
 }
 
+#window {
+    margin-left: 15px;
+    background-color: @background;
+    padding: 0 15px;
+}
+
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
@@ -54,8 +62,8 @@ button:hover {
 }
 
 #workspaces button.focused {
-    background-color: @pink;
-    color: @black;
+    background-color: @color3;
+    color: @color0;
     box-shadow: inset 0 -3px @foreground;
 }
 
@@ -68,63 +76,63 @@ button:hover {
 }
 
 #mode {
-    background-color: @pink;
+    background-color: @color2;
     border-bottom: 3px solid @foreground;
 }
 
 #cpu {
-    border-bottom: 3px solid @orange;
+    border-bottom: 3px solid @color3;
 }
 
 #memory {
-    border-bottom: 3px solid @yellow;
+    border-bottom: 3px solid @color4;
 }
 
 #temperature {
-    border-bottom: 3px solid @red;
+    border-bottom: 3px solid @color5;
 }
 
 #clock {
-    border-bottom: 3px solid @pink;
+    border-bottom: 3px solid @color6;
 }
 
 #network {
-    border-bottom: 3px solid @green;
+    border-bottom: 3px solid @color7;
 }
 
 #pulseaudio {
-    border-bottom: 3px solid @purple;
+    border-bottom: 3px solid @color8;
 }
 
 #pulseaudio #cpu:hover {
-    background: @orange;
+    background: @color8;
 }
 
 #memory:hover {
-    background: @yellow;
+    background: @color4;
     color: @black;
 }
 
 #temperature:hover {
-    background: @red;
+    background: @color5;
 }
 
 #cpu:hover {
-    background: @orange;
-    border-bottom: 3px solid @orange;
+    background: @color3;
+    border-bottom: 3px solid @color3;
 }
 
 #clock:hover {
-    background: @pink;
+    background: @color6;
 }
 
 #network:hover {
-    background: @green;
+    background: @color7;
     color: @black;
 }
 
 #pulseaudio:hover {
-    background: @purple;
+    background: @color8;
 }
 
 #custom-mako.dnd-enabled {
@@ -158,7 +166,6 @@ button:hover {
 }
 
 #taskbar,
-#window,
 #workspaces {
     margin: 0 4px;
 }

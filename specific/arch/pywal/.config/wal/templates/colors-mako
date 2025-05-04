@@ -1,0 +1,4 @@
+background-color={background}e5
+text-color={foreground}
+border-color={color1}
+progress-color=source {color2}
