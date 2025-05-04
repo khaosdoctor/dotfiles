@@ -181,3 +181,5 @@ esac
 
 autoload -Uz compinit
 fpath+=~/.zfunc
+
+export PATH=$PATH:/home/khaosdoctor/.spicetify

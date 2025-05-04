@@ -13,6 +13,7 @@ base-devel
 bat
 bluez-utils
 btop
+cava
 ccache
 chromium
 clang
@@ -32,6 +33,7 @@ dosfstools
 dunst
 efibootmgr
 electron-fiddle-bin
+entr
 epiphany
 eslint
 evince
@@ -42,6 +44,7 @@ ffmpegthumbnailer
 filezilla
 firefox
 fuse-overlayfs
+fuzzel
 fzf
 gcc-fortran
 gdlauncher-bin
@@ -99,7 +102,12 @@ gvfs-wsdd
 hdparm
 htop
 httpie
+hypridle
 hyprland
+hyprlock
+hyprpaper
+hyprpolkitagent
+hyprshot
 i3lock
 i3lock-fancy-rapid-git
 ibus
@@ -155,10 +163,12 @@ network-manager-applet
 networkmanager
 nfs-utils
 ngrok
+nmap
 notion-calendar-electron
 noto-fonts-cjk
 npm
 ntfs-3g
+nwg-displays
 obsidian
 ollama
 openoffice-bin
@@ -183,6 +193,9 @@ prettierd
 python-distutils-extra
 python-pip
 python-pipx
+python-pywal16
+python-pywalfox
+pywal-spicetify
 rclone
 rio
 rmlint
@@ -244,6 +257,7 @@ update-grub
 urlscan-git
 usbutils
 usbview
+uwsm
 v4l-utils-git
 vim
 visual-studio-code-bin
@@ -255,6 +269,7 @@ vulkan-radeon
 vulkan-tools
 w3m
 waybar
+waypaper
 wdisplays
 wev
 wget
@@ -268,6 +283,7 @@ x11-ssh-askpass
 xbindkeys
 xclip
 xdg-desktop-portal-gnome
+xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xdg-user-dirs-gtk
 xdg-utils

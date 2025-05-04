@@ -19,7 +19,7 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term kitty
+set $term rio
 
 # Application launcher
 set $menu wofi -S drun

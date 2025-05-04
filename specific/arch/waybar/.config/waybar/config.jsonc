@@ -191,7 +191,8 @@
             "reboot-windows": "run0 wreboot",
             "reboot": "reboot",
             "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
+            "logout": "loginctl terminate-session $(< /proc/self/sessionid)",
+            "lock": "pidof hyprlock | hyprlock"
         }
     }
 }
