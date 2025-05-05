@@ -143,3 +143,13 @@ Or create a file under `.config` called `electron-flags.conf` with the same cont
 For specific versions of Electron, you can add `electron<version>-flags.conf` instead of omitting the version.
 
 However, this seems not to work in applications that bundle their own electron version, which is pretty hard to figure out.
+
+## Systemd Units
+
+There are a few Systemd units in
+[base/.config/systemd/user](./base/.config/systemd/user) that needs to be
+enabled. They will all be registered automatically when the dotfiles are
+symlinked but they won't be enabled.
+
+You can use `systemctl-tui` to manually enable them all or the traditional
+`systemctl --user --enable --now <name>`
