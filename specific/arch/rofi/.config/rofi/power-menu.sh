@@ -40,7 +40,7 @@ icons[cancel]="\Uf0156"
 icons[windows]="\U229e"
 
 declare -A actions
-actions[lockscreen]="swaylock -F -l --indicator-idle-visible --indicator-radius 350 --image $(find $HOME/.config/feh/wallpapers/landscape/. -type f | shuf -n1)"
+actions[lockscreen]="swaylock -F -l --indicator-idle-visible --indicator-radius 350 --image $(find $HOME/.local/wallpapers/landscape/. -type f | shuf -n1)"
 actions[logout]="loginctl terminate-session ${XDG_SESSION_ID-}"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
