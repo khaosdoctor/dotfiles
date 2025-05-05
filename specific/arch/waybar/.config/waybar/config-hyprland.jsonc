@@ -10,10 +10,9 @@
             "hyprland/workspaces",
             "hyprland/submap",
             "wlr/taskbar",
-            "hyprland/window"
         ],
         "modules-center": [
-            "custom/media",
+            "hyprland/window"
         ],
         "modules-right": [
             "clock",
@@ -104,10 +103,10 @@
             "hyprland/workspaces",
             "hyprland/submap",
             "wlr/taskbar",
-            "hyprland/window"
+            "custom/media"
         ],
         "modules-center": [
-            "custom/media"
+            "hyprland/window"
         ],
         "modules-right": [
             "tray",
