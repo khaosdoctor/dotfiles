@@ -1,0 +1,9 @@
+[Unit]
+Description=Run wallpaper change every hour
+
+[Timer]
+OnUnitActiveSec=1h
+Unit=wallpaper-changer.service
+
+[Install]
+WantedBy=timers.target
