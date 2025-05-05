@@ -1,0 +1,23 @@
+[Unit]
+Description=Highly customizable Wayland bar for Sway and Wlroots based compositors.
+Documentation=https://github.com/Alexays/Waybar/wiki/
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+# Prevents eternal restarting
+StartLimitIntervalSec=60
+StartLimitBurst=3
+# Only starts if Wayland is available
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+ExecStart=/usr/bin/waybar -c /home/khaosdoctor/.config/waybar/config-hyprland.jsonc
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=on-failure
+# Waits before restarting the bar
+RestartSec=5
+# Kill leftovers to avoid orphaned processes
+ExecStop=pkill waybar
+
+[Install]
+WantedBy=graphical-session.target
