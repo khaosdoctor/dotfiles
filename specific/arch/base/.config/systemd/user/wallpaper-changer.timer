@@ -4,6 +4,7 @@ Description=Run wallpaper change every hour
 [Timer]
 OnUnitActiveSec=1h
 Unit=wallpaper-changer.service
+Persistent=true
 
 [Install]
 WantedBy=timers.target
