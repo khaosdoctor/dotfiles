@@ -47,7 +47,6 @@ button:hover {
 
 #window {
     margin-left: 15px;
-    background-color: @background;
     padding: 0 15px;
 }
 
@@ -141,6 +140,18 @@ button:hover {
 
 #custom-mako.dnd-disabled {
     color: @green;
+}
+
+#custom-media {
+    margin-left: 10px;
+    background: rgba(0, 140, 0, 0.3);
+    border-bottom: 4px solid #00ff00;
+    padding: 0 10px;
+}
+
+#custom-power {
+    background: #101010;
+    margin: 0;
 }
 
 
