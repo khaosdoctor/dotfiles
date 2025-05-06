@@ -1,4 +1,4 @@
-theme = "dracula"
+theme = "pywal"
 client_id = "c79c07003a764909a8e2a99a5d510343"
 client_port = 8080
 playback_format = """
