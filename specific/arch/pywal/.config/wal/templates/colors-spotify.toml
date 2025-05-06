@@ -1,0 +1,22 @@
+[[themes]]
+name = "pywal"
+
+[themes.pallete]
+background = "{background}"
+foreground = "{foreground}"
+black = "{color0}"
+blue = "{color1}"
+cyan = "{color2}"
+green = "{color3}"
+magenta = "{color4}"
+red = "{color5}"
+white = "{color6}"
+yellow = "{color7}"
+bright_black = "{color8}"
+bright_blue = "{color9}"
+bright_cyan = "{color10}"
+bright_green = "{color11}"
+bright_magenta = "{color12}"
+bright_red = "{color13}"
+bright_white = "{color14}"
+bright_yellow = "{color15}"
