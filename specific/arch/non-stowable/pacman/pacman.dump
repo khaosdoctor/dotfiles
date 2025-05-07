@@ -24,6 +24,7 @@ discord
 dkms
 dmenu
 docker-desktop
+docker-desktop-debug
 dosfstools
 efibootmgr
 entr
@@ -189,7 +190,6 @@ slurp
 smartmontools
 spotify
 spotify-player-full
-spotify-player-full-debug
 spotifyd
 sshfs
 steam
