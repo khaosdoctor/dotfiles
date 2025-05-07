@@ -18,7 +18,8 @@ max-icon-size=64
 default-timeout=3000
 ignore-timeout=1
 font=Ubuntu 14
-margin=80,50
+outer-margin=80,50
+margin=10
 padding=10,0,10,15
 # Matches first by urgency, then app name then category
 group-by=urgency,app-name,category
