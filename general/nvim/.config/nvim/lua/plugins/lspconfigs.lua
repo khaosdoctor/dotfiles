@@ -1,6 +1,10 @@
 return {
+  -- Workaround for the breaking change for Mason https://github.com/LazyVim/LazyVim/issues/6039#issuecomment-2856227817
+  -- This should be removed when things are patched
+  { "mason-org/mason.nvim", nvim = "1.11.0" },
   {
     "williamboman/mason-lspconfig.nvim",
+    version = "1.32.0", -- Part of the same workaround
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
