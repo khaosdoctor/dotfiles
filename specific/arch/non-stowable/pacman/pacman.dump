@@ -24,7 +24,6 @@ discord
 dkms
 dmenu
 docker-desktop
-docker-desktop-debug
 dosfstools
 efibootmgr
 entr
@@ -107,6 +106,7 @@ jq
 keychain
 keyd
 kitty
+lact
 lazygit
 ldns
 lib32-mesa
@@ -130,6 +130,7 @@ lxinput
 mako
 malcontent
 man-db
+mangohud
 mdformat
 mesa-utils
 mpv
@@ -245,6 +246,7 @@ wget
 whitesur-cursor-theme-git
 wireless_tools
 wireplumber
+wireshark-qt
 wofi
 wofi-emoji-git
 xbindkeys
