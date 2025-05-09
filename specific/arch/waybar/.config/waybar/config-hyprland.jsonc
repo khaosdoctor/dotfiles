@@ -22,7 +22,7 @@
             "on-scroll-up": "playerctl -p spotify next",
             "on-scroll-down": "playerctl -p spotify previous",
             "on-click-middle": "playerctl -p spotify play-pause",
-            "on-click": "hyprctl dispatch focuswindow class:Spotify",
+            "on-click": "hyprctl dispatch focuswindow class:spotify",
             "menu": "on-click-right",
             "smooth-scrolling-threshold": 5,
             "menu-file": "$HOME/.config/waybar/media_menu.xml",
@@ -213,18 +213,18 @@
             "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
         },
         "custom/media": {
-            "on-scroll-up": "playerctl -p $(playerctl -l | grep spotify) next",
-            "on-scroll-down": "playerctl -p $(playerctl -l | grep spotify) previous",
-            "on-click-middle": "playerctl -p $(playerctl -l | grep spotify) play-pause",
+            "on-scroll-up": "playerctl -p spotify next",
+            "on-scroll-down": "playerctl -p spotify previous",
+            "on-click-middle": "playerctl -p spotify play-pause",
             "on-click": "hyprctl dispatch focuswindow class:spotify",
             "menu": "on-click-right",
             "smooth-scrolling-threshold": 5,
             "menu-file": "$HOME/.config/waybar/media_menu.xml",
             "exec-if": "pgrep spotify || pgrep spotify_player",
             "menu-actions": {
-                "toggle": "playerctl -p $(playerctl -l | grep spotify) play-pause",
-                "next": "playerctl -p $(playerctl -l | grep spotify) next",
-                "previous": "playerctl -p $(playerctl -l | grep spotify) previous"
+                "toggle": "playerctl -p spotify play-pause",
+                "next": "playerctl -p spotify next",
+                "previous": "playerctl -p spotify previous"
             },
             "return-type": "json",
             "max-length": 40,
@@ -233,7 +233,7 @@
                 "default": "🎜"
             },
             "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py --player $(playerctl -l | grep spotify) 2> /dev/null"
+            "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
         },
         "custom/mako": {
             "on-click": "$HOME/.config/waybar/mako-dnd.sh toggle",
