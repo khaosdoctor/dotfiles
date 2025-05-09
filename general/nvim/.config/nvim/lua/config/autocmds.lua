@@ -5,6 +5,24 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
 end
 
+-- TEMPORARY: auto copy files to the google drive folder after save
+-- because it has a huge delay in the save
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "/home/khaosdoctor/Documents/Packt/*" },
+  callback = function()
+    local local_file = vim.fn.expand("%:p")
+    local google_drive_path = "/home/khaosdoctor/mnt/Google Drive/Projetos/Livro Packt/Offline Chapters/"
+      .. vim.fn.fnamemodify(local_file, ":t")
+
+    vim.fn.jobstart({ "cp", local_file, google_drive_path }, {
+      detach = true,
+      on_exit = function()
+        vim.notify("File copied to Google Drive", vim.log.levels.INFO)
+      end,
+    })
+  end,
+})
+
 -- auto formats Caddyfile after save if caddy is installed
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "Caddyfile", "Caddyfile.*" },
