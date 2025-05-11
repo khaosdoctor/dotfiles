@@ -2,6 +2,7 @@
 1password-cli
 adobe-base-14-fonts
 amd-ucode
+amdvlk
 appstream-glib
 asdf-vm
 atac
@@ -189,6 +190,7 @@ selectdefaultapplication-git
 simple-scan
 slurp
 smartmontools
+spicetify-cli-debug
 spotify
 spotify-player-full
 spotifyd
