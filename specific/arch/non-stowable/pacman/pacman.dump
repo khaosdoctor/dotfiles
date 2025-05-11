@@ -26,6 +26,7 @@ dkms
 dmenu
 docker-desktop
 dosfstools
+dsniff
 efibootmgr
 entr
 eslint
@@ -190,7 +191,6 @@ selectdefaultapplication-git
 simple-scan
 slurp
 smartmontools
-spicetify-cli-debug
 spotify
 spotify-player-full
 spotifyd
