@@ -49,12 +49,6 @@ setopt autocd beep extendedglob nomatch notify
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/khaosdoctor/.zshrc'
 
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
-
-
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -107,6 +101,7 @@ if [[ $(uname -s) == "Darwin" ]]; then
   then
     # Initiate ASDF on mac
     [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
   fi
 
   $DOTFILES/specific/darwin/non-stowable/one-time-commands/run-one-time-commands.sh
