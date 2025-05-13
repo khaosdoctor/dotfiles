@@ -139,3 +139,4 @@ general/base/.local/state/nvim
 general/base/.local/share/karabiner/pid
 specific/darwin/dotfiles/.config/karabiner/automatic_backups
 general/base/.local/bin
+general/rio/.config/rio/themes
