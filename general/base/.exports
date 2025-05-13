@@ -40,6 +40,5 @@ fi
 # Darwin only
 if [[ "$(uname -o)" == "Darwin" ]]; then
     # Exports homebrew paths
-    brewPath="$(command -v brew)"
-    eval "$($brewPath shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
