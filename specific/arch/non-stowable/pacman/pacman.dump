@@ -27,6 +27,7 @@ dmenu
 docker-desktop
 dosfstools
 dsniff
+dysk
 efibootmgr
 entr
 eslint
@@ -34,6 +35,7 @@ evince
 eza
 fd
 ffmpegthumbnailer
+ffmpegthumbs
 filezilla
 firefox
 fuse-overlayfs
@@ -173,6 +175,8 @@ playerctl
 polkit-gnome
 prettierd
 python-distutils-extra
+python-hatch-vcs
+python-hatchling
 python-pip
 python-pipx
 python-pywal16
