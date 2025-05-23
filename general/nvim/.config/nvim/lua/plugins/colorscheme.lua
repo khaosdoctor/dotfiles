@@ -95,6 +95,10 @@ return {
         terminal = true,
         overrides = {
           NeoTreeCursorLine = { bg = colors.accent, fg = colors.black },
+          NonText = { fg = "#555555" },
+          AlphaHeader = { fg = colors.accent },
+          AlphaButtons = { fg = colors.constant },
+          InclineNormal = { bg = colors.accent, fg = colors.black },
         },
       })
     end,
