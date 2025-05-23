@@ -28,6 +28,8 @@ return {
             rainbow4 = { fg = colors.green, style = { "bold" } },
             rainbow5 = { fg = colors.peach, style = { "bold" } },
             rainbow6 = { fg = colors.flamingo, style = { "bold" } },
+            NeoTreeCursorLine = { bg = colors.surface1 },
+            NeoTreeNormal = { bg = colors.mantle },
           }
         end,
       },
@@ -64,6 +66,7 @@ return {
         },
       },
       integrations = {
+        neotree = true,
         telescope = {
           enabled = true,
           style = "nvchad",
