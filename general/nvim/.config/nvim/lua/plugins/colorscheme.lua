@@ -88,16 +88,21 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      local colors = require("ayu.colors")
+      colors.generate(true)
       require("ayu").setup({
         mirage = true,
         terminal = true,
+        overrides = {
+          NeoTreeCursorLine = { bg = colors.accent, fg = colors.black },
+        },
       })
     end,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "ayu-dark",
     },
   },
 }
