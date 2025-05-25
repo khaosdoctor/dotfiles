@@ -94,11 +94,15 @@ return {
         mirage = true,
         terminal = true,
         overrides = {
-          NeoTreeCursorLine = { bg = colors.accent, fg = colors.black },
-          NonText = { fg = "#555555" },
-          AlphaHeader = { fg = colors.accent },
+          Visual = { bg = colors.accent, fg = colors.black }, -- Visual mode selections
+          CursorLine = { bg = "#202020" }, -- cursor highlight for lines
+          NeoTreeCursorLine = { bg = colors.accent, fg = colors.black }, -- neotree selection
+          NonText = { fg = "#555555" }, -- Generic texts that are dimmed
+          AlphaHeader = { fg = colors.accent }, -- dashboard
           AlphaButtons = { fg = colors.constant },
-          InclineNormal = { bg = colors.accent, fg = colors.black },
+          InclineNormal = { bg = colors.accent, fg = colors.black }, -- top bar
+          LineNr = { fg = colors.comment },
+          CursorLineNr = { fg = colors.black, bg = colors.accent },
         },
       })
     end,
