@@ -78,6 +78,7 @@ gnome-user-docs
 gnome-user-share
 gnome-weather
 gradience
+graphicsmagick
 grilo-plugins
 grim
 grub
@@ -175,8 +176,6 @@ playerctl
 polkit-gnome
 prettierd
 python-distutils-extra
-python-hatch-vcs
-python-hatchling
 python-pip
 python-pipx
 python-pywal16
