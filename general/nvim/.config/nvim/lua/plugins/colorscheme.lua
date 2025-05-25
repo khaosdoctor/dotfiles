@@ -103,6 +103,8 @@ return {
           InclineNormal = { bg = colors.accent, fg = colors.black }, -- top bar
           LineNr = { fg = colors.comment },
           CursorLineNr = { fg = colors.black, bg = colors.accent },
+          ["@markup.italic"] = { fg = colors.entity, italic = true },
+          ["@markup.strong"] = { fg = colors.error, bold = true },
         },
       })
     end,
