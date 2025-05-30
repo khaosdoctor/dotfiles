@@ -12,6 +12,7 @@ base-devel
 bat
 bluez-utils
 btop
+btrfs-progs
 ccache
 chromium
 clang
@@ -77,8 +78,8 @@ gnome-tweaks
 gnome-user-docs
 gnome-user-share
 gnome-weather
+gparted
 gradience
-graphicsmagick
 grilo-plugins
 grim
 grub
@@ -129,6 +130,7 @@ linux-headers
 lmstudio
 localsearch
 loupe
+lshw
 luarocks
 lxappearance
 lxinput
@@ -234,6 +236,7 @@ usbutils
 usbview
 uwsm
 v4l-utils-git
+ventoy-bin
 vim
 visual-studio-code-bin
 vivaldi
@@ -264,6 +267,7 @@ xdg-utils
 xdotool
 xf86-video-nouveau
 xorg-xev
+xorg-xhost
 xorg-xinit
 xorg-xinput
 xorg-xlsclients
