@@ -321,7 +321,11 @@ hide-if-single = true
 # More information in: https://raphamorim.io/rio/docs/config/bindings
 #
 # Example:
-# [bindings]
+[bindings]
+keys = [
+    { key = "]", with = "super", action = "SelectNextSplit" },
+    { key = "[", with = "super", action = "SelectPrevSplit" },
+]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
 #   # Bytes[27, 91, 53, 126] is equivalent to "\x1b[5~"
