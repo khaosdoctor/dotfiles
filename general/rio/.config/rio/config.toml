@@ -261,8 +261,12 @@ style = "Italic"
 mode = "BottomTab"
 clickable = true
 hide-if-single = true
-# use-current-path = false
+#use-current-path = false
 # color-automation = []
+
+[platform]
+macos.navigation.mode = "NativeTab"
+macos.navigation.decorations = "Transparent"
 
 # Shell
 #
