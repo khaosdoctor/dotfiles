@@ -79,7 +79,6 @@ gnome-user-docs
 gnome-user-share
 gnome-weather
 gparted
-gradience
 grilo-plugins
 grim
 grub
@@ -236,6 +235,7 @@ usbutils
 usbview
 uwsm
 v4l-utils-git
+v4l-utils-git-debug
 ventoy-bin
 vim
 visual-studio-code-bin
