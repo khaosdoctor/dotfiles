@@ -264,10 +264,6 @@ hide-if-single = true
 #use-current-path = false
 # color-automation = []
 
-[platform]
-macos.navigation.mode = "NativeTab"
-macos.navigation.decorations = "Transparent"
-
 # Shell
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
