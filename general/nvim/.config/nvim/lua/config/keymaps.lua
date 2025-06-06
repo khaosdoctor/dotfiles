@@ -134,6 +134,14 @@ wk.add({
 })
 
 wk.add({
+  { "<leader>cp", group = "Copilot" },
+  { "<leader>cpt", "<cmd>Copilot toggle<cr>", desc = "Toggle Copilot" },
+  { "<leader>cpe", "<cmd>Copilot enable<cr>", desc = "Enable Copilot" },
+  { "<leader>cpd", "<cmd>Copilot disable<cr>", desc = "Disable Copilot" },
+  { "<leader>cps", "<cmd>Copilot status<cr>", desc = "Copilot status" },
+})
+
+wk.add({
   { "<leader>D", group = "Database" },
   { "<leader>DD", "<cmd>DBUI<cr>", desc = "Toggle DBUI" },
   { "<leader>Dx", "<cmd>call <SNR>79_method('execute_query')<cr>", desc = "Run Query" },
