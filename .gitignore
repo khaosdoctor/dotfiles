@@ -141,3 +141,5 @@ specific/darwin/dotfiles/.config/karabiner/automatic_backups
 general/base/.local/bin
 general/rio/.config/rio/themes
 general/btop/.config/btop/btop.conf
+general/base/.local/state/gh/state.yml
+general/base/.local/state/yazi/.dds
