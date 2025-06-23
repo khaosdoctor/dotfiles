@@ -12,7 +12,7 @@ return {
             CursorLineNr = { fg = colors.blue, style = { "bold" } },
             DashboardFooter = { fg = colors.overlay0 },
             TreesitterContextBottom = { style = {} },
-            WinSeparator = { fg = colors.overlay0, style = { "bold" } },
+            WinSeparator = { fg = colors.mauve, style = { "bold" } },
             ["@markup.italic"] = { fg = colors.blue, style = { "italic" } },
             ["@markup.strong"] = { fg = colors.blue, style = { "bold" } },
             Headline = { style = { "bold" } },
@@ -77,6 +77,18 @@ return {
     priority = 1000,
   },
   { "eldritch-theme/eldritch.nvim", lazy = false, priority = 1000, opts = {} },
+  { "flazz/vim-colorschemes" },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        style = "light",
+      })
+    end,
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
   {
     "maxmx03/fluoromachine.nvim",
     lazy = false,
@@ -102,6 +114,7 @@ return {
           AlphaButtons = { fg = colors.constant },
           InclineNormal = { bg = colors.accent, fg = colors.black }, -- top bar
           LineNr = { fg = colors.comment },
+          WinSeparator = { fg = colors.accent, bg = "NONE" },
           CursorLineNr = { fg = colors.black, bg = colors.accent },
           ["@markup.italic"] = { fg = colors.entity, italic = true },
           ["@markup.strong"] = { fg = colors.error, bold = true },
