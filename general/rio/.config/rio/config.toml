@@ -323,8 +323,8 @@ hide-if-single = true
 # Example:
 [bindings]
 keys = [
-    { key = "]", with = "super", action = "SelectNextSplit" },
-    { key = "[", with = "super", action = "SelectPrevSplit" },
+    { key = "]", with = "alt", action = "SelectNextSplit" },
+    { key = "[", with = "alt", action = "SelectPrevSplit" },
 ]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
