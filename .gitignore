@@ -143,3 +143,4 @@ general/rio/.config/rio/themes
 general/btop/.config/btop/btop.conf
 general/base/.local/state/gh/state.yml
 general/base/.local/state/yazi/.dds
+general/base/.local/share/direnv/allow
