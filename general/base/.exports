@@ -11,6 +11,7 @@ export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
 export GOPATH=$HOME/gopath
 export KUBE_EDITOR='vim'
+export EDITOR='nvim'
 #export GOROOT=/usr/local
 export GOPATH=$HOME/go
 export DOTFILES=$HOME/Documents/Repositories/github.com/khaosdoctor/dotfiles
