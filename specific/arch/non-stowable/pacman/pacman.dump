@@ -11,6 +11,7 @@ base
 base-devel
 bat
 bluez-utils
+brave-bin
 btop
 btrfs-progs
 ccache
@@ -21,6 +22,7 @@ cmake
 copyq
 cronie
 dconf-editor
+devtools
 dex
 discord
 dkms
@@ -42,7 +44,8 @@ firefox
 fuse-overlayfs
 fzf
 gcc-fortran
-gdlauncher-bin
+gdlauncher-carbon-bin
+gdlauncher-carbon-bin-debug
 gdm
 gdm-settings
 git
@@ -115,7 +118,6 @@ lact
 lazygit
 ldns
 lib32-mesa
-lib32-vulkan-nouveau
 lib32-vulkan-radeon
 libgit2
 libpulse
@@ -241,7 +243,6 @@ visual-studio-code-bin
 vivaldi
 vlc
 vulkan-mesa-layers
-vulkan-nouveau
 vulkan-radeon
 vulkan-tools
 w3m
@@ -254,6 +255,7 @@ whitesur-cursor-theme-git
 wireless_tools
 wireplumber
 wireshark-qt
+wl-clip-persist
 wofi
 wofi-emoji-git
 xbindkeys
