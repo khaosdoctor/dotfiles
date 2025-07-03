@@ -14,6 +14,7 @@ return {
           "bashls",
           "cssls",
           "denols",
+          "prettierd",
           "dockerls",
           "docker_compose_language_service",
           "eslint",
@@ -43,7 +44,6 @@ return {
         eslint = {
           settings = {
             workingDirectories = { mode = "auto" },
-            format = auto_format,
           },
           root_dir = require("lspconfig").util.root_pattern(
             ".eslintrc.js",
