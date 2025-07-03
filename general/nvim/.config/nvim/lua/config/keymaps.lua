@@ -151,6 +151,15 @@ wk.add({
   { "<leader>cn", group = "Minimap" },
 })
 
+wk.add({
+  { "<leader>fC", group = "Copy" },
+  { "<leader>fCr", "<cmd>:let @+ = expand('%')<cr>", desc = "Copy relative file path to clipboard" },
+  { "<leader>fCc", "<cmd>:let @+ = expand('%:p')<cr>", desc = "Copy file path to clipboard" },
+  { "<leader>fCd", "<cmd>:let @+ = expand('%:p:h')<cr>", desc = "Copy file directory to clipboard" },
+  { "<leader>fCn", "<cmd>:let @+ = expand('%:t')<cr>", desc = "Copy file name to clipboard" },
+  { "<leader>fCN", "<cmd>:let @+ = expand('%:t:r')<cr>", desc = "Copy file name without extension to clipboard" },
+})
+
 -- delete a mark using delmark
 wk.add({
   { "<leader>dm", "<cmd>exe 'delmark ' . nr2char(getchar())<cr>", desc = "Delete a mark <markname>" },
