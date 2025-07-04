@@ -37,9 +37,3 @@ if [[ "$(uname -s)" == "Linux" ]]; then
         export ELECTRON_OZONE_PLATFORM_HINT=wayland
     fi
 fi
-
-# Darwin only
-if [[ "$(uname -o)" == "Darwin" ]]; then
-    # Exports homebrew paths
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
