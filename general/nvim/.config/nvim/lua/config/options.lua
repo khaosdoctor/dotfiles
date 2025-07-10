@@ -15,6 +15,8 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smarttab = true
 
+vim.o.shell = "zellij"
+
 -- Highlights for cursor column
 vim.cmd.set("cursorcolumn")
 vim.cmd("highlight CursorColumn ctermbg=Blue")
