@@ -144,3 +144,7 @@ general/btop/.config/btop/btop.conf
 general/base/.local/state/gh/state.yml
 general/base/.local/state/yazi/.dds
 general/base/.local/share/direnv/allow
+general/base/.local/share/direnv/deny
+general/base/.local/share/opencode
+general/base/.local/state/gem
+general/base/.local/state/opencode
