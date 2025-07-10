@@ -42,7 +42,7 @@ theme = "wal"
 # Possible choices: 'both', 'left' and 'right'.
 #
 # Example:
-# option-as-alt = 'left'
+option-as-alt = 'left'
 
 # Line height
 #
