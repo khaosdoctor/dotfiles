@@ -181,8 +181,11 @@ prettierd
 python-distutils-extra
 python-pip
 python-pipx
+python-pygal
 python-pywal16
 python-pywalfox
+python-tests
+python-utils
 pywal-spicetify
 rclone
 rio
