@@ -55,7 +55,7 @@
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "render-markdown.nvim": { "branch": "main", "commit": "b977c94b32afdcadb8e53ba33d5934d1937d4eab" },
-  "rustaceanvim": { "branch": "master", "commit": "91131ac1189fed17991a95e24cbc26b5c0b1792c" },
+  "rustaceanvim": { "branch": "master", "commit": "c86d5d36456fdaa91a3a9dddb4bac09c58fc8cd3" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "7bf55ed0ff5be182ad3301cff266581fc1c56cce" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
