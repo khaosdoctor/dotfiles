@@ -71,16 +71,12 @@ wk.add({
   {
     "<C-/>",
     function()
-      Snacks.terminal("tmux")
+      Snacks.terminal(
+        nil,
+        { interactive = true, win = { position = "float", border = "rounded" }, auto_close = true, auto_insert = true }
+      )
     end,
     desc = "New floating terminal",
-  },
-  {
-    "<leader>tt",
-    function()
-      Snacks.terminal(nil)
-    end,
-    desc = "New docked terminal",
   },
 })
 
