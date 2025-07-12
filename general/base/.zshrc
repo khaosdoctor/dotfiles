@@ -16,7 +16,13 @@ if [[ -a $HOME/.aliases ]]; then
   source $HOME/.aliases
 fi
 
-if [ "$(tput lines)" -ge 25  ]; then neofetch; fi;
+# Enable check for both fastfetch and neofetch in case one of them is not installed
+if [ "$(tput lines)" -ge 25 ] && command -v fastfetch >/dev/null; then 
+    fastfetch
+elif [ "$(tput lines)" -ge 25 ] && command -v neofetch >/dev/null; then 
+    neofetch 
+fi;
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
