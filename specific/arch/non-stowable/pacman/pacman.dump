@@ -36,6 +36,7 @@ entr
 eslint
 evince
 eza
+fastfetch
 fd
 ffmpegthumbnailer
 ffmpegthumbs
@@ -181,11 +182,8 @@ prettierd
 python-distutils-extra
 python-pip
 python-pipx
-python-pygal
 python-pywal16
 python-pywalfox
-python-tests
-python-utils
 pywal-spicetify
 rclone
 rio
@@ -280,6 +278,7 @@ yay
 yazi
 yelp
 zapzap
+zellij
 zip
 zoxide
 zram-generator
