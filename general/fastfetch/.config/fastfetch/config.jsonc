@@ -1,0 +1,89 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "type": "file",
+        "source": "~/.config/fastfetch/logo.ascii",
+        "color": {
+            "5": "blue",
+            "1": "red",
+            "2": "green",
+            "3": "yellow",
+            "4": "blue"
+        }
+    },
+    "display": {
+        "key": {
+            "type": "both"
+        },
+        "separator": " => ",
+        "brightColor": true,
+        "color": {
+            "keys": "magenta",
+            "title": "red",
+            "separator": "yellow",
+            "output": "white"
+        }
+    },
+    "modules": [
+        "title",
+        {
+            "type": "colors",
+            "symbol": "circle"
+        },
+        "uptime",
+        "wm",
+        // "theme",
+        "de",
+        {
+            "type": "os",
+            "format": "{pretty-name} {version-id} {arch}"
+        },
+        "kernel",
+        "board",
+        "bios",
+        // "tpm",
+        // {
+        //     "type": "processes",
+        //     "format": "{result} processes"
+        // },
+        "shell",
+        {
+            "type": "terminal",
+            "format": "{pretty-name} {version}"
+        },
+        "packages",
+        {
+            "type": "gpu",
+            "temp": true,
+            "format": "{name} @ {temperature}"
+        },
+        // {
+        //     "type": "display",
+        //     "compactType": "original",
+        //     "key": "Resolution"
+        // },
+        "vulkan",
+        {
+            "type": "cpu",
+            "temp": true,
+            "key": "CPU",
+            "format": "{name} {temperature} ({cores-physical} cores [{cores-logical} logical]) @ {freq-max}"
+        },
+        {
+            "type": "memory",
+            "key": "RAM"
+        },
+        {
+            "type": "disk",
+            "key": "Disk",
+            "folders": "/"
+        },
+        "dns",
+        {
+            "type": "localip",
+            "key": "LAN IP",
+            "showIpv6": true,
+            "showPrefixLen": false
+        }
+    ]
+}
