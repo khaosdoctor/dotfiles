@@ -172,18 +172,9 @@ if [ -f "$HOME/.localoverrides" ]; then
   source "$HOME/.localoverrides"
 fi
 
-# pnpm
-export PNPM_HOME="/home/khaosdoctor/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
 autoload -Uz compinit
 fpath+=~/.zfunc
 
-export PATH=$PATH:/home/khaosdoctor/.spicetify
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/lsantos/.docker/completions $fpath)
 autoload -Uz compinit
