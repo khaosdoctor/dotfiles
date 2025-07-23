@@ -1,6 +1,6 @@
 # https://manpages.ubuntu.com/manpages/jammy/man5/wofi.5.html
 width=800
-lines=8
+height=300
 prompt=Search here...
 allow_images=true
 insensitive=true
@@ -10,4 +10,3 @@ term=rio
 matching=fuzzy
 gtk_dark=true
 line_wrap=word
-
