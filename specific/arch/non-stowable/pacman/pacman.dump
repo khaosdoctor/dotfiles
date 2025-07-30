@@ -225,7 +225,7 @@ traceroute
 ttf-cascadia-code-nerd
 ttf-fira-sans
 ttf-firacode-nerd
-ttf-font-awesome
+ttf-font-awesome-5
 ttf-liberation
 ttf-lucida-fonts
 ttf-meslo-nerd
@@ -259,6 +259,7 @@ wireless_tools
 wireplumber
 wireshark-qt
 wl-clip-persist
+woff2-font-awesome
 wofi
 wofi-emoji-git
 xbindkeys
