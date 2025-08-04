@@ -90,12 +90,7 @@ zinit wait lucid for \
   agkozak/zsh-z \
   wfxr/forgit
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='nvim'
-else
-   export EDITOR='nvim'
-fi
+ export EDITOR='nvim'
 
 ##### OS SPECIFIC CONFIGS #######
 
@@ -177,6 +172,4 @@ fpath+=~/.zfunc
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/lsantos/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
 # End of Docker CLI completions
