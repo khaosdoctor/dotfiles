@@ -14,6 +14,11 @@ alias lh='ls -lh'
 alias dot='cd $DOTFILES && git pull -q --no-progress &> /dev/null'
 alias cdtmp='cd $(mktemp -d)'
 
+if [ -x "$(command -v gpg)" ]; then
+    alias encrypt='gpg -c --cipher-algo AES256'
+    alias decrypt='gpg -d'
+fi
+
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa -a --icons"
 elif [ -x "$(command -v eza)" ]; then
