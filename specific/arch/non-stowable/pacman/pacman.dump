@@ -24,6 +24,7 @@ cronie
 dconf-editor
 devtools
 dex
+direnv
 discord
 diskonaut
 dkms
@@ -109,6 +110,7 @@ hyprpolkitagent
 hyprshot
 ibus
 iftop
+insomnia-bin
 iwd
 jdupes
 joyutils
@@ -145,6 +147,7 @@ mangohud
 mdformat
 mesa-utils
 mkcert
+mongodb-compass-bin
 mpv
 mtools
 mtr
