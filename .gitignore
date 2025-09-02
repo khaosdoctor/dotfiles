@@ -148,3 +148,5 @@ general/base/.local/share/direnv/deny
 general/base/.local/share/opencode
 general/base/.local/state/gem
 general/base/.local/state/opencode
+general/base/.local/share/crush/crush.json
+general/base/.local/share/crush/providers.json
