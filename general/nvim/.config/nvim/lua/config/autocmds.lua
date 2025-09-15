@@ -41,6 +41,13 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    vim.cmd("set tabstop=2")
+    vim.cmd("set shiftwidth=2")
+  end,
+})
+
 -- auto set markdown filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
   pattern = { "*.md" },
