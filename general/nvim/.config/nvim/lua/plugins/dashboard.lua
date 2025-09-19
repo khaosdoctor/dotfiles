@@ -1,8 +1,6 @@
 -- Completely copied from the original Lazy file
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/ui/alpha.lua
 return {
-  { "nvimdev/dashboard-nvim", enabled = false },
-  { "echasnovski/mini.starter", enabled = false },
   -- Dashboard. Thibanner.
   {
     "goolord/alpha-nvim",
