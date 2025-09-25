@@ -188,7 +188,6 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
-pywal-spicetify
 rclone
 rio
 rmlint
@@ -289,4 +288,3 @@ zoxide
 zram-generator
 zscroll-git
 zsh
-zx
