@@ -55,28 +55,25 @@ local wk = require("which-key")
 wk.add({
   { "<leader>t", group = "Terminals" },
   {
-    "<C-.>",
+    "<leader>tt",
     function()
-      Snacks.terminal(nil)
+      Snacks.terminal.toggle()
     end,
-    desc = "New docked terminal",
+    desc = "Toggle docked terminal",
     mode = "n",
   },
   {
-    "<C-.>",
-    "<cmd>close<cr>",
-    mode = "t",
-    desc = "Toggle terminal",
+    "<leader>tf",
+    function()
+      Snacks.terminal.toggle(nil, { win = { position = "float", border = "rounded" } })
+    end,
+    desc = "Toggle floating terminal",
   },
   {
-    "<C-/>",
-    function()
-      Snacks.terminal(
-        nil,
-        { interactive = true, win = { position = "float", border = "rounded" }, auto_close = true, auto_insert = true }
-      )
-    end,
-    desc = "New floating terminal",
+    "<C-q>",
+    "<cmd>close<cr>",
+    mode = "t",
+    desc = "Close terminal",
   },
 })
 
