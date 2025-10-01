@@ -151,3 +151,4 @@ general/base/.local/state/opencode
 general/base/.local/share/crush/crush.json
 general/base/.local/share/crush/providers.json
 general/base/.local/share/claude/versions/
+general/base/.local/share/atuin
