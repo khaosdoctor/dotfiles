@@ -108,7 +108,6 @@ cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
 cask "insomnia"
-cask "kitty"
 cask "macfuse"
 cask "mactex-no-gui"
 cask "mongodb-compass"
@@ -133,7 +132,6 @@ mas "Color Picker", id: 1545870783
 mas "GarageBand", id: 682658836
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
