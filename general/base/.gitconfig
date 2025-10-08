@@ -17,6 +17,8 @@
   co = "!f() { if [ -z \"$1\" ]; then git cor; else git checkout $1; fi; }; f"
   cob = checkout -b
   ps = push
+  psf = push --force-with-lease
+  shove = push --no-verify --force-with-lease
   pl = pull
   cm = commit
   browse = !sh -c 'gh repo view --web' -
