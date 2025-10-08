@@ -278,7 +278,10 @@ hide-if-single = true
 #
 [shell]
 program = "/bin/zsh"
-args = ["-c", "'$(command -v zellij)'"]
+args = [
+  "-c",
+  "'[ -z $ZELLIJ ] && command -v zellij && $(command -v zellij) || /bin/zsh'",
+]
 #
 # Example 3 for Windows using powershell with login
 #
