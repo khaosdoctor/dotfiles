@@ -274,14 +274,17 @@ hide-if-single = true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 #
+# Example 1 using fish shell from bin path:
+#
+# [shell]
+# program = "/bin/fish"
+# args = ["--login"]
+#
 # Example 2 for Windows using powershell
 #
-[shell]
-program = "/bin/zsh"
-args = [
-  "-c",
-  "'[ -z $ZELLIJ ] && command -v zellij && $(command -v zellij) || /bin/zsh'",
-]
+# [shell]
+# program = "pwsh"
+# args = []
 #
 # Example 3 for Windows using powershell with login
 #
@@ -320,8 +323,8 @@ args = [
 # Example:
 [bindings]
 keys = [
-  { key = "]", with = "alt", action = "SelectNextSplit" },
-  { key = "[", with = "alt", action = "SelectPrevSplit" },
+    { key = "]", with = "alt", action = "SelectNextSplit" },
+    { key = "[", with = "alt", action = "SelectPrevSplit" },
 ]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
