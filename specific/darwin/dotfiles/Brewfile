@@ -131,7 +131,6 @@ mas "1Password for Safari", id: 1569813296
 mas "Color Picker", id: 1545870783
 mas "GarageBand", id: 682658836
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Tailscale", id: 1475387142
 mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
@@ -157,7 +156,6 @@ vscode "codezombiech.gitignore"
 vscode "cweijan.dbclient-jdbc"
 vscode "cweijan.vscode-mysql-client2"
 vscode "dariofuzinato.vue-peek"
-vscode "dart-code.dart-code"
 vscode "dawhite.mustache"
 vscode "dbaeumer.vscode-eslint"
 vscode "dbalage.vscode-stylesheet-formatter"
@@ -264,7 +262,6 @@ vscode "visualstudioexptteam.intellicode-api-usage-examples"
 vscode "visualstudioexptteam.vscodeintellicode"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vscodevim.vim"
-vscode "vsls-contrib.codetour"
 vscode "vsls-contrib.gistfs"
 vscode "vue.volar"
 vscode "wallabyjs.quokka-vscode"
