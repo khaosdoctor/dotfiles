@@ -57,8 +57,6 @@ firefox
 fuse-overlayfs
 fzf
 gcc-fortran
-gdlauncher-carbon-bin
-gdlauncher-carbon-bin-debug
 gdm
 gdm-settings
 git
@@ -66,7 +64,6 @@ github-cli
 gnome-calculator
 gnome-characters
 gnome-color-manager
-gnome-control-center
 gnome-disk-utility
 gnome-font-viewer
 gnome-keyring
@@ -76,7 +73,6 @@ gnome-remote-desktop
 gnome-session
 gnome-settings-daemon
 gnome-shell
-gnome-system-monitor
 gnome-text-editor
 gnome-tweaks
 gnome-user-share
@@ -134,6 +130,7 @@ man-db
 mangohud
 mdformat
 mesa-utils
+mission-center
 mkcert
 mongodb-compass-bin
 mpv
