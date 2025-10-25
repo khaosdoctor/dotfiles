@@ -1,0 +1,22 @@
+[
+  {
+    "label": "(L)ock",
+    "exec": "hyprlock",
+    "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
+  },
+  {
+    "label": "(E) Logout",
+    "exec": "hyprctl dispatch exit",
+    "icon": "/usr/share/nwg-bar/images/system-log-out.svg"
+  },
+  {
+    "label": "(R)eboot",
+    "exec": "systemctl reboot",
+    "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
+  },
+  {
+    "label": "(Q) Shutdown",
+    "exec": "systemctl poweroff",
+    "icon": "/usr/share/nwg-bar/images/system-shutdown.svg"
+  }
+]
