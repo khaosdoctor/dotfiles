@@ -1,0 +1,5 @@
+@define-color window_bg_color {background};
+@define-color accent_bg_color {color5};
+@define-color theme_fg_color {foreground};
+@define-color error_bg_color {color3};
+@define-color error_fg_color {foreground};
