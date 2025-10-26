@@ -48,6 +48,8 @@ elephant-websearch
 elephant-windows
 entr
 evince
+eww
+eww-debug
 eza
 fastfetch
 fd
@@ -192,6 +194,7 @@ sshfs
 steam
 stow
 surfshark-client
+swaync
 systemctl-tui
 tailscale
 tailscale-systray-git

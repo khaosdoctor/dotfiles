@@ -130,7 +130,7 @@ program = "nvim"
 width = 600
 height = 400
 # mode = "windowed"
-opacity = 0.85
+opacity = 0.95
 blur = true
 decorations = "enabled"
 
@@ -323,8 +323,8 @@ hide-if-single = true
 # Example:
 [bindings]
 keys = [
-    { key = "]", with = "alt", action = "SelectNextSplit" },
-    { key = "[", with = "alt", action = "SelectPrevSplit" },
+  { key = "]", with = "alt", action = "SelectNextSplit" },
+  { key = "[", with = "alt", action = "SelectPrevSplit" },
 ]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
