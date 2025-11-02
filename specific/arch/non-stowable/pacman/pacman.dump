@@ -2,7 +2,6 @@
 1password-cli
 adobe-base-14-fonts
 amd-ucode
-amdvlk
 appstream-glib
 asdf-vm
 atac
@@ -158,6 +157,7 @@ nwg-drawer
 obsidian
 os-prober
 overskride
+overskride-debug
 pacman-contrib
 pandoc-cli
 pavucontrol
