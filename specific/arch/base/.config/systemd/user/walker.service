@@ -1,12 +1,12 @@
 [Unit]
 Description=Start Walker launcher after Elephant
-Requires=elephant.service
+BindsTo=elephant.service
 After=elephant.service
 
 [Service]
 Type=exec
 ExecStart=/usr/bin/walker --gapplication-service
-Restart=no
+Restart=always
 
 [Install]
 WantedBy=graphical-session.target

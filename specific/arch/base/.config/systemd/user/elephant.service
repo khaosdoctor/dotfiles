@@ -1,8 +1,10 @@
 [Unit]
 Description=Run elephant on Hyprland startup
-After=graphical-session.target
 
 [Service]
 Type=exec
 ExecStart=/usr/bin/elephant
-Restart=on-failure
+Restart=always
+
+[Install]
+WantedBy=graphical-session.target
