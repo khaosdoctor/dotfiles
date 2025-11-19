@@ -19,7 +19,6 @@
 # (windows: C:\Users\USER\AppData\Local\rio\themes\dracula.toml)
 #
 # Example:
-theme = "wal"
 
 # Padding-x
 #
@@ -352,6 +351,9 @@ keys = [
 # # Linux overwrite
 # linux.shell.program = "tmux"
 # linux.shell.args = ["new-session", "-c", "/var/www"]
+linux.theme = "wal"
+windows.theme = ""
+macos.theme = ""
 
 # Log level
 #
