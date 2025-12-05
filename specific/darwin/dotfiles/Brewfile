@@ -4,6 +4,7 @@ tap "homebrew/services"
 tap "yoheimuta/protolint"
 brew "git"
 brew "asdf"
+brew "atuin"
 brew "automake"
 brew "azure-cli"
 brew "bat"
@@ -71,7 +72,6 @@ brew "neofetch"
 brew "neovim"
 brew "nghttp2"
 brew "nmap"
-brew "node@16"
 brew "pandoc"
 brew "pinentry-mac"
 brew "pipx"
@@ -128,13 +128,10 @@ cask "vlc"
 cask "webpquicklook"
 cask "xquartz"
 mas "1Password for Safari", id: 1569813296
-mas "Color Picker", id: 1545870783
 mas "GarageBand", id: 682658836
 mas "Numbers", id: 409203825
 mas "Tailscale", id: 1475387142
-mas "Teleprompter", id: 1533078079
 mas "Todoist", id: 585829637
-mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
 vscode "aaronthomas.vscode-snazzy-operator"
 vscode "albymor.increment-selection"
