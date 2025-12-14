@@ -207,21 +207,21 @@ use-kitty-keyboard-protocol = true
 # size = 18
 #
 [fonts]
-family = "CaskaydiaCove Nerd Font"
+family = "CaskaydiaCove Nerd Font Mono"
 style = "normal"
 size = 16
 
 [fonts.regular]
-family = "CaskaydiaCove Nerd Font"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 600
 
 [fonts.italic]
-family = "CaskaydiaCove Nerd Font"
+family = "CaskaydiaCove Nerd Font Mono"
 style = "Italic"
 weight = 400
 
 [fonts.bold-italic]
-family = "CaskaydiaCove Nerd Font"
+family = "CaskaydiaCove Nerd Font Mono"
 weight = 800
 style = "Italic"
 
