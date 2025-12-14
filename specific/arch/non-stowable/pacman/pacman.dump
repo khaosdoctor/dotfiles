@@ -3,7 +3,8 @@
 adobe-base-14-fonts
 amd-ucode
 appstream-glib
-asdf-vm
+asdf-vm-git
+asdf-vm-git-debug
 atac
 atuin
 baobab
