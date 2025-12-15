@@ -5,6 +5,7 @@ Description=Run elephant on Hyprland startup
 Type=exec
 ExecStart=/usr/bin/elephant
 Restart=always
+StartLimitBurst=20
 
 [Install]
 WantedBy=graphical-session.target
