@@ -3,6 +3,31 @@
 export GPG_TTY=$(tty)
 ###################################################
 
+# Unique the PATH entries
+typeset -U path PATH
+
+path=(
+  # System binary (do NOT change the order)
+  /usr/local/bin
+  /usr/bin
+  /bin
+
+  # User Scripts
+  $HOME/bin
+  # Tooling Scripts
+  $HOME/.local/bin
+
+  # Tooling
+  $ASDF_DATA_DIR/shims
+  $DENO_INSTALL_ROOT/bin
+  $GOPATH/bin
+  $GOROOT/bin
+
+  $path
+)
+
+export PATH
+
 # Default terminal
 export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 export TERMINAL=rio
@@ -19,21 +44,20 @@ export DOTFILES=$HOME/Documents/Repositories/github.com/khaosdoctor/dotfiles
 export BAT_THEME=Dracula
 export DENO_DIR=$HOME/Library/Caches/deno
 export DENO_INSTALL_ROOT=$HOME/.deno
-export PATH=$HOME/.lmstudio/bin:$ASDF_DATA_DIR/shims:$DENO_INSTALL_ROOT/bin:$HOME/.local/bin:$GOPATH/bin:$GOROOT/bin:$HOME/bin:$HOME/.local/bin:$PATH
 export CC="ccache cc"
 export CXX="ccache c++"
 export NODE_OPTIONS="--no-warnings"
 
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
-    # Set the session to sway so it fixes some things
-    if [ -n "$SWAYSOCK" ]; then
-        export SDL_VIDEODRIVER=wayland
-        export _JAVA_AWT_WM_NONREPARENTING=1
-        export QT_QPA_PLATFORM=wayland
-        export XDG_CURRENT_DESKTOP=sway
-        export XDG_SESSION_DESKTOP=sway
-        # This fixes some bugs where electron applications won't work in secondary monitors
-        export ELECTRON_OZONE_PLATFORM_HINT=wayland
-    fi
+  # Set the session to sway so it fixes some things
+  if [ -n "$SWAYSOCK" ]; then
+    export SDL_VIDEODRIVER=wayland
+    export _JAVA_AWT_WM_NONREPARENTING=1
+    export QT_QPA_PLATFORM=wayland
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_DESKTOP=sway
+    # This fixes some bugs where electron applications won't work in secondary monitors
+    export ELECTRON_OZONE_PLATFORM_HINT=wayland
+  fi
 fi
