@@ -6,6 +6,14 @@ return {
       -- make sure mason installs the server
       servers = {
         lua_ls = {},
+        biome = {
+          settings = {
+            workingDirectories = { mode = "auto" },
+          },
+          root_dir = function(fname)
+            return require("lspconfig").util.root_pattern("biome.jsonc", "biome.json")(fname)
+          end,
+        },
         bashls = {},
         cssls = {},
         dockerls = {},
@@ -14,16 +22,18 @@ return {
           settings = {
             workingDirectories = { mode = "auto" },
           },
-          root_dir = require("lspconfig").util.root_pattern(
-            ".eslintrc.js",
-            ".eslintrc.json",
-            ".eslintrc.cjs",
-            ".eslintrc.yaml",
-            ".eslintrc.yml",
-            ".eslintrc",
-            "eslint.config.js",
-            "eslint.config.mjs"
-          ),
+          root_dir = function(fname)
+            return require("lspconfig").util.root_pattern(
+              ".eslintrc.js",
+              ".eslintrc.json",
+              ".eslintrc.cjs",
+              ".eslintrc.yaml",
+              ".eslintrc.yml",
+              ".eslintrc",
+              "eslint.config.js",
+              "eslint.config.mjs"
+            )(fname)
+          end,
         },
         cssmodules_ls = {},
         css_variables = {},
@@ -33,12 +43,12 @@ return {
         jqls = {},
         taplo = {},
         volar = {},
+        ruby_lsp = {},
         denols = {
           -- Prevents deno from being loaded into node projects
-          root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
-          --   local lspconfig = require("lspconfig")
-          --   return lspconfig.util.root_pattern("deno.json", "deno.jsonc")
-          -- end,
+          root_dir = function(fname)
+            return require("lspconfig").util.root_pattern("deno.json", "deno.jsonc")(fname)
+          end,
           init_options = {
             enable = true,
             lint = true,
@@ -53,13 +63,35 @@ return {
             },
           },
         },
-        tsserver = {
-          enabled = false,
-        },
-        ts_ls = {
-          enabled = false,
-          ts_ls = {
-            autoStart = false,
+        vtsls = {
+          -- TypeScript language server - will auto-detect project root
+          keys = {
+            {
+              "<leader>co",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.organizeImports" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cO",
+              function()
+                vim.lsp.buf.code_action({
+                  apply = true,
+                  context = {
+                    only = { "source.removeUnused" },
+                    diagnostics = {},
+                  },
+                })
+              end,
+              desc = "Remove Unused Imports",
+            },
           },
         },
       },
