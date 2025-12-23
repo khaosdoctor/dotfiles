@@ -1,3 +1,7 @@
+-- Minimap plugin - disabled
+return {}
+
+--[[
 return {
   "Isrothy/neominimap.nvim",
   lazy = false,
@@ -33,7 +37,7 @@ return {
   },
   init = function()
     -- The following options are recommended when layout == "float"
-    vim.opt.wrap = false
+    -- Note: wrap is set globally in options.lua, don't override it here
     vim.opt.sidescrolloff = 26 -- Set a large value
 
     --- Put your configuration here
@@ -65,3 +69,4 @@ return {
     }
   end,
 }
+--]]
