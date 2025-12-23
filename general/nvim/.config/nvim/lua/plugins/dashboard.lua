@@ -1,7 +1,7 @@
 -- Completely copied from the original Lazy file
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/ui/alpha.lua
 return {
-  -- Dashboard. Thibanner.
+  -- Dashboard with custom banner
   {
     "goolord/alpha-nvim",
     event = "VimEnter",
