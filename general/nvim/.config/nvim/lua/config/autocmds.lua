@@ -41,10 +41,29 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
+-- Set 2-space indentation for web development filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+    "jsonc",
+    "yaml",
+    "yml",
+    "html",
+    "css",
+    "scss",
+    "less",
+    "vue",
+    "svelte",
+    "astro",
+  },
   callback = function()
-    vim.cmd("set tabstop=2")
-    vim.cmd("set shiftwidth=2")
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
   end,
 })
 
@@ -56,23 +75,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
     vim.cmd("set filetype=markdown")
 
     -- add local command to insert TOC
-    local wk = require("which-key")
-    vim.api.nvim_buf_set_keymap(
-      0,
-      "n",
-      "<leader>cT",
-      "<cmd>Mtoc i<CR>",
-      { noremap = true, silent = true, desc = "Insert TOC at cursor" }
-    )
-    wk.add({
-      {
-        "<leader>cT",
-        "<cmd>Mtoc i<CR>",
-        desc = "Insert TOC at cursor position",
-        mode = "n",
-        noremap = true,
-        buffer = 0,
-      },
+    vim.keymap.set("n", "<leader>cT", "<cmd>Mtoc i<CR>", {
+      buffer = 0,
+      noremap = true,
+      silent = true,
+      desc = "Insert TOC at cursor position",
     })
   end,
 })
