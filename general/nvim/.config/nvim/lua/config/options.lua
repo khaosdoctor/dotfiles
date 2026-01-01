@@ -16,7 +16,8 @@ vim.opt.autoindent = true
 vim.opt.smarttab = true
 vim.opt.termguicolors = true
 
-vim.o.shell = "zellij"
+-- this is causing zellij to stay open in some OSes
+-- vim.o.shell = "zellij"
 
 -- Highlights for cursor column
 vim.cmd.set("cursorcolumn")
