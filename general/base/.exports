@@ -7,23 +7,23 @@ export GPG_TTY=$(tty)
 typeset -U path PATH
 
 path=(
-  # System binary (do NOT change the order)
-  /usr/local/bin
-  /usr/bin
-  /bin
+    # System binary (do NOT change the order)
+    /usr/local/bin
+    /usr/bin
+    /bin
 
-  # User Scripts
-  $HOME/bin
-  # Tooling Scripts
-  $HOME/.local/bin
+    # User Scripts
+    $HOME/bin
+    # Tooling Scripts
+    $HOME/.local/bin
 
-  # Tooling
-  $ASDF_DATA_DIR/shims
-  $DENO_INSTALL_ROOT/bin
-  $GOPATH/bin
-  $GOROOT/bin
+    # Tooling
+    $ASDF_DATA_DIR/shims
+    $DENO_INSTALL_ROOT/bin
+    $GOPATH/bin
+    $GOROOT/bin
 
-  $path
+    $path
 )
 
 export PATH
@@ -52,14 +52,14 @@ export XCURSOR_THEME="Colloid Cursors"
 
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
-  # Set the session to sway so it fixes some things
-  if [ -n "$SWAYSOCK" ]; then
-    export SDL_VIDEODRIVER=wayland
-    export _JAVA_AWT_WM_NONREPARENTING=1
-    export QT_QPA_PLATFORM=wayland
-    export XDG_CURRENT_DESKTOP=sway
-    export XDG_SESSION_DESKTOP=sway
-    # This fixes some bugs where electron applications won't work in secondary monitors
-    export ELECTRON_OZONE_PLATFORM_HINT=wayland
-  fi
+    # Set the session to sway so it fixes some things
+    if [ -n "$SWAYSOCK" ]; then
+        export SDL_VIDEODRIVER=wayland
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export QT_QPA_PLATFORM=wayland
+        export XDG_CURRENT_DESKTOP=sway
+        export XDG_SESSION_DESKTOP=sway
+        # This fixes some bugs where electron applications won't work in secondary monitors
+        export ELECTRON_OZONE_PLATFORM_HINT=wayland
+    fi
 fi
