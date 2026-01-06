@@ -47,6 +47,8 @@ export DENO_INSTALL_ROOT=$HOME/.deno
 export CC="ccache cc"
 export CXX="ccache c++"
 export NODE_OPTIONS="--no-warnings"
+export XCURSOR_SIZE=24
+export XCURSOR_THEME="Colloid Cursors"
 
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
