@@ -108,6 +108,7 @@ cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
 cask "insomnia"
+cask "kitty"
 cask "macfuse"
 cask "mactex-no-gui"
 cask "mongodb-compass"
@@ -132,6 +133,7 @@ mas "GarageBand", id: 682658836
 mas "Numbers", id: 409203825
 mas "Tailscale", id: 1475387142
 mas "Todoist", id: 585829637
+mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
 vscode "aaronthomas.vscode-snazzy-operator"
 vscode "albymor.increment-selection"
