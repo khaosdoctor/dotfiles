@@ -38,8 +38,10 @@ elephant-archlinuxpkgs
 elephant-bluetooth
 elephant-calc
 elephant-clipboard
+elephant-desktopapplications
 elephant-files
 elephant-menus
+elephant-providerlist
 elephant-runner
 elephant-symbols
 elephant-unicode
@@ -234,7 +236,7 @@ vulkan-mesa-layers
 vulkan-radeon
 vulkan-tools
 w3m
-walker-bin
+walker
 waybar
 waypaper
 wdisplays
