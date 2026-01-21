@@ -31,16 +31,13 @@ if [ -x "$(command -v btop)" ]; then
   alias top="btop"
 fi
 
-if [ -x "$(command -v bat)" ]; then
-  alias cat="bat"
-fi
+# Replaced by the smartcat in .functions
+# if [ -x "$(command -v bat)" ]; then
+#     alias cat="bat"
+# fi
 
 if [ -x "$(command -v lsix)" ]; then
-  alias lsi="lsix"
-fi
-
-if [ -x "$(command -v img2sixel)" ]; then
-  alias icat="img2sixel"
+    alias lsi="lsix"
 fi
 
 if [ -x "$(command -v dog)" ]; then
