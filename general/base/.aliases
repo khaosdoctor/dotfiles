@@ -15,20 +15,20 @@ alias dot='cd $DOTFILES && git pull -q --no-progress &> /dev/null'
 alias cdtmp='cd $(mktemp -d)'
 
 if [ -x "$(command -v gpg)" ]; then
-  alias encrypt='gpg -c --cipher-algo AES256'
-  alias decrypt='gpg -d'
+    alias encrypt='gpg -c --cipher-algo AES256'
+    alias decrypt='gpg -d'
 fi
 
 if [ -x "$(command -v exa)" ]; then
-  alias ls="exa -a --icons"
+    alias ls="exa -a --icons"
 elif [ -x "$(command -v eza)" ]; then
-  alias ls="eza --icons --color=auto"
+    alias ls="eza --icons --color=auto"
 else
-  alias ls="ls -a --color=auto"
+    alias ls="ls -a --color=auto"
 fi
 
 if [ -x "$(command -v btop)" ]; then
-  alias top="btop"
+    alias top="btop"
 fi
 
 # Replaced by the smartcat in .functions
@@ -41,141 +41,137 @@ if [ -x "$(command -v lsix)" ]; then
 fi
 
 if [ -x "$(command -v dog)" ]; then
-  alias dig="dog"
+    alias dig="dog"
 fi
 
 if [ -x "$(command -v dysk)" ]; then
-  alias df="dysk"
-fi
-
-if [ -x "$(command -v spotify_player)" ]; then
-  alias spt="spotify_player"
+    alias df="dysk"
 fi
 
 if [ -x "$(command -v zsh)" ]; then
-  alias shrc="$EDITOR ~/.zshrc"
-  alias reload!="source ~/.zshrc"
+    alias shrc="$EDITOR ~/.zshrc"
+    alias reload!="source ~/.zshrc"
 else
-  alias shrc="$EDITOR ~/.bashrc"
-  alias reload!="source ~/.bashrc"
+    alias shrc="$EDITOR ~/.bashrc"
+    alias reload!="source ~/.bashrc"
 fi
 
 if [ -e "/usr/local/bin/update-all" ]; then
-  alias update-all='/usr/local/bin/update-all'
+    alias update-all='/usr/local/bin/update-all'
 fi
 
 if [ -x "$(command -v tree)" ]; then
-  alias lsr='tree -ChDvL $1 $2'
+    alias lsr='tree -ChDvL $1 $2'
 fi
 
 if [ -x "$(command -v lftp)" ]; then
-  alias ftp=lftp
+    alias ftp=lftp
 fi
 
 if [ -x "$(command -v git)" ]; then
-  alias g=git
-  alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
-  alias git-goto=git_goto
+    alias g=git
+    alias pull-all='find . -type d -name .git -execdir git pull -v ";"'
+    alias git-goto=git_goto
 fi
 
 if [ -x "$(command -v kubectl)" ]; then
-  alias k=kubectl
+    alias k=kubectl
 fi
 
 if [ -x "$(command -v kubectx)" ]; then
-  alias kx=kubectx
+    alias kx=kubectx
 fi
 
 if [ -x "$(command -v kubens)" ]; then
-  alias kn=kubens
+    alias kn=kubens
 fi
 
 if [ -x "$(command -v lazygit)" ]; then
-  alias gg=lazygit
+    alias gg=lazygit
 fi
 
 if [ -x "$(command -v docker)" ]; then
-  alias dkr=docker
-  alias dkrc=docker-compose
+    alias dkr=docker
+    alias dkrc=docker-compose
 fi
 
 # Darwin only
 if [[ "$(uname -o)" == "Darwin" ]]; then
 
-  if [ -x "$(command -v log)" ]; then
-    alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
-    alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
-  fi
+    if [ -x "$(command -v log)" ]; then
+        alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+        alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
+    fi
 
 fi
 
 # Linux commands
 if [[ "$(uname -s)" == "Linux" ]]; then
-  # WAYLAND SESSIONS (sway, hypr)
-  if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
-    if [ -x "$(command -v wl-copy)" ] && [ -x "$(command -v wl-paste)" ]; then
-      alias pc='wl-copy'
-      alias pbcopy='wl-copy'
-      alias pp='wl-paste'
-      alias pbpaste='wl-paste'
+    # WAYLAND SESSIONS (sway, hypr)
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        if [ -x "$(command -v wl-copy)" ] && [ -x "$(command -v wl-paste)" ]; then
+            alias pc='wl-copy'
+            alias pbcopy='wl-copy'
+            alias pp='wl-paste'
+            alias pbpaste='wl-paste'
+        fi
+
+        if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
+            alias conf="$EDITOR $DOTFILES/specific/arch/hyprland/"
+        elif [[ "$XDG_SESSION_DESKTOP" == "sway" ]]; then
+            alias conf="$EDITOR $DOTFILES/specific/arch/sway/"
+        fi
+
+    # X11 Sessions (i3, gnome)
+    elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
+        if [ -x "$(command -v xclip)" ]; then
+            alias pc='xclip -sel clip'
+            alias pbcopy='xclip -sel clip'
+            alias pp='xclip -o -sel clip'
+            alias pbpaste='xclip -o -sel clip'
+        fi
     fi
 
-    if [[ "$XDG_SESSION_DESKTOP" == "Hyprland" ]]; then
-      alias conf="$EDITOR $DOTFILES/specific/arch/hyprland/"
-    elif [[ "$XDG_SESSION_DESKTOP" == "sway" ]]; then
-      alias conf="$EDITOR $DOTFILES/specific/arch/sway/"
+    if [ -x "$(command -v yay)" ]; then
+        alias yayy="yay --noconfirm"
+        alias cleanup='yay -Rns $(yay -Qtdq)'
     fi
-
-  # X11 Sessions (i3, gnome)
-  elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
-    if [ -x "$(command -v xclip)" ]; then
-      alias pc='xclip -sel clip'
-      alias pbcopy='xclip -sel clip'
-      alias pp='xclip -o -sel clip'
-      alias pbpaste='xclip -o -sel clip'
-    fi
-  fi
-
-  if [ -x "$(command -v yay)" ]; then
-    alias yayy="yay --noconfirm"
-    alias cleanup='yay -Rns $(yay -Qtdq)'
-  fi
 
 fi
 
 if [ -x "$(command -v fzf)" ]; then
-  if [ -x "$(command -v fd)" ]; then
-    # Use fd instead of find for fzf
-    # -t for files, -d for directories, -p to match full path
-    export FZF_DEFAULT_COMMAND='fd -tf -td -p'
-  fi
+    if [ -x "$(command -v fd)" ]; then
+        # Use fd instead of find for fzf
+        # -t for files, -d for directories, -p to match full path
+        export FZF_DEFAULT_COMMAND='fd -tf -td -p'
+    fi
 
-  fzf() {
-    # Use fzf to select a file using preview and fd
-    command fzf --preview='cat {}' --bind "change:reload($FZF_DEFAULT_COMMAND {q})"
-  }
+    fzf() {
+        # Use fzf to select a file using preview and fd
+        command fzf --preview='cat {}' --bind "change:reload($FZF_DEFAULT_COMMAND {q})"
+    }
 
-  # Open file in nvim using fzf
-  zvim() {
-    local file
-    # This needs to be here because we need to CD into the directory
-    # where the file is located so nvim recognizes the path as cwd
-    file=$(fzf) || return
-    # -c to change directory to the file's directory
-    # If -c is not here, some plugins will identify cwd as being
-    # the directory where zvim was ran
-    nvim -c "cd $(dirname "$file")" "$file"
-  }
+    # Open file in nvim using fzf
+    zvim() {
+        local file
+        # This needs to be here because we need to CD into the directory
+        # where the file is located so nvim recognizes the path as cwd
+        file=$(fzf) || return
+        # -c to change directory to the file's directory
+        # If -c is not here, some plugins will identify cwd as being
+        # the directory where zvim was ran
+        nvim -c "cd $(dirname "$file")" "$file"
+    }
 fi
 
 if [ -x "$(command -v corepack)" ]; then
-  # Enables corepack for npm, pnpm, and yarn if not already enabled
-  if [ ! -f "$HOME/.corepackconfigured" ]; then
-    corepack enable
-    corepack enable npm
-    touch "$HOME/.corepackconfigured"
-  fi
+    # Enables corepack for npm, pnpm, and yarn if not already enabled
+    if [ ! -f "$HOME/.corepackconfigured" ]; then
+        corepack enable
+        corepack enable npm
+        touch "$HOME/.corepackconfigured"
+    fi
 
-  alias yarn='corepack yarn'
-  alias pnpm='corepack pnpm'
+    alias yarn='corepack yarn'
+    alias pnpm='corepack pnpm'
 fi
