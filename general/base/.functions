@@ -8,6 +8,45 @@ cd() {
     fi
 }
 
+cat() {
+  # Checks which text renderer to use depending on the installed programs
+  local text_cat
+  if command -v bat >/dev/null 2>&1; then
+    text_cat=(/usr/bin/bat --paging=never)
+  else
+    text_cat=(/usr/bin/cat)
+  fi
+
+  # If it's not a TTY behaves like CAT
+  if [[ ! -t 0 ]]; then
+    command "${text_cat[@]}" "$@"
+    return
+  fi
+
+  # If we have kitty then icat is available
+  local has_kitty=false
+  [[ -n "$KITTY_WINDOW_ID" ]] && has_kitty=true
+
+  # If there are any flags present defer to the text renderer
+  # if any arg is not a regular file, also defer to the renderer
+  for arg in "$@"; do
+    [[ "$arg" == -* ]] && command "${text_cat[@]}" "$@" && return
+    [[ ! -f "$arg" ]] && command "${text_cat[@]}" "$@" && return
+  done
+
+  # Checks if any of the files is an image, if so, uses icat if in kitty
+  for file in "$@"; do
+    local mime
+    mime=$(file --mime-type -b "$file")
+
+    if $has_kitty && [[ "$mime" == image/* ]]; then
+      kitten icat "$file"
+    else
+      command "${text_cat[@]}" "$file"
+    fi
+  done
+}
+
 git_goto() {
     find . -name .git -type d -execdir git checkout "$1" ";"
 }
