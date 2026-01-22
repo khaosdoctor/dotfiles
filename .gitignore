@@ -152,3 +152,5 @@ general/base/.local/share/crush/crush.json
 general/base/.local/share/crush/providers.json
 general/base/.local/share/claude/versions/
 general/base/.local/share/atuin
+general/base/.local/share/crush/projects.json
+general/base/.local/state/watchman/lsantos-state/state
