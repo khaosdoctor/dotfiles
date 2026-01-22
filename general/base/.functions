@@ -12,7 +12,7 @@ cat() {
   # Checks which text renderer to use depending on the installed programs
   local text_cat
   if command -v bat >/dev/null 2>&1; then
-    text_cat=(/usr/bin/bat --paging=never)
+      text_cat=(bat --paging=never)
   else
     text_cat=(/usr/bin/cat)
   fi
