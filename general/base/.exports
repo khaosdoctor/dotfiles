@@ -18,7 +18,7 @@ path=(
     $HOME/.local/bin
 
     # Tooling
-    $ASDF_DATA_DIR/shims
+    $HOME/.asdf/shims
     $DENO_INSTALL_ROOT/bin
     $GOPATH/bin
     $GOROOT/bin
@@ -30,7 +30,7 @@ export PATH
 
 # Default terminal
 export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
-export TERMINAL=rio
+export TERMINAL=xterm-kitty
 export ASDF_DATA_DIR=$HOME/.asdf
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
