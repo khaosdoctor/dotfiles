@@ -33,6 +33,7 @@ dosfstools
 dsniff
 dysk
 efibootmgr
+electron
 elephant
 elephant-archlinuxpkgs
 elephant-bluetooth
@@ -103,6 +104,7 @@ hyprpolkitagent
 hyprshot
 ibus
 iftop
+imlib2
 iwd
 joyutils
 jq
