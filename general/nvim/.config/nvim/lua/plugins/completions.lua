@@ -86,7 +86,8 @@ return {
           vim.notify("Completions disabled", vim.log.levels.INFO, { title = "Blink" })
         end
       end,
-      mode = { "n" }, -- Works in both normal and insert mode
+
+      mode = { "n" }, -- DO NOT SET THIS TO WORK ON INSERT MODE, this will cause a massive delay on the <leader> key (which is space)
       desc = "Toggle Completions",
     },
   },
