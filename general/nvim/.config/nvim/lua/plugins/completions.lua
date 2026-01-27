@@ -86,7 +86,7 @@ return {
           vim.notify("Completions disabled", vim.log.levels.INFO, { title = "Blink" })
         end
       end,
-      mode = { "n", "i" }, -- Works in both normal and insert mode
+      mode = { "n" }, -- Works in both normal and insert mode
       desc = "Toggle Completions",
     },
   },
