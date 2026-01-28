@@ -1,6 +1,31 @@
 return {
   "saghen/blink.cmp",
   opts = function(_, opts)
+    -- Filter out meaningless text completions and prevent duplicates
+    opts.sources = opts.sources or {}
+    opts.sources.providers = opts.sources.providers or {}
+    opts.sources.default = opts.sources.default or {}
+
+    -- Remove buffer source from default sources to avoid random text suggestions
+    -- Only keep LSP, path, snippets, and copilot
+    local filtered_sources = {}
+    for _, source in ipairs(opts.sources.default) do
+      if source ~= "buffer" then
+        table.insert(filtered_sources, source)
+      end
+    end
+    opts.sources.default = filtered_sources
+
+    if opts.sources.providers.snippets then
+      opts.sources.providers.snippets.score_offset = 500
+    end
+
+    -- Reduce copilot suggestions to avoid duplicates with inline suggestions
+    -- Keep only the most relevant suggestions
+    if opts.sources.providers.copilot then
+      opts.sources.providers.copilot.max_items = 3
+      opts.sources.providers.copilot.score_offset = 50 -- Lower priority than LSP
+    end
     local nhc = require("nvim-highlight-colors")
     opts.keymap = opts.keymap or {}
 
@@ -11,7 +36,7 @@ return {
     opts.keymap["<C-u>"] = { "scroll_documentation_up", "fallback" }
     opts.keymap["<Tab>"] = { "select_and_accept", "fallback" }
 
-    -- Add enabled function to check global toggle state
+    -- Add enabled function to check global toggle state and code context
     -- This function is called by blink.cmp before showing completions
     -- By returning false, we prevent completions from appearing at all
     opts.enabled = function()
@@ -21,6 +46,7 @@ return {
       if vim.g.blink_cmp_enabled == false then
         return false -- Completions are disabled
       end
+
       return true -- Completions are enabled (default)
     end
 
