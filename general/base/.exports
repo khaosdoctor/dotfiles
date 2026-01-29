@@ -50,16 +50,43 @@ export NODE_OPTIONS="--no-warnings"
 export XCURSOR_SIZE=24
 export XCURSOR_THEME="Colloid Cursors"
 
+# This is here because of compatibility
+# In general, we would expect that most *nix systems would have XDG_CONFIG_HOME set
+# but in other systems (like macOS) it might not be set by default
+# I know I shouldn't set this here BUT some applications really expect this to be set
+# and it would GREATLY simplify my life, even on wayland, which seems to actually respect those
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# Same thing for all the other XDG variables
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-$HOME/.run}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
+export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}"
+
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
-    # Set the session to sway so it fixes some things
-    if [ -n "$SWAYSOCK" ]; then
+    if [[ "$XDG_SESSION_TYPE" == "wayland" ]] || [[ -n "$WAYLAND_DISPLAY" ]]; then
         export SDL_VIDEODRIVER=wayland
         export _JAVA_AWT_WM_NONREPARENTING=1
         export QT_QPA_PLATFORM=wayland
-        export XDG_CURRENT_DESKTOP=sway
-        export XDG_SESSION_DESKTOP=sway
+        export XDG_CURRENT_DESKTOP=wayland
+        export XDG_SESSION_DESKTOP=wayland
+
         # This fixes some bugs where electron applications won't work in secondary monitors
+        # NOTE: this still doesn't fix the issues where Electron apps will behave like X11 apps
+        # even on wayland (like not following scaling settings, etc)
         export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+        # Set session defaults on hyprland
+        if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
+            export XDG_CURRENT_DESKTOP=Hyprland
+            export XDG_SESSION_DESKTOP=Hyprland
+
+        # Set the session to sway so it fixes some things
+        elif [ -n "$SWAYSOCK" ]; then
+            export XDG_CURRENT_DESKTOP=sway
+            export XDG_SESSION_DESKTOP=sway
+        fi
     fi
 fi
