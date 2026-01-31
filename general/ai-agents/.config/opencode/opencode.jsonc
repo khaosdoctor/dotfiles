@@ -1,0 +1,97 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [],
+  "theme": "synthwave84",
+  "tui": {
+    "scroll_speed": 0.5
+  },
+  "autoupdate": false,
+  "permission": {
+    "edit": "ask",
+    "bash": {
+      "*": "ask",
+      "ls *": "allow",
+      "pwd": "allow",
+      "gh *": "allow",
+      "git *": "allow",
+      "npm *": "allow",
+      "pnpm *": "allow",
+      "yarn *": "allow",
+      "bun *": "allow",
+      "node *": "allow",
+      "python *": "allow",
+      "python3 *": "allow",
+      "pytest *": "allow",
+      "go *": "allow",
+      "cargo *": "allow",
+      "make *": "allow",
+      "cmake *": "allow",
+      "docker compose *": "allow",
+      "docker ps*": "allow",
+      "git push --force*": "deny",
+      "git rebase -i*": "deny",
+      "git commit --amend*": "deny",
+      "git checkout --*": "deny",
+      "git clean*": "deny",
+      "git reset*": "deny",
+      "docker rm*": "deny",
+      "docker rmi*": "deny",
+      "docker system prune*": "deny",
+      "rm *": "deny",
+      "rmdir *": "deny",
+      "mv *": "deny",
+      "cp *": "deny",
+      "chmod *": "deny",
+      "chown *": "deny",
+      "dd *": "deny",
+      "mkfs *": "deny",
+      "fsck *": "deny",
+      "mount *": "deny",
+      "umount *": "deny",
+      "shutdown *": "deny",
+      "reboot *": "deny",
+      "poweroff *": "deny",
+      "kill *": "deny",
+      "killall *": "deny",
+      "pkill *": "deny",
+      "sudo *": "deny",
+      "su *": "deny",
+      "passwd *": "deny",
+      "ssh *": "deny",
+      "scp *": "deny",
+      "rsync *": "deny",
+      "curl *": "deny",
+      "wget *": "deny",
+      "nc *": "deny",
+      "telnet *": "deny",
+      "openssl *": "deny",
+      "gpg *": "deny",
+      "find*": "allow",
+      "head*": "allow",
+      "less*": "allow",
+      "grep*": "allow",
+      "find / *": "deny", // Don't search the home directory as this takes a LONG time
+    },
+    "read": "allow",
+    "grep": "allow",
+  },
+  "provider": {
+    "ollama": {
+      "models": {
+        "qwen3-vl:32b": {
+          "_launch": true,
+          "name": "qwen3-vl:32b"
+        },
+        "qwen3-vl:latest": {
+          "_launch": true,
+          "name": "qwen3-vl:latest"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      }
+    }
+  }
+}
