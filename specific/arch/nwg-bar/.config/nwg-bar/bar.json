@@ -11,12 +11,12 @@
   },
   {
     "label": "(R)eboot",
-    "exec": "systemctl reboot",
+    "exec": "hyprctl dispatch exit && systemctl reboot",
     "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
   },
   {
     "label": "(Q) Shutdown",
-    "exec": "systemctl poweroff",
+    "exec": "shutdown -P now",
     "icon": "/usr/share/nwg-bar/images/system-shutdown.svg"
   }
 ]
