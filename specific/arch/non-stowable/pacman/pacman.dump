@@ -15,6 +15,7 @@ btop
 btrfs-progs
 ccache
 clang
+claude-code
 clipnotify
 cmake
 copyq
@@ -33,7 +34,6 @@ dosfstools
 dsniff
 dysk
 efibootmgr
-electron
 elephant
 elephant-archlinuxpkgs
 elephant-bluetooth
@@ -104,7 +104,6 @@ hyprpolkitagent
 hyprshot
 ibus
 iftop
-imlib2
 iwd
 joyutils
 jq
@@ -160,6 +159,8 @@ nwg-bar
 nwg-displays
 nwg-drawer
 obsidian
+ollama-rocm
+opencode
 os-prober
 overskride
 pacman-contrib
