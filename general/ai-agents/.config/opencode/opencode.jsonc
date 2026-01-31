@@ -2,9 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "plugin": [],
   "theme": "synthwave84",
-  "tui": {
-    "scroll_speed": 0.5
-  },
   "autoupdate": false,
   "permission": {
     "edit": "ask",
@@ -78,9 +75,9 @@
   "provider": {
     "ollama": {
       "models": {
-        "qwen3-vl:32b": {
+        "glm-4.7-flash:latest": {
           "_launch": true,
-          "name": "qwen3-vl:32b"
+          "name": "glm-4.7-flash:latest"
         },
         "qwen3-vl:latest": {
           "_launch": true,
