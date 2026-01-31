@@ -5,10 +5,8 @@ After=network-online.target
 [Service]
 ExecStart=/usr/bin/ollama serve
 Restart=always
-User=ollama
-Group=ollama
 RestartSec=3
-Environment="PATH=$PATH"
+Environment="OLLAMA_CONTEXT_LENGTH=64000"
 
 [Install]
 WantedBy=multi-user.target
