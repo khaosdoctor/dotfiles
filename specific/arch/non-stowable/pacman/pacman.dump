@@ -31,6 +31,8 @@ dkms
 dmenu
 docker-desktop
 dosfstools
+dotnet-runtime
+dotnet-runtime-8.0
 dsniff
 dysk
 efibootmgr
@@ -50,6 +52,8 @@ elephant-websearch
 elephant-windows
 entr
 evince
+exiled-exchange-2-bin
+exiled-exchange-2-bin-debug
 eza
 fastfetch
 fd
@@ -262,6 +266,7 @@ xdg-utils
 xdotool
 xorg-xhost
 xorg-xwininfo
+xsel
 yay
 yazi
 zapzap
