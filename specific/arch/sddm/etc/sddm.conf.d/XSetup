@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# This is an X11 script that will disable the DP-2 monitor when logging in
+# it's just because my monitor is a vertical monitor and I don't want sddm to render things there
+# so it will ONLY work for this specific setup where the DP-2 (DisplayPort 2) is the second monitor
+# while the main monitor is in DP-1
+
+# Mind that the xrandr names CAN CHANGE. Use `ls /sys/class/drm/card*-*/status` to get the name of
+# all the screens managed by the GPU
+
+xrandr --output DP-2 --off

@@ -1,0 +1,10 @@
+[Unit]
+Description=Randomize SDDM theme for next login
+Before=sddm.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/sddm.conf.d/sddm-randomize
+
+[Install]
+WantedBy=multi-user.target
