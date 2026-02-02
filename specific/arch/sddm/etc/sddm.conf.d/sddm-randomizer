@@ -25,7 +25,7 @@ entries=(
     "sddm-astronaut-theme:Themes/purple_leaves.conf"
     "sddm-astronaut-theme:Themes/hyprland_kath.conf"
     # https://github.com/stepanzubkov/where-is-my-sddm-theme/tree/main
-    "where-is-my-sddm-theme"
+    "where_is_my_sddm_theme"
 )
 log "Starting new execution"
 log "Watching dirs: $THEME_CONF_FILE || $SDDM_THEME_DIR || $LAST_THEME_FILE"
