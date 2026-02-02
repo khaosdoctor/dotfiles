@@ -54,11 +54,11 @@ echo "$selected" >"$LAST_THEME_FILE"
 IFS=':' read -r theme variant <<<"$selected"
 
 # Replace the current theme always
-sed -i "s|^Current=.*|Current=$theme|" "$THEME_CONF_FILE"
+sed -i --follow-symlinks "s|^Current=.*|Current=$theme|" "$THEME_CONF_FILE"
 
 # But the variant only when we have one
 if [[ -n "$variant" ]]; then
-    sed -i "s|^ConfigFile=.*|ConfigFile=$variant|" "$SDDM_THEME_DIR/$theme/metadata.desktop"
+    sed -i --follow-symlinks "s|^ConfigFile=.*|ConfigFile=$variant|" "$SDDM_THEME_DIR/$theme/metadata.desktop"
 fi
 
 # log the execution
