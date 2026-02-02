@@ -151,6 +151,7 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
+qt6ct
 rclone
 rio
 rmlint
