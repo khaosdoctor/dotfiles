@@ -1,0 +1,65 @@
+#!/bin/bash
+# sddm-randomize — pick a random SDDM theme+variant before sddm starts
+set -euo pipefail
+
+THEME_CONF_FILE="/etc/sddm.conf.d/theme.conf"
+SDDM_THEME_DIR="/usr/share/sddm/themes/"
+# Stores the last theme that was picked by the randomizer so we don't repeat
+LAST_THEME_FILE="/var/cache/sddm-randomizer/last-theme"
+
+log() {
+    logger -t sddm-randomizer "$@"
+}
+
+# Allowed randomization themes
+# Entries with : have a variant, the variant name needs to be the EXACT path of the variant file if it exists
+# Variants will be replaced in the metadata.desktop file in the ConfigFile key
+# the theme name needs to be the exact name that it has in the Theme-Id in the metadata.desktop
+entries=(
+    # https://github.com/Keyitdev/sddm-astronaut-theme/tree/master
+    "sddm-astronaut-theme:Themes/astronaut.conf"
+    "sddm-astronaut-theme:Themes/black_hole.conf"
+    "sddm-astronaut-theme:Themes/cyberpunk.conf"
+    "sddm-astronaut-theme:Themes/japanese_aesthetic.conf"
+    "sddm-astronaut-theme:Themes/pixel_sakura.conf"
+    "sddm-astronaut-theme:Themes/purple_leaves.conf"
+    "sddm-astronaut-theme:Themes/hyprland_kath.conf"
+    # https://github.com/stepanzubkov/where-is-my-sddm-theme/tree/main
+    "where-is-my-sddm-theme"
+)
+log "Starting new execution"
+log "Watching dirs: $THEME_CONF_FILE || $SDDM_THEME_DIR || $LAST_THEME_FILE"
+log "Allowed themes ${entries[*]}"
+
+# Check the last used theme if exists
+last_used=""
+if [[ -f "$LAST_THEME_FILE" ]]; then
+    last_used=$(cat "$LAST_THEME_FILE")
+    log "Found last used theme $last_used at $LAST_THEME_FILE"
+fi
+
+# Random entry
+selected="${entries[$((RANDOM % ${#entries[@]}))]}"
+while [[ "$selected" == "$last_used" ]]; do
+    log "New theme is the same as old theme, what a bummer, re-rolling"
+    selected="${entries[$((RANDOM % ${#entries[@]}))]}"
+done
+
+# Update the cache file
+log "New theme is different from old theme: new -> $selected | old -> $last_used saving to $LAST_THEME_FILE"
+mkdir -p "$(dirname $LAST_THEME_FILE)"
+echo "$selected" >"$LAST_THEME_FILE"
+
+# if no variant, then it will be empty
+IFS=':' read -r theme variant <<<"$selected"
+
+# Replace the current theme always
+sed -i "s|^Current=.*|Current=$theme|" "$THEME_CONF_FILE"
+
+# But the variant only when we have one
+if [[ -n "$variant" ]]; then
+    sed -i "s|^ConfigFile=.*|ConfigFile=$variant|" "$SDDM_THEME_DIR/$theme/metadata.desktop"
+fi
+
+# log the execution
+log "Selected theme: $theme${variant:+ (variant: $variant)}"

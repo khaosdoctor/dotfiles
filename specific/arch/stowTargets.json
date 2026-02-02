@@ -1,6 +1,6 @@
 {
- "default": "$HOME",
- "custom": {
+  "default": "$HOME",
+  "custom": {
     "keyd/etc": {
       "target": "/",
       "sudo": true
@@ -8,6 +8,10 @@
     "pacman/etc": {
       "target": "/",
       "sudo": true
+    },
+    "sddm/etc": {
+      "target": "/",
+      "sudo": true
     }
- }
+  }
 }
