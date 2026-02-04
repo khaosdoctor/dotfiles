@@ -11,11 +11,14 @@ base-devel
 bat
 bluez-utils
 btop
+btrfs-assistant
+btrfs-heatmap
 btrfs-progs
 ccache
 clang
 claude-code
 cmake
+compsize
 copyq
 cpu-x
 cronie
@@ -126,7 +129,6 @@ nfs-utils
 ngrok
 nmap
 noto-fonts-cjk
-npm
 ntfs-3g
 nwg-bar
 nwg-displays
@@ -145,7 +147,6 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
-prettierd
 python-distutils-extra
 python-pip
 python-pipx
