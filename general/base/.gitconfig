@@ -83,3 +83,6 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[user]
+	name = Lucas Santos
+	email = hello@lsantos.dev
