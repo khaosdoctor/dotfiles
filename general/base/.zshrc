@@ -130,7 +130,9 @@ fi
 
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
-# if startupscripts is a dir
+# Startup scripts are scripts that are run once when a terminal is opened
+# since this is zshrc it will run every time a new shell is opened and it's interactive
+# if startupscripts is a dir, run all .sh files in it
 if [[ -d $HOME/.startupscripts ]]; then
   chmod -R +x $HOME/.startupscripts
   cd $HOME/.startupscripts
