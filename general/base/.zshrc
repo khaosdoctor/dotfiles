@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 autoload -U compinit; compinit
 
-# LOADS USER EXPORTS VARIABLES
-if [[ -a $HOME/.exports ]]; then
-  source $HOME/.exports
-fi
-
 # LOADS USER FUNCTIONS
 if [[ -a $HOME/.functions ]]; then
   source $HOME/.functions
@@ -91,7 +86,6 @@ zinit wait lucid for \
   agkozak/zsh-z \
   wfxr/forgit
 
- export EDITOR='nvim'
 
 ##### OS SPECIFIC CONFIGS #######
 
@@ -162,6 +156,11 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+# If Mise is present, loads the activation scripts
+if [[ -f $HOME/.mise_shim && -x "$(command -v mise)" ]]; then
+  source $HOME/.mise_shim
+fi
 
 # Load local overrides not tracked by git
 if [ -f "$HOME/.localoverrides" ]; then
