@@ -1,3 +1,20 @@
+unset CARGO_HOME
+export DENO_INSTALL_ROOT=/Users/lsantos/.deno
+unset GOBIN
+unset GOROOT
+unset RUSTUP_HOME
+unset RUSTUP_TOOLCHAIN
+export PATH='/Users/lsantos/.zinit/polaris/bin:/usr/local/bin:/usr/bin:/bin:/Users/lsantos/bin:/Users/lsantos/.local/bin:/Users/lsantos/.asdf/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/kitty.app/Contents/MacOS:/usr/sbin:/sbin:/Users/lsantos/Documents/Repositories/github.com/hemnet/hemnet-cli/bin:/Users/lsantos/.zinit/plugins/reegnz---jq-zsh-plugin/bin'
+precmd_functions=( ${precmd_functions:#_mise_hook_precmd} )
+chpwd_functions=( ${chpwd_functions:#_mise_hook_chpwd} )
+(( $+functions[_mise_hook_precmd] )) && unset -f _mise_hook_precmd
+(( $+functions[_mise_hook_chpwd] )) && unset -f _mise_hook_chpwd
+(( $+functions[_mise_hook] )) && unset -f _mise_hook
+(( $+functions[mise] )) && unset -f mise
+unset MISE_SHELL
+unset __MISE_DIFF
+unset __MISE_SESSION
+unset __MISE_ZSH_PRECMD_RUN
 export MISE_SHELL=zsh
 if [ -z "${__MISE_ORIG_PATH:-}" ]; then
   export __MISE_ORIG_PATH="$PATH"
