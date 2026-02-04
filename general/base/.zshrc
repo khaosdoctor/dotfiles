@@ -11,11 +11,12 @@ if [[ -a $HOME/.aliases ]]; then
   source $HOME/.aliases
 fi
 
-# Enable check for both fastfetch and neofetch in case one of them is not installed
-if [ "$(tput lines)" -ge 25 ] && command -v fastfetch >/dev/null; then 
+# Enable check for fastfetch and run it if available in large terminals
+if [ "$(tput lines)" -ge 25 ] && [ "$(tput cols)" -ge 90 ] && command -v fastfetch >/dev/null; then 
     fastfetch
-elif [ "$(tput lines)" -ge 25 ] && command -v neofetch >/dev/null; then 
-    neofetch 
+# if the terminal is small but fastfetch is available, run with a config for small inputs
+elif command -v fastfetch >/dev/null; then
+    fastfetch -c examples/21.jsonc
 fi;
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
