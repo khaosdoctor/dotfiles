@@ -155,3 +155,5 @@ general/base/.local/share/atuin
 general/base/.local/share/crush/projects.json
 general/base/.local/state/watchman/lsantos-state/state
 general/base/.local/state/lazygit/state.yml
+general/base/.local/share/mise
+general/base/.local/state/mise
