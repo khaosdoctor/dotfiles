@@ -157,11 +157,6 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# If Mise is present, loads the activation scripts
-if [[ -f $HOME/.mise_shim && -x "$(command -v mise)" ]]; then
-  source $HOME/.mise_shim
-fi
-
 # Load local overrides not tracked by git
 if [ -f "$HOME/.localoverrides" ]; then
   source "$HOME/.localoverrides"
