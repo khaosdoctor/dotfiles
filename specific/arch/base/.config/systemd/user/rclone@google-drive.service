@@ -33,7 +33,6 @@ Environment=RCLONE_MOUNT_VFS_CACHE_MODE="off"
 Environment=RCLONE_MOUNT_VFS_CACHE_POLL_INTERVAL="1m0s"
 Environment=RCLONE_MOUNT_VFS_READ_CHUNK_SIZE="128M"
 Environment=RCLONE_MOUNT_VFS_READ_CHUNK_SIZE_LIMIT="off"
-#TODO: figure out default for the following parameter
 Environment=RCLONE_MOUNT_VOLNAME="UNKNOWN_DEFAULT"
 
 #Overwrite default environment settings with settings from the file if present
@@ -45,12 +44,10 @@ ExecStartPre=/usr/bin/test -x /usr/bin/rclone
 #Check the mount directory
 ExecStartPre=/usr/bin/test -d "${MOUNT_DIR}"
 ExecStartPre=/usr/bin/test -w "${MOUNT_DIR}"
-#TODO: Add test for MOUNT_DIR being empty -> ExecStartPre=/usr/bin/test -z "$(ls -A "${MOUNT_DIR}")"
 
 #Check the rclone configuration file
 ExecStartPre=/usr/bin/test -f "${RCLONE_CONF}"
 ExecStartPre=/usr/bin/test -r "${RCLONE_CONF}"
-#TODO: add test that the remote is configured for the rclone configuration
 
 #Mount rclone fs
 ExecStart=/usr/bin/rclone mount \
@@ -72,8 +69,6 @@ ExecStart=/usr/bin/rclone mount \
             --bwlimit=40M \
             --cache-info-age=60m \
             --attr-timeout="${RCLONE_MOUNT_ATTR_TIMEOUT}" \
-#TODO: Include this once a proper default value is determined
-#           --daemon-timeout="${RCLONE_MOUNT_DAEMON_TIMEOUT}" \
             --dir-cache-time="${RCLONE_MOUNT_DIR_CACHE_TIME}" \
             --dir-perms="${RCLONE_MOUNT_DIR_PERMS}" \
             --file-perms="${RCLONE_MOUNT_FILE_PERMS}" \
@@ -88,8 +83,6 @@ ExecStart=/usr/bin/rclone mount \
             --vfs-cache-poll-interval="${RCLONE_MOUNT_VFS_CACHE_POLL_INTERVAL}" \
             --vfs-read-chunk-size="${RCLONE_MOUNT_VFS_READ_CHUNK_SIZE}" \
             --vfs-read-chunk-size-limit="${RCLONE_MOUNT_VFS_READ_CHUNK_SIZE_LIMIT}" \
-#TODO: Include this once a proper default value is determined
-#            --volname="${RCLONE_MOUNT_VOLNAME}"
             "${REMOTE_NAME}:${REMOTE_PATH}" "${MOUNT_DIR}"
 
 #Execute Post Mount Script if specified
