@@ -93,13 +93,6 @@ zinit wait lucid for \
 # MacOS
 if [[ $(uname -s) == "Darwin" ]]; then
   bindkey -v
-  # brew installed
-  if type brew &>/dev/null
-  then
-    # Initiate ASDF on mac
-    [ -f $(brew --prefix asdf)/libexec/asdf.sh ] && source $(brew --prefix asdf)/libexec/asdf.sh
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  fi
 
   $DOTFILES/specific/darwin/non-stowable/one-time-commands/run-one-time-commands.sh
 fi
@@ -150,6 +143,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+if [ -x "$(command -v mise)" ] && [ -f $HOME/.mise_shim ]; then
+    source $HOME/.mise_shim
+fi
 
 # Load local overrides not tracked by git
 if [ -f "$HOME/.localoverrides" ]; then
