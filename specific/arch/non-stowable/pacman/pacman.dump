@@ -17,6 +17,7 @@ btrfs-progs
 ccache
 clang
 claude-code
+claude-desktop-appimage
 cmake
 compsize
 copyq
@@ -27,8 +28,14 @@ dex
 direnv
 discord
 diskonaut
-docker-desktop
+dive
+docker
+docker-buildx
+docker-compose
+docker-credential-pass
 dosfstools
+downgrade
+ducker
 dysk
 efibootmgr
 elephant
@@ -95,6 +102,7 @@ keychain
 keyd
 kitty
 lact
+lazydocker
 lazygit
 ldns
 lib32-mesa
