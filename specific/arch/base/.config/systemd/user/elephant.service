@@ -1,7 +1,6 @@
 [Unit]
 Description=Run elephant on Hyprland startup
 PartOf=graphical-session.target
-After=graphical-session.target
 StartLimitIntervalSec=30
 StartLimitBurst=20
 
