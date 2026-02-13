@@ -1,6 +1,8 @@
 [Unit]
 Description=RClone mount of google drive
 Documentation=http://rclone.org/docs/
+# NOTE: network-online.target is a system-level target and has no effect in user scope.
+# Kept for documentation intent only — this service ideally needs network to be ready.
 After=network-online.target
 
 

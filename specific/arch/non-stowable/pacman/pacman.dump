@@ -150,6 +150,7 @@ pacman-contrib
 pandoc-cli
 pavucontrol
 perl-anyevent
+pika-backup
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -160,6 +161,7 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
+qemu-full
 qt6ct
 rclone
 rio
@@ -190,6 +192,7 @@ texlive-latex
 texlive-latexextra
 texlive-latexrecommended
 texlive-plaingeneric
+tibia
 tmux
 traceroute
 ttf-cascadia-code-nerd
