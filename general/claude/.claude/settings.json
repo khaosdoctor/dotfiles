@@ -6,6 +6,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -24,9 +25,10 @@
     ]
   },
   "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true
+    "lua-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "promptSuggestionEnabled": false,
-  "model": "opus"
+  "promptSuggestionEnabled": false
 }
