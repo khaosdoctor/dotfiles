@@ -60,6 +60,7 @@ fd
 ffmpegthumbnailer
 firefox
 flatpak
+freefilesync-bin
 fuse-overlayfs
 fzf
 gcc-fortran
@@ -121,6 +122,7 @@ man-db
 mangohud
 mdformat
 mesa-utils
+mise
 mission-center
 mkcert
 mpv
