@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+# Fix common desktop file icon issues:
+# 1. Remove file extensions from Icon= names (freedesktop spec requires no extension)
+# 2. Convert .ico files in pixmaps to .png
+
+set -uo pipefail
+
+APPS_DIRS=("/usr/share/applications" "/home/khaosdoctor/.local/share/applications")
+PIXMAPS_DIR="/usr/share/pixmaps"
+FIXED=0
+
+for dir in "${APPS_DIRS[@]}"; do
+    [ -d "$dir" ] || continue
+    for desktop in "$dir"/*.desktop; do
+        [ -f "$desktop" ] || continue
+        icon=$(grep -oP '^Icon=\K.*' "$desktop" 2>/dev/null | head -1)
+        [ -z "$icon" ] && continue
+
+        # Skip absolute paths -- those are intentional
+        [[ "$icon" == /* ]] && continue
+
+        # Fix 1: Strip file extensions from icon names
+        if [[ "$icon" =~ \.(png|svg|xpm|ico)$ ]]; then
+            stripped="${icon%.*}"
+            sed -i "s|^Icon=${icon}|Icon=${stripped}|g" "$desktop"
+            echo "[ext-fix] $desktop: Icon=$icon -> Icon=$stripped"
+            icon="$stripped"
+            FIXED=$((FIXED + 1))
+        fi
+
+        # Fix 2: Convert .ico to .png if only .ico exists
+        if [ -f "$PIXMAPS_DIR/${icon}.ico" ] && [ ! -f "$PIXMAPS_DIR/${icon}.png" ]; then
+            # Extract the largest layer from the ICO
+            largest_idx=0
+            for i in $(magick identify "$PIXMAPS_DIR/${icon}.ico" 2>/dev/null | grep -oP '\d+x\d+' | cat -n | sort -t'x' -k2 -rn | head -1 | awk '{print $1}'); do
+                largest_idx=$((i - 1))
+            done
+            magick "${PIXMAPS_DIR}/${icon}.ico[${largest_idx}]" "$PIXMAPS_DIR/${icon}.png" 2>/dev/null
+            echo "[ico-fix] Converted $PIXMAPS_DIR/${icon}.ico -> .png"
+            FIXED=$((FIXED + 1))
+        fi
+    done
+done
+
+echo "Fixed $FIXED issue(s)"

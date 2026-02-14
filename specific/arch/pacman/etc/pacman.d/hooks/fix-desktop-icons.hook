@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/share/applications/*.desktop
+
+[Action]
+Description = Fixing desktop file icon references…
+When = PostTransaction
+Exec = /home/khaosdoctor/.local/bin/fix-desktop-icons
