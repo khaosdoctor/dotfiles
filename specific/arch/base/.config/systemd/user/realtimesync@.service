@@ -1,0 +1,24 @@
+[Unit]
+Description=RealTimeSync - %i
+# Wait for graphical session so GTK+ display is available
+After=graphical-session.target
+
+[Service]
+EnvironmentFile=%h/.config/realtimesync/%i.conf
+
+# Delay startup by 90s to avoid IO storm during boot —
+# both sync jobs scan thousands of files over NFS and would
+# otherwise saturate the root drive while the system is still settling
+ExecStartPre=/bin/sleep 90
+ExecStart=/opt/freefilesync/Bin/RealTimeSync_x86_64 "${SYNC_CONFIG}"
+
+Restart=on-failure
+# 30s between retries to avoid hammering disk on repeated failures
+RestartSec=30
+
+# Lowest CPU and IO priority so sync never starves interactive use
+Nice=19
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=default.target
