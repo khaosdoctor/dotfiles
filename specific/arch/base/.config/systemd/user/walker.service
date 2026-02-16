@@ -2,8 +2,6 @@
 Description=Start Walker launcher after Elephant
 Requires=elephant.service
 After=elephant.service
-PartOf=graphical-session.target
-After=graphical-session-pre.target
 StartLimitIntervalSec=30
 StartLimitBurst=20
 
@@ -11,7 +9,6 @@ StartLimitBurst=20
 Type=simple
 ExecStart=/usr/bin/walker --gapplication-service
 Restart=on-failure
-RestartSec=0.5
 
 [Install]
 WantedBy=graphical-session.target
