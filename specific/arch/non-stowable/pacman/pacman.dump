@@ -56,6 +56,10 @@ entr
 evince
 eza
 fastfetch
+fcitx5
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-qt
 fd
 ffmpegthumbnailer
 firefox
@@ -96,6 +100,7 @@ hyprpolkitagent
 hyprshot
 ibus
 iftop
+iotop
 iwd
 joyutils
 jq
@@ -220,6 +225,7 @@ vlc
 vulkan-mesa-layers
 vulkan-radeon
 vulkan-tools
+w3m
 walker
 waybar
 waypaper
