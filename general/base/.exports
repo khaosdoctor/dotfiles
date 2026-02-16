@@ -30,7 +30,8 @@ export PATH
 
 # Default terminal
 export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
-export TERMINAL=xterm-kitty
+export TERMINAL=xterm-256color
+export TERM=xterm-256color
 export ASDF_DATA_DIR=$HOME/.asdf
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
