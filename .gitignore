@@ -153,8 +153,8 @@ general/base/.local/share/crush/providers.json
 general/base/.local/share/claude/versions/
 general/base/.local/share/atuin
 general/base/.local/share/crush/projects.json
-general/base/.local/state/watchman/lsantos-state/state
 general/base/.local/state/lazygit/state.yml
 general/base/.local/share/mise
-general/base/.local/state/mise
 general/base/.mise_shim
+/general/base/.local/state/watchman
+/general/base/.local/state/mise
