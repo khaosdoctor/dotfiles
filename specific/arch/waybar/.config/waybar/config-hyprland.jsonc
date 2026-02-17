@@ -1,267 +1,287 @@
 [
-    {
-        "output": "DP-2",
-        // "layer": "top", // Waybar at top layer
-        // "position": "bottom", // Waybar position (top|bottom|left|right)
-        "height": 30, // Waybar height (to be removed for auto height)
-        "spacing": 0, // Gaps between modules (0px)
-        // Choose the order of the modules
-        "modules-left": [
-            "hyprland/workspaces",
-            "hyprland/submap",
-            "wlr/taskbar",
-        ],
-        "modules-center": [
-            "hyprland/window"
-        ],
-        "modules-right": [
-            "clock",
-            "custom/power"
-        ],
-        "custom/media": {
-            "on-scroll-up": "playerctl -p spotify next",
-            "on-scroll-down": "playerctl -p spotify previous",
-            "on-click-middle": "playerctl -p spotify play-pause",
-            "on-click": "hyprctl dispatch focuswindow class:spotify",
-            "menu": "on-click-right",
-            "smooth-scrolling-threshold": 5,
-            "menu-file": "$HOME/.config/waybar/media_menu.xml",
-            "exec-if": "pgrep spotify",
-            "menu-actions": {
-                "toggle": "playerctl -p spotify play-pause",
-                "next": "playerctl -p spotify next",
-                "previous": "playerctl -p spotify previous"
-            },
-            "return-type": "json",
-            "max-length": 40,
-            "format-icons": {
-                "spotify": " ",
-                "default": "🎜"
-            },
-            "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
-        },
-        "wlr/taskbar": {
-            "all-outputs": false,
-            "format": "{icon}",
-            "icon-theme": "Papirus-Dark",
-            "tooltip": false,
-            "on-click": "activate",
-            "on-click-middle": "close"
-        },
-        "hyprland/submap": {
-            "format": "<span style=\"italic\">{}</span>"
-        },
-        "hyprland/workspaces": {
-            "all-outputs": false,
-            "on-click": "activate",
-            "on-scroll-up": "hyprctl dispatch workspace e+1",
-            "on-scroll-down": "hyprctl dispatch workspace e-1"
-        },
-        "hyprland/window": {
-            "separate-outputs": true
-        },
-        "idle_inhibitor": {
-            "format": "{icon}",
-            "format-icons": {
-                "activated": "",
-                "deactivated": ""
-            }
-        },
-        "tray": {
-            "show-passive-items": true,
-            "spacing": 10
-        },
-        "clock": {
-            "format": "{:%A %Y-%m-%d %H:%M}",
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "on-click": "/usr/bin/notion-calendar-electron"
-        },
-        "custom/power": {
-            "format": "⏻ ",
-            "tooltip": false,
-            "menu": "on-click",
-            "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-            "menu-actions": {
-                "shutdown": "shutdown",
-                "reboot-windows": "run0 wreboot",
-                "reboot": "reboot",
-                "suspend": "systemctl suspend",
-                "logout": "hyprctl dispatch exit",
-                "lock": "pidof hyprlock | hyprlock"
-            }
-        }
+  {
+    "output": "DP-2",
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "spacing": 0, // Gaps between modules (0px)
+    // Choose the order of the modules
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/submap",
+      "wlr/taskbar",
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "clock",
+      "custom/power"
+    ],
+    "custom/media": {
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous",
+      "on-click-middle": "playerctl -p spotify play-pause",
+      "on-click": "hyprctl dispatch focuswindow class:spotify",
+      "menu": "on-click-right",
+      "smooth-scrolling-threshold": 5,
+      "menu-file": "$HOME/.config/waybar/media_menu.xml",
+      "exec-if": "pgrep spotify",
+      "menu-actions": {
+        "toggle": "playerctl -p spotify play-pause",
+        "next": "playerctl -p spotify next",
+        "previous": "playerctl -p spotify previous"
+      },
+      "return-type": "json",
+      "max-length": 40,
+      "format-icons": {
+        "spotify": " ",
+        "default": "🎜"
+      },
+      "escape": true,
+      "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
     },
-    {
-        // "layer": "top", // Waybar at top layer
-        // "position": "bottom", // Waybar position (top|bottom|left|right)
-        "height": 30, // Waybar height (to be removed for auto height)
-        "spacing": 0, // Gaps between modules (0px)
-        "output": "DP-1",
-        // Choose the order of the modules
-        "modules-left": [
-            "hyprland/workspaces",
-            "hyprland/submap",
-            "wlr/taskbar",
-            "custom/media"
-        ],
-        "modules-center": [
-            "hyprland/window"
-        ],
-        "modules-right": [
-            "tray",
-            "pulseaudio",
-            "network",
-            "cpu",
-            "memory",
-            "temperature",
-            "clock",
-            "custom/mako",
-            "custom/power"
-        ],
-        "hyprland/window": {
-            "separate-outputs": true
-        },
-        "wlr/taskbar": {
-            "all-outputs": false,
-            "format": "{icon}",
-            "icon-theme": "Papirus-Dark",
-            "tooltip": false,
-            "on-click": "activate",
-            "on-click-middle": "close"
-        },
-        "hyprland/submap": {
-            "format": "<span style=\"italic\">{}</span>"
-        },
-        "idle_inhibitor": {
-            "format": "{icon}",
-            "format-icons": {
-                "activated": "",
-                "deactivated": ""
-            }
-        },
-        "tray": {
-            "show-passive-items": true,
-            "spacing": 10
-        },
-        "clock": {
-            "format": "{:%A %Y-%m-%d %H:%M}",
-            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-            "on-click": "/usr/bin/notion-calendar-electron"
-        },
-        "cpu": {
-            "format": "{usage}% ",
-            "tooltip": false,
-            "on-click": "rio -e btop"
-        },
-        "memory": {
-            "format": "{}% ",
-            "on-click": "rio -e btop"
-        },
-        "battery": {
-            "states": {
-                "good": 95,
-                "warning": 30,
-                "critical": 15
-            },
-            "format": "{capacity}% {icon}",
-            "format-charging": "{capacity}% ",
-            "format-plugged": "{capacity}% ",
-            "format-alt": "{time} {icon}",
-            "format-icons": [
-                "",
-                "",
-                "",
-                "",
-                ""
-            ]
-        },
-        "network": {
-            // "interface": "wlp2*", // (Optional) To force the use of this interface
-            "format-wifi": "{essid} ({signalStrength}%) ",
-            "format-ethernet": "{ipaddr}/{cidr} ",
-            "tooltip-format": "{ifname} via {gwaddr} ",
-            "format-linked": "{ifname} (No IP) ",
-            "format-disconnected": "Disconnected ⚠",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}",
-            "on-click-middle": "nm-connection-editor"
-        },
-        "pulseaudio": {
-            // "scroll-step": 1, // %, can be a float
-            "format": "{volume}%  {icon}  {format_source}",
-            "format-bluetooth": "{volume}% {icon} {format_source}",
-            "format-bluetooth-muted": " {icon} {format_source}",
-            "format-muted": " {format_source}",
-            "format-source": "{volume}%  ",
-            "format-source-muted": "   ",
-            "format-icons": {
-                "headphone": "  ",
-                "hands-free": "",
-                "headset": "",
-                "phone": "  ",
-                "portable": "  ",
-                "car": "  ",
-                "default": [
-                    "  ",
-                    "  ",
-                    "  "
-                ]
-            },
-            "on-click": "pavucontrol",
-            "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-            "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-            "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-        },
-        "custom/media": {
-            "on-scroll-up": "playerctl -p spotify next",
-            "on-scroll-down": "playerctl -p spotify previous",
-            "on-click-middle": "playerctl -p spotify play-pause",
-            "on-click": "hyprctl dispatch focuswindow class:spotify",
-            "menu": "on-click-right",
-            "smooth-scrolling-threshold": 5,
-            "menu-file": "$HOME/.config/waybar/media_menu.xml",
-            "exec-if": "pgrep spotify || pgrep spotify_player",
-            "menu-actions": {
-                "toggle": "playerctl -p spotify play-pause",
-                "next": "playerctl -p spotify next",
-                "previous": "playerctl -p spotify previous"
-            },
-            "return-type": "json",
-            "max-length": 40,
-            "format-icons": {
-                "spotify": " ",
-                "default": "🎜"
-            },
-            "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
-        },
-        "custom/mako": {
-            "on-click": "$HOME/.config/waybar/mako-dnd.sh toggle",
-            "exec": "$HOME/.config/waybar/mako-dnd.sh",
-            "exec-on-event": false,
-            "format": "{icon}",
-            "return-type": "json",
-            "escape": true,
-            "signal": 10,
-            "format-icons": {
-                "enabled": "",
-                "disabled": ""
-            },
-            "tooltip": true
-        },
-        "custom/power": {
-            "format": "⏻ ",
-            "tooltip": false,
-            "menu": "on-click",
-            "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-            "menu-actions": {
-                "shutdown": "shutdown",
-                "reboot-windows": "run0 wreboot",
-                "reboot": "reboot",
-                "suspend": "systemctl suspend",
-                "logout": "hyprctl dispatch exit",
-                "lock": "pidof hyprlock | hyprlock"
-            }
-        }
+    "wlr/taskbar": {
+      "all-outputs": false,
+      "format": "{icon}",
+      "icon-theme": "Papirus-Dark",
+      "tooltip": false,
+      "on-click": "activate",
+      "on-click-middle": "close"
+    },
+    "hyprland/submap": {
+      "format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/workspaces": {
+      "all-outputs": false,
+      "on-click": "activate",
+      "on-scroll-up": "hyprctl dispatch workspace e+1",
+      "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+      "separate-outputs": true
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "tray": {
+      "show-passive-items": true,
+      "spacing": 10
+    },
+    "clock": {
+      "format": "{:%A %Y-%m-%d %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "on-click": "/usr/bin/notion-calendar-electron"
+    },
+    "custom/power": {
+      "format": "⏻ ",
+      "tooltip": false,
+      "menu": "on-click",
+      "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+      "menu-actions": {
+        "shutdown": "shutdown",
+        "reboot-windows": "run0 wreboot",
+        "reboot": "reboot",
+        "suspend": "systemctl suspend",
+        "logout": "hyprctl dispatch exit",
+        "lock": "pidof hyprlock | hyprlock"
+      }
     }
+  },
+  {
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    "spacing": 0, // Gaps between modules (0px)
+    "output": "DP-1",
+    // Choose the order of the modules
+    "modules-left": [
+      "hyprland/workspaces",
+      "hyprland/submap",
+      "wlr/taskbar",
+      "custom/media"
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+      "tray",
+      "pulseaudio",
+      "network",
+      "cpu",
+      "memory",
+      "temperature",
+      "clock",
+      "custom/notification",
+      "custom/power"
+    ],
+    "hyprland/window": {
+      "separate-outputs": true
+    },
+    "wlr/taskbar": {
+      "all-outputs": false,
+      "format": "{icon}",
+      "icon-theme": "Papirus-Dark",
+      "tooltip": false,
+      "on-click": "activate",
+      "on-click-middle": "close"
+    },
+    "hyprland/submap": {
+      "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "tray": {
+      "show-passive-items": true,
+      "spacing": 10
+    },
+    "clock": {
+      "format": "{:%A %Y-%m-%d %H:%M}",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "on-click": "/usr/bin/notion-calendar-electron"
+    },
+    "cpu": {
+      "format": "{usage}% ",
+      "tooltip": false,
+      "on-click": "rio -e btop"
+    },
+    "memory": {
+      "format": "{}% ",
+      "on-click": "rio -e btop"
+    },
+    "battery": {
+      "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{capacity}% {icon}",
+      "format-charging": "{capacity}% ",
+      "format-plugged": "{capacity}% ",
+      "format-alt": "{time} {icon}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+      "on-click-middle": "nm-connection-editor"
+    },
+    "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{volume}%  {icon}  {format_source}",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}%  ",
+      "format-source-muted": "   ",
+      "format-icons": {
+        "headphone": "  ",
+        "hands-free": "",
+        "headset": "",
+        "phone": "  ",
+        "portable": "  ",
+        "car": "  ",
+        "default": [
+          "  ",
+          "  ",
+          "  "
+        ]
+      },
+      "on-click": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "custom/media": {
+      "on-scroll-up": "playerctl -p spotify next",
+      "on-scroll-down": "playerctl -p spotify previous",
+      "on-click-middle": "playerctl -p spotify play-pause",
+      "on-click": "hyprctl dispatch focuswindow class:spotify",
+      "menu": "on-click-right",
+      "smooth-scrolling-threshold": 5,
+      "menu-file": "$HOME/.config/waybar/media_menu.xml",
+      "exec-if": "pgrep spotify || pgrep spotify_player",
+      "menu-actions": {
+        "toggle": "playerctl -p spotify play-pause",
+        "next": "playerctl -p spotify next",
+        "previous": "playerctl -p spotify previous"
+      },
+      "return-type": "json",
+      "max-length": 40,
+      "format-icons": {
+        "spotify": " ",
+        "default": "🎜"
+      },
+      "escape": true,
+      "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"
+    },
+    "custom/mako": {
+      "on-click": "$HOME/.config/waybar/mako-dnd.sh toggle",
+      "exec": "$HOME/.config/waybar/mako-dnd.sh",
+      "exec-on-event": false,
+      "format": "{icon}",
+      "return-type": "json",
+      "escape": true,
+      "signal": 10,
+      "format-icons": {
+        "enabled": "",
+        "disabled": ""
+      },
+      "tooltip": true
+    },
+    "custom/notification": {
+      "tooltip": true,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "󱅫",
+        "none": "󰂜",
+        "dnd-notification": "󰂠",
+        "dnd-none": "󰪓",
+        "inhibited-notification": "󰂛",
+        "inhibited-none": "󰪑",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰪑"
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+    "custom/power": {
+      "format": "⏻ ",
+      "tooltip": false,
+      "menu": "on-click",
+      "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+      "menu-actions": {
+        "shutdown": "shutdown",
+        "reboot-windows": "run0 wreboot",
+        "reboot": "reboot",
+        "suspend": "systemctl suspend",
+        "logout": "hyprctl dispatch exit",
+        "lock": "pidof hyprlock | hyprlock"
+      }
+    }
+  }
 ]
