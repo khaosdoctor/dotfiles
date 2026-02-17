@@ -30,7 +30,7 @@
   "transition-time": 200,
   "hide-on-clear": true,
   "hide-on-action": true,
-  "text-empty": "",
+  "text-empty": "No Notifications",
   "script-fail-notify": true,
   "widgets": [
     "dnd",
