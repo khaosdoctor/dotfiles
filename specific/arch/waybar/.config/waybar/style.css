@@ -11,153 +11,171 @@
 /* @define-color purple #bd93f9; */
 @define-color green #50fa7b;
 @define-color red #ff5555;
-/* @define-color yellow #f1fa8c; */
+@define-color yellow #f1fa8c;
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Fira Sans, Ubuntu, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: FontAwesome, Fira Sans, Ubuntu, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
+
+#custom-notification.none {
+  color: @green;
+}
+
+#custom-notification.notification {
+  color: @red;
+}
+
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+  color: @yellow;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: @foreground;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: .5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: 3px solid transparent;
-    border-radius: 0;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: 3px solid transparent;
+  border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px @foreground;
+  background: inherit;
+  box-shadow: inset 0 -3px @foreground;
 }
 
 #window {
-    margin-left: 15px;
-    padding: 0 15px;
+  margin-left: 15px;
+  padding: 0 15px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @foreground;
+  padding: 0 5px;
+  background-color: transparent;
+  color: @foreground;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button.focused {
-    background-color: @color3;
-    color: @color0;
-    box-shadow: inset 0 -3px @foreground;
+  background-color: @color3;
+  color: @color0;
+  box-shadow: inset 0 -3px @foreground;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
+  background-color: @red;
 }
 
 #workspaces button.visible {
-    box-shadow: inset 0 -3px @foreground;
+  box-shadow: inset 0 -3px @foreground;
 }
 
 #mode {
-    background-color: @color2;
-    border-bottom: 3px solid @foreground;
+  background-color: @color2;
+  border-bottom: 3px solid @foreground;
 }
 
 #cpu {
-    border-bottom: 3px solid @color3;
+  border-bottom: 3px solid @color3;
 }
 
 #memory {
-    border-bottom: 3px solid @color4;
+  border-bottom: 3px solid @color4;
 }
 
 #temperature {
-    border-bottom: 3px solid @color5;
+  border-bottom: 3px solid @color5;
 }
 
 #clock {
-    border-bottom: 3px solid @color6;
+  border-bottom: 3px solid @color6;
 }
 
 #network {
-    border-bottom: 3px solid @color7;
+  border-bottom: 3px solid @color7;
 }
 
 #pulseaudio {
-    border-bottom: 3px solid @color8;
+  border-bottom: 3px solid @color8;
 }
 
 #pulseaudio #cpu:hover {
-    background: @color8;
+  background: @color8;
 }
 
 #memory:hover {
-    background: @color4;
-    color: @black;
+  background: @color4;
+  color: @black;
 }
 
 #temperature:hover {
-    background: @color5;
+  background: @color5;
 }
 
 #cpu:hover {
-    background: @color3;
-    border-bottom: 3px solid @color3;
+  background: @color3;
+  border-bottom: 3px solid @color3;
 }
 
 #clock:hover {
-    background: @color6;
+  background: @color6;
 }
 
 #network:hover {
-    background: @color7;
-    color: @black;
+  background: @color7;
+  color: @black;
 }
 
 #pulseaudio:hover {
-    background: @color8;
+  background: @color8;
 }
 
 #custom-mako.dnd-enabled {
-    color: @red;
+  color: @red;
 }
 
 #custom-mako.dnd-disabled {
-    color: @green;
+  color: @green;
 }
 
 #custom-media {
-    margin-left: 10px;
-    background: rgba(0, 140, 0, 0.3);
-    border-bottom: 4px solid #00ff00;
-    padding: 0 10px;
+  margin-left: 10px;
+  background: rgba(0, 140, 0, 0.3);
+  border-bottom: 4px solid #00ff00;
+  padding: 0 10px;
 }
 
 #custom-power {
-    background: #101010;
-    margin: 0;
+  background: #101010;
+  margin: 0;
 }
 
 
 #cpu,
 #memory,
 #custom-mako,
+#custom-notification,
 #temperature,
 #clock,
 #battery,
@@ -169,31 +187,31 @@ button:hover {
 #pulseaudio,
 #scratchpad,
 #mpd {
-    padding: 0 9px;
-    margin: 0 4px;
-    color: @foreground;
-    transition-property: all;
-    transition-duration: .5s;
+  padding: 0 9px;
+  margin: 0 4px;
+  color: @foreground;
+  transition-property: all;
+  transition-duration: .5s;
 }
 
 #taskbar,
 #workspaces {
-    margin: 0 4px;
+  margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 
 #battery {
-    color: @foreground;
+  color: @foreground;
 }
 
 /* #battery.charging, #battery.plugged {
@@ -202,70 +220,70 @@ button:hover {
 } */
 
 @keyframes blink {
-    to {
-        background-color: @foreground;
-        color: @background;
-    }
+  to {
+    background-color: @foreground;
+    color: @background;
+  }
 }
 
 #battery.critical:not(.charging) {
-    background-color: @red;
-    color: @foreground;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background-color: @red;
+  color: @foreground;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-    background-color: @background;
+  background-color: @background;
 }
 
 #tray {
-    border-bottom: 3px dotted @cyan;
+  border-bottom: 3px dotted @cyan;
 }
 
 #tray>.passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @red;
+  -gtk-icon-effect: highlight;
+  background-color: @red;
 }
 
 #idle_inhibitor {
-    background-color: @selection;
+  background-color: @selection;
 }
 
 #idle_inhibitor.activated {
-    background-color: @green;
-    color: @selection;
+  background-color: @green;
+  color: @selection;
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad.empty {
-    background-color: transparent;
+  background-color: transparent;
 }
 
 #taskbar button {
-    transition-property: all;
-    transition-duration: 0.5s;
-    color: @foreground;
-    border-right: 1px dotted @background;
-    padding-left: 12px;
-    padding-right: 9px;
+  transition-property: all;
+  transition-duration: 0.5s;
+  color: @foreground;
+  border-right: 1px dotted @background;
+  padding-left: 12px;
+  padding-right: 9px;
 }
 
 #taskbar button.active {
-    border-top: 3px solid @cyan;
+  border-top: 3px solid @cyan;
 }
 
 #taskbar {
-    border-left: 3px solid @foreground;
-    padding-left: 10px;
+  border-left: 3px solid @foreground;
+  padding-left: 10px;
 }
