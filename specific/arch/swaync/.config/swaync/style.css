@@ -1,11 +1,13 @@
+@import url("/home/khaosdoctor/.cache/wal/colors-swaync.css");
+
 :root {
-  --border-radius: 22px;
+  --border-radius: 8px;
   --cc-bg: transparent;
 
-  --widget-background: rgba(13, 13, 13, 0.95);
   --noti-bg-alpha: 0.6;
 
-  --padding: calc(var(--border-radius) / 2);
+  --padding: 10px;
+  --padding-side: 20px;
 }
 
 .control-center {
@@ -17,7 +19,7 @@
 .widget-mpris>box>button {
   background: var(--widget-background);
   border-radius: var(--border-radius);
-  padding: calc(var(--border-radius) / 2);
+  padding: var(--padding) var(--padding-side);
   border: var(--border);
 }
 
