@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# This script launches a Windows executable using Proton within a Linux environment.
+# It requires exactly one argument: the path to the executable to run.
+# It sets up a separate Proton prefix for each executable to avoid conflicts.
+# Usage: proton <path-to-executable>
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <executable-path>"
+    exit 1
+fi
+
+# Location of the compatdata for proton when the exe is created, this is where the prefix will be created
+PROTON_ROOT="$HOME/mnt/Games/.proton"
+# Location for the proton executable. Make sure to set this to the correct path where your Steam library is located and where Proton is installed.
+STEAM_ROOT="$HOME/mnt/Games/SteamLibrary"
+# This binary must exist in the $STEAM_ROOT/steamapps/common/<name>/proton
+PROTON_VER="Proton - Experimental"
+EXE_ROOT="$(dirname "$1")"
+EXE="$(basename "$1")"
+PROTON_BIN="$STEAM_ROOT/steamapps/common/$PROTON_VER"
+
+echo "Running $EXE with Proton in prefix $PROTON_ROOT/$EXE"
+
+cd "$EXE_ROOT" || exit
+
+echo "Creating Proton prefix for $EXE at $PROTON_ROOT/$EXE"
+
+mkdir -p "$PROTON_ROOT/$EXE"
+export STEAM_COMPAT_DATA_PATH="$PROTON_ROOT/$EXE"
+export STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM_ROOT"
+
+echo "Executing proton at $PROTON_BIN with $EXE"
+
+"$PROTON_BIN/proton" run "$1" >/dev/null 2>&1
