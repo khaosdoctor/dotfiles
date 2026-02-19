@@ -2,7 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(find:*)",
-      "Bash(nvim:*)"
+      "Bash(nvim:*)",
+      "Read(**/Obsidian/**)",
+      "Glob(**/Obsidian/**)",
+      "Grep(**/Obsidian/**)",
+      "Read(**/.claude/**)",
+      "Glob(**/.claude/**)",
+      "Grep(**/.claude/**)"
     ],
     "defaultMode": "default"
   },
