@@ -2,7 +2,7 @@
 
 This file contains analysis and observations about the user's specific Obsidian vault to help provide better assistance.
 
-**Vault Path**: `/Users/lsantos/Documents/Obsidian/Default/`
+**Vault Path**: `$VAULT_PATH/`
 
 ## Analyzed Notes Summary
 
