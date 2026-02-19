@@ -26,6 +26,15 @@ This skill is active when working in a directory that contains:
 - A `notes/daily notes/yyyy-mm-dd.md` structure, OR
 - A `notes/` folder with many `.md` files (indicating an Obsidian vault)
 
+## Vault Discovery
+
+Do NOT hardcode the vault path. Discover it in this order:
+
+1. **Obsidian MCP**: If `mcp__obsidian-mcp-tools` tools are available, use `list_vault_files` or `get_server_info` to confirm access and discover the vault root
+2. **Current working directory**: Check if the CWD contains `.obsidian/`
+3. **Common paths**: Search `$HOME/Documents/Obsidian/` for directories containing `.obsidian/`
+4. **Ask the user**: If none of the above work
+
 ## Core Principles
 
 ### 1. Research and Information Gathering

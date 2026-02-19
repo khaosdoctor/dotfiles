@@ -112,12 +112,14 @@ Since this skill creates content, **always** add:
 - No kebab-case, snake_case, or camelCase
 - `title` field must **exactly** match the filename (minus `.md`)
 
-## Vault Detection
+## Vault Discovery
 
-Do not hardcode the vault path. Find it by:
-1. Checking the current working directory for `.obsidian/`
-2. Searching common locations (`~/Documents`, `~/Obsidian`, `~/notes`)
-3. Asking the user if not found
+Do NOT hardcode the vault path. Discover it in this order:
+
+1. **Obsidian MCP**: If `mcp__obsidian-mcp-tools` tools are available, use `list_vault_files` or `get_server_info` to confirm access and discover the vault root
+2. **Current working directory**: Check if the CWD contains `.obsidian/`
+3. **Common paths**: Search `$HOME/Documents/Obsidian/` for directories containing `.obsidian/`
+4. **Ask the user**: If none of the above work
 
 ## Examples
 

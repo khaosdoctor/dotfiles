@@ -1,11 +1,11 @@
 # Vault Structure Reference
 
-This document describes the organization and structure of the user's Obsidian vault based on analysis of `/Users/lsantos/Documents/Obsidian/Default/`.
+This document describes the organization and structure of the user's Obsidian vault based on analysis of `$VAULT_PATH/`.
 
 ## Root Directory Structure
 
 ```
-/Users/lsantos/Documents/Obsidian/Default/
+$VAULT_PATH/
 ├── .obsidian/              # Obsidian configuration and plugins
 ├── .claude/                # Claude Code configuration (if present)
 ├── assets/                 # Legacy assets (prefer internal/assets)
