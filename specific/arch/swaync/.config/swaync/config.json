@@ -1,6 +1,6 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "ignore-gtk-theme": false,
+  "ignore-gtk-theme": true,
   "positionX": "right",
   "positionY": "top",
   "layer": "overlay",
@@ -19,10 +19,10 @@
   "timeout": 10,
   "timeout-low": 5,
   "timeout-critical": 0,
-  "fit-to-screen": false,
+  "fit-to-screen": true,
   "relative-timestamps": true,
   "control-center-width": 500,
-  "control-center-height": -1,
+  "control-center-height": 0,
   "notification-window-width": 500,
   "keyboard-shortcuts": true,
   "notification-grouping": true,
@@ -33,6 +33,7 @@
   "text-empty": "No Notifications",
   "script-fail-notify": true,
   "widgets": [
+    "title",
     "dnd",
     "mpris",
     "inhibitors",

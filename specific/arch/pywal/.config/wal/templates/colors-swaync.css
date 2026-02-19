@@ -1,7 +1,10 @@
 :root {
   --widget-background: rgba({background.rgb}, 0.9);
+  --noti-background: rgba({background.rgb}, 1.0);
   --accent: {color3};
   --foreground: {foreground};
   --border-color: {color1};
-  --progress-color: {color2};
+  --noti-low: {color4};
+  --noti-normal: {color2};
+  --noti-critical: {color5};
 }

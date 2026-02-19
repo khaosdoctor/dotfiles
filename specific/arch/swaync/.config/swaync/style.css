@@ -1,37 +1,118 @@
 @import url("/home/khaosdoctor/.cache/wal/colors-swaync.css");
 
 :root {
-  --border-radius: 8px;
   --cc-bg: transparent;
+  --noti-bg: transparent;
+  --noti-bg-alpha: 0;
+  --notification-shadow: none;
 
-  --noti-bg-alpha: 0.6;
+  --border-radius: 22px;
+  --border: 2px solid var(--border-color);
 
   --padding: 10px;
-  --padding-side: 20px;
+  --padding-side: 15px;
 }
 
+/* Control center + blank window transparency */
 .control-center {
-  border-radius: 0;
+  background: transparent;
 }
 
-.widgets>.widget,
-.widget-mpris>carouselindicatordots,
-.widget-mpris>box>button {
-  background: var(--widget-background);
-  border-radius: var(--border-radius);
-  padding: var(--padding) var(--padding-side);
-  border: var(--border);
+.blank-window {
+  background: transparent;
 }
 
-.control-center-list-placeholder {
-  padding: var(--border-radius);
+/* Hide the empty state placeholder */
+.control-center .control-center-list-placeholder {
+  opacity: 0;
 }
 
+/* Notification group */
 .notification-group {
   border-radius: var(--border-radius);
+  border: none;
+  background: transparent;
   padding: 8px;
 }
 
+.notification-group .notification-group-headers {
+  color: var(--foreground);
+}
+
+/* Strip borders from inner notification wrappers */
+.notification-row,
+.notification-row .notification-background {
+  border: none;
+  background: transparent;
+}
+
+/* The actual notification card */
+.notification-row .notification-background .notification {
+  border: 2px solid var(--noti-normal);
+  border-radius: var(--border-radius);
+  background: var(--noti-background);
+  color: var(--foreground);
+  padding: 0;
+  box-shadow: none;
+}
+
+.notification-row .notification-background .notification.low {
+  border-color: var(--noti-low);
+}
+
+.notification-row .notification-background .notification.critical {
+  border-color: var(--noti-critical);
+}
+
+.notification-row .notification-background .notification .notification-default-action {
+  border-radius: var(--border-radius);
+  padding: var(--padding) var(--padding-side);
+}
+
+.notification-row .notification-background .notification .notification-default-action:hover {
+  background: alpha(var(--accent), 0.2);
+}
+
+.notification-row .notification-background .notification .notification-action>button {
+  border-radius: var(--border-radius);
+  background: alpha(var(--accent), 0.2);
+  border: none;
+  color: var(--foreground);
+}
+
+.notification-row .notification-background .notification .notification-action>button:hover {
+  background: alpha(var(--accent), 0.4);
+}
+
+/* Collapsed group stacked notifications */
+.notification-group.collapsed .notification-row .notification {
+  background-color: var(--widget-background);
+}
+
+/* Widgets — no border by default */
+.widgets>.widget {
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+  padding: var(--padding) var(--padding-side);
+  border: none;
+  color: var(--foreground);
+  box-shadow: none;
+}
+
+/* Notifications widget is just a container — keep it transparent */
+.widgets>.widget-notifications {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Only title and dnd get borders */
+.widgets>.widget-title,
+.widgets>.widget-dnd {
+  border: var(--border);
+}
+
+/* MPRIS widget — transparent wrapper */
 .widget.widget-mpris {
   background: transparent;
   border-radius: 0;
@@ -39,7 +120,11 @@
   border: none;
 }
 
+/* MPRIS carousel dots */
 .widget.widget-mpris>carouselindicatordots {
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+  border: none;
   --dots-padding: 4px;
   padding: var(--dots-padding);
   padding-left: var(--dots-padding);
@@ -48,16 +133,51 @@
   margin-top: var(--padding);
 }
 
+/* MPRIS carousel buttons (< >) */
+.widget-mpris>box>button {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+}
+
 .widget-mpris>box>button:hover {
-  background: rgba(46, 46, 46, 1);
+  background: alpha(var(--accent), 0.4);
 }
 
-.widget-mpris-player {
+/* MPRIS player card */
+.widget-mpris .widget-mpris-player {
   box-shadow: none;
-  border: var(--border);
+  border: none;
+  border-radius: var(--border-radius);
   margin: 0 var(--padding);
+  color: var(--foreground);
 }
 
-.widget-mpris-player:only-child {
+.widget-mpris .widget-mpris-player:only-child {
   margin: 0;
+}
+
+/* DND toggle */
+.widget-dnd>switch {
+  border-radius: var(--border-radius);
+}
+
+.widget-dnd>switch:checked {
+  background: var(--accent);
+}
+
+/* Text styling */
+.widget-title,
+.widget-dnd,
+.widget-inhibitors {
+  color: var(--foreground);
+}
+
+/* Popup notifications (floating, like mako) */
+.floating-notifications .notification {
+  background: var(--widget-background);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  color: var(--foreground);
+  box-shadow: none;
 }
