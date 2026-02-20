@@ -20,7 +20,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if [ -d \"$PWD/.obsidian\" ] || [ -d \"$PWD/notes\" ]; then echo '\n# Obsidian Vault Detected\n' && cat ~/.claude/skills/obsidian/SKILL.md | tail -n +4; fi"
+            "command": "if ~/.claude/bin/find-obsidian --vault >/dev/null 2>&1; then echo '\n# Obsidian Vault Detected\n' && cat ~/.claude/skills/obsidian/SKILL.md | tail -n +4; fi"
           },
           {
             "type": "command",

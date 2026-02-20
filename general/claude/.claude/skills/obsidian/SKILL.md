@@ -28,12 +28,13 @@ This skill is active when working in a directory that contains:
 
 ## Vault Discovery
 
-Do NOT hardcode the vault path. Discover it in this order:
+Do NOT hardcode the vault path. Use the `find-obsidian` script:
 
-1. **Obsidian MCP**: If `mcp__obsidian-mcp-tools` tools are available, use `list_vault_files` or `get_server_info` to confirm access and discover the vault root
-2. **Current working directory**: Check if the CWD contains `.obsidian/`
-3. **Common paths**: Search `$HOME/Documents/Obsidian/` for directories containing `.obsidian/`
-4. **Ask the user**: If none of the above work
+```bash
+~/.claude/bin/find-obsidian --vault
+```
+
+This script automatically checks CWD, common paths (`~/Documents/Obsidian/`), and searches `$HOME` as a fallback. If the script fails, ask the user for the vault path.
 
 ## Core Principles
 
