@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "obsidian-mcp-tools": {
+      "command": "op",
+      "args": [
+        "run",
+        "--account", "mafagafos.1password.com",
+        "--",
+        "sh", "-c", "$HOME/.claude/bin/find-obsidian --mcp"
+      ],
+      "env": {
+        "OBSIDIAN_API_KEY": "op://Private/Obsidian Local REST API Key/password"
+      }
+    }
+  }
+}
