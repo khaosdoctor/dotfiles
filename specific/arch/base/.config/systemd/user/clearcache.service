@@ -1,0 +1,6 @@
+[Unit]
+Description=Clear old cache files in the .cache directory
+
+[Service]
+Type=oneshot
+ExecStart=find /home/khaosdoctor/.cache -depth -atime +30 -delete
