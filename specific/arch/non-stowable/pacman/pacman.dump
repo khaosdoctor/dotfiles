@@ -62,7 +62,6 @@ fcitx5-gtk
 fcitx5-qt
 fd
 ffmpegthumbnailer
-firefox
 flatpak
 freefilesync-bin
 fuse-overlayfs
@@ -151,7 +150,6 @@ nwg-displays
 nwg-drawer
 obsidian
 ollama-rocm
-opencode
 openrazer-daemon
 os-prober
 overskride
