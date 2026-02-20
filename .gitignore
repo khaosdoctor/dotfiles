@@ -158,3 +158,5 @@ general/base/.local/share/mise
 general/base/.mise_shim
 /general/base/.local/state/watchman
 /general/base/.local/state/mise
+/general/base/.local/share/GitKrakenCLI
+/general/base/.local/share/gk
