@@ -1,0 +1,99 @@
+#!/usr/bin/env sh
+# Finds the Obsidian vault and optionally launches the MCP server.
+#
+# Usage:
+#   find-obsidian --vault          Print the vault root path (cached)
+#   find-obsidian --mcp            Find and exec the MCP server binary inside the vault
+#   find-obsidian --clear-cache    Clear the cached vault path
+#   find-obsidian                  Same as --vault
+
+set -e
+
+CACHE_DIR="$HOME/.cache/find-obsidian"
+CACHE_FILE="$CACHE_DIR/vault-path"
+
+read_cache() {
+  if [ -f "$CACHE_FILE" ]; then
+    cached=$(cat "$CACHE_FILE")
+    # Validate the cached path still has .obsidian/
+    if [ -d "$cached/.obsidian" ]; then
+      echo "$cached"
+      return 0
+    fi
+    # Stale cache, remove it
+    rm -f "$CACHE_FILE"
+  fi
+  return 1
+}
+
+write_cache() {
+  mkdir -p "$CACHE_DIR"
+  echo "$1" > "$CACHE_FILE"
+}
+
+search_vault() {
+  # 1. Check CWD
+  if [ -d "$PWD/.obsidian" ]; then
+    echo "$PWD"
+    return 0
+  fi
+
+  # 2. Check common paths under ~/Documents/Obsidian/
+  if [ -d "$HOME/Documents/Obsidian" ]; then
+    vault=$(find "$HOME/Documents/Obsidian" -maxdepth 2 -name ".obsidian" -type d 2>/dev/null | head -1)
+    if [ -n "$vault" ]; then
+      dirname "$vault"
+      return 0
+    fi
+  fi
+
+  # 3. Broader search under $HOME (skip Library, .Trash, node_modules, etc.)
+  vault=$(find "$HOME" \
+    -name ".obsidian" -type d \
+    \( -path "*/Library/*" -o -path "*/.Trash/*" -o -path "*/node_modules/*" -o -path "*/.git/*" \) -prune \
+    -o -name ".obsidian" -type d -print \
+    2>/dev/null | head -1)
+
+  if [ -n "$vault" ]; then
+    dirname "$vault"
+    return 0
+  fi
+
+  echo "Error: No Obsidian vault found" >&2
+  return 1
+}
+
+find_vault() {
+  # Try cache first
+  if read_cache; then
+    return 0
+  fi
+
+  # Search and cache the result
+  result=$(search_vault)
+  write_cache "$result"
+  echo "$result"
+}
+
+case "${1:---vault}" in
+  --vault)
+    find_vault
+    ;;
+  --mcp)
+    VAULT=$(find_vault)
+    SERVER="$VAULT/.obsidian/plugins/mcp-tools/bin/mcp-server"
+    if [ ! -f "$SERVER" ]; then
+      echo "Error: MCP server not found at $SERVER" >&2
+      exit 1
+    fi
+    exec "$SERVER"
+    ;;
+  --clear-cache)
+    rm -f "$CACHE_FILE"
+    echo "Cache cleared"
+    ;;
+  *)
+    echo "Usage: find-obsidian [--vault|--mcp|--clear-cache]" >&2
+    exit 1
+    ;;
+esac
