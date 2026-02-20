@@ -62,7 +62,7 @@ Read the buffer file and check for jots from **dates other than the target date*
    c. If **yes**, for each past date:
       - Check if the daily note exists at `notes/daily notes/YYYY-MM-DD.md`
       - If it **exists**: read the note, find the `## Journal` section, and insert the jots **in chronological order** under that heading (before the next `##` section). Preserve any existing journal entries and merge them in time order. Add wikilinks to the jots (see Wikilinks section).
-      - If it **does not exist**: create a new daily note using the vault's daily note template structure, with the jots placed under `## Journal`
+      - If it **does not exist**: create a new daily note from the template at `internal/templates/Daily Note.md` (see "Creating Daily Notes from Template" section below), then insert the jots under `## Journal`
       - Add `lastEditedByAI` and `meta/ai-assisted` tag to the frontmatter of any daily note created or modified
       - Remove those date sections from the buffer
    d. If **no**, leave them in the buffer
@@ -112,7 +112,7 @@ Build the journal entry following these rules:
 
 1. Check if `notes/daily notes/TARGET_DATE.md` exists
 2. If it **exists**: insert journal entries under the `## Journal` heading, preserving any existing entries and merging by time order
-3. If it **does not exist**: create a new daily note using the vault's daily note template (read from `internal/templates/Daily Note.md` and replace the date placeholder)
+3. If it **does not exist**: create a new daily note from the template (see "Creating Daily Notes from Template" section below), then insert journal entries under `## Journal`
 4. Add `lastEditedByAI` and `meta/ai-assisted` tag to frontmatter
 
 ### Step 7: Clean up buffer
@@ -156,3 +156,15 @@ Match the user's journaling voice. Based on existing journals:
 - Do NOT use hedging language or formal transitions
 - Do NOT skip the user questions step - always ask about personal/mood stuff
 - Do NOT fabricate events or feelings
+
+## Creating Daily Notes from Template
+
+When a daily note does not exist for the target date, create it from the template at `internal/templates/Daily Note.md`.
+
+### Steps
+
+1. **Read the template** from `internal/templates/Daily Note.md`
+2. **Replace placeholders**: substitute `{{date}}` with the target date in `YYYY-MM-DD` format
+3. **Create the file** at `notes/daily notes/YYYY-MM-DD.md` using the Obsidian MCP `create_vault_file` tool
+4. The template produces the full note structure including frontmatter, `## Journal`, `## Habits`, `## TIL`, and `## Log` sections — do NOT modify or remove any of these sections
+5. Insert journal entries under the `## Journal` heading (replacing the placeholder `- ` line)
