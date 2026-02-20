@@ -1,0 +1,9 @@
+[Unit]
+Description=Clear the expunged folder in Trash
+
+[Service]
+Type=oneshot
+ExecStart=rm -rf /home/khaosdoctor/.local/share/Trash/expunged/*
+
+[Install]
+WantedBy=default.target
