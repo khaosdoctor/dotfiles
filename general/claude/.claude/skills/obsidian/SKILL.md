@@ -36,6 +36,22 @@ Do NOT hardcode the vault path. Use the `find-obsidian` script:
 
 This script automatically checks CWD, common paths (`~/Documents/Obsidian/`), and searches `$HOME` as a fallback. If the script fails, ask the user for the vault path.
 
+## MCP Server Setup
+
+The Obsidian MCP server (`obsidian-mcp-tools`) enables vault searches, Dataview queries, and other Obsidian-specific features. If MCP tool calls fail or the server is not available, check if it's registered:
+
+```bash
+~/.claude/bin/setup-obsidian-mcp --check
+```
+
+If it's not registered, run the setup script to register it:
+
+```bash
+~/.claude/bin/setup-obsidian-mcp
+```
+
+This is idempotent and safe to run multiple times. It requires the `claude` CLI and `op` (1Password CLI) to be installed.
+
 ## Core Principles
 
 ### 1. Research and Information Gathering
