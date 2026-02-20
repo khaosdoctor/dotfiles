@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+# Registers the Obsidian MCP server with Claude Code (user scope).
+# Run this once per machine after installing dotfiles.
+#
+# Usage:
+#   setup-obsidian-mcp            Register the server
+#   setup-obsidian-mcp --check    Check if already registered
+
+set -e
+
+check_claude() {
+  if ! command -v claude >/dev/null 2>&1; then
+    echo "Error: claude CLI not found" >&2
+    exit 1
+  fi
+}
+
+register() {
+  claude mcp add-json --scope user obsidian-mcp-tools \
+    '{"command":"op","args":["run","--account","mafagafos.1password.com","--","sh","-c","$HOME/.claude/bin/find-obsidian --mcp"],"env":{"OBSIDIAN_API_KEY":"op://Private/Obsidian Local REST API Key/password"}}'
+}
+
+is_registered() {
+  claude mcp get obsidian-mcp-tools >/dev/null 2>&1
+}
+
+case "${1:-}" in
+  --check)
+    check_claude
+    if is_registered; then
+      echo "obsidian-mcp-tools: registered"
+    else
+      echo "obsidian-mcp-tools: not registered"
+      exit 1
+    fi
+    ;;
+  *)
+    check_claude
+    if is_registered; then
+      echo "obsidian-mcp-tools already registered, skipping"
+    else
+      echo "Registering obsidian-mcp-tools..."
+      register
+      echo "Done"
+    fi
+    ;;
+esac
