@@ -20,20 +20,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "if ~/.claude/bin/find-obsidian --vault >/dev/null 2>&1; then echo '\n# Obsidian Vault Detected\n' && cat ~/.claude/skills/obsidian/SKILL.md | tail -n +4; fi"
-          },
-          {
-            "type": "command",
             "command": "if [ -d \"$PWD/.git\" ] || [ -f \"$PWD/package.json\" ] || [ -f \"$PWD/Cargo.toml\" ] || [ -f \"$PWD/go.mod\" ] || [ -f \"$PWD/pom.xml\" ]; then echo '\n# Code Repository Detected - Explain Skill Loaded\n' && cat ~/.claude/skills/explain/SKILL.md | tail -n +4; fi"
           }
         ]
       }
     ]
-  },
-  "enabledPlugins": {
-    "lua-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false
