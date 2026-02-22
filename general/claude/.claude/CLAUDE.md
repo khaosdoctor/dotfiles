@@ -11,6 +11,7 @@
 
 - For rename/refactor tasks: always do a comprehensive pass covering mod IDs, class names, package names, file paths, texture references, translation keys, and asset filenames. Do a grep sweep afterward to catch stale references.
 
-## Obsidian 
+## Obsidian
 
 - Obsidian notes should use consistent YAML frontmatter with tags, aliases, and created date. Use [[wikilinks]] for cross-references. Follow existing vault conventions.
+- If the Obsidian MCP tool is available and you are unsure how to answer something or lack context, search the Obsidian vault for relevant notes before responding. The vault is a large personal knowledge base and may contain written guidance, preferences, or prior research on the topic.
