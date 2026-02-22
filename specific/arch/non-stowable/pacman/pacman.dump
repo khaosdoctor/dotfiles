@@ -90,6 +90,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 gvfs-wsdd
+huenicorn
 hypridle
 hyprland
 hyprlock
