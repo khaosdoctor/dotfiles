@@ -90,6 +90,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 gvfs-wsdd
+hardinfo2
 huenicorn
 hypridle
 hyprland
