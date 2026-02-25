@@ -114,7 +114,8 @@
       "network",
       "cpu",
       "memory",
-      "temperature",
+      "temperature#cpu",
+      "temperature#gpu",
       "clock",
       "custom/notification",
       "custom/power"
@@ -152,11 +153,29 @@
     "cpu": {
       "format": "{usage}% ",
       "tooltip": false,
-      "on-click": "rio -e btop"
+      "on-click": "kitty -e btop"
     },
     "memory": {
       "format": "{}% ",
-      "on-click": "rio -e btop"
+      "on-click": "kitty -e btop"
+    },
+    "temperature#cpu": {
+      "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+      "input-filename": "temp1_input",
+      "critical-threshold": 90,
+      "format": "{temperatureC}°C ",
+      "format-critical": "{temperatureC}°C ",
+      "tooltip-format": "CPU Tctl: {temperatureC}°C",
+      "on-click": "kitty -e watch -n 1 sensors"
+    },
+    "temperature#gpu": {
+      "hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:03.1/0000:08:00.0/0000:09:00.0/0000:0a:00.0/hwmon",
+      "input-filename": "temp2_input",
+      "critical-threshold": 100,
+      "format": "{temperatureC}°C 󰢮",
+      "format-critical": "{temperatureC}°C 󰢮",
+      "tooltip-format": "GPU Junction: {temperatureC}°C",
+      "on-click": "kitty -e nvtop"
     },
     "battery": {
       "states": {
