@@ -225,10 +225,25 @@
           "  "
         ]
       },
+      "tooltip-format": "{desc}",
       "on-click": "pavucontrol",
       "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
       "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
-      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+      "menu": "on-click-right",
+      "menu-file": "$HOME/.config/waybar/audio_menu.xml",
+      "menu-actions": {
+        "device0": "$HOME/.config/waybar/audio-switch.sh 0",
+        "device1": "$HOME/.config/waybar/audio-switch.sh 1",
+        "device2": "$HOME/.config/waybar/audio-switch.sh 2",
+        "device3": "$HOME/.config/waybar/audio-switch.sh 3",
+        "device4": "$HOME/.config/waybar/audio-switch.sh 4",
+        "device5": "$HOME/.config/waybar/audio-switch.sh 5",
+        "device6": "$HOME/.config/waybar/audio-switch.sh 6",
+        "device7": "$HOME/.config/waybar/audio-switch.sh 7",
+        "device8": "$HOME/.config/waybar/audio-switch.sh 8",
+        "device9": "$HOME/.config/waybar/audio-switch.sh 9"
+      }
     },
     "custom/media": {
       "on-scroll-up": "playerctl -p spotify next",

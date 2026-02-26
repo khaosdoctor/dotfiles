@@ -161,3 +161,5 @@ general/base/.mise_shim
 /general/base/.local/share/GitKrakenCLI
 /general/base/.local/share/gk
 /general/base/.local/pipx
+/specific/arch/waybar/.config/waybar/.audio-sinks
+/specific/arch/waybar/.config/waybar/audio_menu.xml
