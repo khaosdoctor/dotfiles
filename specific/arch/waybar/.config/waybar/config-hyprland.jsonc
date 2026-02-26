@@ -3,7 +3,7 @@
     "output": "DP-2",
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 41, // Waybar height (to be removed for auto height)
+    "height": 42, // Waybar height (to be removed for auto height)
     "spacing": 0, // Gaps between modules (0px)
     // Choose the order of the modules
     "modules-left": [
@@ -94,7 +94,7 @@
   {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 41, // Waybar height (to be removed for auto height)
+    "height": 42, // Waybar height (to be removed for auto height)
     "spacing": 0, // Gaps between modules (0px)
     "output": "DP-1",
     // Choose the order of the modules
