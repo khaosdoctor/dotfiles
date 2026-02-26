@@ -14,7 +14,11 @@ return {
     opts.linters_by_ft.c = { "cpplint" }
     opts.linters_by_ft.cpp = { "cpplint" }
 
-    -- Create custom biome linter (not built-in to nvim-lint)
+    -- Custom biome linter: nvim-lint's built-in ("biomejs") parses plain-text output
+    -- with fragile regex, only catches errors (misses warnings/infos), and has no
+    -- severity mapping. This replaces it with a JSON reporter parser that handles
+    -- all severity levels and both old (span/byte-offset) and new (start/end line+col)
+    -- biome output formats.
     opts.linters = opts.linters or {}
     local lint = require("lint")
 
@@ -33,14 +37,40 @@ return {
           return diagnostics
         end
 
+        local severity_map = {
+          error = vim.diagnostic.severity.ERROR,
+          warning = vim.diagnostic.severity.WARN,
+          information = vim.diagnostic.severity.INFO,
+          hint = vim.diagnostic.severity.HINT,
+        }
+
         for _, diag in ipairs(decoded.diagnostics) do
-          if diag.location then
+          local loc = diag.location
+          if loc then
+            local lnum, col, end_lnum, end_col
+            if loc.start then
+              -- New biome format: location.start/end with line/column (1-indexed)
+              lnum = (loc.start.line or 1) - 1
+              col = (loc.start.column or 1) - 1
+              end_lnum = loc["end"] and (loc["end"].line or 1) - 1 or lnum
+              end_col = loc["end"] and (loc["end"].column or 1) - 1 or col
+            elseif loc.span then
+              -- Old biome format: location.span with byte offsets (line unknown, use 0)
+              lnum = 0
+              col = loc.span.start or 0
+              end_lnum = 0
+              end_col = loc.span["end"] or col
+            else
+              -- No position info; still surface the diagnostic at top of file
+              lnum, col, end_lnum, end_col = 0, 0, 0, 0
+            end
+
             table.insert(diagnostics, {
-              lnum = (diag.location.span.start or 0) - 1,
-              col = 0,
-              end_lnum = (diag.location.span["end"] or 0) - 1,
-              end_col = 0,
-              severity = vim.diagnostic.severity.WARN,
+              lnum = lnum,
+              col = col,
+              end_lnum = end_lnum,
+              end_col = end_col,
+              severity = severity_map[diag.severity] or vim.diagnostic.severity.WARN,
               message = diag.description or diag.message or "Biome lint error",
               source = "biome",
             })
