@@ -198,22 +198,16 @@ lastEditedByAI: 2026-02-10T12:34:56Z  # ← Add if missing, update if exists
 ```
 Need to create/update a note?
 │
-├─ Use Filesystem tools ✅ (for diffs/version control)
+├─ Use Filesystem tools ✅
 │  ├─ Read (to read notes)
 │  ├─ Write (to create notes)
 │  └─ Edit (to modify notes)
 │
-├─ Use Obsidian CLI? ✅ (preferred for local sessions)
-│  ├─ obsidian read/search/search:context
-│  ├─ obsidian append/prepend/daily:append
-│  ├─ obsidian property:read/property:set
-│  ├─ obsidian backlinks/links/orphans/tags
-│  └─ obsidian tasks/task
-│
 └─ Use MCP? Only for:
-   ├─ Remote access (Jot server, claude.ai mobile)
-   ├─ Semantic search (search_vault_smart)
-   └─ When CLI is not installed
+   ├─ Reading with context search
+   ├─ Dataview queries
+   ├─ Complex searches across many notes
+   └─ Obsidian-specific features
 
 NEVER use MCP for creating/updating notes!
 (Filesystem gives better diffs)
@@ -359,10 +353,8 @@ If you're unsure about something:
 For efficiency:
 - **Small operations**: Use Read/Write/Edit directly
 - **Large searches**: Use `find` and `grep` (GNU tools)
-- **Vault search (local)**: Use `obsidian search` or `obsidian search:context` (preferred)
-- **Semantic search (remote)**: Use MCP `search_vault_smart`
-- **Graph queries**: Use `obsidian backlinks/links/orphans` (CLI only)
-- **Task queries**: Use `obsidian tasks` (CLI only)
+- **Context search**: Use MCP (if available)
+- **Dataview queries**: Use MCP (Obsidian-specific)
 
 ## Remember
 

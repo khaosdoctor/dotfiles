@@ -1,28 +1,48 @@
 #!/usr/bin/env sh
-# Finds and launches the Obsidian MCP server binary.
-#
-# For vault path discovery, prefer `obsidian vault info=path` (CLI v1.12+).
-# This script is kept for the MCP server launch use case, which
-# setup-obsidian-mcp references.
+# Finds the Obsidian vault and optionally launches the MCP server.
 #
 # Usage:
-#   find-obsidian --vault          Print the vault root path
-#   find-obsidian --mcp            Find and exec the MCP server binary
+#   find-obsidian --vault          Print the vault root path (cached)
+#   find-obsidian --mcp            Find and exec the MCP server binary inside the vault
+#   find-obsidian --clear-cache    Clear the cached vault path
 #   find-obsidian                  Same as --vault
 
 set -e
 
-find_vault() {
-  # Prefer the native Obsidian CLI (v1.12+)
-  if command -v obsidian >/dev/null 2>&1; then
-    vault=$(obsidian vault info=path 2>/dev/null)
-    if [ -n "$vault" ] && [ -d "$vault/.obsidian" ]; then
-      echo "$vault"
+CACHE_DIR="$HOME/.cache/find-obsidian"
+CACHE_FILE="$CACHE_DIR/vault-path"
+
+read_cache() {
+  if [ -f "$CACHE_FILE" ]; then
+    cached=$(cat "$CACHE_FILE")
+    # Validate the cached path still has .obsidian/
+    if [ -d "$cached/.obsidian" ]; then
+      echo "$cached"
       return 0
     fi
+    # Stale cache, remove it
+    rm -f "$CACHE_FILE"
   fi
+  return 1
+}
 
-  # Fallback: check common paths
+write_cache() {
+  mkdir -p "$CACHE_DIR"
+  echo "$1" > "$CACHE_FILE"
+}
+
+search_vault() {
+  # 1. Check CWD and ancestor directories
+  dir="$PWD"
+  while [ "$dir" != "/" ]; do
+    if [ -d "$dir/.obsidian" ]; then
+      echo "$dir"
+      return 0
+    fi
+    dir=$(dirname "$dir")
+  done
+
+  # 2. Check common paths under ~/Documents/Obsidian/
   if [ -d "$HOME/Documents/Obsidian" ]; then
     vault=$(find "$HOME/Documents/Obsidian" -maxdepth 2 -name ".obsidian" -type d 2>/dev/null | head -1)
     if [ -n "$vault" ]; then
@@ -31,8 +51,32 @@ find_vault() {
     fi
   fi
 
+  # 3. Broader search under $HOME (skip Library, .Trash, node_modules, etc.)
+  vault=$(find "$HOME" \
+    -name ".obsidian" -type d \
+    \( -path "*/Library/*" -o -path "*/.Trash/*" -o -path "*/node_modules/*" -o -path "*/.git/*" \) -prune \
+    -o -name ".obsidian" -type d -print \
+    2>/dev/null | head -1)
+
+  if [ -n "$vault" ]; then
+    dirname "$vault"
+    return 0
+  fi
+
   echo "Error: No Obsidian vault found" >&2
   return 1
+}
+
+find_vault() {
+  # Try cache first
+  if read_cache; then
+    return 0
+  fi
+
+  # Search and cache the result
+  result=$(search_vault)
+  write_cache "$result"
+  echo "$result"
 }
 
 case "${1:---vault}" in
@@ -48,8 +92,12 @@ case "${1:---vault}" in
     fi
     exec "$SERVER"
     ;;
+  --clear-cache)
+    rm -f "$CACHE_FILE"
+    echo "Cache cleared"
+    ;;
   *)
-    echo "Usage: find-obsidian [--vault|--mcp]" >&2
+    echo "Usage: find-obsidian [--vault|--mcp|--clear-cache]" >&2
     exit 1
     ;;
 esac
