@@ -69,6 +69,7 @@ fzf
 gcc-fortran
 gdlauncher-carbon-bin
 git
+git-lfs
 github-cli
 gnome-calculator
 gnome-characters
@@ -150,6 +151,7 @@ ntfs-3g
 nwg-bar
 nwg-displays
 nwg-drawer
+nwg-look
 obsidian
 ollama-rocm
 openrazer-daemon
@@ -159,6 +161,7 @@ pacman-contrib
 pandoc-cli
 pavucontrol
 perl-anyevent
+phinger-cursors
 pika-backup
 pipewire
 pipewire-alsa
