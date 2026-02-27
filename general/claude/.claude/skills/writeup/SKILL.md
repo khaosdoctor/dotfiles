@@ -91,11 +91,13 @@ When updating, always:
 
 ### Vault location
 
-Use the `find-obsidian` script to locate the vault:
+Prefer the **Obsidian CLI** (v1.12+) if available:
 
 ```bash
-~/.claude/bin/find-obsidian --vault
+obsidian vault info=path
 ```
+
+If the CLI is not installed, fall back to `~/.claude/bin/find-obsidian --vault`.
 
 Place all writeup notes in `notes/` (root of notes folder, not a subfolder, consistent with existing TIL notes).
 
@@ -202,7 +204,12 @@ For each note created or updated, add a line under `## TIL`:
 - [[Note Title]]
 ```
 
-Use `patch_vault_file` with `targetType: heading`, `target: TIL`, `operation: append` to add entries without overwriting existing ones.
+If the Obsidian CLI is available, use:
+```bash
+obsidian append path="notes/daily notes/YYYY-MM-DD.md" content="- [[Note Title]]"
+```
+
+Otherwise, use filesystem Edit tool to append under the `## TIL` heading. Avoid `patch_vault_file` with heading targets (known bug with duplicate headings).
 
 Do NOT add duplicate entries if the note is already listed in TIL.
 
