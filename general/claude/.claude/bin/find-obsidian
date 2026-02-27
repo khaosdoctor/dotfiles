@@ -32,11 +32,15 @@ write_cache() {
 }
 
 search_vault() {
-  # 1. Check CWD
-  if [ -d "$PWD/.obsidian" ]; then
-    echo "$PWD"
-    return 0
-  fi
+  # 1. Check CWD and ancestor directories
+  dir="$PWD"
+  while [ "$dir" != "/" ]; do
+    if [ -d "$dir/.obsidian" ]; then
+      echo "$dir"
+      return 0
+    fi
+    dir=$(dirname "$dir")
+  done
 
   # 2. Check common paths under ~/Documents/Obsidian/
   if [ -d "$HOME/Documents/Obsidian" ]; then
