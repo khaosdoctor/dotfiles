@@ -27,5 +27,8 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "promptSuggestionEnabled": false
+  "promptSuggestionEnabled": false,
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
 }
