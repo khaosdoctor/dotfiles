@@ -37,17 +37,13 @@ Located at `journal-buffer.md` inside your **auto memory directory** (the persis
 
 ## Vault Discovery
 
-Do NOT hardcode the vault path. Prefer the **Obsidian CLI** (v1.12+) if available:
-
-```bash
-obsidian vault info=path
-```
-
-If the CLI is not installed, fall back to:
+Do NOT hardcode the vault path. Use the `find-obsidian` script:
 
 ```bash
 ~/.claude/bin/find-obsidian --vault
 ```
+
+This script automatically checks CWD, common paths (`~/Documents/Obsidian/`), and searches `$HOME` as a fallback. If the script fails, ask the user for the vault path.
 
 Once found, locate these key paths within the vault:
 - Daily notes: `notes/daily notes/`

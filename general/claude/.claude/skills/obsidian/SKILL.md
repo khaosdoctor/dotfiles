@@ -28,38 +28,17 @@ This skill is active when working in a directory that contains:
 
 ## Vault Discovery
 
-Do NOT hardcode the vault path. Prefer the **Obsidian CLI** (v1.12+) if available:
-
-```bash
-obsidian vault info=path
-```
-
-If the CLI is not installed, fall back to:
+Do NOT hardcode the vault path. Use the `find-obsidian` script:
 
 ```bash
 ~/.claude/bin/find-obsidian --vault
 ```
 
-## Obsidian CLI (Preferred for Local Sessions)
+This script automatically checks CWD, common paths (`~/Documents/Obsidian/`), and searches `$HOME` as a fallback. If the script fails, ask the user for the vault path.
 
-Since Obsidian v1.12, a native CLI (`obsidian <command>`) is available. When running locally, **prefer the CLI over MCP tools** for vault operations:
+## MCP Server Setup
 
-- **Read**: `obsidian read file="Note Title"` or `obsidian read path="notes/note.md"`
-- **Search**: `obsidian search query="term" format=json` or `obsidian search:context query="term"`
-- **Append/Prepend**: `obsidian append file="Note" content="text"`
-- **Properties**: `obsidian property:read name="tags" file="Note"` / `obsidian property:set name="key" value="val" file="Note"`
-- **Tasks**: `obsidian tasks todo` / `obsidian task toggle path="file.md" line=5`
-- **Graph**: `obsidian backlinks file="Note"` / `obsidian links file="Note"` / `obsidian orphans`
-- **Daily notes**: `obsidian daily:read` / `obsidian daily:append content="text"` / `obsidian daily:path`
-- **Tags**: `obsidian tags counts sort=count`
-
-The CLI resolves files like wikilinks (by name), supports `format=json` for machine-parseable output, and has no auth/config overhead.
-
-**Still use filesystem tools (Read, Write, Edit)** for creating and modifying notes when you need proper diffs and version control integration.
-
-## MCP Server Setup (For Remote Access)
-
-The Obsidian MCP server (`obsidian-mcp-tools`) is kept for remote access (e.g., Jot server, claude.ai mobile). If MCP tool calls fail or the server is not available, check if it's registered:
+The Obsidian MCP server (`obsidian-mcp-tools`) enables vault searches, Dataview queries, and other Obsidian-specific features. If MCP tool calls fail or the server is not available, check if it's registered:
 
 ```bash
 ~/.claude/bin/setup-obsidian-mcp --check
