@@ -14,4 +14,5 @@
 ## Obsidian
 
 - Obsidian notes should use consistent YAML frontmatter with tags, aliases, and created date. Use [[wikilinks]] for cross-references. Follow existing vault conventions.
-- If the Obsidian MCP tool is available and you are unsure how to answer something or lack context, search the Obsidian vault for relevant notes before responding. The vault is a large personal knowledge base and may contain written guidance, preferences, or prior research on the topic.
+- If the Obsidian CLI (`obsidian`) is available locally, prefer it over the MCP tools for vault operations (read, search, append, properties, etc.). Use `obsidian vault info=path` to find the vault path instead of `find-obsidian --vault`.
+- If neither the CLI nor MCP is available, or you are unsure how to answer something or lack context, search the Obsidian vault for relevant notes before responding. The vault is a large personal knowledge base and may contain written guidance, preferences, or prior research on the topic.
