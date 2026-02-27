@@ -17,7 +17,7 @@ check_claude() {
 
 register() {
   claude mcp add-json --scope user obsidian-mcp-tools \
-    '{"command":"op","args":["run","--account","mafagafos.1password.com","--","sh","-c","$HOME/.claude/bin/find-obsidian --mcp"],"env":{"OBSIDIAN_API_KEY":"op://Private/Obsidian Local REST API Key/password"}}'
+    '{"command":"op","args":["run","--","sh","-c","$HOME/.claude/bin/find-obsidian --mcp"],"env":{"OBSIDIAN_API_KEY":"op://Private/Obsidian Local REST API Key/password"}}'
 }
 
 is_registered() {
