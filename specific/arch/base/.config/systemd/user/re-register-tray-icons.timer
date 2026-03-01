@@ -1,0 +1,16 @@
+[Unit]
+# Periodically triggers re-register-tray-icons.service to fix tray icons
+# that get dropped when waybar reloads (pywal color changes, lock/unlock, sleep/wake).
+# Interval: first run 10s after boot, then every 20s.
+# To change the interval, edit OnUnitActiveSec and run:
+#   systemctl --user daemon-reload && systemctl --user restart re-register-tray-icons.timer
+Description=Periodically check and re-register dropped tray icons
+
+[Timer]
+# First check 10s after the timer starts (gives waybar time to initialize).
+OnActiveSec=10
+# Subsequent checks every 20s after the previous run completes.
+OnUnitActiveSec=20
+
+[Install]
+WantedBy=graphical-session.target

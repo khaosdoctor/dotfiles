@@ -1,0 +1,10 @@
+[Unit]
+# Oneshot service triggered by re-register-tray-icons.timer.
+# Checks if any known tray icons have been dropped from waybar's
+# StatusNotifierWatcher and restarts the affected apps.
+# See ~/.config/waybar/re-register-tray-icons for the app list.
+Description=Re-register dropped StatusNotifierItem tray icons
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/waybar/re-register-tray-icons
