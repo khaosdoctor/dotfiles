@@ -168,6 +168,8 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
+proton-vpn-cli
+proton-vpn-gtk-app
 python-distutils-extra
 python-pip
 python-pipx
