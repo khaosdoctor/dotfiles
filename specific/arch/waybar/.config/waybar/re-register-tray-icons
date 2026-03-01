@@ -1,0 +1,52 @@
+#!/bin/bash
+# Re-registers tray icons that get dropped when waybar reloads/restarts.
+#
+# When waybar reloads (e.g. via SIGUSR2 from pywal, or a full restart from
+# hypridle on lock/unlock/sleep), its StatusNotifierWatcher resets and loses
+# track of registered tray icons. Most apps (e.g. nm-applet) re-register
+# automatically via DBus NameOwnerChanged signals. Some don't, and their
+# tray icons silently disappear.
+#
+# This script is called periodically by re-register-tray-icons.timer.
+# It queries the watcher's registered items and restarts any known
+# misbehaving app whose icon is missing.
+#
+# To add a new app:
+#   1. Find its process name:  pgrep -ax <app>
+#   2. Find its tray grep pattern:  busctl --user list | grep <app>
+#   3. Add a new check_and_restart block below (see ProtonVPN example).
+
+# Ensure we have the graphical session environment (needed when called from
+# systemd oneshot, which may not inherit WAYLAND_DISPLAY / DBUS_SESSION_BUS_ADDRESS).
+if [[ -z "$WAYLAND_DISPLAY" ]]; then
+    eval "$(systemctl --user show-environment | grep -E '^(WAYLAND_DISPLAY|DISPLAY|DBUS_SESSION_BUS_ADDRESS)=')"
+    export WAYLAND_DISPLAY DISPLAY DBUS_SESSION_BUS_ADDRESS
+fi
+
+# Fetch the list of tray icons currently registered with waybar's watcher.
+watcher_items=$(dbus-send --session --print-reply \
+    --dest=org.kde.StatusNotifierWatcher /StatusNotifierWatcher \
+    org.freedesktop.DBus.Properties.Get \
+    string:"org.kde.StatusNotifierWatcher" \
+    string:"RegisteredStatusNotifierItems" 2>/dev/null)
+
+# Restart an app if it's running but its tray icon is missing from the watcher.
+# Args: $1 = process name (for pgrep -x), $2 = grep pattern in watcher items,
+#       $3... = command to relaunch the app.
+check_and_restart() {
+    local proc_name="$1" grep_pattern="$2"
+    shift 2
+    if pgrep -x "$proc_name" >/dev/null 2>&1 && ! echo "$watcher_items" | grep -q "$grep_pattern"; then
+        pkill -x "$proc_name"
+        sleep 2
+        # Launch via systemd-run so the app outlives this oneshot service.
+        # --collect ensures the transient unit is cleaned up after exit.
+        systemd-run --user --slice=app-graphical.slice --description="$proc_name" --collect -- "$@"
+    fi
+}
+
+# ── Apps that don't re-register their tray icons ─────────────────────────────
+# Add new entries here following the pattern:
+#   check_and_restart <process_name> <watcher_grep_pattern> <launch_command...>
+
+check_and_restart protonvpn-app proton protonvpn-app
