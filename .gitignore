@@ -163,3 +163,4 @@ general/base/.mise_shim
 /general/base/.local/pipx
 /specific/arch/waybar/.config/waybar/.audio-sinks
 /specific/arch/waybar/.config/waybar/audio_menu.xml
+/general/base/.local/state/.copilot/ide/a72ce355-c5ad-49d1-90d3-4b9725e552d2.lock
