@@ -93,8 +93,11 @@ This is idempotent and safe to run multiple times. It requires the `claude` CLI 
 - **USE** callouts for important information or asides
 - **USE** code blocks with appropriate syntax highlighting
 - **USE** headings to structure longer notes
-- **USE** images with the image caption plugin format: `![caption|sizepx](path)`
-- Images should be stored in `internal/assets/` folder
+- **USE** images with Obsidian wikilink embed syntax: `![[filename.ext|Description|size]]`
+- Images in the note body must be **downloaded locally** into `internal/assets/` (never use external URLs in the body)
+- Use kebab-case for asset filenames (e.g. `leonard-bernstein.jpg`, `middle-c.png`)
+- The `coverUrl` frontmatter property must be a **web URL** (never a local asset path)
+- See `image-handling.md` for the full image download procedure
 - Take advantage of Obsidian's markdown extensions
 
 ### 6. Linking and Wikilinks
