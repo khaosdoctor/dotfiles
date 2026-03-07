@@ -9,6 +9,7 @@ baobab
 base
 base-devel
 bat
+beekeeper-studio-bin
 bluez-utils
 btop
 btrfs-assistant
@@ -117,6 +118,7 @@ lib32-mesa
 lib32-vulkan-radeon
 libgit2
 libpulse
+libreoffice-fresh
 libva-utils
 linux
 linux-firmware
@@ -231,6 +233,10 @@ vim
 visual-studio-code-bin
 vivaldi
 vlc
+vlc-plugin-mpeg2
+vlc-plugin-x264
+vlc-plugin-x265
+vlc-plugins-all
 vulkan-mesa-layers
 vulkan-radeon
 vulkan-tools
