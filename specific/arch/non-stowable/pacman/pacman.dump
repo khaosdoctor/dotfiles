@@ -177,6 +177,7 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
+qbittorrent
 qemu-full
 qt6ct
 rclone
