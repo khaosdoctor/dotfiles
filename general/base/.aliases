@@ -1,6 +1,5 @@
 #!/bin/bash
 
-alias vim='nvim'
 alias confs='yazi ~/.config'
 alias rm='rm -rf'
 alias cls='clear'
@@ -17,6 +16,13 @@ alias cdtmp='cd $(mktemp -d)'
 if [ -x "$(command -v gpg)" ]; then
     alias encrypt='gpg -c --cipher-algo AES256'
     alias decrypt='gpg -d'
+fi
+
+if [ -x "$(command -v nvim)" ]; then
+    alias vim='nvim'
+    if [ -f "$HOME/.config/nvim/lazyvim.json" ]; then
+        alias nvimupdate='nvim --headless -c "Lazy! sync" -c "qa"'
+    fi
 fi
 
 if [ -x "$(command -v exa)" ]; then
