@@ -8,7 +8,13 @@
       "Grep(**/Obsidian/**)",
       "Read(**/.claude/**)",
       "Glob(**/.claude/**)",
-      "Grep(**/.claude/**)"
+      "Grep(**/.claude/**)",
+      "Bash(grep:*)",
+      "Bash(ps:*)",
+      "Bash(cat:*)",
+      "Read",
+      "Read(~/Documents/**)",
+      "Read(~/.config/**)"
     ],
     "defaultMode": "default"
   },
