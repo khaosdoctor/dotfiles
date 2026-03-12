@@ -103,6 +103,7 @@ Based on analyzed notes:
 - **Sections with headers**: Organized with `##` headers
 - **Examples when relevant**: Practical usage examples
 - **Images for clarification**: Diagrams and photos where helpful
+- **Horizontal rules (`---`) used sparingly**: Headings already provide visual separation. Only use `---` when there is a genuine conceptual break that a heading alone doesn't convey. Do not use them between every section.
 
 ### AI Writing Patterns to AVOID
 - ❌ **Text between dashes for explanations**: "This concept—which is important—should be understood"
