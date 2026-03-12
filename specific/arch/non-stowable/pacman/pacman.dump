@@ -1,6 +1,7 @@
 1password-beta
 1password-cli
 adobe-base-14-fonts
+age
 amd-ucode
 asdf-vm-git
 atac
@@ -30,6 +31,7 @@ direnv
 discord
 diskonaut
 dive
+dnsmasq
 docker
 docker-buildx
 docker-compose
@@ -139,9 +141,12 @@ mpv
 mtr
 ncdu
 nemo
+nemo-emblems
 nemo-fileroller
-nemo-preview
+nemo-image-converter
+nemo-media-columns
 nemo-python
+nemo-terminal
 neovim
 network-manager-applet
 networkmanager
@@ -172,6 +177,7 @@ pipewire-pulse
 playerctl
 proton-vpn-cli
 proton-vpn-gtk-app
+pv
 python-distutils-extra
 python-pip
 python-pipx
@@ -225,6 +231,7 @@ ttf-meslo-nerd
 ttf-roboto
 ttf-ubuntu-font-family
 ttf-ubuntu-nerd
+udiskie
 ufw
 update-grub
 usbutils
@@ -243,6 +250,7 @@ vulkan-radeon
 vulkan-tools
 w3m
 walker
+walt-git
 waybar
 waypaper
 wev
