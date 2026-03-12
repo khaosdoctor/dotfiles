@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount removable media
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --no-tray
+
+[Install]
+WantedBy=graphical-session.target
