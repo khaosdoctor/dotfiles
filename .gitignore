@@ -164,3 +164,6 @@ general/base/.mise_shim
 /specific/arch/waybar/.config/waybar/.audio-sinks
 /specific/arch/waybar/.config/waybar/audio_menu.xml
 /general/base/.local/state/.copilot/ide/a72ce355-c5ad-49d1-90d3-4b9725e552d2.lock
+/specific/arch/base/.config/systemd/user/timers.target.wants
+/specific/arch/base/.config/systemd/user/graphical-session.target.wants
+/specific/arch/base/.config/systemd/user/default.target.wants
