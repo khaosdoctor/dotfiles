@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly encrypted sync to Backblaze B2
+
+[Timer]
+OnCalendar=Wed 19:00
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target

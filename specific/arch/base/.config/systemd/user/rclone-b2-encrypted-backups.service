@@ -1,0 +1,26 @@
+[Unit]
+Description=RClone encrypted sync to Backblaze B2
+After=network-online.target
+
+[Service]
+Type=oneshot
+Environment=SOURCE_DIR=""
+Environment=CRYPT_REMOTE="backblaze-crypt"
+Environment=RCLONE_CONF="%h/.config/rclone/rclone.conf"
+Environment=RCLONE_TRANSFERS="16"
+Environment=RCLONE_CHECKERS="32"
+EnvironmentFile=%h/.config/rclone/rclone-b2-encrypted-backups.env
+
+ExecStartPre=/usr/bin/test -x /usr/bin/rclone
+ExecStartPre=/usr/bin/test -d "${SOURCE_DIR}"
+ExecStartPre=/usr/bin/test -f "${RCLONE_CONF}"
+
+ExecStart=/usr/bin/rclone sync \
+            --config="${RCLONE_CONF}" \
+            --transfers="${RCLONE_TRANSFERS}" \
+            --checkers="${RCLONE_CHECKERS}" \
+            --log-level=INFO \
+            "${SOURCE_DIR}" "${CRYPT_REMOTE}:"
+
+[Install]
+WantedBy=default.target
