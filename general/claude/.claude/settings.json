@@ -18,6 +18,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus",
   "hooks": {
     "SessionStart": [
       {
@@ -36,5 +37,7 @@
     "context-mode@claude-context-mode": true
   },
   "alwaysThinkingEnabled": true,
-  "promptSuggestionEnabled": false
+  "effortLevel": "medium",
+  "promptSuggestionEnabled": false,
+  "voiceEnabled": true
 }
