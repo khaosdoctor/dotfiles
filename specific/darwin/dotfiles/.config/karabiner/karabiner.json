@@ -10,6 +10,19 @@
                             "to": [{ "key_code": "escape" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 8196,
+                        "vendor_id": 16868
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "grave_accent_and_tilde" },
+                            "to": [{ "key_code": "non_us_backslash" }]
+                        }
+                    ]
                 }
             ],
             "name": "Default profile",
