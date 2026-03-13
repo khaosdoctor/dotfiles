@@ -24,7 +24,7 @@
   browse = !gh repo view --web
   cmps = !git commit && git push
   ca = "!f() { git add -A && git commit \"$@\"; }; f"
-  caps = !git ca && git ps
+  caps =  "!f() { git ca \"$@\" && git ps; }; f"
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
   br = branch
   sync = !git pull --rebase "$@"
