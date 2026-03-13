@@ -11,6 +11,7 @@ alias la='ls -la'
 alias l='ls'
 alias lh='ls -lh'
 alias dot='cd $DOTFILES && git pull -q --no-progress &> /dev/null'
+alias doupgrade='do-system-upgrade.sh'
 alias cdtmp='cd $(mktemp -d)'
 
 if [ -x "$(command -v gpg)" ]; then
