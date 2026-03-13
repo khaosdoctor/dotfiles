@@ -21,7 +21,7 @@ fi
 if [ -x "$(command -v nvim)" ]; then
     alias vim='nvim'
     if [ -f "$HOME/.config/nvim/lazyvim.json" ]; then
-        alias nvimupdate='nvim --headless -c "Lazy! sync" -c "qa"'
+        alias lazyup='nvim --headless -c "Lazy! sync" -c "qa"'
     fi
 fi
 
