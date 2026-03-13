@@ -23,7 +23,7 @@
   cm = commit
   browse = !gh repo view --web
   cmps = !git commit && git push
-  ca = !git add -A && git commit
+  ca = "!f() { git add -A && git commit \"$@\"; }; f"
   caps = !git ca && git ps
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
   br = branch
