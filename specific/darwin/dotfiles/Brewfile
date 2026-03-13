@@ -1,3 +1,6 @@
+info: syncing channel updates for 1.93.0-aarch64-apple-darwin
+info: latest update on 2026-01-22 for version 1.93.0 (254b59607 2026-01-19)
+info: downloading 6 components
 tap "charmbracelet/tap"
 tap "cloudflare/cloudflare"
 tap "heroku/brew"
