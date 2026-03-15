@@ -38,6 +38,7 @@ docker-compose
 docker-credential-pass
 dosfstools
 downgrade
+doxygen
 ducker
 dysk
 efibootmgr
@@ -71,6 +72,7 @@ fuse-overlayfs
 fzf
 gcc-fortran
 gdlauncher-carbon-bin
+gendesk
 git
 git-lfs
 github-cli
@@ -81,7 +83,6 @@ gnome-font-viewer
 gnome-keyring
 gnome-logs
 gnome-text-editor
-go
 gparted
 grim
 grub
@@ -110,7 +111,6 @@ iotop
 iwd
 joyutils
 jq
-just
 keychain
 keyd
 kitty
@@ -118,11 +118,7 @@ lact
 lazydocker
 lazygit
 ldns
-lib32-at-spi2-core
-lib32-gdk-pixbuf2
-lib32-libsm
 lib32-mesa
-lib32-pango
 lib32-vulkan-radeon
 libgit2
 libpulse
@@ -199,6 +195,7 @@ rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
 rsync
+rustup
 satty
 sddm
 sddm-astronaut-theme
