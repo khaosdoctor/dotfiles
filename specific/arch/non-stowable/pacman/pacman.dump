@@ -65,6 +65,7 @@ fcitx5-gtk
 fcitx5-qt
 fd
 ffmpegthumbnailer
+firefox-developer-edition
 flatpak
 freefilesync-bin
 fuse-overlayfs
@@ -112,6 +113,7 @@ jq
 keychain
 keyd
 kitty
+knot
 lact
 lazydocker
 lazygit
