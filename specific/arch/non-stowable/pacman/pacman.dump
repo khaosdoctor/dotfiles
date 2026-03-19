@@ -24,6 +24,7 @@ cmake
 compsize
 copyq
 cpu-x
+crash
 cronie
 devtools
 dex
@@ -110,6 +111,7 @@ iotop
 iwd
 joyutils
 jq
+kexec-tools
 keychain
 keyd
 kitty
@@ -130,6 +132,7 @@ linux-headers
 lshw
 lsix
 luarocks
+makedumpfile
 mako
 man-db
 mangohud
@@ -237,6 +240,7 @@ udiskie
 ufw
 update-grub
 usbutils
+uv
 uwsm
 v4l-utils-git
 vim
