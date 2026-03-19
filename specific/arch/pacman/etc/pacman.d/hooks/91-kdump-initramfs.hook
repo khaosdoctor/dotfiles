@@ -1,0 +1,10 @@
+[Trigger]
+Type = Path
+Operation = Install
+Operation = Upgrade
+Target = usr/lib/modules/*/vmlinuz
+
+[Action]
+Description = Regenerating kdump initramfs...
+When = PostTransaction
+Exec = /usr/bin/mkinitcpio -c /etc/mkinitcpio-kdump.conf -g /boot/initramfs-linux-kdump.img -k /boot/vmlinuz-linux
