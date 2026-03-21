@@ -43,7 +43,7 @@ sync_frequency = "15s"
 ## which filter mode to use by default
 ## possible values: "global", "host", "session", "directory", "workspace"
 ## consider using search.filters to customize the enablement and order of filter modes
-# filter_mode = "global"
+filter_mode = "host"
 
 ## With workspace filtering enabled, Atuin will filter for commands executed
 ## in any directory within a git repository tree (default: false).
@@ -56,7 +56,7 @@ sync_frequency = "15s"
 ## which filter mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "filter_mode"
 ## leave unspecified to use same mode set in "filter_mode"
-# filter_mode_shell_up_key_binding = "global"
+filter_mode_shell_up_key_binding = "session"
 
 ## which search mode to use when atuin is invoked from a shell up-key binding
 ## the accepted values are identical to those of "search_mode"
@@ -81,11 +81,11 @@ style = "full"
 
 ## enable or disable showing a preview of the selected command
 ## useful when the command is longer than the terminal width and is cut off
-# show_preview = true
+show_preview = true
 
 ## what to do when the escape key is pressed when searching
 ## possible values: return-original, return-query
-# exit_mode = "return-original"
+exit_mode = "return-original"
 
 ## possible values: emacs, subl
 # word_jump_mode = "emacs"
@@ -133,7 +133,7 @@ style = "full"
 # show_help = true
 
 ## Configure whether or not to show tabs for search and inspect
-# show_tabs = true
+show_tabs = true
 
 ## Configure whether or not the tabs row may be auto-hidden, which includes the current Atuin
 ## tab, such as Search or Inspector, and other tabs you may wish to see. This will
@@ -156,7 +156,7 @@ enter_accept = true
 search_mode = "daemon-fuzzy"
 
 ## Defaults to false. If enabled, when triggered after && or ||, Atuin will complete commands to chain rather than replace the current line.
-# command_chaining = false
+command_chaining = true
 
 ## Defaults to "emacs".  This specifies the keymap on the startup of `atuin
 ## search`.  If this is set to "auto", the startup keymap mode in the Atuin
@@ -242,7 +242,6 @@ records = true
 enabled = true
 autostart = true
 ## Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
-#enabled = false
 
 ## How often the daemon should sync in seconds
 sync_frequency = 30
