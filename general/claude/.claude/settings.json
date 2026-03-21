@@ -14,7 +14,30 @@
       "Bash(cat:*)",
       "Read",
       "Read(~/Documents/**)",
-      "Read(~/.config/**)"
+      "Read(~/.config/**)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(git remote:*)",
+      "Bash(git stash list:*)",
+      "Bash(git tag:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker logs:*)",
+      "Bash(docker images:*)",
+      "Bash(docker inspect:*)",
+      "Bash(docker stats:*)",
+      "Bash(docker compose ps:*)",
+      "Bash(docker compose logs:*)",
+      "Bash(npm list:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm outdated:*)",
+      "Bash(npm info:*)",
+      "Bash(npm view:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)"
     ],
     "defaultMode": "default"
   },
@@ -35,7 +58,9 @@
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "context-mode@claude-context-mode": true,
-    "gopls-lsp@claude-plugins-official": true
+    "gopls-lsp@claude-plugins-official": true,
+    "telegram@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "medium",
