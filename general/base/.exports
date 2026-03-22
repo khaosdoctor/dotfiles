@@ -40,7 +40,6 @@ export KUBE_EDITOR='vim'
 export EDITOR='nvim'
 #export GOROOT=/usr/local
 export GOPATH=$HOME/go
-export DOTFILES=$HOME/Documents/Repositories/github.com/khaosdoctor/dotfiles
 # If bat is installed set its theme
 export BAT_THEME=Dracula
 export DENO_DIR=$HOME/Library/Caches/deno

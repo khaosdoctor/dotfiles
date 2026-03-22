@@ -149,13 +149,15 @@ if [ -x "$(command -v mise)" ] && [ -f $HOME/.mise_shim ]; then
 fi
 
 # Load local overrides not tracked by git
-if [ -f "$HOME/.localoverrides" ]; then
-  source "$HOME/.localoverrides"
+if [ -f "$HOME/.local_overrides" ]; then
+  source "$HOME/.local_overrides"
 fi
-
-autoload -Uz compinit
-fpath+=~/.zfunc
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/lsantos/.docker/completions $fpath)
+fpath=($HOME/.zsh_completions $fpath)
 # End of Docker CLI completions
+
+autoload -Uz compinit && compinit
+fpath+=~/.zfunc
+
