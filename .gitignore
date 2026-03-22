@@ -167,3 +167,8 @@ general/base/.mise_shim
 /specific/arch/base/.config/systemd/user/timers.target.wants
 /specific/arch/base/.config/systemd/user/graphical-session.target.wants
 /specific/arch/base/.config/systemd/user/default.target.wants
+general/base/.local/share/Trash
+general/base/.local/share/systemctl-tui
+general/base/.local/share/systemd/timers
+general/base/.local/share/fonts/CascadiaCove
+general/base/.local/share/recently-used.xbel
