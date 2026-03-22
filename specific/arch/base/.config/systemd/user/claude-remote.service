@@ -1,0 +1,15 @@
+[Unit]
+Description=Claude code remote control
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/script -qfc "/usr/bin/claude --remote-control" /dev/null
+Restart=always
+RestartSec=10
+TimeoutStartSec=60
+Nice=10
+IOSchedulingClass=idle
+
+[Install]
+WantedBy=default.target
