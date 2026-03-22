@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "plugins": {
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "local",
+        "projectPath": "/home/multivac",
+        "installPath": "/home/multivac/.claude/plugins/cache/claude-plugins-official/frontend-design/61c0597779bd",
+        "version": "61c0597779bd",
+        "installedAt": "2026-03-22T16:18:23.700Z",
+        "lastUpdated": "2026-03-22T16:18:23.700Z",
+        "gitCommitSha": "61c0597779bd2d670dcd4fbbf37c66aa19eb2ce6"
+      }
+    ],
+    "gopls-lsp@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/multivac",
+        "installPath": "/home/multivac/.claude/plugins/cache/claude-plugins-official/gopls-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-22T16:18:23.700Z",
+        "lastUpdated": "2026-03-22T16:18:23.700Z",
+        "gitCommitSha": "61c0597779bd2d670dcd4fbbf37c66aa19eb2ce6"
+      }
+    ],
+    "telegram@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/multivac",
+        "installPath": "/home/multivac/.claude/plugins/cache/claude-plugins-official/telegram/0.0.1",
+        "version": "0.0.1",
+        "installedAt": "2026-03-22T16:18:23.700Z",
+        "lastUpdated": "2026-03-22T16:18:23.700Z",
+        "gitCommitSha": "61c0597779bd2d670dcd4fbbf37c66aa19eb2ce6"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "project",
+        "projectPath": "/home/multivac",
+        "installPath": "/home/multivac/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-22T16:18:23.700Z",
+        "lastUpdated": "2026-03-22T16:18:23.700Z",
+        "gitCommitSha": "61c0597779bd2d670dcd4fbbf37c66aa19eb2ce6"
+      }
+    ],
+    "context-mode@context-mode": [
+      {
+        "scope": "local",
+        "projectPath": "/home/multivac",
+        "installPath": "/home/multivac/dotfiles/general/claude/.claude/plugins/cache/context-mode/context-mode/1.0.49",
+        "version": "1.0.49",
+        "installedAt": "2026-03-22T16:18:23.700Z",
+        "lastUpdated": "2026-03-22T16:21:23.490Z",
+        "gitCommitSha": "ed171679f1651d8827e58ee6ed7462fa278cb319"
+      },
+      {
+        "scope": "user",
+        "installPath": "/home/multivac/dotfiles/general/claude/.claude/plugins/cache/context-mode/context-mode/1.0.49",
+        "version": "1.0.49",
+        "installedAt": "2026-03-22T16:18:55.254Z",
+        "lastUpdated": "2026-03-22T16:21:23.490Z",
+        "gitCommitSha": "ed171679f1651d8827e58ee6ed7462fa278cb319"
+      }
+    ]
+  }
+}

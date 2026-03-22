@@ -57,13 +57,21 @@
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
-    "context-mode@claude-context-mode": true,
     "gopls-lsp@claude-plugins-official": true,
-    "telegram@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "telegram@claude-plugins-official": false,
+    "typescript-lsp@claude-plugins-official": true,
+    "context-mode@context-mode": true
+  },
+  "extraKnownMarketplaces": {
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      },
+      "autoUpdate": true
+    }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "voiceEnabled": true
 }
