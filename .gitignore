@@ -172,3 +172,4 @@ general/base/.local/share/systemctl-tui
 general/base/.local/share/systemd/timers
 general/base/.local/share/fonts/CascadiaCove
 general/base/.local/share/recently-used.xbel
+general/base/.local/share/systemctl-tui
