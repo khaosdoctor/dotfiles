@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/script -qfc "/usr/bin/claude --remote-control" /dev/null
+ExecStart=/usr/bin/script -qfc "/usr/bin/claude --remote-control --no-chrome --name 'Persistent %H session'" /dev/null
 Restart=always
 RestartSec=10
 TimeoutStartSec=60
