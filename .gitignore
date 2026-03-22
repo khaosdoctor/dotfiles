@@ -185,3 +185,4 @@ general/claude/.claude/plugins/install-counts-cache.json
 general/claude/.claude/plugins/marketplaces
 general/claude/.claude/plugins/cache
 general/base/.local/state/pnpm
+general/claude/.claude/context-mode/sessions
