@@ -174,3 +174,14 @@ general/base/.local/share/fonts/CascadiaCove
 general/base/.local/share/recently-used.xbel
 general/base/.local/share/systemctl-tui
 general/claude/.claude/.credentials.json
+general/base/.local/share/pnpm/store/v10
+general/claude/.claude/backups
+general/claude/.claude/cache
+general/claude/.claude/history.jsonl
+general/claude/.claude/shell-snapshots
+general/claude/.claude/sessions
+general/claude/.claude/projects/-home-multivac
+general/claude/.claude/plugins/install-counts-cache.json
+general/claude/.claude/plugins/marketplaces
+general/claude/.claude/plugins/cache
+general/base/.local/state/pnpm
