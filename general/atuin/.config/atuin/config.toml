@@ -153,7 +153,7 @@ show_tabs = true
 ## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
 # This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
 enter_accept = true
-search_mode = "daemon-fuzzy"
+search_mode = "fuzzy"
 
 ## Defaults to false. If enabled, when triggered after && or ||, Atuin will complete commands to chain rather than replace the current line.
 command_chaining = true
