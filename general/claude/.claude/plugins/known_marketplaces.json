@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/home/multivac/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-03-22T16:31:42.426Z"
+    "lastUpdated": "2026-03-23T12:46:13.950Z"
   },
   "context-mode": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "mksglu/context-mode"
     },
     "installLocation": "/home/multivac/.claude/plugins/marketplaces/context-mode",
-    "lastUpdated": "2026-03-22T16:20:08.704Z",
+    "lastUpdated": "2026-03-23T12:44:31.952Z",
     "autoUpdate": true
   }
 }
