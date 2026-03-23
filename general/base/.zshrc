@@ -88,26 +88,6 @@ zinit wait lucid for \
   wfxr/forgit
 
 
-##### OS SPECIFIC CONFIGS #######
-
-# MacOS
-if [[ $(uname -s) == "Darwin" ]]; then
-  bindkey -v
-
-  $DOTFILES/specific/darwin/non-stowable/one-time-commands/run-one-time-commands.sh
-fi
-
-# Linuxes
-if [[ $(uname -s) == "Linux" ]]; then
-
-  # Correct control keys on linux
-  bindkey "^[[3~" delete-char # Delete
-  bindkey "^[[H" beginning-of-line # Home
-  bindkey "^[[F" end-of-line # End
-
-fi
-
-################################
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -153,10 +133,26 @@ if [ -f "$HOME/.local_overrides" ]; then
   source "$HOME/.local_overrides"
 fi
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/lsantos/.docker/completions $fpath)
-fpath=($HOME/.zsh_completions $fpath)
-# End of Docker CLI completions
+##### OS SPECIFIC CONFIGS #######
+
+# MacOS
+if [[ $(uname -s) == "Darwin" ]]; then
+  bindkey -v
+
+  $DOTFILES/specific/darwin/non-stowable/one-time-commands/run-one-time-commands.sh
+fi
+
+# Linuxes
+if [[ $(uname -s) == "Linux" ]]; then
+
+  # Correct control keys on linux
+  bindkey "^[[3~" delete-char # Delete
+  bindkey "^[[H" beginning-of-line # Home
+  bindkey "^[[F" end-of-line # End
+
+fi
+
+################################
 
 autoload -Uz compinit && compinit
 fpath+=~/.zfunc
