@@ -187,3 +187,6 @@ general/claude/.claude/plugins/cache
 general/base/.local/state/pnpm
 general/claude/.claude/context-mode/sessions
 general/claude/.claude/settings.local.json
+general/claude/.claude/file-history
+general/claude/.claude/paste-cache
+general/claude/.claude/projects/-home-multivac--homelab
