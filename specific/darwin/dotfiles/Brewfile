@@ -138,10 +138,13 @@ cask "hoppscotch"
 cask "kitty"
 cask "ngrok"
 cask "obsidian"
+cask "ollama-app"
 cask "session-manager-plugin"
 cask "spotify"
 cask "visual-studio-code"
 cask "yubico-yubikey-manager"
+cask "zed"
+mas "1Password for Safari", id: 1569813296
 mas "Keynote", id: 409183694
 mas "Slack", id: 803453959
 vscode "albymor.increment-selection"
