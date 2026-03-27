@@ -17,7 +17,6 @@
   co = "!f() { if [ -z \"$1\" ]; then git cor; else git checkout $1; fi; }; f"
   cob = checkout -b
   ps = push
-  psf = push --force-with-lease
   shove = push --no-verify --force-with-lease
   pl = pull
   cm = commit
@@ -27,7 +26,7 @@
   caps =  "!f() { git ca \"$@\" && git ps; }; f"
   bump = !sh -c 'git add -A && git commit -m "bump" --no-verify'
   br = branch
-  sync = !git pull --rebase "$@"
+  sync = !git pull --rebase "$@" && git push
   publish = "!f() { git push -u origin $(git rev-parse --abbrev-ref HEAD); }; f"
   bd = "!f() { command -v fzf >/dev/null 2>&1 || { echo 'Error: fzf is required but not installed. Install it with your package manager.'; return 1; }; git branch --format='%(refname:short)' | (grep -v $(git rev-parse --abbrev-ref HEAD) > /dev/null) && (git branch --format='%(refname:short)' | grep -v $(git rev-parse --abbrev-ref HEAD) | fzf --multi --header=\"Select branches to delete (Tab to select, Enter to confirm):\" | xargs git branch -D) || echo 'You are checked in to the only available branch'; }; f"
   col = "!f() { command -v fzf >/dev/null 2>&1 || { echo 'Error: fzf is required but not installed. Install it with your package manager.'; return 1; }; git branch --format='%(refname:short)' | (grep -v $(git rev-parse --abbrev-ref HEAD) > /dev/null) && (git branch --format='%(refname:short)' | grep -v $(git rev-parse --abbrev-ref HEAD) | fzf --header=\"Choose a local branch to checkout:\" | xargs git checkout) || echo 'You are checked in to the only available branch'; }; f"
