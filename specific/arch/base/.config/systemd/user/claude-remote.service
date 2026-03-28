@@ -4,12 +4,14 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/bin/script -qfc "/usr/bin/claude --remote-control --no-chrome --name 'Persistent %H session'" /dev/null
+Type=simple
+WorkingDirectory=/home/khaosdoctor/claude-home
+ExecStart=bash -lc 'echo y | claude remote-control --spawn same-dir --name "Persistent %H session"'
+StandardOutput=null
 Restart=always
 RestartSec=10
 TimeoutStartSec=60
 Nice=10
-IOSchedulingClass=idle
 
 [Install]
 WantedBy=default.target
