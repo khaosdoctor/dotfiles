@@ -1,0 +1,4 @@
+[Unit]
+Description=Post-session application services
+BindsTo=graphical-session.target
+After=graphical-session.target

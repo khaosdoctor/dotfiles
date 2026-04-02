@@ -11,4 +11,4 @@ ExecStart=/usr/bin/walker --gapplication-service
 Restart=on-failure
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=graphical-session-apps.target
