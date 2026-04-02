@@ -3,6 +3,7 @@
 adobe-base-14-fonts
 age
 amd-ucode
+aquamarine
 asdf-vm-git
 atac
 atuin
@@ -98,8 +99,10 @@ gvfs-smb
 gvfs-wsdd
 hardinfo2
 huenicorn
+hyprgraphics
 hypridle
 hyprland
+hyprlang
 hyprlock
 hyprls-git
 hyprpaper
@@ -238,6 +241,7 @@ ttf-meslo-nerd
 ttf-roboto
 ttf-ubuntu-font-family
 ttf-ubuntu-nerd
+tuxguitar-git
 udiskie
 ufw
 update-grub
