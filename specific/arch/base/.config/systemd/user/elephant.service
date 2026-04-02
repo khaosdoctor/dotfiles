@@ -1,7 +1,6 @@
 [Unit]
 Description=Run elephant on Hyprland startup
 PartOf=graphical-session.target
-After=graphical-session.target
 StartLimitIntervalSec=30
 StartLimitBurst=20
 
@@ -12,4 +11,4 @@ Restart=on-failure
 RestartSec=5
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=graphical-session-apps.target
