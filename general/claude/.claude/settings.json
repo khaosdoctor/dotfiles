@@ -114,6 +114,10 @@
       "autoUpdate": true
     }
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/lsantos/.claude/statusline-command.sh"
+  },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
   "voiceEnabled": true
