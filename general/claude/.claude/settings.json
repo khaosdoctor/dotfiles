@@ -41,7 +41,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "opus[1m]",
+  "model": "sonnet[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -59,7 +59,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/lsantos/.claude/plugins/marketplaces/context-mode/hooks/pretooluse.mjs\""
+            "command": "node \"$HOME/.claude/plugins/marketplaces/context-mode/hooks/pretooluse.mjs\""
           }
         ]
       }
@@ -79,11 +79,15 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/lsantos/.claude/plugins/marketplaces/context-mode/hooks/sessionstart.mjs\""
+            "command": "node \"$HOME/.claude/plugins/marketplaces/context-mode/hooks/sessionstart.mjs\""
           }
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
@@ -113,10 +117,6 @@
       },
       "autoUpdate": true
     }
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/lsantos/.claude/statusline-command.sh"
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
