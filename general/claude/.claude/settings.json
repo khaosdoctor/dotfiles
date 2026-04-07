@@ -120,5 +120,6 @@
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "effortLevel": "high"
 }
