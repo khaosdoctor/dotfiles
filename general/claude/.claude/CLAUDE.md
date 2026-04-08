@@ -2,6 +2,12 @@
 
 - When I ask for guidance or explanations, do NOT write or edit files unless I explicitly ask you to. If I say 'tell me' or 'walk me through', respond with text only.
 - When I interrupt or redirect you, immediately switch to the new approach without justifying or continuing the old one. Don't be verbose when I've already indicated the direction.
+- For any task that takes more than a few steps, always produce visible progress early — a partial result, a status update, a draft, anything. Do NOT spend a long stretch working silently without giving the user an indicator that work is happening.
+
+## Environment
+
+- **Neumann** (this machine): Arch Linux + Hyprland (Wayland). Main personal workstation. AUR packages managed via yay. Dotfiles should use $HOME, not hardcoded paths.
+- **Multivac** (homelab): Debian Trixie, no DE/WM. Runs Docker Compose services via Coolify with Traefik as reverse proxy.
 
 ## System Configuration section
 
@@ -10,6 +16,11 @@
 ## Code Changes section
 
 - For rename/refactor tasks: always do a comprehensive pass covering mod IDs, class names, package names, file paths, texture references, translation keys, and asset filenames. Do a grep sweep afterward to catch stale references.
+- When the user asks to make something 'editable' or 'configurable', preserve the existing default value and add a mechanism to override it - do NOT remove the default entirely.
+
+## Docker & Coolify (Multivac)
+
+- Container names are dynamic — always discover them at runtime with `docker ps`, never hardcode. Healthcheck commands often need multiple iterations. Git operations in automated scripts may hang — prefer non-interactive git commands or let the user handle git manually.
 
 ## Obsidian
 
