@@ -92,7 +92,6 @@ gvfs
 gvfs-afc
 gvfs-dnssd
 gvfs-goa
-gvfs-google
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
@@ -242,7 +241,6 @@ ttf-roboto
 ttf-ubuntu-font-family
 ttf-ubuntu-nerd
 tuxguitar-git
-txt2man
 udiskie
 ufw
 update-grub
