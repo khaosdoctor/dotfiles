@@ -64,6 +64,10 @@ export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-$HOME/.run}"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}"
 
+# Some AI things if available
+# Enable tool search for claude
+export ENABLE_TOOL_SEARCH=true
+
 # Linux distros only
 if [[ "$(uname -s)" == "Linux" ]]; then
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]] || [[ -n "$WAYLAND_DISPLAY" ]]; then
