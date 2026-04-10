@@ -40,6 +40,7 @@ return {
         yamlls = {},
         html = {},
         jsonls = {},
+        prisma = {},
         jqls = {},
         taplo = {},
         volar = {},
