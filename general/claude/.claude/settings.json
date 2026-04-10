@@ -59,7 +59,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/plugins/cache/context-mode/context-mode/1.0.75/hooks/pretooluse.mjs\""
+            "command": "node $HOME/.claude/plugins/cache/context-mode/context-mode/1.0.75/hooks/pretooluse.mjs"
           }
         ]
       }
@@ -79,7 +79,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/plugins/cache/context-mode/context-mode/1.0.75/hooks/sessionstart.mjs\""
+            "command": "node $HOME/.claude/plugins/cache/context-mode/context-mode/1.0.75/hooks/sessionstart.mjs"
           }
         ]
       }
@@ -94,10 +94,7 @@
     "gopls-lsp@claude-plugins-official": true,
     "telegram@claude-plugins-official": false,
     "typescript-lsp@claude-plugins-official": true,
-    "context-mode@context-mode": true,
     "superpowers@claude-plugins-official": true,
-    "github@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
@@ -107,7 +104,8 @@
     "explanatory-output-style@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "playground@claude-plugins-official": true,
-    "ruby-lsp@claude-plugins-official": true
+    "ruby-lsp@claude-plugins-official": true,
+    "context-mode@claude-context-mode": true
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -120,6 +118,5 @@
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
-  "voiceEnabled": true,
-  "effortLevel": "high"
+  "voiceEnabled": true
 }
