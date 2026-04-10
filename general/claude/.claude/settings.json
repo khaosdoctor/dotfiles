@@ -37,7 +37,9 @@
       "Bash(npm info:*)",
       "Bash(npm view:*)",
       "Bash(npm run:*)",
-      "Bash(npm test:*)"
+      "Bash(npm test:*)",
+      "Bash(mempalace:*)",
+      "mcp__mempalace-server__*"
     ],
     "defaultMode": "default"
   },
@@ -71,6 +73,15 @@
           {
             "type": "command",
             "command": "if [ -d \"$PWD/.git\" ] || [ -f \"$PWD/package.json\" ] || [ -f \"$PWD/Cargo.toml\" ] || [ -f \"$PWD/go.mod\" ] || [ -f \"$PWD/pom.xml\" ]; then echo '\n# Code Repository Detected - Explain Skill Loaded\n' && cat ~/.claude/skills/explain/SKILL.md | tail -n +4; fi"
+          }
+        ]
+      },
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $HOME/.claude/hooks/mempalace-sync-memories.sh"
           }
         ]
       },
@@ -117,6 +128,22 @@
     "playground@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
     "context-mode@claude-context-mode": true
+    "mempalace@mempalace": true
+  },
+  "extraKnownMarketplaces": {
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      },
+      "autoUpdate": true
+    },
+    "mempalace": {
+      "source": {
+        "source": "github",
+        "repo": "milla-jovovich/mempalace"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,

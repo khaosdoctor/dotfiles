@@ -8,6 +8,7 @@
 
 - **Neumann** (this machine): Arch Linux + Hyprland (Wayland). Main personal workstation. AUR packages managed via yay. Dotfiles should use $HOME, not hardcoded paths.
 - **Multivac** (homelab): Debian Trixie, no DE/WM. Runs Docker Compose services via Coolify with Traefik as reverse proxy.
+- When asked to recall, verify, or check something from memory or past conversations, always invoke `mempalace:search` before checking auto-memory files.
 
 ## System Configuration section
 
