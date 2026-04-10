@@ -85,7 +85,8 @@ zinit wait lucid for \
   atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' zsh-users/zsh-history-substring-search \
   Tarrasch/zsh-colors \
   agkozak/zsh-z \
-  wfxr/forgit
+  wfxr/forgit \
+  matheusml/zsh-ai
 
 
 
