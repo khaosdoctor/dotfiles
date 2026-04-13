@@ -81,7 +81,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash $HOME/.claude/hooks/mempalace-sync-memories.sh"
+            "command": "bash $HOME/.claude/bin/mempalace-sync-memories.sh"
           }
         ]
       },
