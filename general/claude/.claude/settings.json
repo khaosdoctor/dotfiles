@@ -61,7 +61,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node $HOME/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/pretooluse.mjs"
+            "command": "node /Users/lsantos/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/pretooluse.mjs"
           }
         ]
       }
@@ -90,7 +90,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node $HOME/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/sessionstart.mjs"
+            "command": "node /Users/lsantos/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/sessionstart.mjs"
           }
         ]
       }
@@ -127,17 +127,10 @@
     "slack@claude-plugins-official": true,
     "playground@claude-plugins-official": true,
     "ruby-lsp@claude-plugins-official": true,
+    "mempalace@mempalace": true,
     "context-mode@claude-context-mode": true
-    "mempalace@mempalace": true
   },
   "extraKnownMarketplaces": {
-    "context-mode": {
-      "source": {
-        "source": "github",
-        "repo": "mksglu/context-mode"
-      },
-      "autoUpdate": true
-    },
     "mempalace": {
       "source": {
         "source": "github",

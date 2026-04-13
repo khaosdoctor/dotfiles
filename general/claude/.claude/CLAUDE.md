@@ -41,3 +41,5 @@
 ## Development Environment
 
 - Before running long infrastructure commands (docker build, npm install, prisma migrate), ensure prerequisites are met: .env file exists, database is running, correct directory. Do not run background tasks that may hang — prefer foreground with timeouts.
+
+@RTK.md
