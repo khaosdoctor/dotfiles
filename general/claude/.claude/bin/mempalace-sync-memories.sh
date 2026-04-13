@@ -3,6 +3,8 @@
 # Runs on SessionStart to catch up memories saved in previous sessions.
 # Backgrounded with timeout so it never blocks session start.
 
+command -v mempalace &>/dev/null || exit 0
+
 (
   MEMORY_BASE="$HOME/.claude/projects"
   for dir in "$MEMORY_BASE"/*/memory; do
