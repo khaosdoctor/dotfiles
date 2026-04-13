@@ -7,6 +7,9 @@
 
 set -eu
 
+command -v jq &>/dev/null || exit 0
+command -v claude &>/dev/null || exit 0
+
 payload="$(cat)"
 
 transcript_path="$(printf '%s' "$payload" | jq -r '.transcript_path // empty')"
