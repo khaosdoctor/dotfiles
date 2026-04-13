@@ -146,7 +146,6 @@ cask "session-manager-plugin"
 cask "spacelift-io/spacelift/spacectl"
 cask "spotify"
 cask "visual-studio-code"
-cask "yubico-yubikey-manager"
 cask "zed"
 mas "1Password for Safari", id: 1569813296
 mas "Keynote", id: 409183694
