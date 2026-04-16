@@ -44,7 +44,10 @@ return {
         jqls = {},
         taplo = {},
         volar = {},
-        ruby_lsp = {},
+        rubocop = { enable = false },
+        ruby_lsp = {
+          cmd = { "mise", "exec", "--", "bundle", "exec", "ruby-lsp" },
+        },
         denols = {
           -- Prevents deno from being loaded into node projects
           root_dir = function(fname)
