@@ -8,10 +8,6 @@
   eol = lf
   editor = nvim
   ignorecase = false
-[include]
-  # Includes local configuration on a per-system basis
-  # This config is not versioned
-  path = ~/.gitconfig.local
 [credential]
   helper = /usr/lib/git-core/git-credential-libsecret
 [alias]
@@ -86,3 +82,8 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[include]
+  # MUST ALWAYS BE LAST
+  # Includes local configuration on a per-system basis
+  # This config is not versioned
+  path = ~/.gitconfig.local
