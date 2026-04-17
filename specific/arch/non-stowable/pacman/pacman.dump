@@ -192,6 +192,7 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
+python312
 qbittorrent
 qemu-full
 qt6ct
