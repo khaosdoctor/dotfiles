@@ -197,6 +197,8 @@ qbittorrent
 qemu-full
 qt6ct
 rclone
+reapack
+reaper
 rio
 rmlint
 rocm-hip-runtime
@@ -214,6 +216,7 @@ steam
 stow
 surfshark-client
 swaync
+sws
 systemctl-tui
 tailscale
 tailscale-systray-git
