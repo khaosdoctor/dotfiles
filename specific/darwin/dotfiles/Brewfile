@@ -23,7 +23,7 @@ brew "cfssl"
 brew "curl"
 brew "diskonaut"
 brew "dive"
-brew "docker", link: false
+brew "docker"
 brew "docker-credential-helper"
 brew "folly"
 brew "fizz"
