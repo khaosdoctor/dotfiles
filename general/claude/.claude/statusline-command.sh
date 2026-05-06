@@ -96,12 +96,20 @@ if [ -n "$used_pct" ]; then
     ctx_color="${GREEN}"
   fi
   tok_str=""
-  if [ -n "$total_tokens" ] && [ "$total_tokens" -gt 0 ] 2>/dev/null; then
-    if [ "$total_tokens" -ge 1000 ]; then
-      tok_str=" ${DIM}·${RESET} ${ctx_color}$(awk "BEGIN {printf \"%.1fk\", $total_tokens/1000}") tokens${RESET}"
-    else
-      tok_str=" ${DIM}·${RESET} ${ctx_color}${total_tokens} tokens${RESET}"
-    fi
+  if { [ -n "$total_tokens" ] && [ "$total_tokens" -gt 0 ]; } || { [ -n "$total_out_tokens" ] && [ "$total_out_tokens" -gt 0 ]; } 2>/dev/null; then
+    total_combined=$(( total_tokens + total_out_tokens ))
+    fmt_num() {
+      local n=$1
+      if [ "$n" -ge 1000 ]; then
+        awk "BEGIN {printf \"%.1fk\", $n/1000}"
+      else
+        echo "$n"
+      fi
+    }
+    in_fmt=$(fmt_num "$total_tokens")
+    out_fmt=$(fmt_num "$total_out_tokens")
+    total_fmt=$(fmt_num "$total_combined")
+    tok_str=" ${DIM}·${RESET} ${DIM}↓${RESET}${ctx_color}${in_fmt}${RESET} ${DIM}↑${RESET}${ctx_color}${out_fmt}${RESET} ${DIM}Σ${RESET}${ctx_color}${total_fmt}${RESET}"
   fi
   parts="$parts ${DIM}|${RESET} ${ctx_color}ctx: ${printf_pct}%${RESET}${tok_str}${cost_str}"
 fi
