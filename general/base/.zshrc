@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
-autoload -U compinit; compinit
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # LOADS USER FUNCTIONS
 if [[ -a $HOME/.functions ]]; then
@@ -18,13 +24,6 @@ if [ "$(tput lines)" -ge 25 ] && [ "$(tput cols)" -ge 90 ] && command -v fastfet
 elif command -v fastfetch >/dev/null; then
     fastfetch -c examples/21.jsonc
 fi;
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -113,16 +112,6 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
 [[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk
-
 if [ -x "$(command -v mise)" ] && [ -f $HOME/.mise_shim ]; then
     source $HOME/.mise_shim
 fi
@@ -153,6 +142,5 @@ fi
 
 ################################
 
-autoload -Uz compinit && compinit
 fpath+=~/.zfunc
 

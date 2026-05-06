@@ -43,7 +43,6 @@
     ],
     "defaultMode": "default"
   },
-  "model": "sonnet[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -140,5 +139,6 @@
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "effortLevel": "medium"
 }
