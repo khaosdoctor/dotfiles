@@ -52,15 +52,6 @@
             "statusMessage": "Checking git command..."
           }
         ]
-      },
-      {
-        "matcher": "Bash|WebFetch|Read|Grep|Agent|Task|mcp__plugin_context-mode_context-mode__ctx_execute|mcp__plugin_context-mode_context-mode__ctx_execute_file|mcp__plugin_context-mode_context-mode__ctx_batch_execute",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node /Users/lsantos/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/pretooluse.mjs"
-          }
-        ]
       }
     ],
     "SessionStart": [
@@ -70,15 +61,6 @@
           {
             "type": "command",
             "command": "if [ -d \"$PWD/.git\" ] || [ -f \"$PWD/package.json\" ] || [ -f \"$PWD/Cargo.toml\" ] || [ -f \"$PWD/go.mod\" ] || [ -f \"$PWD/pom.xml\" ]; then echo '\n# Code Repository Detected - Explain Skill Loaded\n' && cat ~/.claude/skills/explain/SKILL.md | tail -n +4; fi"
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node /Users/lsantos/.claude/plugins/cache/claude-context-mode/context-mode/1.0.75/hooks/sessionstart.mjs"
           }
         ]
       }
