@@ -1,5 +1,14 @@
 #!/usr/bin/env zsh
 
+# Enable check for fastfetch and run it if available in large terminals
+# Must run before p10k instant prompt to avoid console output warnings
+if [ "$(tput lines)" -ge 25 ] && [ "$(tput cols)" -ge 90 ] && command -v fastfetch >/dev/null; then
+    fastfetch
+# if the terminal is small but fastfetch is available, run with a config for small inputs
+elif command -v fastfetch >/dev/null; then
+    fastfetch -c examples/21.jsonc
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -16,14 +25,6 @@ fi
 if [[ -a $HOME/.aliases ]]; then
   source $HOME/.aliases
 fi
-
-# Enable check for fastfetch and run it if available in large terminals
-if [ "$(tput lines)" -ge 25 ] && [ "$(tput cols)" -ge 90 ] && command -v fastfetch >/dev/null; then 
-    fastfetch
-# if the terminal is small but fastfetch is available, run with a config for small inputs
-elif command -v fastfetch >/dev/null; then
-    fastfetch -c examples/21.jsonc
-fi;
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
