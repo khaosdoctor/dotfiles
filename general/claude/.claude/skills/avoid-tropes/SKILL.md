@@ -3,6 +3,7 @@ disable-model-invocation: false
 user-invocable: false
 allowed-tools:
   - Read
+model: claude-haiku-4-5
 ---
 
 # Avoid Tropes Skill
