@@ -97,6 +97,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 gvfs-wsdd
+handy
 hardinfo2
 huenicorn
 hyprgraphics
@@ -277,6 +278,7 @@ wireplumber
 wireshark-qt
 wl-clip-persist
 woff2-font-awesome
+wtype
 xclip
 xdg-desktop-portal-hyprland
 xdg-user-dirs-gtk

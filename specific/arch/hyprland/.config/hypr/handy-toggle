@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+STATE_FILE="/tmp/handy-listening"
+
+if [ -f "$STATE_FILE" ]; then
+    rm "$STATE_FILE"
+    notify-send -t 3000 -u normal "Handy" "Transcribing..."
+else
+    touch "$STATE_FILE"
+    notify-send -t 0 -u low "Handy" "Listening... Toggle again to stop."
+fi
+
+handy --toggle-transcription
