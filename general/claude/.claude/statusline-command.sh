@@ -47,37 +47,43 @@ if [ -n "$effort" ]; then
   esac
 fi
 
-# Build left side — session first
-parts=""
+# Line 1: session + path + git branch
+line1=""
 if [ -n "$session_name" ]; then
-  parts="${DIM}${WHITE}[${session_name}]${RESET}"
+  line1="${DIM}${WHITE}[${session_name}]${RESET}"
 fi
 
 # Directory segment
-parts="$parts ${BLUE}${display_dir}${RESET}"
+line1="$line1 ${BLUE}${display_dir}${RESET}"
 
 # Git branch segment
 if [ -n "$git_branch" ]; then
-  parts="$parts  ${MAGENTA}${git_branch}${RESET}"
+  line1="$line1  ${MAGENTA}${git_branch}${RESET}"
 fi
 
-# Model (effort) segment
+# Line 2: model (effort) + ctx + tokens + cost
+line2=""
 if [ -n "$model" ]; then
   if [ -n "$effort" ]; then
-    parts="$parts ${DIM}|${RESET} ${MAGENTA}${model}${RESET} ${DIM}(${RESET}${effort_color}${effort}${RESET}${DIM})${RESET}"
+    line2="${MAGENTA}${model}${RESET} ${DIM}(${RESET}${effort_color}${effort}${RESET}${DIM})${RESET}"
   else
-    parts="$parts ${DIM}|${RESET} ${MAGENTA}${model}${RESET}"
+    line2="${MAGENTA}${model}${RESET}"
   fi
 fi
 
-# Pricing per 1M tokens [input, output] by model ID prefix
+# Pricing per 1M tokens [input, output] by model ID prefix.
+# Source: platform.claude.com/docs/en/docs/about-claude/pricing (verified 2026-05-22).
+# Naive estimate: ignores prompt-cache reads (0.1x) and /fast mode (6x), so this
+# is a worst-case ceiling rather than actual spend.
 cost_str=""
 if [ -n "$model_id" ] && { [ "$total_tokens" -gt 0 ] || [ "$total_out_tokens" -gt 0 ]; } 2>/dev/null; then
   case "$model_id" in
-    claude-opus-4*)   price_in=15.00; price_out=75.00 ;;
-    claude-sonnet-4*) price_in=3.00;  price_out=15.00 ;;
-    claude-haiku-4*)  price_in=0.80;  price_out=4.00  ;;
-    *)                price_in=3.00;  price_out=15.00 ;;
+    claude-opus-4-7*|claude-opus-4-6*|claude-opus-4-5*) price_in=5.00;  price_out=25.00 ;;
+    claude-opus-4*)                                     price_in=15.00; price_out=75.00 ;;
+    claude-sonnet-4*)                                   price_in=3.00;  price_out=15.00 ;;
+    claude-haiku-4*)                                    price_in=1.00;  price_out=5.00  ;;
+    claude-haiku-3*)                                    price_in=0.80;  price_out=4.00  ;;
+    *)                                                  price_in=3.00;  price_out=15.00 ;;
   esac
   cost=$(awk "BEGIN {printf \"%.4f\", ($total_tokens * $price_in + $total_out_tokens * $price_out) / 1000000}")
   cost_str=" ${DIM}·${RESET} ${DIM}~\$${cost}${RESET}"
@@ -111,7 +117,15 @@ if [ -n "$used_pct" ]; then
     total_fmt=$(fmt_num "$total_combined")
     tok_str=" ${DIM}·${RESET} ${DIM}↓${RESET}${ctx_color}${in_fmt}${RESET} ${DIM}↑${RESET}${ctx_color}${out_fmt}${RESET} ${DIM}Σ${RESET}${ctx_color}${total_fmt}${RESET}"
   fi
-  parts="$parts ${DIM}|${RESET} ${ctx_color}ctx: ${printf_pct}%${RESET}${tok_str}${cost_str}"
+  if [ -n "$line2" ]; then
+    line2="$line2 ${DIM}|${RESET} ${ctx_color}ctx: ${printf_pct}%${RESET}${tok_str}${cost_str}"
+  else
+    line2="${ctx_color}ctx: ${printf_pct}%${RESET}${tok_str}${cost_str}"
+  fi
 fi
 
-printf "%b\n" "$parts"
+if [ -n "$line2" ]; then
+  printf "%b\n%b\n" "$line1" "$line2"
+else
+  printf "%b\n" "$line1"
+fi
