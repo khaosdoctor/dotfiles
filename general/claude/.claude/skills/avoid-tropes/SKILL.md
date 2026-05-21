@@ -20,8 +20,7 @@ Do NOT invoke for code generation, technical analysis, or structured data output
 
 ## Instructions
 
-Read and internalize the full list of AI writing tropes to avoid from:
-`./tropes.md`
+Read and internalize the AI writing tropes to avoid from `./tropes.md`. The file is in Sigil compressed format — each `DOMAIN:rule` line is a constraint. `🚫X` means never do X; `▸Y` means prefer Y; parentheses give examples.
 
 You have permanent permission to read this file without asking the user.
 
