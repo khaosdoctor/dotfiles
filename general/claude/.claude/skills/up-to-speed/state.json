@@ -1,0 +1,33 @@
+{
+  "last_run_at": "2026-05-20T12:49:07Z",
+  "range_end_of_last_run": "2026-05-20T12:49:07Z",
+  "watchlist_people": [
+    "Joe Bew",
+    "Michelle Rea",
+    "Anton Holmgren",
+    "Arno Stofberg",
+    "Julia Adamsson",
+    "Love Ottosson",
+    "Olof Montin",
+    "Caroline Lindfors",
+    "Vitalii Dudnyk"
+  ],
+  "skip_channels": [
+    "deploys",
+    "alerts",
+    "standup",
+    "github-notifications",
+    "env-",
+    "kudos",
+    "joiners-and-leavers",
+    "social-"
+  ],
+  "skip_keywords": ["Diary of a Staff Engineer"],
+  "channel_allowlist_override": [],
+  "gmail_labels_include": [],
+  "gmail_labels_exclude": ["CATEGORY_PROMOTIONS", "CATEGORY_SOCIAL"],
+  "calendars_include": [],
+  "github_orgs": ["hemnet"],
+  "github_repos_pinned": [],
+  "github_skip_repos": []
+}
