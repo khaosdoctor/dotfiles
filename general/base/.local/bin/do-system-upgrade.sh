@@ -218,8 +218,9 @@ upgrade_macos() {
         # Re-dump Brewfile so dotfiles stay in sync
         if [ -f "$HOME/Brewfile" ]; then
             info "Dumping updated Brewfile..."
-            if ! brew bundle dump -f -a --no-upgrade --file=- >"$HOME/Brewfile" 2>&1; then
-                collect_error "brew-bundle" "Failed to dump Brewfile"
+            local dump_err
+            if ! dump_err="$(brew bundle dump -f --file="$HOME/Brewfile" 2>&1)"; then
+                collect_error "brew-bundle" "Failed to dump Brewfile: $dump_err"
             fi
         fi
     else
