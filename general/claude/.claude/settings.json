@@ -106,7 +106,6 @@
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
   "promptSuggestionEnabled": false,
   "editorMode": "vim",
   "verbose": true,
