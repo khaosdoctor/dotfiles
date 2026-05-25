@@ -22,6 +22,7 @@ path=(
     $DENO_INSTALL_ROOT/bin
     $GOPATH/bin
     $GOROOT/bin
+    $HOME/.bun/bin
 
     $path
 )
