@@ -76,7 +76,34 @@
       "mcp__claude_ai_Slack__slack_read_canvas",
       "mcp__claude_ai_Slack__slack_read_file",
       "mcp__claude_ai_Slack__slack_list_channel_members",
-      "mcp__claude_ai_Slack__slack_get_reactions"
+      "mcp__claude_ai_Slack__slack_get_reactions",
+      "mcp__claude_ai_Slack__slack_send_message_draft",
+      "mcp__obsidian-mcp-tools__search_vault_simple",
+      "mcp__obsidian-mcp-tools__search_vault_smart",
+      "mcp__obsidian-mcp-tools__get_vault_file",
+      "mcp__obsidian-mcp-tools__list_vault_files",
+      "mcp__obsidian-mcp-tools__search_vault",
+      "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Atlassian__atlassianUserInfo",
+      "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "Bash(ls:*)",
+      "Bash(rtk date *)",
+      "Bash(rtk gh *)",
+      "Bash(rtk jq *)",
+      "Bash(rtk mkdir *)",
+      "Bash(rtk echo *)",
+      "Bash(rtk du *)",
+      "Bash(rtk which *)",
+      "Bash(rtk ghostty *)",
+      "Bash(~/.claude/bin/find-obsidian --vault)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Skill(sigil:*)",
+      "Skill(update-config)",
+      "Skill(followup)",
+      "Skill(avoid-tropes)"
     ],
     "defaultMode": "default"
   },
@@ -91,6 +118,15 @@
             "statusMessage": "Checking git command..."
           }
         ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/lsantos/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -100,17 +136,6 @@
           {
             "type": "command",
             "command": "if [ -d \"$PWD/.git\" ] || [ -f \"$PWD/package.json\" ] || [ -f \"$PWD/Cargo.toml\" ] || [ -f \"$PWD/go.mod\" ] || [ -f \"$PWD/pom.xml\" ]; then echo '\n# Code Repository Detected - Explain Skill Loaded\n' && cat ~/.claude/skills/explain/SKILL.md | tail -n +4; fi"
-          }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $HOME/.claude/bin/auto-rename-session.sh"
           }
         ]
       }
