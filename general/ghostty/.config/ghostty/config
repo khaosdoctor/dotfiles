@@ -1,0 +1,132 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /Users/lsantos/Library/Application Support/com.mitchellh.ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+#
+# # Spacing around the equals sign does not matter.
+# # All of these are identical:
+# key=value
+# key= value
+# key =value
+# key = value
+#
+# # Any line beginning with a # is a comment. It's not possible to put
+# # a comment after a config option, since it would be interpreted as a
+# # part of the value. For example, this will have a value of "#123abc":
+# background = #123abc
+#
+# # Empty values are used to reset config keys to default.
+# key =
+#
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+
+# ============================================================================
+# Migrated from ~/.config/kitty
+# ============================================================================
+
+# Theme
+theme = Catppuccin Mocha
+
+# Font
+font-family = CaskaydiaCove Nerd Font Mono
+font-size = 16
+# Match kitty's macOS glyph thickening so text doesn't look thinner than in kitty.
+font-thicken = true
+font-thicken-strength = 128
+
+# Cursor (kitty: cursor #fc03e3, block, blink, no-cursor from shell integration)
+cursor-color = #fc03e3
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+# Unfocused cursor is hollow by default in Ghostty — matches kitty's cursor_shape_unfocused.
+
+# Scrollback — kitty had 20000 lines; Ghostty's limit is bytes (default 10 MB).
+scrollback-limit = 20000000
+
+# Background (kitty: background_opacity 0.90, background_blur 30)
+background-opacity = 0.90
+background-blur = 30
+
+# macOS
+macos-option-as-alt = true
+# Hide the titlebar entirely — kills the tab bar (tabs live in the titlebar on macOS).
+# zellij handles multiplexing, so Ghostty tabs are redundant.
+macos-titlebar-style = hidden
+# Note: quit-after-last-window-closed intentionally left at default (false) so the
+# global quick-terminal hotkey keeps working after the last window is closed.
+# Auto-update: notify when a new version is available (Sparkle handles install).
+auto-update = check
+# Secure input indicator is on by default (macos-auto-secure-input + macos-secure-input-indication).
+# Optional manual toggle:
+keybind = cmd+alt+s=toggle_secure_input
+
+# Rendering
+# Native alpha blending — correct color rendering with transparent backgrounds on macOS.
+alpha-blending = native
+# Bump per-cell contrast just enough to keep low-contrast text readable
+# without overriding the theme. 1.0 = off, 21.0 = max (WCAG ratio).
+minimum-contrast = 1.1
+
+# Splits
+unfocused-split-opacity = 0.7
+# Keep the zoomed split zoomed when navigating between splits (default unzooms).
+split-preserve-zoom = navigation
+
+# Quick terminal — drop-down terminal animated from the top of the screen.
+# `global:` makes the hotkey work even when Ghostty isn't focused.
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = top
+# Command palette is already bound to cmd+shift+p by default — no config needed.
+
+# Shell — same zellij wrapper as kitty.conf.
+# Note: in Ghostty $$ inside the script is the script's PID (no kitty quirk),
+# so the zellij session name will be "kitty-<scriptPID>".
+command = /Users/lsantos/.config/kitty/start-zellij.sh
+
+# ---------- Keybindings (from custom-keymaps.conf) ----------
+# Tabs
+keybind = ctrl+t=new_tab
+# ctrl+tab=next_tab and ctrl+shift+tab=previous_tab are Ghostty defaults.
+
+# Splits — kitty's f4/f5/f6 launch --location
+keybind = f4=new_split:auto
+keybind = f5=new_split:down
+keybind = f6=new_split:right
+
+# Focus neighboring split — kitty's alt+arrow neighboring_window
+keybind = alt+left=goto_split:left
+keybind = alt+right=goto_split:right
+keybind = alt+up=goto_split:up
+keybind = alt+down=goto_split:down
+
+# Reload config — kitty_mod+f5 (kitty_mod = ctrl+shift)
+keybind = ctrl+shift+f5=reload_config
