@@ -1,5 +1,6 @@
 ---
-disable-model-invocation: true
+disable-model-invocation: false
+user-invocable: true
 allowed-tools:
   - Bash:
       - git status

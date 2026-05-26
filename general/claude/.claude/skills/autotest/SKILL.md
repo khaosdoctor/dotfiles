@@ -1,5 +1,5 @@
 ---
-disable-model-invocation: true
+disable-model-invocation: false
 user-invocable: true
 allowed-tools:
   # Note: Read, Glob, Grep are ALWAYS implicitly allowed (global guideline)
