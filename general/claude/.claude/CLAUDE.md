@@ -1,37 +1,29 @@
-## General Rules
+Legend: 🚫=never, ▸=prefer-over, +=and, →=leads-to, @=location, ⚠️=caution, ∈=inside
 
-- When I ask for guidance or explanations, do NOT write or edit files unless I explicitly ask you to. If I say 'tell me' or 'walk me through', respond with text only.
-- When I interrupt or redirect you, immediately switch to the new approach without justifying or continuing the old one. Don't be verbose when I've already indicated the direction.
-- For any task that takes more than a few steps, always produce visible progress early — a partial result, a status update, a draft, anything. Do NOT spend a long stretch working silently without giving the user an indicator that work is happening.
+## Behavior
+GEN: 🚫edit-files-on-guidance("tell me"/"walk me through"→text-only), immediate-switch-on-redirect(🚫justify-old-approach), visible-progress-early(🚫long-silent-stretches)
+IOF: Read▸paste, fs▸mcp
+SGL: purge-non-3-letter-domains→rename(3-upper)▸delete, preserve-content-over-strict-format
 
-## Environment
+## Code Style
+STY: 🚫else(▸early-return+guard-clauses), 🚫let(⚠️unless-necessary), ▸for..of/for..in(🚫.forEach), ▸imperative-loops-when-map/reduce-unreadable, 🚫complex-FP(readability-first), ▸simple-minimal(🚫over-engineer), preserve-defaults-when-making-configurable
+TSX: switch-default(x satisfies never), Record<Enum,T>
+REF: rename/refactor→comprehensive-pass+grep-sweep-after, prereqs-before-long-cmds(.env+db+correct-dir)
+MNR: run-from-app-dir(🚫monorepo-root), check-cwd-before-assumptions
 
-- **Neumann** (this machine): Arch Linux + Hyprland (Wayland). Main personal workstation. AUR packages managed via yay. Dotfiles should use $HOME, not hardcoded paths.
-- **Multivac** (homelab): Debian Trixie, no DE/WM. Runs Docker Compose services via Coolify with Traefik as reverse proxy. Container names are dynamic — always discover at runtime with `docker ps`, never hardcode. Prefer non-interactive git commands in automated scripts.
+## Git
+GIT: commit-single-m-flag, 🚫claude-attribution(commits+PRs), 🚫push-main(always-branch-first), ▸conventional-commits(🚫gitmoji+other-formats)
 
-## System Configuration
+## Pull Requests
+PRB: use-voice-skill(body), 🚫self-attribution, 🚫headers-if-single-paragraph, 🚫"test plan"/🚫"why this works"/🚫boilerplate-sections, use-tropes-skill(remove-corporate-tropes), ▸short+direct
 
-- Before making system configuration changes (Hyprland, systemd, etc.), verify the option is valid for the installed version. Check man pages or config docs first.
-
-## Code Changes
-
-- For rename/refactor tasks: do a comprehensive pass covering class names, package names, file paths, and all references. Do a grep sweep afterward to catch stale references.
-- When the user asks to make something 'editable' or 'configurable', preserve the existing default value and add a mechanism to override it - do NOT remove the default entirely.
+## Writing
+VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog)
 
 ## Obsidian
+OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, vault@(~/Documents/Obsidian/Default), search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice)
 
-- Obsidian notes should use consistent YAML frontmatter with tags, aliases, and created date. Use [[wikilinks]] for cross-references. Follow existing vault conventions.
-- Use OS file tools (Read/Edit/Glob/Grep) for all vault access. Always use wikilinks [[like this]] for people, projects, and note references. Never use standard markdown links for internal vault references.
-- If unsure how to answer something or lack context, search the Obsidian vault for relevant notes before responding. The vault is a large personal knowledge base.
-- For journal jots: append entries in chronological order. Resolve temporal references (e.g., 'yesterday', 'this morning') to actual timestamps. Preserve the user's voice — do not over-process or rewrite jot content.
-
-## Monorepo
-
-- When working in a monorepo, always run commands from the specific app/package directory, not the monorepo root. Check the current working directory before making assumptions about path resolution.
-
-## Code Style / Preferences
-
-- Prefer simple, minimal solutions. Do not over-engineer. When asked to consolidate, produce exactly the structure requested — don't add extra mappings or wrapper objects.
-- Before running long infrastructure commands (docker build, npm install, prisma migrate), ensure prerequisites are met: .env file exists, database is running, correct directory.
+## System
+SYS: verify-option-valid-for-installed-version(man-pages/docs-first)
 
 @RTK.md
