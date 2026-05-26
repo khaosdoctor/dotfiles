@@ -127,7 +127,7 @@ if [ -x "$(command -v brew)" ]; then
             echo "Detected $command command, updating Brewfile... Don't forget to commit the changes!"
             shift
             systemLog "Updating brewfile after $command command with options: $*"
-            "$HOMEBREW_PREFIX/bin/brew" bundle dump -f -a --no-upgrade --file=- >"$HOME/Brewfile"
+            "$HOMEBREW_PREFIX/bin/brew" bundle dump -f --file=- >"$HOME/Brewfile"
         fi
     }
 fi
