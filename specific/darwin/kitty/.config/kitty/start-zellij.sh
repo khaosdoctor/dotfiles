@@ -6,4 +6,4 @@ elif [ -n "$KITTY_WINDOW_ID" ]; then
 else
     term=term
 fi
-exec /opt/homebrew/bin/zellij attach --create "${term}-$$"
+exec $(which zellij) attach --create "${term}-$$"
