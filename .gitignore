@@ -162,3 +162,9 @@ general/claude/.claude/settings.local.json
 general/claude/.claude/file-history
 general/claude/.claude/paste-cache
 general/claude/.claude/projects/-home-multivac--homelab
+general/claude/.claude/remote/ccd-cli
+general/claude/.claude/remote
+general/claude/.claude/security
+general/claude/.claude/telemetry
+general/claude/.claude/.last-cleanup
+general/claude/.claude/mcp-needs-auth-cache.json
