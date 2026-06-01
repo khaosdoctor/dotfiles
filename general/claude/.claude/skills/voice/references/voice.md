@@ -2,7 +2,14 @@
 
 Legend: 🚫=never,▸=prefer,∈=inside,+=and,()=detail,→=leads-to,@=location,#=tag,[[X]]=cross-ref
 
-Synthesized from the user's outgoing prose across casual chat, technical broadcasts, formal docs, sent email, calendar metadata, and personal journal. Patterns described as categories — verbatim quotes intentionally omitted.
+Synthesized from the user's outgoing prose across casual chat, technical broadcasts, formal docs, sent email, calendar metadata, and personal journal. Patterns described as categories, verbatim quotes intentionally omitted.
+
+---
+
+## HARD RULES (zero tolerance, applies to EVERY surface)
+
+HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
+HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
 
 ---
 
