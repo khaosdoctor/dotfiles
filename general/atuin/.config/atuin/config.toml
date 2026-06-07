@@ -23,7 +23,7 @@
 # timezone = "local"
 
 ## enable or disable automatic sync
-# auto_sync = true
+auto_sync = true
 
 ## enable or disable automatic update checks
 # update_check = true
@@ -249,7 +249,7 @@ sync_frequency = 30
 ## The path to the unix socket used by the daemon (on unix systems)
 ## linux/mac: ~/.local/share/atuin/atuin.sock
 ## windows: Not Supported
-# socket_path = "~/.local/share/atuin/atuin.sock"
+socket_path = "~/.run/atuin.sock"
 
 ## Use systemd socket activation rather than opening the given path (the path must still be correct for the client)
 ## linux: false
