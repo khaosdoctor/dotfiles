@@ -249,7 +249,7 @@ sync_frequency = 30
 ## The path to the unix socket used by the daemon (on unix systems)
 ## linux/mac: ~/.local/share/atuin/atuin.sock
 ## windows: Not Supported
-socket_path = "~/.run/atuin.sock"
+# socket_path = "~/.run/atuin.sock"  # use atuin default (~/.local/share/atuin/atuin.sock); ~/.run did not exist and broke the daemon
 
 ## Use systemd socket activation rather than opening the given path (the path must still be correct for the client)
 ## linux: false

@@ -1,0 +1,13 @@
+[Unit]
+Description=atuin history sync daemon
+Documentation=https://docs.atuin.sh/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/atuin daemon start
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
