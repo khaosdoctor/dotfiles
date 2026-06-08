@@ -157,7 +157,6 @@
       "autoUpdate": true
     }
   },
-  "model": "claude-opus-4-6",
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
   "editorMode": "vim",
