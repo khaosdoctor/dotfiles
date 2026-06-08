@@ -110,7 +110,7 @@ quick-terminal-position = top
 # Shell — same zellij wrapper as kitty.conf.
 # Note: in Ghostty $$ inside the script is the script's PID (no kitty quirk),
 # so the zellij session name will be "kitty-<scriptPID>".
-command = $HOME/.config/kitty/zellij-wrapper.sh
+command = $HOME/.config/kitty/start-zellij.sh
 
 # ---------- Keybindings (from custom-keymaps.conf) ----------
 # Tabs
