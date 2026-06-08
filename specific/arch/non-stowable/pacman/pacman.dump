@@ -120,6 +120,9 @@ jq
 kexec-tools
 keychain
 keyd
+kicad
+kicad-library
+kicad-library-3d
 kitty
 knot
 lact
