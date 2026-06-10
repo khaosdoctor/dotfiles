@@ -5,149 +5,288 @@ tap "knqyf263/sou"
 tap "matheusml/zsh-ai", trusted: true
 tap "spacelift-io/spacelift", trusted: true
 tap "yoheimuta/protolint"
+# Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
+# Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Toolchain of the web
 brew "biome"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Core application library for C
 brew "glib"
+# Insanely fast image printing in your terminal
 brew "catimg"
+# Object-file caching compiler wrapper
 brew "ccache"
+# C parser in Python
 brew "pycparser"
+# C Foreign Function Interface for Python
 brew "cffi"
+# Cryptographic recipes and primitives for Python
 brew "cryptography"
+# YAML Parser
 brew "libyaml"
+# Tool to obtain certs from Let's Encrypt and autoenable HTTPS
 brew "certbot"
+# CloudFlare's PKI toolkit
 brew "cfssl"
+# Enables you to reproduce the CircleCI environment locally
 brew "circleci"
+# Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Terminal visual disk space navigator
 brew "diskonaut"
+# Tool for exploring each layer in a docker image
 brew "dive"
+# Pack, ship and run any application as a lightweight container
 brew "docker", link: false
+# Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Platform keystore credential helper for Docker
 brew "docker-credential-helper"
+# View disk space usage and delete unwanted data, fast
 brew "dua-cli"
+# Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
+# C++14 implementation of the TLS-1.3 standard
 brew "fizz"
+# Modular, composable client/server abstractions framework
 brew "wangle"
+# Facebook's branch of Apache Thrift, including a new C++ server
 brew "fbthrift"
+# Thrift functions for querying information from a service
 brew "fb303"
+# Shared library for Watchman and Eden projects
 brew "edencommon"
+# LLVM bytecode to JavaScript compiler
 brew "emscripten"
+# Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
 brew "fastfetch"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Geometry Engine
 brew "geos"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
+# Quickly rewrite git repository history
 brew "git-filter-repo"
+# Git extension for versioning large files
 brew "git-lfs"
+# Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
+# GNU Transport Layer Security (TLS) Library
 brew "gnutls"
+# Validating, recursive, caching DNS resolver
 brew "unbound"
+# GNU Privacy Guard (OpenPGP)
 brew "gnupg"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# GNU grep, egrep and fgrep
 brew "grep"
+# Package compiler and linker metadata toolkit
 brew "pkgconf"
+# GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
+# Improved top (interactive process viewer)
 brew "htop"
+# User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# C/C++ and Java libraries for Unicode and globalization
 brew "icu4c@76"
+# ISO/IEC 23008-12:2017 HEIF file format decoder and encoder
 brew "libheif"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# JSON parser and validator with a CLI
 brew "jsonlint"
+# Lazier way to manage everything docker
 brew "lazydocker"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Image processing and image analysis library
 brew "leptonica"
+# Sophisticated file transfer program
 brew "lftp"
+# Multi-format archive and compression library
 brew "libarchive"
+# Convert pixel information into colored ASCII art
 brew "libcaca"
+# SIXEL encoder/decoder implementation
 brew "libsixel"
+# Database of common MIME types
 brew "shared-mime-info"
+# Shows thumbnails in terminal using sixel graphics
 brew "lsix"
+# Tool for linting and static analysis of Lua code
 brew "luacheck"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
+# QUIC transport protocol implementation
 brew "mvfst"
+# NCurses Disk Usage
 brew "ncdu"
+# Fast, highly customisable system info script
 brew "neofetch"
+# Incremental parsing library
 brew "tree-sitter"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# HTTP/2 C Library
 brew "nghttp2"
+# Port scanning utility for large networks
 brew "nmap"
+# Audit npm packages before you install them
 brew "npq"
+# Swiss-army knife of markup format conversion
 brew "pandoc"
+# Pinentry for GPG on Mac
 brew "pinentry-mac"
+# Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Object-relational database system
 brew "postgresql@14"
+# Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
+# Cartographic Projections Library
 brew "proj"
+# Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Cross-platform application and UI framework
 brew "qt"
+# Persistent key-value database, with built-in net interface
 brew "redis"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Utility that provides fast incremental file transfer
 brew "rsync"
+# CLI proxy to minimize LLM token consumption
 brew "rtk"
+# Parallel S3 and local filesystem execution tool
 brew "s5cmd"
+# Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
+# Autoformat shell script source code
 brew "shfmt"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Easiest, most secure way to use WireGuard and 2FA
 brew "tailscale"
+# User interface to the TELNET protocol
 brew "telnet"
+# Tool to build, change, and version infrastructure
 brew "terraform"
+# OCR (Optical Character Recognition) engine
 brew "tesseract"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Tool for creating isolated virtual python environments
 brew "virtualenv"
+# Executes a program periodically, showing output fullscreen
 brew "watch"
+# Watch files and take action when they change
 brew "watchman"
+# Internet file retriever
 brew "wget"
+# Linter for YAML files
 brew "yamllint"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-brew "knqyf263/sou/sou"
+# Lightweight AI assistant for your terminal
 brew "matheusml/zsh-ai/zsh-ai"
-brew "yoheimuta/protolint/protolint"
+# Command-line interface for 1Password
 cask "1password-cli"
+# Enable Windows-like alt-tab
 cask "alt-tab"
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
+# Cross platform SQL editor and database management app
 cask "beekeeper-studio"
+# Virtual Audio Driver
+cask "blackhole-2ch"
+# Anthropic's official Claude AI desktop app
 cask "claude"
+# Terminal-based AI coding assistant
 cask "claude-code"
+# Universal database tool and SQL client
 cask "dbeaver-community"
+# System-wide audio equaliser
 cask "eqmac"
 cask "font-cascadia-code-nf"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
+# Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Open source API development ecosystem
 cask "hoppscotch"
+# GPU-based terminal emulator
 cask "kitty"
+# Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Get up and running with large language models locally
 cask "ollama-app"
+# Client for Proton Mail and Proton Calendar
 cask "proton-mail"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
 cask "session-manager-plugin"
+# Spacelift client and CLI
 cask "spacelift-io/spacelift/spacectl"
+# Music streaming service
 cask "spotify"
+# System-wide equalizer for macOS with AutoEQ support
+cask "denzam/systemeq/systemeq", trusted: true
+# Mesh VPN based on WireGuard
 cask "tailscale-app"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# Open-source code editor
 cask "visual-studio-code"
+# Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
 mas "Keynote", id: 409183694
@@ -274,3 +413,5 @@ go "cmd/go"
 go "cmd/gofmt"
 uv "posting"
 uv "semble"
+npm "context-mode"
+npm "corepack"
