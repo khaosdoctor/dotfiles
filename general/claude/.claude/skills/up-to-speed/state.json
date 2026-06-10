@@ -1,6 +1,6 @@
 {
-  "last_run_at": "2026-06-04T13:09:09Z",
-  "range_end_of_last_run": "2026-06-04T13:09:09Z",
+  "last_run_at": "2026-06-10T13:03:03Z",
+  "range_end_of_last_run": "2026-06-10T13:03:03Z",
   "watchlist_people": [
     "Joe Bew",
     "Michelle Rea",
@@ -10,7 +10,11 @@
     "Love Ottosson",
     "Olof Montin",
     "Caroline Lindfors",
-    "Vitalii Dudnyk"
+    "Vitalii Dudnyk",
+    "Felipe Trevisan",
+    "Hanna Lindqvist",
+    "Pavlo Pyrig",
+    "Tobias Palmér"
   ],
   "skip_channels": [
     "deploys",
