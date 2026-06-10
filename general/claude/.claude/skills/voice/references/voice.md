@@ -84,7 +84,7 @@ STR:long-paragraph→1-line-punch(verdict-noun-or-short-clause-on-its-own-line)
 
 ## Signature trope patterns (categories, not verbatim)
 
-TRP:vent-opener=name-the-week/day+colorful-adjective+immediately-qualify-not-bad-just-overwhelmed
+TRP:vent-opener=name-the-week/day+colorful-adjective+immediately-qualify-not-bad-just-overwhelmed→ONLY-when-the-day-actually-warrants-it(🚫apply-as-default-tone,mood-tracks-the-real-day-per-[[DIA-RECIPE]])
 TRP:anecdote-opener=time-marker(A-few-days-ago,Today,Last-week)+1st-person-verb
 TRP:decision-framing=focus-on-X-first-then-come-back-for-Y+meta-comment-on-ordering-being-rare
 TRP:naming-an-anti-pattern=invoke-role-stereotype-then-correct-it(You're-not-supposed-to-be-a-hero)
@@ -169,10 +169,11 @@ DIA:profanity-uninhibited-when-narrating-frustration-or-relief
 DIA:confessional-honesty-across-all-life-areas-in-one-stream(no-self-censorship-by-topic)
 DIA:[[wikilinks]]-for-people+concepts+dates+songs+notes,#meta-tags-at-bullet-end-following-meta/feeling/mental-or-physical-or-meta/habits-conventions
 DIA:long-form-diary-MUST-NOT-have-3-act-structure(setup-conflict-resolution),🚫epiphany-closer,🚫"that's-the-whole-point"-style-verdict-line,🚫italicized-aphorism-as-final-beat
-DIA:end-long-diary-on-tangent-unrelated-to-main-theme(household-problem,hobby-distraction,weather,food,broken-appliance)→abandoned-mid-thought-not-concluded
+DIA:end-long-diary-abandoned-mid-thought-not-concluded(trail-off-on-the-real-work-subject)→🚫FABRICATE-personal-life-tangents(espresso-machine,broken-appliance,hobby,food,weather)-the-user-NEVER-mentioned(user-corrected-2026-06-10:invented-anecdotes-make-no-sense)→only-use-a-life-detail-if-the-user-actually-stated-it-this-session,else-just-trail-off
 DIA:transcribed-via-voice-to-text-→-spoken-cadence-leaks-in(I-mean,you-know,sentence-fragments,run-on-comma-stitching,"for-the-life-of-me"-style-repetition)
 DIA:non-work-PT-words-rarer-than-chat(diary-mostly-EN-even-when-personal)
-DIA:RECIPE-long-form(open-with-grumpy-aside-about-today/week-NOT-topic-intro+vent-specific-detail,include-1-2-[[wikilinks]]-for-project+person,include-pois-é-ONCE-mid-sentence,one-italicized-single-word-via-underscores,one-sentence-runs-out-of-grammatical-steam-no-period,end-on-unrelated-tangent-household/hobby/appliance-not-concluded,250-330-words,NO-three-act-arc-NO-epiphany-NO-"I-realized"-resolution)
+DIA:RECIPE-long-form(open-with-a-mood-aside-matching-the-ACTUAL-day-NOT-topic-intro(🚫default-to-grumpy/vent,read-real-mood-from-the-day's-events+user's-own-tone/jots→good-day-opens-good,rough-day-vents,user-corrected-2026-06-10)+specific-detail,include-1-2-[[wikilinks]]-for-project+person,one-italicized-single-word-via-underscores,one-sentence-runs-out-of-grammatical-steam-no-period,end-by-trailing-off-on-the-real-subject-not-concluded,250-330-words,NO-three-act-arc-NO-epiphany-NO-"I-realized"-resolution,🚫PT-discourse-fillers[[LNG]],🚫FABRICATED-life-tangents)
+DIA:🚫portray-user-as-chronically-complaining/buried-by-work(diary-is-a-journal,sometimes-a-gripe-but-he's-expressive-not-a-victim)→work-coming-his-way-is-usually-something-he-DROVE/volunteered/champions(real-signals:"sure-thing","please-hang-on","I-grabbed-the-moment","my-goal-is-X")→frame-as-ownership+drive-NOT-pile-on,user-corrected-2026-06-10
 
 ## Email voice
 
@@ -236,7 +237,7 @@ AVD:🚫structurally-placed-profanity(fucking-at-the-emphasis-beat,full-of-shit-
 
 NTS:include-1-involuntary-word-or-phrase-repetition-in-long-prose(same-word-or-clause-appearing-twice-within-3-4-sentences-without-acknowledgment)
 NTS:1-sentence-per-medium-piece-runs-out-of-grammatical-steam-and-just-stops(no-period-no-resolution-author-clearly-hit-send)
-NTS:1-parenthetical-aside-or-tangent-that-doesn't-tie-back-to-the-main-point(broken-appliance,unrelated-food-detail,bookmarked-video-still-not-watched)
+NTS:1-parenthetical-aside-or-tangent-that-doesn't-tie-back-to-the-main-point,BUT-only-if-grounded-in-something-real(🚫invent-appliances/food/hobbies/errands-the-user-didn't-mention)→when-no-real-aside-exists,omit-it-rather-than-fabricate
 NTS:lists-allowed-inconsistent-glyphs(◦-mixed-with-•-mixed-with---some-bullets-end-in-period-some-don't)
 NTS:awkward-syntax-that-survived-because-author-didn't-edit(noun-stack-with-redundant-clause,double-preposition,subject-verb-mismatch-in-long-sentence)
 NTS:capitalization-can-erupt-mid-sentence-for-emphasis(WILL,MUST,AGAIN)-not-as-stylistic-rule-as-genuine-emphasis
@@ -249,7 +250,7 @@ SPK:write-as-if-dictating-aloud-while-pacing,filler-words-allowed-(I-mean,you-kn
 SPK:include-1-self-correction-per-medium-piece(actually-wait,no-actually,or-rather)-as-if-rethinking-mid-sentence-not-as-rhetorical-device
 SPK:triple-repetition-for-emphasis("gone-done-finished","stupid-stupid-stupid","not-bad-not-bad-not-bad")-3-near-synonyms-in-a-row-mimicking-spoken-emphasis
 SPK:[[wikilinks]]-ONLY-on-Obsidian-surfaces(daily-notes,diary,fleeting-notes,tracking-notes),🚫wikilinks-in-Slack-messages,🚫wikilinks-in-email,🚫wikilinks-in-blog,🚫wikilinks-in-GitHub-PR-bodies(those-surfaces-don't-render-them-anyway)
-SPK:Portuguese-leak-into-EN-diary-allowed-occasionally("Pois-é","cara","tipo","meio-paia")-as-mid-sentence-or-paragraph-end-punctuation,never-translated-or-explained
+SPK:🚫PT-discourse-fillers/markers∈EN-prose-EVER(pois-é,cara,tipo,meio-paia,etc-are-PT-CONVERSATION-ONLY,never-EN-incl-diary)→user-explicitly-corrected-this(2026-06-10),PT-stays-binary-audience-gated-per-[[LNG]],🚫sprinkle-PT-flavor-into-EN
 SPK:smart-curly-quotes(iOS/macOS-user)→show-up-as-unicode-in-messages,leave-as-is
 SPK:transcribed-Handy-voice-to-text-cadence-applies-when-diary-is-flagged-as-meta/ai-assisted-but-still-no-uh-eh-um(transcription-engine-cleans-those)
 

@@ -72,18 +72,19 @@ if [ -n "$model" ]; then
 fi
 
 # Pricing per 1M tokens [input, output] by model ID prefix.
-# Source: platform.claude.com/docs/en/docs/about-claude/pricing (verified 2026-05-22).
+# Source: platform.claude.com/docs/en/docs/about-claude/pricing (verified 2026-06-10).
 # Naive estimate: ignores prompt-cache reads (0.1x) and /fast mode (6x), so this
 # is a worst-case ceiling rather than actual spend.
 cost_str=""
 if [ -n "$model_id" ] && { [ "$total_tokens" -gt 0 ] || [ "$total_out_tokens" -gt 0 ]; } 2>/dev/null; then
   case "$model_id" in
-    claude-opus-4-7*|claude-opus-4-6*|claude-opus-4-5*) price_in=5.00;  price_out=25.00 ;;
-    claude-opus-4*)                                     price_in=15.00; price_out=75.00 ;;
-    claude-sonnet-4*)                                   price_in=3.00;  price_out=15.00 ;;
-    claude-haiku-4*)                                    price_in=1.00;  price_out=5.00  ;;
-    claude-haiku-3*)                                    price_in=0.80;  price_out=4.00  ;;
-    *)                                                  price_in=3.00;  price_out=15.00 ;;
+    claude-fable-5*)                                                     price_in=10.00; price_out=50.00 ;;
+    claude-opus-4-8*|claude-opus-4-7*|claude-opus-4-6*|claude-opus-4-5*) price_in=5.00;  price_out=25.00 ;;
+    claude-opus-4*)                                                      price_in=15.00; price_out=75.00 ;;
+    claude-sonnet-4*)                                                    price_in=3.00;  price_out=15.00 ;;
+    claude-haiku-4*)                                                     price_in=1.00;  price_out=5.00  ;;
+    claude-haiku-3*)                                                     price_in=0.80;  price_out=4.00  ;;
+    *)                                                                   price_in=3.00;  price_out=15.00 ;;
   esac
   cost=$(awk "BEGIN {printf \"%.4f\", ($total_tokens * $price_in + $total_out_tokens * $price_out) / 1000000}")
   cost_str=" ${DIM}·${RESET} ${DIM}~\$${cost}${RESET}"
