@@ -78,9 +78,11 @@ background-blur = 30
 
 # macOS
 macos-option-as-alt = true
-# Hide the titlebar entirely — kills the tab bar (tabs live in the titlebar on macOS).
-# zellij handles multiplexing, so Ghostty tabs are redundant.
-macos-titlebar-style = hidden
+# Titlebar restored (was hidden): without it the window can't be dragged and
+# doesn't show up in the window switcher. "transparent" is the Ghostty default —
+# titlebar blends with the background. Tabs live in the titlebar; zellij still
+# handles multiplexing, so just don't open Ghostty tabs.
+macos-titlebar-style = transparent
 # Note: quit-after-last-window-closed intentionally left at default (false) so the
 # global quick-terminal hotkey keeps working after the last window is closed.
 # Auto-update: notify when a new version is available (Sparkle handles install).
