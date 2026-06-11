@@ -168,3 +168,6 @@ general/claude/.claude/security
 general/claude/.claude/telemetry
 general/claude/.claude/.last-cleanup
 general/claude/.claude/mcp-needs-auth-cache.json
+/general/claude/.claude/skills/obsidian-second-brain
+/general/claude/.claude/bin/obsidian-daily-refresh.md
+/general/claude/.claude/bin/obsidian-daily-refresh.sh
