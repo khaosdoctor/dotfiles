@@ -1,0 +1,9 @@
+[Unit]
+Description=Obsidian second-brain agent (%i)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+TimeoutStartSec=1800
+ExecStart=%h/.claude/bin/obsidian-agent %i

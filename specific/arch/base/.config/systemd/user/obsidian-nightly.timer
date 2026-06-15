@@ -1,0 +1,10 @@
+[Unit]
+Description=Obsidian nightly consolidation agent (daily 22:00)
+
+[Timer]
+OnCalendar=*-*-* 22:00:00
+Persistent=true
+Unit=obsidian-agent@nightly.service
+
+[Install]
+WantedBy=timers.target

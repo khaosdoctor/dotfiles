@@ -1,0 +1,10 @@
+[Unit]
+Description=Obsidian vault health-check agent (Sun 21:00)
+
+[Timer]
+OnCalendar=Sun *-*-* 21:00:00
+Persistent=true
+Unit=obsidian-agent@health.service
+
+[Install]
+WantedBy=timers.target
