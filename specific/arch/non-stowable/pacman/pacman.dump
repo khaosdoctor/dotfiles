@@ -26,7 +26,6 @@ compsize
 copyq
 cpu-x
 crash
-creality-print-bin
 cronie
 devtools
 dex
@@ -34,6 +33,7 @@ direnv
 discord
 diskonaut
 dive
+diylc
 dnsmasq
 docker
 docker-buildx
@@ -176,6 +176,7 @@ nwg-look
 obsidian
 ollama-rocm
 openrazer-daemon
+orca-slicer-bin
 os-prober
 overskride
 pacman-contrib
