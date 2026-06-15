@@ -13,6 +13,7 @@ return {
     opts.linters_by_ft.json = { "jsonlint" }
     opts.linters_by_ft.c = { "cpplint" }
     opts.linters_by_ft.cpp = { "cpplint" }
+    opts.linters_by_ft.markdown = { "markdownlint-cli2" }
 
     -- Custom biome linter: nvim-lint's built-in ("biomejs") parses plain-text output
     -- with fragile regex, only catches errors (misses warnings/infos), and has no
@@ -21,6 +22,15 @@ return {
     -- biome output formats.
     opts.linters = opts.linters or {}
     local lint = require("lint")
+
+    local existing = lint.linters["markdownlint-cli2"] or {}
+    opts.linters["markdownlint-cli2"] = vim.tbl_extend("force", existing, {
+      args = {
+        "--config",
+        vim.fn.expand("~/.config/nvim/markdownlint.jsonc"),
+        "-",
+      },
+    })
 
     opts.linters.biome = {
       cmd = "biome",
