@@ -1,0 +1,10 @@
+[Unit]
+Description=Obsidian morning agent (daily 08:00)
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+Unit=obsidian-agent@morning.service
+
+[Install]
+WantedBy=timers.target

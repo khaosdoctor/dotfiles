@@ -1,0 +1,10 @@
+[Unit]
+Description=Obsidian weekly review agent (Fri 18:00)
+
+[Timer]
+OnCalendar=Fri *-*-* 18:00:00
+Persistent=true
+Unit=obsidian-agent@weekly.service
+
+[Install]
+WantedBy=timers.target
