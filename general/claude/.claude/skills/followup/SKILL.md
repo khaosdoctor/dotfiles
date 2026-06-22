@@ -50,10 +50,12 @@ allowed-tools:
 
 Follow up on work initiatives and update work notes in the Obsidian vault. This skill does two things at once:
 
-1. **Discovers** what's been happening across **Slack, Gmail, Google Calendar, Google Drive, and GitHub** since the last follow-up — so updates arrive pre-filled with real context, and brand-new projects that aren't in the tracking note yet get surfaced as candidates to add.
+1. **Discovers** what's been happening across **Slack, Gmail, Google Calendar, Google Drive, and GitHub** since the last follow-up — so updates arrive pre-filled with real context, and brand-new projects that aren't in the tracking note yet get surfaced as candidates to add. Every discovered fact carries an explicit source citation; uncited claims are never asserted.
 2. **Updates** the cycle as before: check in on each project, update individual work notes, keep the tracking note current, and connect progress to the competence-matrix goals.
 
 The follow-up is **not bound to the projects already in the file**. Evidence from the sources can propose new initiatives, and existing projects come to the loop with a drafted update already in hand.
+
+Nothing is written to the vault until it passes a **reconciliation gate** (Step 6): the target vault is confirmed, every claim is traced to a citation or flagged `needs confirmation`, and the voice file is loaded. Only then, and only after the user approves, do entries get written.
 
 For Obsidian vault conventions, note format, wikilinks, and frontmatter rules, refer to the [Obsidian skill](../obsidian/SKILL.md) and its [vault structure](../obsidian/vault-structure.md) and [cheatsheet](../obsidian/cheatsheet.md).
 
@@ -94,6 +96,8 @@ Do NOT hardcode the vault path. Use the `find-obsidian` script:
 ```bash
 rtk ~/.claude/bin/find-obsidian --vault
 ```
+
+This skill writes to the **Default** vault (the human-read personal vault, `~/Documents/Obsidian/Default`). It is **never** the "AI Brainz" second-brain vault and never your own memory. If the discovered path resolves to anything other than the Default vault, stop and confirm the target with the user before writing.
 
 Once found, locate these key paths within the vault:
 - Work notes: `notes/work notes/`
@@ -194,7 +198,7 @@ Per-source guidance for each subagent:
 - **Google Drive**: recently-modified files in range the user owns or is shared on. Substantive doc changes only (new docs, ownership transfers, @-mentions in comments). Skip media.
 - **GitHub** (`rtk gh ...`): for each org in `github_orgs` (skip `github_skip_repos`): `gh search prs --owner <org> --updated ">=<range_start>"` and the same for `issues`, focused on the user's involvement; `gh api notifications --paginate` filtered to range; for `github_repos_pinned` also pull releases, README/CHANGELOG/`docs/` changes, ADR additions; scan default-branch commit subjects per touched repo for themes. Return GitHub URLs.
 
-If a source returns nothing for a bucket, the subagent must say so explicitly — never fabricate.
+**Citation discipline.** Every fact a subagent returns must carry an explicit citation: a permalink, message link, file URL, PR/issue/commit link, or calendar event reference. A fact the subagent cannot cite is not returned as fact — it is either dropped or returned flagged `needs confirmation`, never asserted. If a source returns nothing for a bucket, the subagent must say so explicitly — never fabricate.
 
 #### Step 3: Match evidence to projects, and find the orphans
 
@@ -243,7 +247,17 @@ The user may respond with:
 
 Before moving to Step 6, re-scan the full active-project list against what you actually prompted and confirm none was missed. If any project never got an ask, ask about it now.
 
-#### Step 6: Apply updates
+#### Step 6: Reconciliation pass (validate before writing)
+
+Nothing is written to the vault until everything queued for it clears this gate. Run it over the full set of drafted updates, new initiatives, and proposed tasks:
+
+1. **Confirm the target vault.** Resolve the write destination and verify it is the **Default** vault (`~/Documents/Obsidian/Default`), not the AI Brainz second-brain and not memory. If it resolves anywhere else, stop and confirm with the user.
+2. **Trace every claim to a citation.** Each drafted bullet must map back to a cited fact from Step 2. Any claim with no citation is rewritten to drop the unsupported part, or marked `needs confirmation` and surfaced to the user — it is never written as established fact.
+3. **Load the voice file before drafting prose.** Read the voice reference so the wording matches the user's register; do not invent personal details or tone.
+
+Then present a **validated digest**: the per-project updates and new initiatives, each with its citations inline, and a separate short list of anything flagged `needs confirmation` or any project that stayed quiet/ambiguous. Ask the user to resolve the flagged items and confirm the digest. Only proceed to Step 7 after they approve.
+
+#### Step 7: Apply updates
 
 For each project that had an update, **confirm all changes before applying them**:
 
@@ -251,14 +265,14 @@ For each project that had an update, **confirm all changes before applying them*
 2. **Tracking note**: update the italic status text on the project's line. If the status category changed, move the line to the correct header.
 3. If done, check the box (`- [x]`) and move to `### Done`.
 
-#### Step 7: Competence matrix check
+#### Step 8: Competence matrix check
 
 After updates are applied, review them against the **Competence Matrix Goals** section. For each update that could relate to a goal:
 - Suggest the connection: "Your update on **[Project]** could tie to your **[Goal Name]** goal — specifically the action about [action item]."
 - Ask if they want to add it to the **Brag Document** and/or the **Staff Diary**.
 - If yes, read the target note first to match its format, then append. Always confirm before writing.
 
-#### Step 8: Update state
+#### Step 9: Update state
 
 After the follow-up completes successfully, set `last_run_at` and `range_end_of_last_run` to `range_end` (UTC, ISO 8601) and write `state.json`.
 
@@ -268,7 +282,7 @@ When the user wants to update work notes without specifying which:
 1. Read the tracking note.
 2. Present a numbered list of all active projects (Ongoing, Waiting, Stalled, Not started).
 3. Ask: "Which ones do you want to update? (numbers, or 'all')"
-4. Optionally run the Step 2 sweep scoped to just those projects to pre-fill context, then follow Steps 5–7.
+4. Optionally run the Step 2 sweep scoped to just those projects to pre-fill context, then follow Steps 5–8.
 
 ### Mode 3: Update a specific project (implicit trigger with project name)
 
@@ -276,7 +290,7 @@ When the user names a specific project:
 1. Read the tracking note.
 2. Best-effort match the name against entries in Projects and initiatives.
 3. If ambiguous, ask for clarification.
-4. Optionally pull recent source context for that project to pre-fill, then ask for the update and follow Steps 5–7.
+4. Optionally pull recent source context for that project to pre-fill, then ask for the update and follow Steps 5–8.
 
 ## What NOT to Do
 
