@@ -10,6 +10,9 @@ Synthesized from the user's outgoing prose across casual chat, technical broadca
 
 HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
 HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
+LEX:🚫banned-words-NEVER-use("lands","stand"/"stands","surface"(as-verb),"flips","clobbers","turns-out","gated"/"gate-off"/"gated-off"+synonyms[version-gate,gating])→▸plain-substitutes(takes-effect/once-it-runs; holds/remains; shows/reports; changes-from-X-to-Y/goes-from; overwrites/writes-over; for-gated▸"X-does-not-install-on-Y-because-of-a-version-lock"). scan-every-draft-before-sending(corrected-2026-06-22)
+PRB:▸storytelling-1st-person("I-was-running-X-when-I-hit-two-issues:1...After...")▸short+simple+direct(people-dislike-writing-AND-reading→keep-small),cordial+professional,▸paragraphs-over-bullets,🚫single-bullet,filler-words-ok,conversational-openers("Also,...")like-talking-to-a-person(BUT-the-FINAL/closing-paragraph▸"Just-a-final-note,..."NOT-"Also,"). keep-bullets-ONLY-where-a-template/governance-requires-them(corrected-2026-06-22)
+PRB:🚫over-explain+🚫over-enumerate(general-gesture-enough:"files-I-didn't-touch"NOT-the-parenthetical-full-list),▸flow-of-thought("actually-we'd-been-doing-X-for-a-while-then-Y-happened-so-we-started-Z"),imperfect-punctuation/commas-OK(🚫sand-to-perfection,no-one-knows-perfect-EN),give-the-gist+direction-not-exhaustive-text(corrected-2026-06-22)
 
 ---
 
