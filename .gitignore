@@ -171,3 +171,20 @@ general/claude/.claude/mcp-needs-auth-cache.json
 /general/claude/.claude/skills/obsidian-second-brain
 /general/claude/.claude/bin/obsidian-daily-refresh.md
 /general/claude/.claude/bin/obsidian-daily-refresh.sh
+
+# obsidian-second-brain generated commands (the skill dir itself is ignored above)
+/general/claude/.claude/bin/obsidian-daily-refresh.settings.json
+/general/claude/.claude/commands/obsidian-*.md
+/general/claude/.claude/commands/create-command.md
+/general/claude/.claude/commands/idea-discovery.md
+/general/claude/.claude/commands/notebooklm.md
+/general/claude/.claude/commands/podcast.md
+/general/claude/.claude/commands/research.md
+/general/claude/.claude/commands/research-deep.md
+/general/claude/.claude/commands/vault-deep-synthesis.md
+/general/claude/.claude/commands/x-pulse.md
+/general/claude/.claude/commands/x-read.md
+/general/claude/.claude/commands/youtube.md
+
+# up-to-speed skill local state (contains names — never commit)
+/general/claude/.claude/skills/up-to-speed/state.json
