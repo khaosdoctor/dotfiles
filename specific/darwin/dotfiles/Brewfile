@@ -1,24 +1,19 @@
-tap "cloudflare/cloudflare", trusted: true
-tap "denzam/systemeq"
-tap "homebrew/cask"
-tap "knqyf263/sou"
-tap "matheusml/zsh-ai", trusted: true
-tap "spacelift-io/spacelift", trusted: true
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/services"
 tap "yoheimuta/protolint"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Tool for generating GNU Standards-compliant Makefiles
 brew "automake"
-# Official Amazon AWS command-line interface
-brew "awscli"
-# Bourne-Again SHell, a UNIX command interpreter
-brew "bash"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Toolchain of the web
-brew "biome"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Powerful, enterprise-ready, open source web server with automatic HTTPS
+brew "caddy", restart_service: :changed
 # Core application library for C
 brew "glib"
 # Insanely fast image printing in your terminal
@@ -31,34 +26,20 @@ brew "pycparser"
 brew "cffi"
 # Cryptographic recipes and primitives for Python
 brew "cryptography"
-# YAML Parser
-brew "libyaml"
 # Tool to obtain certs from Let's Encrypt and autoenable HTTPS
 brew "certbot"
 # CloudFlare's PKI toolkit
 brew "cfssl"
-# Enables you to reproduce the CircleCI environment locally
-brew "circleci"
-# Cloudflare Tunnel client (formerly Argo Tunnel)
-brew "cloudflared"
-# Container runtimes on MacOS (and Linux) with minimal setup
-brew "colima"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Terminal visual disk space navigator
-brew "diskonaut"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
-# Docker CLI plugin for extended build capabilities with BuildKit
-brew "docker-buildx"
-# Isolated development environments using Docker
-brew "docker-compose"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
-# View disk space usage and delete unwanted data, fast
-brew "dua-cli"
 # Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
 # C++14 implementation of the TLS-1.3 standard
@@ -73,6 +54,8 @@ brew "fb303"
 brew "edencommon"
 # LLVM bytecode to JavaScript compiler
 brew "emscripten"
+# AST-based pattern checker for JavaScript
+brew "eslint"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -83,10 +66,14 @@ brew "fd"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# Geometry Engine
-brew "geos"
 # GitHub command-line tool
 brew "gh"
+# Image processing and image analysis library
+brew "leptonica"
+# Multi-format archive and compression library
+brew "libarchive"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
 # Distributed revision control system
 brew "git"
 # Quickly rewrite git repository history
@@ -97,18 +84,16 @@ brew "git-lfs"
 brew "p11-kit"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# GNU grep, egrep and fgrep
-brew "grep"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
+# Kubernetes package manager
+brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
@@ -123,24 +108,18 @@ brew "imagemagick"
 brew "jq"
 # JSON parser and validator with a CLI
 brew "jsonlint"
+# Kubernetes CLI To Manage Your Clusters In Style!
+brew "k9s"
+# Tool that can switch between kubectl contexts easily and create aliases
+brew "kubectx"
 # Lazier way to manage everything docker
 brew "lazydocker"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Image processing and image analysis library
-brew "leptonica"
 # Sophisticated file transfer program
 brew "lftp"
-# Multi-format archive and compression library
-brew "libarchive"
 # Convert pixel information into colored ASCII art
 brew "libcaca"
-# SIXEL encoder/decoder implementation
-brew "libsixel"
-# Database of common MIME types
-brew "shared-mime-info"
-# Shows thumbnails in terminal using sixel graphics
-brew "lsix"
 # Tool for linting and static analysis of Lua code
 brew "luacheck"
 # Package manager for the Lua programming language
@@ -151,36 +130,30 @@ brew "mas"
 brew "mise"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
 # QUIC transport protocol implementation
 brew "mvfst"
-# NCurses Disk Usage
-brew "ncdu"
 # Fast, highly customisable system info script
 brew "neofetch"
-# Incremental parsing library
-brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP/2 C Library
 brew "nghttp2"
 # Port scanning utility for large networks
 brew "nmap"
-# Audit npm packages before you install them
-brew "npq"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
-# Object-relational database system
-brew "postgresql@14"
+# Modern API client that lives in your terminal
+brew "posting"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
-# Cartographic Projections Library
-brew "proj"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Interpreted, interactive, object-oriented programming language
@@ -191,16 +164,14 @@ brew "python@3.11"
 brew "python@3.9"
 # Cross-platform application and UI framework
 brew "qt"
-# Persistent key-value database, with built-in net interface
-brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Utility that provides fast incremental file transfer
 brew "rsync"
 # CLI proxy to minimize LLM token consumption
 brew "rtk"
-# Parallel S3 and local filesystem execution tool
-brew "s5cmd"
+# Database of common MIME types
+brew "shared-mime-info"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -211,12 +182,12 @@ brew "stow"
 brew "tailscale"
 # User interface to the TELNET protocol
 brew "telnet"
-# Tool to build, change, and version infrastructure
-brew "terraform"
-# OCR (Optical Character Recognition) engine
-brew "tesseract"
+# Terminal multiplexer
+brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # Tool for creating isolated virtual python environments
 brew "virtualenv"
 # Executes a program periodically, showing output fullscreen
@@ -231,77 +202,83 @@ brew "yamllint"
 brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-# Lightweight AI assistant for your terminal
-brew "matheusml/zsh-ai/zsh-ai"
-# Command-line interface for 1Password
-cask "1password-cli"
-# Enable Windows-like alt-tab
-cask "alt-tab"
-# Compact TeX distribution as alternative to the full TeX Live / MacTeX
-cask "basictex"
-# Cross platform SQL editor and database management app
-cask "beekeeper-studio"
-# Virtual Audio Driver
-cask "blackhole-2ch"
+# Web browser focusing on privacy
+cask "brave-browser"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
 cask "claude-code"
-# Universal database tool and SQL client
-cask "dbeaver-community"
-# System-wide audio equaliser
-cask "eqmac"
 cask "font-cascadia-code-nf"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-monocraft"
-# Set of tools to manage resources and applications hosted on Google Cloud
-cask "gcloud-cli"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
-# Open source API development ecosystem
-cask "hoppscotch"
+# HTTP and GraphQL Client
+cask "insomnia"
 # GPU-based terminal emulator
 cask "kitty"
+# File system integration
+cask "macfuse"
+# Full TeX Live distribution without GUI applications
+cask "mactex-no-gui"
+# Interactive tool for analyzing MongoDB data
+cask "mongodb-compass"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Get up and running with large language models locally
 cask "ollama-app"
-# Client for Proton Mail and Proton Calendar
-cask "proton-mail"
-# Plugin for AWS CLI to start and end sessions that connect to managed instances
-cask "session-manager-plugin"
-# Spacelift client and CLI
-cask "spacelift-io/spacelift/spacectl"
-# Music streaming service
-cask "spotify"
-# System-wide equalizer for macOS with AutoEQ support
-cask "denzam/systemeq/systemeq", trusted: true
-# Mesh VPN based on WireGuard
-cask "tailscale-app"
-# Messaging app with a focus on speed and security
-cask "telegram"
-# Open-source code editor
-cask "visual-studio-code"
+# Client for Proton Drive
+cask "proton-drive"
+# VPN client focusing on security
+cask "protonvpn"
+# Quick Look plug-in that renders source code with syntax highlighting
+cask "qlcolorcode"
+# Display image info and preview unsupported formats in QuickLook
+cask "qlimagesize"
+# Quick Look generator for Markdown files
+cask "qlmarkdown"
+# Quick Look plugin to view patch files
+cask "qlprettypatch"
+# Quick Look plugin for plaintext files without an extension
+cask "qlstephen"
+# Quick Look plugin for CSV files
+cask "quicklook-csv"
+# Quick Look plugin for JSON files
+cask "quicklook-json"
+# Thumbnails, static previews, cover art and metadata for video files
+cask "quicklook-video"
+# Quick Look generator for Adobe Swatch Exchange files
+cask "quicklookase"
+# Video game digital distribution service
+cask "steam"
+# Open-source BitTorrent client
+cask "transmission"
+# Multimedia player
+cask "vlc"
+# Quick Look plugin for webp files
+cask "webpquicklook"
+# Network protocol analyzer
+cask "wireshark-app"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
-mas "Keynote", id: 409183694
-mas "Slack", id: 803453959
+mas "Numbers", id: 409203825
+mas "Tailscale", id: 1475387142
+mas "Xcode", id: 497799835
+vscode "42crunch.vscode-openapi"
+vscode "aaronthomas.vscode-snazzy-operator"
 vscode "albymor.increment-selection"
 vscode "alefragnani.bookmarks"
 vscode "alexcvzz.vscode-sqlite"
 vscode "andrejunges.handlebars"
-vscode "anthropic.claude-code"
+vscode "antfu.slidev"
 vscode "astro-build.astro-vscode"
 vscode "beardedbear.beardedicons"
 vscode "beardedbear.beardedtheme"
 vscode "bierner.emojisense"
 vscode "bierner.markdown-emoji"
-vscode "biomejs.biome"
 vscode "bmalehorn.shell-syntax"
 vscode "chouzz.vscode-better-align"
 vscode "christian-kohler.npm-intellisense"
@@ -318,15 +295,18 @@ vscode "denoland.vscode-deno"
 vscode "digitalbrainstem.javascript-ejs-support"
 vscode "docker.docker"
 vscode "dracula-theme.theme-dracula"
-vscode "drblury.protobuf-vsc"
+vscode "dzannotti.vscode-babel-coloring"
 vscode "eamodio.gitlens"
 vscode "eliverlara.andromeda"
+vscode "esbenp.prettier-vscode"
 vscode "fallenwood.viml"
 vscode "file-icons.file-icons"
 vscode "formulahendry.auto-close-tag"
 vscode "formulahendry.docker-explorer"
 vscode "formulahendry.github-actions"
 vscode "gabrielepmattia.wordcount"
+vscode "github.copilot"
+vscode "github.copilot-chat"
 vscode "github.remotehub"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
@@ -336,11 +316,16 @@ vscode "grapecity.gc-excelviewer"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "hangxingliu.vscode-nginx-conf-hint"
+vscode "hsnazar.hyper-term-theme"
+vscode "humao.rest-client"
+vscode "icrawl.discord-vscode"
+vscode "inferrinizzard.prettier-sql-vscode"
 vscode "jakebathman.mysql-syntax"
 vscode "james-yu.latex-workshop"
 vscode "janisdd.vscode-edit-csv"
 vscode "jeff-hykin.better-cpp-syntax"
 vscode "josetr.cmake-language-support-vscode"
+vscode "jrebocho.vscode-random"
 vscode "kisstkondoros.vscode-codemetrics"
 vscode "kisstkondoros.vscode-gutter-preview"
 vscode "leonzalion.vscode-ejs"
@@ -351,33 +336,39 @@ vscode "miguelsolorio.fluent-icons"
 vscode "mohsen1.prettify-json"
 vscode "mongodb.mongodb-vscode"
 vscode "mrmlnc.vscode-scss"
+vscode "ms-azuretools.vscode-azureappservice"
+vscode "ms-azuretools.vscode-azurefunctions"
+vscode "ms-azuretools.vscode-azureresourcegroups"
+vscode "ms-azuretools.vscode-azurevirtualmachines"
 vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-cosmosdb"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-dotnettools.vscode-dotnet-runtime"
+vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
 vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
 vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
 vscode "ms-vscode.cmake-tools"
-vscode "ms-vscode.cpp-devtools"
 vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.hexeditor"
 vscode "ms-vscode.makefile-tools"
 vscode "ms-vscode.powershell"
-vscode "ms-vscode.remote-explorer"
 vscode "ms-vscode.remote-repositories"
 vscode "ms-vscode.vscode-js-profile-flame"
+vscode "ms-vscode.vscode-typescript-next"
 vscode "ms-vsliveshare.vsliveshare"
 vscode "mushan.vscode-paste-image"
 vscode "naumovs.color-highlight"
-vscode "openai.chatgpt"
-vscode "oracle.oracle-java"
 vscode "orta.vscode-jest"
 vscode "orta.vscode-twoslash"
 vscode "orta.vscode-twoslash-queries"
@@ -386,31 +377,30 @@ vscode "phplasma.csv-to-table"
 vscode "pkief.material-icon-theme"
 vscode "prisma.prisma"
 vscode "rangav.vscode-thunder-client"
-vscode "redhat.java"
 vscode "redhat.vscode-commons"
 vscode "redhat.vscode-yaml"
 vscode "retrotheme.theme-retro"
 vscode "shanoor.vscode-nginx"
 vscode "shd101wyy.markdown-preview-enhanced"
+vscode "shopify.ruby-lsp"
+vscode "sketchbuch.vsc-quokka-statusbar"
+vscode "swiip.sunset-theme"
 vscode "tamasfe.even-better-toml"
 vscode "timonwong.shellcheck"
+vscode "torn4dom4n.latex-support"
 vscode "twxs.cmake"
 vscode "tyriar.luna-paint"
-vscode "vscjava.vscode-gradle"
-vscode "vscjava.vscode-java-debug"
-vscode "vscjava.vscode-java-dependency"
-vscode "vscjava.vscode-java-pack"
-vscode "vscjava.vscode-java-test"
-vscode "vscjava.vscode-maven"
+vscode "visualstudioexptteam.intellicode-api-usage-examples"
+vscode "visualstudioexptteam.vscodeintellicode"
 vscode "vscode-icons-team.vscode-icons"
 vscode "vscodevim.vim"
+vscode "vsls-contrib.gistfs"
 vscode "vue.volar"
+vscode "wallabyjs.quokka-vscode"
 vscode "wmaurer.change-case"
 vscode "yatki.vscode-surround"
 vscode "yoavbls.pretty-ts-errors"
 vscode "zignd.html-css-class-completion"
+vscode "zxh404.vscode-proto3"
 go "cmd/go"
 go "cmd/gofmt"
-uv "posting"
-uv "semble"
-npm "headroom-ai"
