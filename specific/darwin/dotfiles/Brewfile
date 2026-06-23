@@ -50,7 +50,7 @@ brew "diskonaut"
 # Tool for exploring each layer in a docker image
 brew "dive"
 # Pack, ship and run any application as a lightweight container
-brew "docker", link: false
+brew "docker"
 # Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
 # Isolated development environments using Docker
@@ -413,5 +413,4 @@ go "cmd/go"
 go "cmd/gofmt"
 uv "posting"
 uv "semble"
-npm "context-mode"
-npm "corepack"
+npm "headroom-ai"
