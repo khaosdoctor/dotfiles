@@ -16,7 +16,8 @@ MNR: run-from-app-dir(🚫monorepo-root), check-cwd-before-assumptions
 GIT: commit-single-m-flag, 🚫claude-attribution(commits+PRs), 🚫push-main(always-branch-first), ▸conventional-commits(🚫gitmoji+other-formats), pull-before-git-work(🚫stale-checkout), worktree-isolate-parallel-agent-work(🚫commits-land-wrong-branch)
 
 ## Pull Requests
-PRB: use-voice-skill(body), 🚫self-attribution, 🚫headers-if-single-paragraph, 🚫"test plan"/🚫"why this works"/🚫boilerplate-sections, use-tropes-skill(remove-corporate-tropes), ▸short+direct
+PRB: ALWAYS-use-repo-PR-template-if-exists(@.github/PULL_REQUEST_TEMPLATE.md or .github/PULL_REQUEST_TEMPLATE/→fill-every-section+exact-checklist-items-verbatim, template-overrides-🚫boilerplate-sections), use-voice-skill(body), 🚫self-attribution, 🚫headers-if-single-paragraph, 🚫"test plan"/🚫"why this works"/🚫boilerplate-sections(only-when-no-template), use-tropes-skill(remove-corporate-tropes), ▸short+direct
+IST: ALWAYS-use-repo-issue-template-if-exists(@.github/ISSUE_TEMPLATE/→pick-matching-template+fill-it)
 
 ## Documentation
 DOC: canonical-links▸embed-full-guidance/content∈standards/shared-docs
