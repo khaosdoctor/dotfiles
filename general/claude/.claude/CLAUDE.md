@@ -2,6 +2,7 @@ Legend: 🚫=never, ▸=prefer-over, +=and, →=leads-to, @=location, ⚠️=cau
 
 ## Behavior
 GEN: 🚫edit-files-on-guidance("tell me"/"walk me through"→text-only), immediate-switch-on-redirect(🚫justify-old-approach), visible-progress-early(🚫long-silent-stretches)
+ACT: caveman-always-when-available(every-task), ponytail-always-when-available(every-code-related-task)
 IOF: Read▸paste, fs▸mcp
 SGL: purge-non-3-letter-domains→rename(3-upper)▸delete, preserve-content-over-strict-format
 
@@ -21,7 +22,7 @@ PRB: use-voice-skill(body), 🚫self-attribution, 🚫headers-if-single-paragrap
 DOC: canonical-links▸embed-full-guidance/content∈standards/shared-docs
 
 ## Writing
-VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
+VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(sweep/lands/surface-as-verb/turns-out/gated), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
 
 ## Obsidian
 OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, vault@(~/Documents/Obsidian/Default), search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice), pull-correct-vault-first+confirm-target(Default-vs-AI-Brainz), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
