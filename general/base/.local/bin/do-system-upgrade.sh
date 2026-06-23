@@ -56,6 +56,16 @@ skip()  { echo -e "${DIM} ·  skipping $* (not found)${RESET}"; }
 
 has() { command -v "$1" &>/dev/null; }
 
+# True if mise lives in a package-manager dir (brew/apt/pacman) vs a standalone install in ~/.local.
+mise_pkg_managed() {
+    local p
+    p="$(readlink -f "$(command -v mise)" 2>/dev/null)" || return 1
+    case "$p" in
+        /usr/bin/*|/usr/local/*|/opt/homebrew/*|/home/linuxbrew/*) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
 # ── OS Detection ─────────────────────────────────────────────────────
 
 OS="$(uname -s)"
@@ -363,9 +373,13 @@ upgrade_version_managers() {
     # mise (primary in this setup)
     if has mise; then
         found=true
-        info "Upgrading mise and tool versions..."
-        if ! mise self-update --yes 2>/dev/null; then
-            collect_error "mise" "mise self-update failed (may be managed by a package manager)"
+        if mise_pkg_managed; then
+            info "mise is package-manager-managed — skipping self-update, refreshing tools only."
+        else
+            info "Upgrading mise and tool versions..."
+            if ! mise self-update --yes 2>/dev/null; then
+                collect_error "mise" "mise self-update failed (may be managed by a package manager)"
+            fi
         fi
         if ! mise upgrade --yes 2>/dev/null; then
             if ! mise install 2>&1; then
