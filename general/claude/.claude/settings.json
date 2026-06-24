@@ -124,7 +124,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash $HOME/.claude/hooks/rtk-rewrite.sh"
+            "command": "rtk hook claude"
           }
         ]
       }
@@ -146,7 +146,9 @@
     "command": "bash $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "sigil@sigil": true
+    "sigil@sigil": true,
+    "ponytail@ponytail": true,
+    "caveman@caveman": true
   },
   "extraKnownMarketplaces": {
     "sigil": {
@@ -155,10 +157,23 @@
         "repo": "khaosdoctor/sigil"
       },
       "autoUpdate": true
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "dietrichgebert/ponytail"
+      }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
+  "tui": "fullscreen",
   "editorMode": "vim",
   "verbose": true,
   "skipAutoPermissionPrompt": true,
