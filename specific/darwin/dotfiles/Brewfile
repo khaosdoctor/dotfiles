@@ -202,8 +202,16 @@ brew "yamllint"
 brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-# Web browser focusing on privacy
-cask "brave-browser"
+# Lightweight AI assistant for your terminal
+brew "matheusml/zsh-ai/zsh-ai"
+# Command-line interface for 1Password
+cask "1password-cli"
+# Enable Windows-like alt-tab
+cask "alt-tab"
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
+cask "basictex"
+# Cross platform SQL editor and database management app
+cask "beekeeper-studio"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
@@ -227,40 +235,20 @@ cask "mongodb-compass"
 cask "ngrok"
 # Get up and running with large language models locally
 cask "ollama-app"
-# Client for Proton Drive
-cask "proton-drive"
-# VPN client focusing on security
-cask "protonvpn"
-# Quick Look plug-in that renders source code with syntax highlighting
-cask "qlcolorcode"
-# Display image info and preview unsupported formats in QuickLook
-cask "qlimagesize"
-# Quick Look generator for Markdown files
-cask "qlmarkdown"
-# Quick Look plugin to view patch files
-cask "qlprettypatch"
-# Quick Look plugin for plaintext files without an extension
-cask "qlstephen"
-# Quick Look plugin for CSV files
-cask "quicklook-csv"
-# Quick Look plugin for JSON files
-cask "quicklook-json"
-# Thumbnails, static previews, cover art and metadata for video files
-cask "quicklook-video"
-# Quick Look generator for Adobe Swatch Exchange files
-cask "quicklookase"
-# Video game digital distribution service
-cask "steam"
-# Open-source BitTorrent client
-cask "transmission"
-# Multimedia player
-cask "vlc"
-# Quick Look plugin for webp files
-cask "webpquicklook"
-# Network protocol analyzer
-cask "wireshark-app"
-# Open-source version of the X.Org X Window System
-cask "xquartz"
+# Client for Proton Mail and Proton Calendar
+cask "proton-mail"
+# Plugin for AWS CLI to start and end sessions that connect to managed instances
+cask "session-manager-plugin"
+# Spacelift client and CLI
+cask "spacelift-io/spacelift/spacectl"
+# Music streaming service
+cask "spotify"
+# Mesh VPN based on WireGuard
+cask "tailscale-app"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Open-source code editor
+cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
