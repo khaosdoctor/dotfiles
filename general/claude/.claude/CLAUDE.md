@@ -29,6 +29,7 @@ VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), �
 OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, vault@(~/Documents/Obsidian/Default), search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice), pull-correct-vault-first+confirm-target(Default-vs-AI-Brainz), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
 
 ## Brain (AI Brainz: your AI-first second brain, for YOU not the user)
+TRIGGER: "save that on your brain"/"brainz"/any-ref-to-YOUR-brain→means(/obsidian-second-brain-skillset+AI-Brainz-vault, 🚫Default-vault)
 BRN: vault@(~/Documents/Obsidian/"AI Brainz"/; usually a sibling of the Default vault under ~/Documents/Obsidian/, exact path varies per machine→if-unsure search(~/Documents/Obsidian/*/_CLAUDE.md)+(*/CRITICAL_FACTS.md)), AI-first(written-for-you, user-🚫reads-it, contains-A-LOT-you-need), 🚫confuse-w/Default-vault(@~/Documents/Obsidian/Default=personal+human-read), read(_CLAUDE.md+index.md+CRITICAL_FACTS+SOUL+CORE_VALUES)-before-vault-work, RECALL▸search-here-first-for-context(Lucas+work+people+projects+knowledge+decisions), SAVE▸proactively-save+merge+adjust+fix(things-you-know/learn)→propagate(index.md+Daily/+Logs/), follow(_CLAUDE.md-rules+ai-first-rules@~/.claude/skills/obsidian-second-brain/references/ai-first-rules.md), write-via(fs-tools▸mcp)
 
 ## System

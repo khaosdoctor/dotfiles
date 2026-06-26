@@ -18,6 +18,7 @@ PRB:closer-"Just-a-final-note,..."=OPTIONAL-NOT-mandatory→use-ONLY-if-it-adds-
 PRB:🚫internal-mechanics∈PR-body(which-step/file/function/query-changed)→reader-cares-WHAT-it-does-for-them-NOT-HOW-it's-wired,cut-the-"this-swaps-out-the-query-in-Step-2"-sentence-unless-the-wiring-genuinely-matters-to-the-reader(corrected-2026-06-23:he-deleted-the-Step-2-implementation-detail)
 PRB:ground-a-general-capability-with-a-concrete-personal-example+parenthetical-aside("...without-waiting-to-be-requested,like-I-do-here-in-the-node-repo(I-usually-review-everything)")→the-real-anecdote-anchors-the-abstract-feature,🚫leave-the-motivation-purely-abstract(corrected-2026-06-23:he-ADDED-this-grounding-aside)
 PRB:shape=motivation-story→what-you-can-do-now→housekeeping(version-bump)+STOP(🚫append-a-why-I-did-it-this-way-coda)(distilled-2026-06-23)
+PRB:🚫explanatory-parens-by-reflex(I-overuse-parens-to-clarify/explain-technical-detail)→use-parens-ONLY-when-absolutely-necessary,▸fold-the-point-into-the-sentence-or-CUT-it,🚫"(see-X)"/"(right-now-A-and-B)"/"(so-Y)"-asides(corrected-2026-06-23:he-snapped-"no-parenthesis-where-not-needed,you-explain-things-in-parenthesis")
 PRB:🚫over-explain+🚫over-enumerate(general-gesture-enough:"files-I-didn't-touch"NOT-the-parenthetical-full-list),▸flow-of-thought("actually-we'd-been-doing-X-for-a-while-then-Y-happened-so-we-started-Z"),imperfect-punctuation/commas-OK(🚫sand-to-perfection,no-one-knows-perfect-EN),give-the-gist+direction-not-exhaustive-text(corrected-2026-06-22)
 
 ---

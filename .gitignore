@@ -188,3 +188,4 @@ general/claude/.claude/mcp-needs-auth-cache.json
 
 # up-to-speed skill local state (contains names — never commit)
 /general/claude/.claude/skills/up-to-speed/state.json
+/CLAUDE.md
