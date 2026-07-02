@@ -2,7 +2,7 @@ Legend: 🚫=never, ▸=prefer-over, +=and, →=leads-to, @=location, ⚠️=cau
 
 ## Behavior
 GEN: 🚫edit-files-on-guidance("tell me"/"walk me through"→text-only), immediate-switch-on-redirect(🚫justify-old-approach), visible-progress-early(🚫long-silent-stretches)
-ACT: caveman-always-when-available(every-task), ponytail-always-when-available(every-code-related-task)
+ACT: caveman-always-when-available(every-task), ponytail-full-always-when-available(every-code-related-task+updates), serena-mcp+semble-always-when-available(▸symbolic-read/edit+code-search vs raw-read/grep)
 IOF: Read▸paste, fs▸mcp
 SGL: purge-non-3-letter-domains→rename(3-upper)▸delete, preserve-content-over-strict-format
 
