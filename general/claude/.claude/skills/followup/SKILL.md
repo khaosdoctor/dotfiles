@@ -1,4 +1,9 @@
 ---
+name: followup
+description: >
+  Follow up on work initiatives across Slack, Gmail, Calendar, Drive, and
+  GitHub, then update Obsidian work notes. Use when user says "follow up",
+  "status update", "sync my work", "update work notes".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:

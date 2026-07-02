@@ -1,4 +1,9 @@
 ---
+name: up-to-speed
+description: >
+  Generate a digest of recent work activity across Slack, Gmail, Calendar,
+  Drive, and GitHub. Use when user says "up to speed", "catch me up",
+  "what happened", "digest", "summary of my week".
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:
