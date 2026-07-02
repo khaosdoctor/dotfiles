@@ -1,3 +1,4 @@
+tap "anomalyco/tap"
 tap "cloudflare/cloudflare", trusted: true
 tap "denzam/systemeq"
 tap "homebrew/cask"
@@ -29,16 +30,14 @@ brew "ccache"
 brew "pycparser"
 # C Foreign Function Interface for Python
 brew "cffi"
-# Cryptographic recipes and primitives for Python
-brew "cryptography"
-# YAML Parser
-brew "libyaml"
 # Enables you to reproduce the CircleCI environment locally
 brew "circleci"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Cryptographic recipes and primitives for Python
+brew "cryptography"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Terminal visual disk space navigator
@@ -97,8 +96,6 @@ brew "gnupg"
 brew "go"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Package compiler and linker metadata toolkit
-brew "pkgconf"
 # Improved top (interactive process viewer)
 brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
@@ -123,8 +120,8 @@ brew "leptonica"
 brew "lftp"
 # Multi-format archive and compression library
 brew "libarchive"
-# Database of common MIME types
-brew "shared-mime-info"
+# YAML Parser
+brew "libyaml"
 # Tool for linting and static analysis of Lua code
 brew "luacheck"
 # Package manager for the Lua programming language
@@ -155,12 +152,16 @@ brew "pandoc"
 brew "pinentry-mac"
 # Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Object-relational database system
 brew "postgresql@14"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
+# Cartographic Projections Library
+brew "proj"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
 # Interpreted, interactive, object-oriented programming language
@@ -177,6 +178,8 @@ brew "rsync"
 brew "rtk"
 # Parallel S3 and local filesystem execution tool
 brew "s5cmd"
+# Database of common MIME types
+brew "shared-mime-info"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Autoformat shell script source code
@@ -205,6 +208,8 @@ brew "yamllint"
 brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode", trusted: true
 # Lightweight AI assistant for your terminal
 brew "matheusml/zsh-ai/zsh-ai"
 # Command-line interface for 1Password
