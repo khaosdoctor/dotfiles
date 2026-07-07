@@ -132,3 +132,4 @@ keybind = alt+down=goto_split:down
 
 # Reload config — kitty_mod+f5 (kitty_mod = ctrl+shift)
 keybind = ctrl+shift+f5=reload_config
+gtk-single-instance = false
