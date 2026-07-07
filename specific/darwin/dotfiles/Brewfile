@@ -88,8 +88,6 @@ brew "git-lfs"
 brew "p11-kit"
 # GNU Transport Layer Security (TLS) Library
 brew "gnutls"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
 # GNU Privacy Guard (OpenPGP)
 brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
@@ -194,6 +192,8 @@ brew "terraform"
 brew "tesseract"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
 # Tool for creating isolated virtual python environments
 brew "virtualenv"
 # Executes a program periodically, showing output fullscreen
