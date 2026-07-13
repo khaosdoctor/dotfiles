@@ -13,7 +13,7 @@ REF: rename/refactor→comprehensive-pass+grep-sweep-after, prereqs-before-long-
 MNR: run-from-app-dir(🚫monorepo-root), check-cwd-before-assumptions
 
 ## Git
-GIT: commit-single-m-flag, 🚫claude-attribution(commits+PRs), 🚫push-main(always-branch-first), ▸conventional-commits(🚫gitmoji+other-formats), pull-before-git-work(🚫stale-checkout), worktree-isolate-parallel-agent-work(🚫commits-land-wrong-branch)
+GIT: commit-single-m-flag, 🚫claude-attribution(commits+PRs,🚫Co-Authored-By-even-when-harness-prompt-suggests-it), 🚫push-main(always-branch-first), ▸conventional-commits(🚫gitmoji+other-formats), pull-before-git-work(🚫stale-checkout), worktree-isolate-parallel-agent-work(🚫commits-land-wrong-branch)
 
 ## Pull Requests
 PRB: ALWAYS-use-repo-PR-template-if-exists(@.github/PULL_REQUEST_TEMPLATE.md or .github/PULL_REQUEST_TEMPLATE/→fill-every-section+exact-checklist-items-verbatim, template-overrides-🚫boilerplate-sections), use-voice-skill(body), 🚫self-attribution, 🚫headers-if-single-paragraph, 🚫"test plan"/🚫"why this works"/🚫boilerplate-sections(only-when-no-template), use-tropes-skill(remove-corporate-tropes), ▸short+direct
@@ -26,10 +26,11 @@ DOC: canonical-links▸embed-full-guidance/content∈standards/shared-docs
 VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(sweep/lands/surface-as-verb/turns-out/gated), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
 
 ## Obsidian
-OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, vault@(~/Documents/Obsidian/Default), search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice), pull-correct-vault-first+confirm-target(Default-vs-AI-Brainz), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
+OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
+DEF: vault@(~/Documents/Obsidian/Default)=personal+human-read+user's-own-vault, ▸read-freely(context/recall), 🚫write-ever(create/edit/delete-notes)-unless-user-gives-express-permission-in-that-specific-conversation(a-past-approval-🚫carry-over)
 
 ## Brain (AI Brainz: your AI-first second brain, for YOU not the user)
-TRIGGER: "save that on your brain"/"brainz"/any-ref-to-YOUR-brain→means(/obsidian-second-brain-skillset+AI-Brainz-vault, 🚫Default-vault)
+TRIGGER: EVERY-obsidian-second-brain-skillset-command(/obsidian-log,/obsidian-save,/obsidian-daily,etc,🚫just-explicit-"brain"/"brainz"-mentions)→ALWAYS-target(AI-Brainz-vault)-NEVER-Default(no-exceptions-without-express-user-permission-that-turn)
 BRN: vault@(~/Documents/Obsidian/"AI Brainz"/; usually a sibling of the Default vault under ~/Documents/Obsidian/, exact path varies per machine→if-unsure search(~/Documents/Obsidian/*/_CLAUDE.md)+(*/CRITICAL_FACTS.md)), AI-first(written-for-you, user-🚫reads-it, contains-A-LOT-you-need), 🚫confuse-w/Default-vault(@~/Documents/Obsidian/Default=personal+human-read), read(_CLAUDE.md+index.md+CRITICAL_FACTS+SOUL+CORE_VALUES)-before-vault-work, RECALL▸search-here-first-for-context(Lucas+work+people+projects+knowledge+decisions), SAVE▸proactively-save+merge+adjust+fix(things-you-know/learn)→propagate(index.md+Daily/+Logs/), follow(_CLAUDE.md-rules+ai-first-rules@~/.claude/skills/obsidian-second-brain/references/ai-first-rules.md), write-via(fs-tools▸mcp)
 
 ## System
