@@ -76,6 +76,8 @@ brew "fd"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Geometry Engine
+brew "geos"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
@@ -384,3 +386,4 @@ go "cmd/go"
 go "cmd/gofmt"
 uv "posting"
 uv "semble"
+npm "corepack"
