@@ -8,7 +8,8 @@ model_id=$(echo "$input" | jq -r '.model.id // empty')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 total_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
 total_out_tokens=$(echo "$input" | jq -r '.context_window.total_output_tokens // 0')
-last_msg_tokens=$(echo "$input" | jq -r '.context_window.current_usage.output_tokens // 0')
+last_msg_out_tokens=$(echo "$input" | jq -r '.context_window.current_usage.output_tokens // 0')
+last_msg_in_tokens=$(echo "$input" | jq -r '.context_window.current_usage.input_tokens // 0')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
 session_name=$(echo "$input" | jq -r '.session_name // .session_id // empty')
 five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
@@ -188,9 +189,18 @@ if [ -n "$used_pct" ]; then
     out_fmt=$(fmt_num "$total_out_tokens")
     total_fmt=$(fmt_num "$total_combined")
     tok_str=" ${DIM}·${RESET} ${DIM}↓${RESET}${ctx_color}${in_fmt}${RESET} ${DIM}↑${RESET}${ctx_color}${out_fmt}${RESET} ${DIM}Σ${RESET}${ctx_color}${total_fmt}${RESET}"
-    if [ -n "$last_msg_tokens" ] && [ "$last_msg_tokens" -gt 0 ] 2>/dev/null; then
-      last_msg_fmt=$(fmt_num "$last_msg_tokens")
-      tok_str="$tok_str ${DIM}(last msg:${RESET}${ctx_color}${last_msg_fmt}${RESET}${DIM})${RESET}"
+    last_msg_str=""
+    if [ -n "$last_msg_in_tokens" ] && [ "$last_msg_in_tokens" -gt 0 ] 2>/dev/null; then
+      last_msg_in_fmt=$(fmt_num "$last_msg_in_tokens")
+      last_msg_str="${DIM}you:${RESET}${ctx_color}${last_msg_in_fmt}${RESET}"
+    fi
+    if [ -n "$last_msg_out_tokens" ] && [ "$last_msg_out_tokens" -gt 0 ] 2>/dev/null; then
+      last_msg_out_fmt=$(fmt_num "$last_msg_out_tokens")
+      [ -n "$last_msg_str" ] && last_msg_str="$last_msg_str "
+      last_msg_str="${last_msg_str}${DIM}me:${RESET}${ctx_color}${last_msg_out_fmt}${RESET}"
+    fi
+    if [ -n "$last_msg_str" ]; then
+      tok_str="$tok_str ${DIM}(${RESET}${last_msg_str}${DIM})${RESET}"
     fi
   fi
   if [ -n "$line2" ]; then
