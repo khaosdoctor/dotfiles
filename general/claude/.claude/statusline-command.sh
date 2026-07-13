@@ -8,8 +8,13 @@ model_id=$(echo "$input" | jq -r '.model.id // empty')
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 total_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
 total_out_tokens=$(echo "$input" | jq -r '.context_window.total_output_tokens // 0')
+last_msg_tokens=$(echo "$input" | jq -r '.context_window.current_usage.output_tokens // 0')
 effort=$(echo "$input" | jq -r '.effort.level // empty')
 session_name=$(echo "$input" | jq -r '.session_name // .session_id // empty')
+five_h_pct=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+seven_d_pct=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+five_h_reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
+seven_d_reset=$(echo "$input" | jq -r '.rate_limits.seven_day.resets_at // empty')
 
 # ANSI colors
 BLUE="\033[38;5;75m"
@@ -88,6 +93,74 @@ if [ -n "$model_id" ] && { [ "$total_tokens" -gt 0 ] || [ "$total_out_tokens" -g
   cost_str=" ${DIM}·${RESET} ${DIM}~\$${cost}${RESET}"
 fi
 
+# Rate limit color scale: <50=green, <70=yellow, <85=orange, >=85=red
+rate_color() {
+  local pct_int
+  pct_int=$(printf "%.0f" "$1")
+  if [ "$pct_int" -ge 85 ]; then
+    echo "\033[38;5;196m"
+  elif [ "$pct_int" -ge 70 ]; then
+    echo "${ORANGE}"
+  elif [ "$pct_int" -ge 50 ]; then
+    echo "${YELLOW}"
+  else
+    echo "${GREEN}"
+  fi
+}
+
+# Render a compact unicode progress bar scaled to a percentage.
+# Usage: progress_bar <pct> <width> <color>
+progress_bar() {
+  local pct="$1" width="$2" color="$3"
+  local pct_int filled empty bar
+  pct_int=$(printf "%.0f" "$pct")
+  filled=$(( pct_int * width / 100 ))
+  [ "$filled" -gt "$width" ] && filled="$width"
+  empty=$(( width - filled ))
+  bar=""
+  local i
+  for ((i = 0; i < filled; i++)); do bar="${bar}▓"; done
+  for ((i = 0; i < empty; i++)); do bar="${bar}░"; done
+  printf "%s%s%s%s" "${color}" "${bar}" "${RESET}" ""
+}
+
+# Format a future unix epoch as an absolute time ("14:30")
+absolute_time() {
+  local target_epoch="$1"
+  [ -z "$target_epoch" ] && return
+  date -r "$target_epoch" "+%H:%M" 2>/dev/null || date -d "@$target_epoch" "+%H:%M" 2>/dev/null
+}
+
+# Format a future unix epoch as an absolute day + time ("Sat 14:30")
+absolute_day_time() {
+  local target_epoch="$1"
+  [ -z "$target_epoch" ] && return
+  date -r "$target_epoch" "+%a %H:%M" 2>/dev/null || date -d "@$target_epoch" "+%a %H:%M" 2>/dev/null
+}
+
+# Line 3: rate limit usage windows (5h / 7d) with reset times
+line3=""
+if [ -n "$five_h_pct" ]; then
+  five_h_color=$(rate_color "$five_h_pct")
+  five_h_abs=$(absolute_time "$five_h_reset")
+  five_h_bar=$(progress_bar "$five_h_pct" 5 "$five_h_color")
+  seg="${DIM}5h:${RESET}${five_h_color}$(printf "%.0f" "$five_h_pct")%${RESET} ${five_h_bar}"
+  [ -n "$five_h_abs" ] && seg="$seg ${DIM}(${five_h_abs})${RESET}"
+  line3="$seg"
+fi
+if [ -n "$seven_d_pct" ]; then
+  seven_d_color=$(rate_color "$seven_d_pct")
+  seven_d_abs=$(absolute_day_time "$seven_d_reset")
+  seven_d_bar=$(progress_bar "$seven_d_pct" 6 "$seven_d_color")
+  seg="${DIM}7d:${RESET}${seven_d_color}$(printf "%.0f" "$seven_d_pct")%${RESET} ${seven_d_bar}"
+  [ -n "$seven_d_abs" ] && seg="$seg ${DIM}(${seven_d_abs})${RESET}"
+  if [ -n "$line3" ]; then
+    line3="$line3 ${DIM}·${RESET} $seg"
+  else
+    line3="$seg"
+  fi
+fi
+
 # Context usage segment
 if [ -n "$used_pct" ]; then
   printf_pct=$(printf "%.0f" "$used_pct")
@@ -115,6 +188,10 @@ if [ -n "$used_pct" ]; then
     out_fmt=$(fmt_num "$total_out_tokens")
     total_fmt=$(fmt_num "$total_combined")
     tok_str=" ${DIM}·${RESET} ${DIM}↓${RESET}${ctx_color}${in_fmt}${RESET} ${DIM}↑${RESET}${ctx_color}${out_fmt}${RESET} ${DIM}Σ${RESET}${ctx_color}${total_fmt}${RESET}"
+    if [ -n "$last_msg_tokens" ] && [ "$last_msg_tokens" -gt 0 ] 2>/dev/null; then
+      last_msg_fmt=$(fmt_num "$last_msg_tokens")
+      tok_str="$tok_str ${DIM}(last msg:${RESET}${ctx_color}${last_msg_fmt}${RESET}${DIM})${RESET}"
+    fi
   fi
   if [ -n "$line2" ]; then
     line2="$line2 ${DIM}|${RESET} ${ctx_color}ctx: ${printf_pct}%${RESET}${tok_str}${cost_str}"
@@ -123,8 +200,8 @@ if [ -n "$used_pct" ]; then
   fi
 fi
 
-if [ -n "$line2" ]; then
-  printf "%b\n%b\n" "$line1" "$line2"
-else
-  printf "%b\n" "$line1"
-fi
+output="$line1"
+[ -n "$line2" ] && output="$output"$'\n'"$line2"
+[ -n "$line3" ] && output="$output"$'\n'"$line3"
+
+printf "%b\n" "$output"
