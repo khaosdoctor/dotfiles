@@ -23,7 +23,7 @@ IST: ALWAYS-use-repo-issue-template-if-exists(@.github/ISSUE_TEMPLATE/→pick-ma
 DOC: canonical-links▸embed-full-guidance/content∈standards/shared-docs
 
 ## Writing
-VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(sweep/lands/surface-as-verb/turns-out/gated), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
+VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(sweep/lands/surface-as-verb/turns-out/gate/gated/flag/flagging/smoking-gun), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
 
 ## Obsidian
 OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, search-vault-if-unsure, journal-jots(chronological+resolve-temporal-refs+preserve-voice), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
