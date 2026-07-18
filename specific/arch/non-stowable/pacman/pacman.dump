@@ -3,11 +3,11 @@
 adobe-base-14-fonts
 age
 amd-ucode
-appmenu-gtk-module
 aquamarine
 asdf-vm-git
 atac
 atuin
+bambustudio-bin
 baobab
 base
 base-devel
@@ -18,7 +18,6 @@ btop
 btrfs-assistant
 btrfs-heatmap
 btrfs-progs
-bun
 ccache
 clang
 claude-code
@@ -27,6 +26,7 @@ cmake
 compsize
 copyq
 cpu-x
+cpupower
 crash
 cronie
 devtools
@@ -72,6 +72,7 @@ fd
 ffmpegthumbnailer
 firefox-developer-edition
 flatpak
+freecad
 freefilesync-bin
 fuse-overlayfs
 fzf
@@ -177,7 +178,8 @@ nwg-drawer
 nwg-look
 obsidian
 ollama-rocm
-openblas
+onnxruntime-rocm
+opencode
 openrazer-daemon
 orca-slicer-bin
 os-prober
@@ -197,7 +199,6 @@ posting
 proton-vpn-cli
 proton-vpn-gtk-app
 pv
-pwgen
 python-distutils-extra
 python-pip
 python-pipx
@@ -221,7 +222,6 @@ sddm
 sddm-astronaut-theme
 selectdefaultapplication-git
 slurp
-spirv-headers
 spotifyd
 sshfs
 steam
@@ -273,7 +273,6 @@ vlc-plugin-mpeg2
 vlc-plugin-x264
 vlc-plugin-x265
 vlc-plugins-all
-vulkan-headers
 vulkan-mesa-layers
 vulkan-radeon
 vulkan-tools
@@ -299,6 +298,7 @@ xorg-xhost
 yay
 yazi
 zapzap
+zed
 zellij
 zip
 zoxide
