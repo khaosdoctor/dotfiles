@@ -32,6 +32,23 @@
   "hide-on-action": true,
   "text-empty": "No Notifications",
   "script-fail-notify": true,
+  "scripts": {
+    "focus-telegram": {
+      "desktop-entry": "org.telegram.desktop",
+      "exec": "hyprctl dispatch focuswindow class:org.telegram.desktop",
+      "run-on": "action"
+    },
+    "focus-whatsapp": {
+      "desktop-entry": "com.rtosta.zapzap",
+      "exec": "hyprctl dispatch focuswindow class:com.rtosta.zapzap",
+      "run-on": "action"
+    },
+    "focus-discord": {
+      "desktop-entry": "discord",
+      "exec": "hyprctl dispatch focuswindow class:discord",
+      "run-on": "action"
+    }
+  },
   "widgets": [
     "title",
     "dnd",
