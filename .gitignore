@@ -189,3 +189,14 @@ general/claude/.claude/mcp-needs-auth-cache.json
 # up-to-speed skill local state (contains names — never commit)
 /general/claude/.claude/skills/up-to-speed/state.json
 /CLAUDE.md
+/general/claude/.claude/skills/agents-sdk
+/general/claude/.claude/skills/cloudflare
+/general/claude/.claude/skills/cloudflare-email-service
+/general/claude/.claude/skills/cloudflare-one
+/general/claude/.claude/skills/cloudflare-one-migrations
+/general/claude/.claude/skills/durable-objects
+/general/claude/.claude/skills/sandbox-sdk
+/general/claude/.claude/skills/turnstile-spin
+/general/claude/.claude/skills/web-perf
+/general/claude/.claude/skills/workers-best-practices
+/general/claude/.claude/skills/wrangler
