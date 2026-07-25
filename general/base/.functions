@@ -131,3 +131,12 @@ if [ -x "$(command -v brew)" ]; then
         fi
     }
 fi
+
+# rm goes to the XDG trash instead of unlinking. trash-put swallows rm's
+# flags (-r/-f/-i/-v/-d) as no-ops, so muscle memory and `rm -rf` still work.
+# Escape hatch for a real unlink: `command rm`, `\rm`, or /usr/bin/rm.
+if [ -x "$(command -v trash-put)" ]; then
+    rm() {
+        trash-put "$@"
+    }
+fi

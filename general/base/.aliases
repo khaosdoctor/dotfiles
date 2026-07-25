@@ -1,7 +1,6 @@
 #!/bin/bash
 
 alias confs='yazi ~/.config'
-alias rm='rm -rf'
 alias cls='clear'
 alias cd..='cd ..'
 alias ..='cd ..'
