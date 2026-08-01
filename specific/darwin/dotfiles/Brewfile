@@ -1,3 +1,4 @@
+tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "yoheimuta/protolint"
@@ -29,6 +30,8 @@ brew "cryptography"
 brew "certbot"
 # CloudFlare's PKI toolkit
 brew "cfssl"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Load/unload environment variables based on $PWD
@@ -37,6 +40,8 @@ brew "direnv"
 brew "dive"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
+brew "docker-buildx"
 # Platform keystore credential helper for Docker
 brew "docker-credential-helper"
 # Collection of reusable C++ library artifacts developed at Facebook
@@ -51,6 +56,8 @@ brew "fbthrift"
 brew "fb303"
 # Shared library for Watchman and Eden projects
 brew "edencommon"
+# TIFF library and utilities
+brew "libtiff"
 # LLVM bytecode to JavaScript compiler
 brew "emscripten"
 # AST-based pattern checker for JavaScript
@@ -205,6 +212,8 @@ brew "yamllint"
 brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku", trusted: true
 # Pluggable tool to enforce Protocol Buffer style and conventions
 brew "yoheimuta/protolint/protolint", trusted: true
 # 3D model slicing software for 3D printers, maintained by Bambu Lab
