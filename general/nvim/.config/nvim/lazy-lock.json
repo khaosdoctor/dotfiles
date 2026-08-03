@@ -10,6 +10,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "79e2049a0fdf7ec840f8463fe1d962c94493196b" },
   "clangd_extensions.nvim": { "branch": "main", "commit": "78c2ecd659d54972be17aa6ba2deac3c53223b80" },
+  "claudecode.nvim": { "branch": "main", "commit": "2390c6e45c4789072c293ac69de051d169668b29" },
   "cmake-tools.nvim": { "branch": "master", "commit": "22859d754b5de738cfe9945e0910729f63deefd0" },
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "copilot.lua": { "branch": "master", "commit": "261e70f26e6c02562495f900399234c4e26daa2f" },
