@@ -87,9 +87,6 @@ return {
     end,
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
-  },
-  {
     "maxmx03/fluoromachine.nvim",
     lazy = false,
     priority = 1000,
