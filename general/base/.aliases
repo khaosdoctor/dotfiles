@@ -29,6 +29,9 @@ if [ -x "$(command -v exa)" ]; then
     alias ls="exa -a --icons"
 elif [ -x "$(command -v eza)" ]; then
     alias ls="eza --icons --color=auto"
+elif [[ "$(uname -s)" == "Darwin" ]]; then
+    # BSD ls has no --color, it uses -G
+    alias ls="ls -aG"
 else
     alias ls="ls -a --color=auto"
 fi
@@ -67,7 +70,10 @@ if [ -e "/usr/local/bin/update-all" ]; then
 fi
 
 if [ -x "$(command -v tree)" ]; then
-    alias lsr='tree -ChDvL $1 $2'
+    # Needs to be a function because -L requires a depth argument
+    lsr() {
+        command tree -ChDvL "${1:-2}" "${@:2}"
+    }
 fi
 
 if [ -x "$(command -v lftp)" ]; then
@@ -102,7 +108,7 @@ if [ -x "$(command -v docker)" ]; then
 fi
 
 # Darwin only
-if [[ "$(uname -o)" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
 
     if [ -x "$(command -v log)" ]; then
         alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
@@ -154,7 +160,7 @@ if [ -x "$(command -v fzf)" ]; then
 
     fzf() {
         # Use fzf to select a file using preview and fd
-        command fzf --preview='cat {}' --bind "change:reload($FZF_DEFAULT_COMMAND {q})"
+        command fzf --preview='cat {}' --bind "change:reload($FZF_DEFAULT_COMMAND {q})" "$@"
     }
 
     # Open file in nvim using fzf
