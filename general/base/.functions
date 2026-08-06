@@ -1,10 +1,10 @@
 #!/bin/zsh
 #CUSTOM FUNCTIONS
 cd() {
-    if builtin cd "$@"; then
+    builtin cd "$@" || return $?
+    # eza is not installed everywhere, .aliases guards ls the same way
+    if [ -x "$(command -v eza)" ]; then
         eza --icons --color=auto -a
-    else
-        return $?
     fi
 }
 
@@ -30,8 +30,10 @@ cat() {
   # If there are any flags present defer to the text renderer
   # if any arg is not a regular file, also defer to the renderer
   for arg in "$@"; do
-    [[ "$arg" == -* ]] && command "${text_cat[@]}" "$@" && return
-    [[ ! -f "$arg" ]] && command "${text_cat[@]}" "$@" && return
+    if [[ "$arg" == -* ]] || [[ ! -f "$arg" ]]; then
+      command "${text_cat[@]}" "$@"
+      return $?
+    fi
   done
 
   # Checks if any of the files is an image, if so, uses icat if in kitty
@@ -69,26 +71,11 @@ function yy() {
     rm -f -- "$tmp"
 }
 
-if [[ "$(uname -s)" == "Linux" ]]; then
-    function create-tui-desktop() {
-        APP=$1
-        TERMINAL=${2:-rio}
-        SRC_PATH=$(find /usr/share/applications ~/.local/share/applications -name "${APP}.desktop" | head -n1)
-
-        if [ -z "$SRC_PATH" ]; then
-            echo "❌ .desktop file for ${APP} not found!"
-            exit 1
-        fi
-
-        DEST_PATH="$HOME/.local/share/applications/${APP}.desktop"
-        echo "Copying and creating override for ${APP} in ${DEST_PATH}"
-        cp "$SRC_PATH" "$DEST_PATH"
-
-        sed -i "s|^Exec=.*|Exec=${TERMINAL} -e ${APP}|" "$DEST_PATH"
-        sed -i "s|^Terminal=.*|Terminal=false|" "$DEST_PATH"
-        update-desktop-database ~/.local/share/applications
-    }
-fi
+# Remote hosts rarely have terminfo entries for xterm-ghostty/xterm-kitty, which
+# breaks the remote session, so downgrade TERM for the remote side only.
+ssh() {
+    TERM=xterm-256color command ssh "$@"
+}
 
 function systemLog() {
     local input
@@ -100,7 +87,7 @@ function systemLog() {
     fi
 
     # on mac log to console
-    if [[ "$(uname -o)" == "Darwin" ]]; then
+    if [[ "$(uname -s)" == "Darwin" ]]; then
         if [ -x "$(command -v logger)" ]; then
             logger -t "${2:-'UserLogger'}" "[UserTerminalLogger] $input" &
         else
@@ -120,15 +107,49 @@ function systemLog() {
 }
 
 if [ -x "$(command -v brew)" ]; then
-    brew() {
-        "$HOMEBREW_PREFIX/bin/brew" "$@"
-        local command=$1
-        if [ "$command" = "install" ] || [ "$command" = "uninstall" ]; then
-            echo "Detected $command command, updating Brewfile... Don't forget to commit the changes!"
-            shift
-            systemLog "Updating brewfile after $command command with options: $*"
-            "$HOMEBREW_PREFIX/bin/brew" bundle dump -f --file=- >"$HOME/Brewfile"
+    # ~/Brewfile is a symlink into the dotfiles repo, so the dump goes to a temp
+    # file first and only its bytes are copied over the symlink. A redirect
+    # straight onto ~/Brewfile truncates the tracked file the moment the command
+    # starts, which loses the whole thing if the dump fails or is interrupted
+    # (a cold Homebrew API cache can make it hang for minutes).
+    brewfileDump() {
+        local tmp
+        tmp=$(mktemp) || return 1
+        if command brew bundle dump -f --file="$tmp" && [ -s "$tmp" ]; then
+            cat "$tmp" >"$HOME/Brewfile"
+        else
+            echo "brew bundle dump failed — Brewfile left untouched." >&2
+            rm -f "$tmp"
+            return 1
         fi
+        rm -f "$tmp"
+    }
+
+    brew() {
+        command brew "$@"
+        local brewStatus=$?
+        local subcommand=$1
+
+        # Only refresh the Brewfile when the command actually succeeded,
+        # otherwise a typo'd package name rewrites the file for nothing.
+        if [ $brewStatus -ne 0 ]; then
+            return $brewStatus
+        fi
+
+        # remove/rm are aliases of uninstall, and taps are recorded in the
+        # Brewfile too, so they all have to trigger a refresh.
+        case "$subcommand" in
+        install | uninstall | remove | rm | tap | untap)
+            echo "Detected $subcommand command, updating Brewfile... Don't forget to commit the changes!"
+            shift
+            systemLog "Updating brewfile after $subcommand command with options: $*"
+            brewfileDump
+            ;;
+        esac
+
+        # Always hand back brew's own status, never the dump's, so `brew install
+        # x && ...` branches on the install.
+        return $brewStatus
     }
 fi
 
