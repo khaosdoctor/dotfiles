@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Darwin only
-if [[ "$(uname -o)" == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
     # Exports homebrew paths
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

@@ -49,7 +49,7 @@ SAVEHIST=1000
 setopt autocd beep extendedglob nomatch notify
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/khaosdoctor/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
@@ -98,10 +98,8 @@ zinit wait lucid for \
 # since this is zshrc it will run every time a new shell is opened and it's interactive
 # if startupscripts is a dir, run all .sh files in it
 if [[ -d $HOME/.startupscripts ]]; then
-  chmod -R +x $HOME/.startupscripts
-  cd $HOME/.startupscripts
-  find . -type f -name "*.sh" -exec {} \;
-  cd $HOME
+  # subshell so the cd never changes the cwd of the shell being opened
+  (cd $HOME/.startupscripts && find . -type f -name "*.sh" -perm -u+x -exec {} \;)
 # is a regular file
 elif [[ -f $HOME/.startupscripts ]]; then
   # can be executed
@@ -109,9 +107,6 @@ elif [[ -f $HOME/.startupscripts ]]; then
     bash $HOME/.startupscripts &
   fi
 fi
-
-# To customize prompt, run `p10k configure` or edit ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh.
-[[ ! -f ~/Documents/Repositories/github.com/khaosdoctor/dotfiles/Global/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 if [ -x "$(command -v mise)" ] && [ -f $HOME/.mise_shim ]; then
     source $HOME/.mise_shim
