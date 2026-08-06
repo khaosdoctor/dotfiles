@@ -88,19 +88,17 @@ type StowOp struct {
 
 var packageDescriptions = map[string]string{
 	// General
-	"ai-agents":  "OpenCode AI agent configs",
-	"atuin":      "Shell history sync (atuin)",
-	"base":       "Shell core: zshrc, aliases, exports, git, mise, p10k",
-	"btop":       "System monitor (btop)",
-	"claude":     "Claude Code settings, skills, commands",
-	"fastfetch":  "System info fetcher (fastfetch)",
-	"kitty":      "Kitty terminal config",
-	"neofetch":   "System info (neofetch, legacy)",
-	"nvim":       "Neovim config (LazyVim)",
-	"rio":        "Rio terminal config",
-	"satty":      "Screenshot annotation tool",
-	"yazi":       "Terminal file manager (yazi)",
-	"zellij":     "Terminal multiplexer (zellij)",
+	"atuin":     "Shell history sync (atuin)",
+	"base":      "Shell core: zshrc, aliases, exports, git, mise, p10k",
+	"btop":      "System monitor (btop)",
+	"claude":    "Claude Code settings, skills, commands",
+	"fastfetch": "System info fetcher (fastfetch)",
+	"ghostty":   "Ghostty terminal config",
+	"kitty":     "Kitty terminal config",
+	"nvim":      "Neovim config (LazyVim)",
+	"satty":     "Screenshot annotation tool",
+	"yazi":      "Terminal file manager (yazi)",
+	"zellij":    "Terminal multiplexer (zellij)",
 	// Arch
 	"bin":               "Custom scripts (fix-desktop-icons, run-exe)",
 	"clipcat":           "Clipboard manager daemon",
@@ -121,11 +119,9 @@ var packageDescriptions = map[string]string{
 	"walker":            "Application launcher (walker)",
 	"waybar":            "Status bar (Waybar)",
 	"waypaper":          "Wallpaper manager",
-	"wofi":              "Application launcher (wofi)",
 	"x":                 "X11 settings (XCompose, Xresources)",
 	// Darwin
-	"dotfiles":  "Brewfile and Karabiner config",
-	"karabiner": "Karabiner-Elements key remapping",
+	"dotfiles": "Brewfile and Karabiner config",
 }
 
 // ─── Config ────────────────────────────────────────────────────────────────────
