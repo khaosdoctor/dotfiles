@@ -127,6 +127,30 @@
             "command": "rtk hook claude"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/bin/ban-words.py\"",
+            "timeout": 10,
+            "statusMessage": "Checking for banned words..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/bin/ban-words.py\"",
+            "timeout": 10,
+            "statusMessage": "Loading banned words..."
+          }
+        ]
       }
     ],
     "SessionStart": [
