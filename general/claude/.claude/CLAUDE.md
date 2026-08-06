@@ -23,7 +23,16 @@ IST: ALWAYS-use-repo-issue-template-if-exists(@.github/ISSUE_TEMPLATE/→pick-ma
 DOC: canonical-links▸embed-full-guidance/content∈standards/shared-docs
 
 ## Writing
-VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(sweep/lands/surface-as-verb/turns-out/gate/gated/flag/flagging/smoking-gun/entirely), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
+### 🚫🚫 HARD BANNED WORDS — ZERO TOLERANCE, EVERY SURFACE (chat replies to the user INCLUDED, not just ghost-written prose) 🚫🚫
+BAN: scan-EVERY-draft-AND-every-chat-reply-before-sending. NEVER use:
+BAN: 🚫"gap"(∈"the-only-gap-I-left","gaps-in-coverage")→▸name-the-actual-missing-thing("the-only-thing-I-didn't-do-is-X","X-is-missing")
+BAN: 🚫"gate"/"gated"/"gating"/"version-gate"(∈"this-is-gated-behind-X","gated-off")→▸"X-blocks-Y","Y-needs-X-first","waiting-on-X","does-not-install-because-of-a-version-lock"
+BAN: 🚫"sits"/"sit"(∈"where-the-project-sits-now","where-it-sits")→▸"where-the-project-is-now","the-current-state-is","status:"
+BAN: 🚫"lands"/"land"/"landed"(∈delivery-sense:"the-project-lands-now","when-the-secrets-land")→▸"ships","takes-effect","arrives","once-you-have-them","when-X-is-merged"
+BAN: 🚫"it's-X-not-Y"-construction(∈"it's-your-call-not-mine","that's-a-decision-not-a-detail")→▸STOP-at-the-positive-half("it's-your-call")+🚫append-the-negated-contrast
+BAN: 🚫"cheap"(∈"cheap-to-answer","cheap-to-check")→▸"quick","fast","takes-a-second","low-effort"
+BAN: 🚫"sweep"/"sweeps","surface"(as-verb),"turns-out","flag"/"flagging","smoking-gun","entirely","stand"/"stands","flips","clobbers"→▸plain-subs(go-through/review-all/check; shows/reports; holds/remains; goes-from; overwrites)
+VCE: 🚫corp-tropes(moving-needle,ballparking,etc)→consult(/avoid-tropes), 🚫words(see-BAN-block-above:gap/gate/gated/sits/lands/it's-X-not-Y/cheap/sweep/surface-as-verb/turns-out/flag/flagging/smoking-gun/entirely), upstream+downstream-sparingly(▸name-the-thing), ▸"When-nothing-is-passed,..."(connection-words)🚫"No-argument-and-it..."(bare-fragment-pivot), 🚫em-dash, 🚫uh+🚫eh+🚫um-in-written-prose(TTS-artifacts), [[wikilinks]]-Obsidian-only(🚫wikilinks∈Slack/email/GitHub/blog), writing-as-user(PR-comments/Slack/journal)→🚫post/send-public-without-explicit-confirmation, pull-real-context@(Slack/repos)▸guess(roles/titles/voice-details)
 
 ## Obsidian
 OBS: atomic-1concept, yaml+[[wikilinks]], call(/avoid-tropes)-before-prose, [[xlinks]]∈bullets+Related, search-vault-if-unsure, journaling(chronological+resolve-temporal-refs+preserve-voice), edit-files-directly▸patch/obsidian-save-tools(→duplicate-headers)
