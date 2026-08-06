@@ -116,7 +116,7 @@ quick-terminal-position = top
 # fail to launch. `shell:` routes it through /bin/sh so $HOME expands.
 # In Ghostty $$ inside the script is the script's PID (no kitty quirk), so the
 # session name is "ghostty-<scriptPID>".
-command = shell:"$HOME/.local/bin/start-zellij.sh"
+command = shell:$HOME/.local/bin/start-zellij.sh
 
 # ---------- Keybindings (from custom-keymaps.conf) ----------
 # Tabs
