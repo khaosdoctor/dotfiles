@@ -191,6 +191,8 @@ brew "tailscale"
 brew "terraform"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
+# Command-line interface to the freedesktop.org trashcan
+brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Validating, recursive, caching DNS resolver
