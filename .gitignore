@@ -134,11 +134,17 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/macos,windows,linux,visualstudiocode,jetbrains
 *.out
+# Karabiner rewrites these itself on every config change, and they are machine-local
 specific/darwin/dotfiles/.config/karabiner/automatic_backups
-general/rio/.config/rio/themes
 general/btop/.config/btop/btop.conf
 general/base/.mise_shim
-general/base/.local/bin
+
+# Compiled installer: built per architecture, so useless on the other machine (build it with `go build` / `go run .`)
+/installer/dotfiles-installer
+
+# .local/bin is machine-local except for the scripts we deliberately track
+general/base/.local/bin/*
+!general/base/.local/bin/*.sh
 /general/base/.local/share/
 /general/base/.local/state/
 /general/base/.local/pipx
