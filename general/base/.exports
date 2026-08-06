@@ -6,6 +6,11 @@ export GPG_TTY=$(tty)
 # Unique the PATH entries
 typeset -U path PATH
 
+# These must be exported before the `path` array below since it references them
+export DENO_DIR=$HOME/Library/Caches/deno
+export DENO_INSTALL_ROOT=$HOME/.deno
+export GOPATH=$HOME/go
+
 path=(
     # System binary (do NOT change the order)
     /usr/local/bin
@@ -18,10 +23,8 @@ path=(
     $HOME/.local/bin
 
     # Tooling
-    $HOME/.asdf/shims
     $DENO_INSTALL_ROOT/bin
     $GOPATH/bin
-    $GOROOT/bin
     $HOME/.bun/bin
 
     $path
@@ -29,24 +32,30 @@ path=(
 
 export PATH
 
+# macOS only: trash-cli is keg-only there (Homebrew marks it shadowed_by_macos),
+# so brew never links trash-put into bin and the rm() wrapper in .functions
+# silently does nothing, leaving rm permanently destructive. On Linux the distro
+# package puts trash-put on PATH already, so this whole check is pointless there.
+if [[ "$(uname -s)" == "Darwin" && -d "$HOMEBREW_PREFIX/opt/trash-cli/bin" ]]; then
+    path=("$HOMEBREW_PREFIX/opt/trash-cli/bin" $path)
+fi
+
 # Default terminal
-export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
-export TERMINAL=xterm-256color
-export TERM=xterm-256color
-export ASDF_DATA_DIR=$HOME/.asdf
+[ -S "$HOME/.1password/agent.sock" ] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
+export TERMINAL=ghostty
+# TERM is left to the terminal itself, the ssh wrapper in .functions downgrades it for remote hosts
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
-export GOPATH=$HOME/gopath
 export KUBE_EDITOR='vim'
 export EDITOR='nvim'
 #export GOROOT=/usr/local
-export GOPATH=$HOME/go
 # If bat is installed set its theme
 export BAT_THEME=Dracula
-export DENO_DIR=$HOME/Library/Caches/deno
-export DENO_INSTALL_ROOT=$HOME/.deno
-export CC="ccache cc"
-export CXX="ccache c++"
+# Only use ccache where it's actually installed, otherwise every compile fails
+if command -v ccache >/dev/null 2>&1; then
+    export CC="ccache cc"
+    export CXX="ccache c++"
+fi
 export NODE_OPTIONS="--no-warnings"
 export XCURSOR_SIZE=24
 export XCURSOR_THEME="Colloid Cursors"
@@ -62,7 +71,8 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-$HOME/.run}"
-mkdir -p "$XDG_RUNTIME_DIR"
+# Only create it when missing, this file runs on every zsh invocation including `zsh -c`
+[ -d "$XDG_RUNTIME_DIR" ] || mkdir -p "$XDG_RUNTIME_DIR"
 export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export XDG_DATA_DIRS="${XDG_DATA_DIRS:-/usr/local/share/:/usr/share/}"
 
