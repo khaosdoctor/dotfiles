@@ -206,3 +206,8 @@ general/claude/.claude/mcp-needs-auth-cache.json
 /general/claude/.claude/skills/web-perf
 /general/claude/.claude/skills/workers-best-practices
 /general/claude/.claude/skills/wrangler
+general/claude/.claude/.last-update-result.json
+general/claude/.claude/.caveman-active
+general/claude/.claude/.ponytail-active
+general/claude/.claude/policy-limits.json
+general/claude/.claude/remote-settings.json
