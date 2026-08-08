@@ -159,7 +159,6 @@ decorations = "enabled"
 # Example:
 [renderer]
 performance = "high"
-backend = "automatic"
 # disable-unfocused-render = false
 level = 1
 # filters = []
@@ -257,7 +256,7 @@ style = "Italic"
 #
 # Example:
 [navigation]
-mode = "BottomTab"
+mode = "Plain"
 clickable = true
 hide-if-single = true
 #use-current-path = false
@@ -322,8 +321,8 @@ hide-if-single = true
 # Example:
 [bindings]
 keys = [
-  { key = "]", with = "alt", action = "SelectNextSplit" },
-  { key = "[", with = "alt", action = "SelectPrevSplit" },
+    { key = "]", with = "alt", action = "SelectNextSplit" },
+    { key = "[", with = "alt", action = "SelectPrevSplit" },
 ]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
