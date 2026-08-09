@@ -70,6 +70,7 @@ commendable
 aforementioned
 endeavor
 transformative
+settle
 
 ## phrases
 
@@ -150,6 +151,8 @@ while specific details are limited
 \bsits\b|\bsat\b(?=[^.]{0,20}\b(idle|untouched|unmerged|open)\b) | "sits" in the state sense (sit down, sitting on a chair are fine)
 \bcheap(er|est)?\s+(to|enough to)\b|\bcheap\s+(check|fix|win|question)\b | "cheap" in the effort sense (cheap hardware, cheap flight are fine)
 \bnot only\b[^.]{1,60}\bbut also\b | "not only X but also Y"
+\b(because|since|as)\b[^.]{0,50}\b(is|are|'s)\s+(genuinely\s+|really\s+|just\s+)?(confusing|tricky|counterintuitive|easy to get wrong|where people slip)\b | empty explainer clause, name the real reason or cut the whole clause
+\b(which|and that)\s+(is\s+)?(why\s+)?(alone\s+)?(explains|clarifies|matters)\s+nothing\b|\balone\s+\w+s\s+nothing\b | empty explainer clause, state the fact and stop
 
 ## exempt-paths
 

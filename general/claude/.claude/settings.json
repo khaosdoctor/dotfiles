@@ -107,6 +107,7 @@
     ],
     "defaultMode": "default"
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -200,7 +201,7 @@
   "tui": "fullscreen",
   "editorMode": "vim",
   "verbose": true,
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "agentPushNotifEnabled": true
+  "voiceEnabled": true
 }
