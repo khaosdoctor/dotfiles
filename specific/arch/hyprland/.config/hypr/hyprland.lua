@@ -324,8 +324,8 @@ end)
 hl.define_submap("system", function()
     -- These don't need to exit because will turn off the compositor
     hl.bind("Q", hl.dsp.exec_cmd("shutdown -P now"), { repeating = true })
-    hl.bind("E", hl.dsp.exec_cmd("hyprctl dispatch exit"), { repeating = true })
-    hl.bind("R", hl.dsp.exec_cmd("hyprctl dispatch exit && systemctl reboot"), { repeating = true })
+    hl.bind("E", hl.dsp.exit(), { repeating = true })
+    hl.bind("R", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()' && systemctl reboot"), { repeating = true })
 
     -- Needs to exit after the action otherwise we end up in the same submap
     hl.bind("L", function()

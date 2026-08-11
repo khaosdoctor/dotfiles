@@ -35,17 +35,17 @@
   "scripts": {
     "focus-telegram": {
       "desktop-entry": "org.telegram.desktop",
-      "exec": "hyprctl dispatch focuswindow class:org.telegram.desktop",
+      "exec": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:org.telegram.desktop\" })'",
       "run-on": "action"
     },
     "focus-whatsapp": {
       "desktop-entry": "com.rtosta.zapzap",
-      "exec": "hyprctl dispatch focuswindow class:com.rtosta.zapzap",
+      "exec": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:com.rtosta.zapzap\" })'",
       "run-on": "action"
     },
     "focus-discord": {
       "desktop-entry": "discord",
-      "exec": "hyprctl dispatch focuswindow class:discord",
+      "exec": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:discord\" })'",
       "run-on": "action"
     }
   },

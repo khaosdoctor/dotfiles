@@ -6,12 +6,12 @@
   },
   {
     "label": "(E) Logout",
-    "exec": "hyprctl dispatch exit",
+    "exec": "hyprctl dispatch 'hl.dsp.exit()'",
     "icon": "/usr/share/nwg-bar/images/system-log-out.svg"
   },
   {
     "label": "(R)eboot",
-    "exec": "hyprctl dispatch exit && systemctl reboot",
+    "exec": "hyprctl dispatch 'hl.dsp.exit()' && systemctl reboot",
     "icon": "/usr/share/nwg-bar/images/system-reboot.svg"
   },
   {
