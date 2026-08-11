@@ -22,7 +22,7 @@
       "on-scroll-up": "playerctl -p spotify next",
       "on-scroll-down": "playerctl -p spotify previous",
       "on-click-middle": "playerctl -p spotify play-pause",
-      "on-click": "hyprctl dispatch focuswindow class:spotify",
+      "on-click": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:spotify\" })'",
       "menu": "on-click-right",
       "smooth-scrolling-threshold": 5,
       "menu-file": "$HOME/.config/waybar/media_menu.xml",
@@ -86,7 +86,7 @@
         "shutdown": "systemctl poweroff",
         "reboot": "systemctl reboot",
         "suspend": "systemctl suspend",
-        "logout": "hyprctl dispatch exit",
+        "logout": "hyprctl dispatch 'hl.dsp.exit()'",
         "lock": "pidof hyprlock || hyprlock"
       }
     }
@@ -249,7 +249,7 @@
       "on-scroll-up": "playerctl -p spotify next",
       "on-scroll-down": "playerctl -p spotify previous",
       "on-click-middle": "playerctl -p spotify play-pause",
-      "on-click": "hyprctl dispatch focuswindow class:spotify",
+      "on-click": "hyprctl dispatch 'hl.dsp.focus({ window = \"class:spotify\" })'",
       "menu": "on-click-right",
       "smooth-scrolling-threshold": 5,
       "menu-file": "$HOME/.config/waybar/media_menu.xml",
@@ -311,7 +311,7 @@
         "shutdown": "systemctl poweroff",
         "reboot": "systemctl reboot",
         "suspend": "systemctl suspend",
-        "logout": "hyprctl dispatch exit",
+        "logout": "hyprctl dispatch 'hl.dsp.exit()'",
         "lock": "pidof hyprlock || hyprlock"
       }
     }
