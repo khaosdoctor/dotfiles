@@ -116,6 +116,7 @@ hyprpolkitagent
 hyprshot
 hyprutils
 ibus
+icoutils
 iftop
 iotop
 iwd
@@ -217,6 +218,7 @@ rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
 rsync
+rusty-path-of-building
 satty
 sddm
 sddm-astronaut-theme
@@ -264,6 +266,7 @@ usbutils
 uv
 uwsm
 v4l-utils-git
+vesktop-bin
 vicinae-bin
 vim
 virt-manager
@@ -279,7 +282,7 @@ vulkan-radeon
 vulkan-tools
 w3m
 walker
-waybar
+waybar-git
 waypaper
 wev
 wf-recorder
