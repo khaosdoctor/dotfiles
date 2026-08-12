@@ -1,6 +1,6 @@
 {
-  "last_run_at": "2026-06-10T13:03:03Z",
-  "range_end_of_last_run": "2026-06-10T13:03:03Z",
+  "last_run_at": "2026-08-06T12:34:41Z",
+  "range_end_of_last_run": "2026-08-06T12:34:41Z",
   "watchlist_people": [
     "Joe Bew",
     "Michelle Rea",
@@ -14,7 +14,7 @@
     "Felipe Trevisan",
     "Hanna Lindqvist",
     "Pavlo Pyrig",
-    "Tobias Palmér"
+    "Tobias Palm\u00e9r"
   ],
   "skip_channels": [
     "deploys",
@@ -26,12 +26,19 @@
     "joiners-and-leavers",
     "social-"
   ],
-  "skip_keywords": ["Diary of a Staff Engineer"],
+  "skip_keywords": [
+    "Diary of a Staff Engineer"
+  ],
   "channel_allowlist_override": [],
   "gmail_labels_include": [],
-  "gmail_labels_exclude": ["CATEGORY_PROMOTIONS", "CATEGORY_SOCIAL"],
+  "gmail_labels_exclude": [
+    "CATEGORY_PROMOTIONS",
+    "CATEGORY_SOCIAL"
+  ],
   "calendars_include": [],
-  "github_orgs": ["hemnet"],
+  "github_orgs": [
+    "hemnet"
+  ],
   "github_repos_pinned": [],
   "github_skip_repos": []
 }

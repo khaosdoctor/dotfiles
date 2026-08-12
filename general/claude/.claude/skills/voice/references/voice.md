@@ -10,7 +10,7 @@ Synthesized from the user's outgoing prose across casual chat, technical broadca
 
 HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
 HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
-LEX:🔴CANONICAL-MACHINE-LIST@(./banned-words.md)=single-source-of-truth(words+phrases+regex+exempt-paths)→ADD-NEW-BANS-THERE-ONLY(🚫duplicate-here,🚫in-CLAUDE.md,🚫in-vault); enforced-automatically-by-hook(~/.claude/bin/ban-words.py,Stop+PreToolUse:Write|Edit→exit-2-blocks-and-makes-you-rewrite). lines-below=the-WHY+substitutions(prose-guidance-only)
+LEX:🔴CANONICAL-MACHINE-LIST@(~/.claude/CLAUDE.md:BAN-W/BAN-P/BAN-R/BAN-X-lines)=single-source-of-truth→ADD-NEW-BANS-THERE-ONLY(🚫duplicate-here,🚫in-vault); parsed-by-hook(~/.claude/bin/ban-words.py@PreToolUse:Write|Edit→exit-2-blocks-the-write; chat-replies-🚫covered→self-check). lines-below=the-WHY+substitutions(prose-guidance-only)
 LEX:🚫🚫HARD-BAN-added-2026-08-05(user-corrected-with-emphasis:"do-NOT-in-ANY-circumstance")→applies-to-EVERY-surface-INCLUDING-plain-chat-replies-to-the-user-not-just-ghost-written-prose:
 LEX:🚫"gap"(∈"the-only-gap-I-left","coverage-gap")→▸name-the-missing-thing-directly("the-only-thing-I-didn't-do-is-X")
 LEX:🚫"gate"/"gated"/"gating"(∈"gated-behind-X")→▸"X-blocks-Y","Y-needs-X-first","waiting-on-X"
