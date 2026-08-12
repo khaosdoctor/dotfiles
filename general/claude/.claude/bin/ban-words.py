@@ -2,8 +2,11 @@
 """Block banned words before they reach Lucas or a file.
 
 Two hook events, one script:
-  Stop        -> scans the last assistant message in the transcript
-  PreToolUse  -> scans Write/Edit content before it is written
+  UserPromptSubmit -> injects the list before anything is written
+  PreToolUse       -> scans Write/Edit content before it is written
+
+There is deliberately no Stop hook: by then the reply is already on screen, so blocking
+only produces a second message.
 
 Exit 2 blocks and sends stderr back to Claude, which then has to rewrite.
 
@@ -77,26 +80,25 @@ def inflections(word):
 
 
 def summarise():
-    """Raw list text for the up-front reminder, so there is still one source of truth."""
+    """Raw list text for the up-front reminder, so there is still one source of truth.
+
+    Reads the same BAN-W / BAN-P / BAN-R lines as load_list(). It used to look for
+    `## words` sections, which is the shape of the old banned-words.md, so it returned
+    empty strings once the list moved into CLAUDE.md.
+    """
     words, phrases, labels = [], [], []
-    section = None
     try:
         lines = open(LIST_FILE, encoding="utf-8").readlines()
     except OSError:
         return "", "", ""
     for raw in lines:
         line = raw.strip()
-        if line.startswith("##"):
-            section = line.lstrip("#").strip().lower()
-            continue
-        if not line or line.startswith(("#", ">")):
-            continue
-        if section == "words":
-            words.append(line)
-        elif section == "phrases":
-            phrases.append(line)
-        elif section == "regex" and "|" in line:
-            labels.append(line.rpartition("|")[2].strip())
+        if line.startswith("BAN-W:"):
+            words += [w.strip() for w in line[6:].split(",") if w.strip()]
+        elif line.startswith("BAN-P:"):
+            phrases += [p.strip() for p in line[6:].split(";") if p.strip()]
+        elif line.startswith("BAN-R:") and "|||" in line:
+            labels.append(line[6:].partition("|||")[2].strip())
     return ", ".join(words), "; ".join(phrases), "; ".join(labels)
 
 
@@ -124,28 +126,6 @@ def find_hits(text, word_re, patterns):
         if hit not in seen:
             seen.append(hit)
     return seen
-
-
-def last_assistant_text(transcript_path):
-    if not transcript_path or not os.path.exists(transcript_path):
-        return ""
-    with open(transcript_path, encoding="utf-8", errors="replace") as handle:
-        lines = handle.readlines()
-    for line in reversed(lines):
-        try:
-            entry = json.loads(line)
-        except ValueError:
-            continue
-        if entry.get("type") != "assistant":
-            continue
-        content = entry.get("message", {}).get("content", [])
-        if isinstance(content, str):
-            return content
-        parts = [b.get("text", "") for b in content if isinstance(b, dict) and b.get("type") == "text"]
-        text = "\n".join(p for p in parts if p).strip()
-        if text:
-            return text
-    return ""
 
 
 def block(hits, where):
