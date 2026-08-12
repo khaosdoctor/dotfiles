@@ -1,4 +1,7 @@
 {
+  "env": {
+    "OBSIDIAN_BG_AGENT_ENABLED": "1"
+  },
   "permissions": {
     "allow": [
       "Bash(find:*)",
@@ -105,10 +108,36 @@
       "Skill(followup)",
       "Skill(avoid-tropes)"
     ],
-    "defaultMode": "default"
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$HOME/.claude/bin/ban-words.py\"",
+            "timeout": 10,
+            "statusMessage": "Loading banned words..."
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$HOME/.claude/skills/obsidian-second-brain/hooks/obsidian-bg-agent.sh\"; [ -x \"$h\" ] && \"$h\" || true",
+            "timeout": 10,
+            "async": true
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
@@ -126,6 +155,16 @@
           {
             "type": "command",
             "command": "rtk hook claude"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(jq -r .tool_input.command); echo \"$cmd\" | grep -qE \"git +push\" && { GIT=\"env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git --no-pager\"; OUT=$($GIT fetch 2>&1; $GIT status -sb 2>&1); jq -n --arg ctx \"Branch freshness before push:\n$OUT\" '{hookSpecificOutput:{hookEventName:\"PreToolUse\",additionalContext:$ctx}}'; } || true",
+            "statusMessage": "Checking branch freshness before push..."
           }
         ]
       },
@@ -150,31 +189,63 @@
             "command": "if [ -d \"$PWD/.git\" ] || [ -f \"$PWD/package.json\" ] || [ -f \"$PWD/Cargo.toml\" ] || [ -f \"$PWD/go.mod\" ] || [ -f \"$PWD/pom.xml\" ]; then echo '\n# Code Repository Detected - Explain Skill Loaded\n' && cat ~/.claude/skills/explain/SKILL.md | tail -n +4; fi"
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$HOME/.claude/skills/obsidian-second-brain/hooks/load_vault_context.py\"; [ -f \"$h\" ] && python3 \"$h\" || true"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "h=\"$HOME/.claude/hooks/herdr-agent-state.sh\"; [ -f \"$h\" ] && bash \"$h\" session || true",
+            "timeout": 10
+          }
+        ]
       }
     ]
+  },
+  "worktree": {
+    "baseRef": "head"
   },
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "sigil@sigil": true,
     "ponytail@ponytail": true,
-    "caveman@caveman": true
+    "sigil@sigil": true,
+    "pr-review@hemnet": true,
+    "caveman@caveman": true,
+    "pedagogical-rewrite@hemnet": false,
+    "tdd@hemnet": false,
+    "teach-me@hemnet": false
   },
   "extraKnownMarketplaces": {
-    "sigil": {
+    "hemnet": {
       "source": {
         "source": "github",
-        "repo": "khaosdoctor/sigil"
-      },
-      "autoUpdate": true
+        "repo": "hemnet/skills"
+      }
     },
     "ponytail": {
       "source": {
         "source": "github",
         "repo": "dietrichgebert/ponytail"
       }
+    },
+    "sigil": {
+      "source": {
+        "source": "github",
+        "repo": "khaosdoctor/sigil"
+      },
+      "autoUpdate": true
     },
     "caveman": {
       "source": {
@@ -186,8 +257,10 @@
   "alwaysThinkingEnabled": true,
   "promptSuggestionEnabled": false,
   "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
   "verbose": true,
+  "preferredNotifChannel": "notifications_disabled",
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
