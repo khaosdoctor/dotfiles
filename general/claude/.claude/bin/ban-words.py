@@ -18,9 +18,10 @@ import os
 import re
 import sys
 
-# Canonical list, shared with the voice skill. ~/.claude/skills is a dir symlink into
-# the dotfiles repo, so every machine reads the same file.
-LIST_FILE = os.path.expanduser("~/.claude/skills/voice/references/banned-words.md")
+# The list lives in CLAUDE.md, which every session already loads, so there is one copy
+# and no per-turn context cost. Lines are BAN-W: words, BAN-P: phrases,
+# BAN-R: regex ||| label, BAN-X: exempt path fragments.
+LIST_FILE = os.path.expanduser("~/.claude/CLAUDE.md")
 
 FENCED = re.compile(r"```.*?```|~~~.*?~~~", re.S)
 INLINE = re.compile(r"`[^`\n]*`")
@@ -30,9 +31,8 @@ LINK = re.compile(r"\[\[[^\]]*\]\]")
 
 
 def load_list():
-    """Parse banned-words.md into (word_regex, [(regex, label)], exempt_paths)."""
+    """Parse the BAN-* lines of CLAUDE.md into (word_regex, [(regex, label)], exempt)."""
     words, phrases, patterns, exempt = [], [], [], []
-    section = None
     try:
         with open(LIST_FILE, encoding="utf-8") as handle:
             lines = handle.readlines()
@@ -41,20 +41,15 @@ def load_list():
 
     for raw in lines:
         line = raw.strip()
-        if line.startswith("##"):
-            section = line.lstrip("#").strip().lower()
-            continue
-        if not line or line.startswith(("#", ">")):
-            continue  # blank, comment, or blockquote prose
-        if section == "words":
-            words.append(line)
-        elif section == "phrases":
-            phrases.append(line)
-        elif section == "regex" and "|" in line:
-            pattern, _, label = line.rpartition("|")
+        if line.startswith("BAN-W:"):
+            words += [w.strip() for w in line[6:].split(",") if w.strip()]
+        elif line.startswith("BAN-P:"):
+            phrases += [p.strip() for p in line[6:].split(";") if p.strip()]
+        elif line.startswith("BAN-R:") and "|||" in line:
+            pattern, _, label = line[6:].partition("|||")
             patterns.append((pattern.strip(), label.strip()))
-        elif section == "exempt-paths":
-            exempt.append(line)
+        elif line.startswith("BAN-X:"):
+            exempt += [x.strip() for x in line[6:].split(",") if x.strip()]
 
     # Phrases match literally, single words match every inflection.
     terms = sorted(phrases, key=len, reverse=True)
