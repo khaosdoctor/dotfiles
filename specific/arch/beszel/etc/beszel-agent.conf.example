@@ -1,0 +1,27 @@
+# Beszel agent config for neumann-arch
+# https://beszel.dev/guide/environment-variables#agent
+# Hub: https://beszel.homelab.lsantos.me (multivac, reached over Tailscale)
+#
+# SECRETS LIVE HERE. This file is root:root 0600 and is deliberately NOT in the
+# dotfiles repo, which is public. Only the drop-in and an example are tracked,
+# under specific/arch/beszel.
+
+KEY="ssh-ed25519 AAAA...REPLACE_ME"
+TOKEN=REPLACE_ME-uuid-from-hub
+HUB_URL=https://beszel.homelab.lsantos.me
+
+PORT=45876
+
+# Extra disks beyond root. Toth/Backups is NFS from multivac (the hub already
+# monitors that box) and WinGames is NTFS, both left out on purpose.
+EXTRA_FILESYSTEMS="/home/khaosdoctor/mnt/Games,/home/khaosdoctor/mnt/Local Backups"
+
+# Sensor keys are gopsutil-style (hwmon name + label, lowercased), NOT the
+# labels `sensors` prints. Read them with LOG_LEVEL=debug if this needs editing.
+PRIMARY_SENSOR=k10temp_tctl
+
+# Whitelist. Excludes nct6798_auxtin* (unconnected channels; auxtin3 reads a
+# meaningless 79C and was being chosen as the dashboard temp), nct6798_pch_*
+# (all report 0), asusec_t_sensor (-40C, no thermistor fitted), and the
+# nvme_sensor_*/tsi0/peci duplicates of temps already covered below.
+SENSORS="k10temp_*,amdgpu_*,AMD*,nvme_composite*,asusec_vrm,asusec_chipset,asusec_motherboard,jc42*,nct6798_cputin,nct6798_systin,iwlwifi_1_0"

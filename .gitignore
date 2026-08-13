@@ -211,3 +211,6 @@ general/claude/.claude/.caveman-active
 general/claude/.claude/.ponytail-active
 general/claude/.claude/policy-limits.json
 general/claude/.claude/remote-settings.json
+
+# Beszel agent real config holds KEY/TOKEN, never commit it
+specific/arch/beszel/etc/beszel-agent.conf
