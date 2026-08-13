@@ -13,6 +13,7 @@ base
 base-devel
 bat
 beekeeper-studio-bin
+beszel-agent-bin
 bluez-utils
 btop
 btrfs-assistant
@@ -224,6 +225,7 @@ sddm
 sddm-astronaut-theme
 selectdefaultapplication-git
 slurp
+smartmontools
 spotifyd
 sshfs
 steam
