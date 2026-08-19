@@ -1,6 +1,6 @@
 #!/bin/bash
 # THIS NEEDS TO BE HERE OTHERWISE GIT STOPS WORKING (https://github.com/keybase/keybase-issues/issues/2798)
-export GPG_TTY=$(tty)
+if [ -t 0 ]; then export GPG_TTY=$(/usr/bin/tty); fi
 ###################################################
 
 # Unique the PATH entries

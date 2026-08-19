@@ -142,7 +142,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '.tool_input.command' | grep -qE '^\\s*(git |git$|/usr/bin/git )' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"IMPORTANT: git commands hang due to mise/shell hooks. You MUST prefix git commands with: env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git --no-pager\"}}' || true",
+            "command": "jq -r '.tool_input.command' | grep -qE '^\\s*(git |git$|/usr/bin/git )' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"IMPORTANT: git commands hang due to mise/shell hooks. You MUST prefix git commands with: env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /opt/homebrew/bin/git --no-pager\"}}' || true",
             "statusMessage": "Checking git command..."
           }
         ]
@@ -161,7 +161,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "cmd=$(jq -r .tool_input.command); echo \"$cmd\" | grep -qE \"git +push\" && { GIT=\"env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git --no-pager\"; OUT=$($GIT fetch 2>&1; $GIT status -sb 2>&1); jq -n --arg ctx \"Branch freshness before push:\n$OUT\" '{hookSpecificOutput:{hookEventName:\"PreToolUse\",additionalContext:$ctx}}'; } || true",
+            "command": "cmd=$(jq -r .tool_input.command); echo \"$cmd\" | grep -qE \"git +push\" && { GIT=\"env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /opt/homebrew/bin/git --no-pager\"; OUT=$($GIT fetch 2>&1; $GIT status -sb 2>&1); jq -n --arg ctx \"Branch freshness before push:\n$OUT\" '{hookSpecificOutput:{hookEventName:\"PreToolUse\",additionalContext:$ctx}}'; } || true",
             "statusMessage": "Checking branch freshness before push..."
           }
         ]
