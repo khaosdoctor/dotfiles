@@ -37,8 +37,8 @@ fi
 
 # Git branch (skip locks)
 git_branch=""
-if [ -d "$cwd/.git" ] || env -i HOME="$HOME" PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
-  git_branch=$(env -i HOME="$HOME" PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git --no-pager -C "$cwd" symbolic-ref --short HEAD 2>/dev/null)
+if [ -d "$cwd/.git" ] || env -i HOME="$HOME" PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /opt/homebrew/bin/git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
+  git_branch=$(env -i HOME="$HOME" PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /opt/homebrew/bin/git --no-pager -C "$cwd" symbolic-ref --short HEAD 2>/dev/null)
 fi
 
 # Effort color: low=dim, medium=green, high=yellow, xhigh=orange, max=red
