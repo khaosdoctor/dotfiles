@@ -213,14 +213,20 @@ brew "yazi"
 brew "zellij"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
+# A TUI tool to explore container images
+brew "knqyf263/sou/sou", trusted: true
 # Lightweight AI assistant for your terminal
 brew "matheusml/zsh-ai/zsh-ai"
+# Pluggable tool to enforce Protocol Buffer style and conventions
+brew "yoheimuta/protolint/protolint", trusted: true
 # Command-line interface for 1Password
 cask "1password-cli"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
+# Utility that prevents the system from going to sleep
+cask "caffeine"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
