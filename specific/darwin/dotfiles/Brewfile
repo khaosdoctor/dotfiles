@@ -1,5 +1,6 @@
 tap "anomalyco/tap"
 tap "cloudflare/cloudflare", trusted: true
+tap "henrygd/beszel", trusted: true
 tap "homebrew/cask"
 tap "knqyf263/sou"
 tap "matheusml/zsh-ai", trusted: true
