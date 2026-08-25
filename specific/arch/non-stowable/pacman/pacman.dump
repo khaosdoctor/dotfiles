@@ -30,6 +30,7 @@ cpu-x
 cpupower
 crash
 cronie
+deepcool-digital-linux-git
 devtools
 dex
 direnv
@@ -62,6 +63,7 @@ elephant-unicode
 elephant-websearch
 elephant-windows
 entr
+ethtool
 evince
 eza
 fastfetch
@@ -183,6 +185,7 @@ ollama-rocm
 onnxruntime-rocm
 opencode
 openrazer-daemon
+openrgb
 orca-slicer-bin
 os-prober
 overskride
@@ -245,7 +248,6 @@ texlive-latexextra
 texlive-latexrecommended
 texlive-plaingeneric
 thunar
-tibia
 tigervnc
 tmux
 traceroute
