@@ -225,7 +225,8 @@
     "tdd@hemnet": false,
     "teach-me@hemnet": false,
     "playwright@claude-plugins-official": true,
-    "obsidian-second-brain@obsidian-second-brain": true
+    "obsidian-second-brain@obsidian-second-brain": true,
+    "i-have-adhd@i-have-adhd": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
@@ -258,6 +259,12 @@
         "source": "github",
         "repo": "eugeniughelbur/obsidian-second-brain"
       }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
@@ -267,6 +274,7 @@
   "editorMode": "vim",
   "verbose": true,
   "preferredNotifChannel": "notifications_disabled",
+  "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
