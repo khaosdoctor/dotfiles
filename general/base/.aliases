@@ -26,7 +26,7 @@ if [ -x "$(command -v nvim)" ]; then
 fi
 
 if [ -x "$(command -v exa)" ]; then
-    alias ls="exa -a --icons"
+    alias ls="exa -a --icons=auto "
 elif [ -x "$(command -v eza)" ]; then
     alias ls="eza --icons --color=auto"
 elif [[ "$(uname -s)" == "Darwin" ]]; then
