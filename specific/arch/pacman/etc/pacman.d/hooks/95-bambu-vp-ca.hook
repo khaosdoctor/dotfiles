@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = bambustudio-bin
+Target = orca-slicer-bin
+
+[Action]
+Description = Re-appending Bambuddy Virtual Printer CA to slicer cert bundles...
+When = PostTransaction
+Exec = /usr/local/bin/bambu-vp-ca-append
