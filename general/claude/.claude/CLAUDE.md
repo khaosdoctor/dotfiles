@@ -1,5 +1,11 @@
 Legend: 🚫=never, ▸=prefer-over, +=and, →=leads-to, @=location, ⚠️=caution, ∈=inside
 
+> Never use python scripts to edit a file if it can be edited directly with the
+> Read/Edit/Write commands. The python scripts are only for special cases where
+> the file cannot be edited directly or you are going to batch edit a lot of
+> files at once (more than 20) with the same change. If you are editing a single
+> file or a few files, always use the Read/Edit/Write commands.
+
 ## Behavior
 GEN: 🚫edit-files-on-guidance("tell me"/"walk me through"→text-only), immediate-switch-on-redirect(🚫justify-old-approach), visible-progress-early(🚫long-silent-stretches)
 ACT: ponytail-full-always-when-available(every-code-related-task+updates), semble-when-available(▸symbolic-read+code-search vs raw-read/grep)
@@ -42,7 +48,6 @@ BAN-R: \bcheap(er|est)?\s+(to|enough to)\b|\bcheap\s+(check|fix|win|question)\b 
 BAN-R: \bnot only\b[^.]{1,60}\bbut also\b ||| "not only X but also Y"
 BAN-X: CLAUDE.md, voice.md, tropes.md, hard-banned-words.md, MEMORY.md, index.md, ban-words.py, /Voice/, Banned Words, Sounding Like a Human, Ghost Writing as Lucas, Talking to Lucas in a Session, AI Writing Tells
 BAN: 🔴ADD-ON-REQUEST-INSTANTLY: user-says("don't say X anymore"/"never say X"/"stop saying X"/"I hate X"/"ban X"/any-variation)→IMMEDIATELY-Edit(banned-words.md:##words-if-single-word,##phrases-if-multi-word,##regex-if-a-shape)+confirm-in-ONE-line("banned: X"). 🚫ask-permission,🚫ask-where-to-put-it,🚫explain-the-mechanism,🚫defer-to-later. stems-only(hook-covers-inflections-automatically). also-works-mid-task→do-the-edit-then-resume
-BAN: 🔴HOOK-IS-INVISIBLE: ban-words.py-runs@UserPromptSubmit(injects-list-BEFORE-you-write→check-your-draft-then,no-Stop-hook-because-a-blocked-reply-is-already-on-screen→double-message-bug)+@PreToolUse:Write|Edit(blocks-the-write). on-a-PreToolUse-block→silently-fix-the-text+retry-the-write. 🚫acknowledge-the-hook,🚫"understood"/"you're-right"/"noted",🚫narrate-the-rewrite,🚫apologise,🚫mention-the-hook-exists
 BAN: 🔴SELF-CHECK-CHAT-REPLIES-TOO(hook-cannot-see-them:no-Stop-hook)→scan-EVERY-draft-AND-every-chat-reply-before-sending
 SUB: substitutions-when-the-hook-blocks-you→"gap"▸name-the-actual-missing-thing("the-only-thing-I-didn't-do-is-X"/"X-is-missing"); "gate/gated/gating/version-gate"▸"X-blocks-Y"/"Y-needs-X-first"/"waiting-on-X"/"does-not-install-because-of-a-version-lock"; "sits/sit"▸"where-the-project-is-now"/"the-current-state-is"/"status:"; "lands/land/landed"(delivery-sense)▸"ships"/"takes-effect"/"arrives"/"once-you-have-them"/"when-X-is-merged"; "it's-X-not-Y"▸STOP-at-the-positive-half("it's-your-call")+🚫append-the-negated-contrast; "cheap"▸"quick"/"fast"/"takes-a-second"/"low-effort"; "sweep"▸go-through/review-all/check; "surface"(verb)+"flag"(verb)▸shows/reports; "stand/stands"▸holds/remains; "flips"▸goes-from; "clobbers"▸overwrites
 
