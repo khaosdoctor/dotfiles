@@ -323,7 +323,11 @@ end)
 
 hl.define_submap("system", function()
     -- These don't need to exit because will turn off the compositor
-    hl.bind("Q", hl.dsp.exec_cmd("shutdown -P now"), { repeating = true })
+    -- `poweroff -f` and not the normal path: the normal systemd shutdown makes this
+    -- board power itself straight back on. Needs sudo because one -f bypasses logind
+    -- and hits org.freedesktop.systemd1.manage-units, which is auth_admin_keep.
+    -- See /etc/sudoers.d/50-poweroff-force.
+    hl.bind("Q", hl.dsp.exec_cmd("sudo systemctl poweroff -f"), { repeating = true })
     hl.bind("E", hl.dsp.exit(), { repeating = true })
     hl.bind("R", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()' && systemctl reboot"), { repeating = true })
 
