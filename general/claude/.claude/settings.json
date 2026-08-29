@@ -108,7 +108,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "sonnet",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -223,7 +223,9 @@
     "caveman@caveman": true,
     "pedagogical-rewrite@hemnet": false,
     "tdd@hemnet": false,
-    "teach-me@hemnet": false
+    "teach-me@hemnet": false,
+    "playwright@claude-plugins-official": true,
+    "obsidian-second-brain@obsidian-second-brain": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
@@ -249,6 +251,12 @@
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "obsidian-second-brain": {
+      "source": {
+        "source": "github",
+        "repo": "eugeniughelbur/obsidian-second-brain"
       }
     }
   },
