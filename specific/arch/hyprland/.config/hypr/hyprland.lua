@@ -13,21 +13,23 @@ require("workspaces")
 -- Read that same file here so both stay in sync from one template.
 local wal = {}
 do
-    local f = io.open(os.getenv("HOME") .. "/.cache/wal/colors-hyprland.conf", "r")
-    if f then
-        for line in f:lines() do
-            local k, v = line:match("^%$(%S+)%s*=%s*(.-)%s*$")
-            if k then wal[k] = v end
-        end
-        f:close()
-    end
+	local f = io.open(os.getenv("HOME") .. "/.cache/wal/colors-hyprland.conf", "r")
+	if f then
+		for line in f:lines() do
+			local k, v = line:match("^%$(%S+)%s*=%s*(.-)%s*$")
+			if k then
+				wal[k] = v
+			end
+		end
+		f:close()
+	end
 end
 
 hl.config({
-    xwayland = {
-        -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/XWayland/#hidpi-xwayland
-        force_zero_scaling = true,
-    },
+	xwayland = {
+		-- https://wiki.hypr.land/Configuring/Advanced-and-Cool/XWayland/#hidpi-xwayland
+		force_zero_scaling = true,
+	},
 })
 
 ---------------------
@@ -51,29 +53,33 @@ hl.permission({ binary = "/usr/(bin|local/bin)/hyprpm", type = "plugin", mode = 
 -------------------
 
 hl.on("hyprland.start", function()
-    -- Export dbus variables to systemd so it knows when wayland has started
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS")
-    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS")
+	-- Export dbus variables to systemd so it knows when wayland has started
+	hl.exec_cmd(
+		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS"
+	)
+	hl.exec_cmd(
+		"systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS"
+	)
 
-    -- Start Fcitx5 input method daemon
-    hl.exec_cmd("fcitx5 -d")
+	-- Start Fcitx5 input method daemon
+	hl.exec_cmd("fcitx5 -d")
 
-    -- Overall app drawer launchpad
-    hl.exec_cmd("nwg-drawer -r")
+	-- Overall app drawer launchpad
+	hl.exec_cmd("nwg-drawer -r")
 
-    -- Start 1P
-    hl.exec_cmd("1password")
+	-- Start 1P
+	hl.exec_cmd("1password")
 
-    -- Start easyEffects for EQ
-    hl.exec_cmd("flatpak run com.github.wwmm.easyeffects -w --service-mode")
+	-- Start easyEffects for EQ
+	hl.exec_cmd("flatpak run com.github.wwmm.easyeffects -w --service-mode")
 
-    hl.exec_cmd("tailscale-systray")
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
-    hl.exec_cmd("systemctl --user start graphical-session-apps.target")
-    hl.exec_cmd("uwsm app -- copyq --start-server")
-    -- Slideshow for wallpapers
-    hl.exec_cmd(os.getenv("HOME") .. "/.config/waypaper/slideshow.sh")
-    hl.exec_cmd("handy --start-hidden")
+	hl.exec_cmd("tailscale-systray")
+	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+	hl.exec_cmd("systemctl --user start graphical-session-apps.target")
+	hl.exec_cmd("uwsm app -- copyq --start-server")
+	-- Slideshow for wallpapers
+	hl.exec_cmd(os.getenv("HOME") .. "/.config/waypaper/slideshow.sh")
+	hl.exec_cmd("handy --start-hidden")
 end)
 
 -------------------------------
@@ -99,84 +105,84 @@ hl.env("XMODIFIERS", "@im=fcitx")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-    general = {
-        gaps_in = 2,
-        gaps_out = 5,
+	general = {
+		gaps_in = 2,
+		gaps_out = 5,
 
-        border_size = 3,
+		border_size = 3,
 
-        col = {
-            active_border = {
-                colors = { wal.color2 or "rgba(33ccffee)", wal.color6 or "rgba(00ff99ee)" },
-                angle = 45,
-            },
-            inactive_border = wal.color0 or "rgba(595959aa)",
-        },
+		col = {
+			active_border = {
+				colors = { wal.color2 or "rgba(33ccffee)", wal.color6 or "rgba(00ff99ee)" },
+				angle = 45,
+			},
+			inactive_border = wal.color0 or "rgba(595959aa)",
+		},
 
-        -- Set to true enable resizing windows by clicking and dragging on borders and gaps
-        resize_on_border = true,
+		-- Set to true enable resizing windows by clicking and dragging on borders and gaps
+		resize_on_border = true,
 
-        -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-        allow_tearing = false,
+		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+		allow_tearing = false,
 
-        layout = "dwindle",
-    },
+		layout = "dwindle",
+	},
 
-    cursor = {
-        no_hardware_cursors = 1,
-    },
+	cursor = {
+		no_hardware_cursors = 1,
+	},
 
-    decoration = {
-        rounding = 10,
-        rounding_power = 2,
+	decoration = {
+		rounding = 10,
+		rounding_power = 2,
 
-        -- Change transparency of focused and unfocused windows
-        active_opacity = 1.0,
-        inactive_opacity = 0.9,
+		-- Change transparency of focused and unfocused windows
+		active_opacity = 1.0,
+		inactive_opacity = 0.9,
 
-        shadow = {
-            enabled = false,
-            range = 4,
-            render_power = 10,
-            color = wal.foreground or "rgba(1a1a1aee)",
-        },
+		shadow = {
+			enabled = false,
+			range = 4,
+			render_power = 10,
+			color = wal.foreground or "rgba(1a1a1aee)",
+		},
 
-        blur = {
-            enabled = true,
-            size = 9,
-            passes = 1,
+		blur = {
+			enabled = true,
+			size = 9,
+			passes = 1,
 
-            vibrancy = 0.1696,
-        },
-    },
+			vibrancy = 0.1696,
+		},
+	},
 
-    animations = {
-        enabled = true,
-    },
+	animations = {
+		enabled = true,
+	},
 
-    -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
-    dwindle = {
-        preserve_split = true, -- You probably want this
-    },
+	-- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
+	dwindle = {
+		preserve_split = true, -- You probably want this
+	},
 
-    -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
-    master = {
-        new_status = "master",
-    },
+	-- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
+	master = {
+		new_status = "master",
+	},
 
-    render = {
-        direct_scanout = false,
-    },
+	render = {
+		direct_scanout = false,
+	},
 
-    misc = {
-        force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
-        disable_splash_rendering = true,
-    },
+	misc = {
+		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+		disable_splash_rendering = true,
+	},
 
-    debug = {
-        vfr = true,
-    },
+	debug = {
+		vfr = true,
+	},
 })
 
 -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -186,21 +192,21 @@ hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
-hl.animation({ leaf = "global",        enabled = true, speed = 10,   bezier = "default" })
-hl.animation({ leaf = "border",        enabled = true, speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows",       enabled = true, speed = 4.79, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windowsIn",     enabled = true, speed = 4.1,  bezier = "easeOutQuint", style = "gnomed" })
-hl.animation({ leaf = "windowsOut",    enabled = true, speed = 1.49, bezier = "linear",       style = "popin 87%" })
-hl.animation({ leaf = "fadeIn",        enabled = true, speed = 1.73, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut",       enabled = true, speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade",          enabled = true, speed = 3.03, bezier = "quick" })
-hl.animation({ leaf = "layers",        enabled = true, speed = 3.81, bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn",      enabled = true, speed = 4,    bezier = "easeOutQuint", style = "fade" })
-hl.animation({ leaf = "layersOut",     enabled = true, speed = 1.5,  bezier = "linear",       style = "fade" })
-hl.animation({ leaf = "fadeLayersIn",  enabled = true, speed = 1.79, bezier = "almostLinear" })
+hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
+hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windows", enabled = true, speed = 4.79, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, bezier = "easeOutQuint", style = "gnomed" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
+hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
+hl.animation({ leaf = "layers", enabled = true, speed = 3.81, bezier = "easeOutQuint" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQuint", style = "fade" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true, speed = 1.21, bezier = "almostLinear", style = "slidefade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "slidefade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "slidefade" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
@@ -217,25 +223,25 @@ hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
 ---------------
 
 hl.config({
-    input = {
-        kb_layout = "us",
-        kb_variant = "intl",
-        kb_model = "",
-        kb_options = "caps:escape",
-        kb_rules = "",
+	input = {
+		kb_layout = "us",
+		kb_variant = "intl",
+		kb_model = "",
+		kb_options = "caps:escape",
+		kb_rules = "",
 
-        follow_mouse = 0,
+		follow_mouse = 0,
 
-        sensitivity = -0.5, -- -1.0 - 1.0, 0 means no modification.
-        -- This only works for left handed mice
-        -- on the Razer Naga LH it will make the mouse work normally
-        -- But if you ever change the mouse to a "normal" one, you will need to set this to false
-        left_handed = false,
+		sensitivity = -0.5, -- -1.0 - 1.0, 0 means no modification.
+		-- This only works for left handed mice
+		-- on the Razer Naga LH it will make the mouse work normally
+		-- But if you ever change the mouse to a "normal" one, you will need to set this to false
+		left_handed = false,
 
-        touchpad = {
-            natural_scroll = false,
-        },
-    },
+		touchpad = {
+			natural_scroll = false,
+		},
+	},
 })
 
 ---------------------
@@ -301,14 +307,14 @@ hl.bind(mainMod .. " + TAB", hl.dsp.window.cycle_next({ next = false }))
 hl.bind(mainMod .. " + R", hl.dsp.submap("resize"))
 
 hl.define_submap("resize", function()
-    -- sets repeatable binds for resizing the active window
-    hl.bind("L", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
-    hl.bind("H", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
-    hl.bind("K", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
-    hl.bind("J", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+	-- sets repeatable binds for resizing the active window
+	hl.bind("L", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+	hl.bind("H", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+	hl.bind("K", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+	hl.bind("J", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
 
-    -- use reset to go back to the global submap
-    hl.bind("escape", hl.dsp.submap("reset"))
+	-- use reset to go back to the global submap
+	hl.bind("escape", hl.dsp.submap("reset"))
 end)
 
 ------------------
@@ -317,37 +323,50 @@ end)
 
 -- will switch to a submap called system
 hl.bind(mainMod .. " + CTRL + Q", function()
-    hl.dispatch(hl.dsp.exec_cmd("nwg-bar"))
-    hl.dispatch(hl.dsp.submap("system"))
+	hl.dispatch(hl.dsp.exec_cmd("nwg-bar"))
+	hl.dispatch(hl.dsp.submap("system"))
 end)
 
 hl.define_submap("system", function()
-    -- These don't need to exit because will turn off the compositor
-    -- `poweroff -f` and not the normal path: the normal systemd shutdown makes this
-    -- board power itself straight back on. Needs sudo because one -f bypasses logind
-    -- and hits org.freedesktop.systemd1.manage-units, which is auth_admin_keep.
-    -- See /etc/sudoers.d/50-poweroff-force.
-    hl.bind("Q", hl.dsp.exec_cmd("sudo systemctl poweroff -f"), { repeating = true })
-    hl.bind("E", hl.dsp.exit(), { repeating = true })
-    hl.bind("R", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()' && systemctl reboot"), { repeating = true })
+	-- These don't need to exit because will turn off the compositor
+	-- `poweroff -ff` because the normal path crashes the CPU during device teardown and the
+	-- board resets instead of entering S5. See the 2026-08-30 devlog in AI Brainz.
+	-- -ff never signals a process, never unmounts and never syncs, so do those by hand first.
+	-- Each step is a separate sudo call so /etc/sudoers.d/50-poweroff can match simple commands.
+	-- Network and NTFS mounts go by type, since none of those can ever be the root filesystem.
+	-- The two local data volumes go by path: `-a -t ext4` would try `/` and just fail.
+	-- Root stays mounted; it is ext4, so it replays its journal on the next boot.
+	-- `;` and not `&&`, a busy unmount must not stop the poweroff.
+	hl.bind(
+		"Q",
+		hl.dsp.exec_cmd(
+			"sudo sync; "
+				.. "sudo umount -a -t nfs4,fuse.sshfs,fuse.rclone,fuseblk; "
+				.. "sudo sync; "
+				.. "sudo systemctl poweroff -ff"
+		),
+		{ repeating = true }
+	)
+	hl.bind("E", hl.dsp.exit(), { repeating = true })
+	hl.bind("R", hl.dsp.exec_cmd("hyprctl dispatch 'hl.dsp.exit()' && systemctl reboot"), { repeating = true })
 
-    -- Needs to exit after the action otherwise we end up in the same submap
-    hl.bind("L", function()
-        hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
-        hl.dispatch(hl.dsp.exec_cmd("pidof hyprlock | hyprlock"))
-        hl.dispatch(hl.dsp.submap("reset"))
-    end, { repeating = true })
-    hl.bind("S", function()
-        hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
-        hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
-        hl.dispatch(hl.dsp.submap("reset"))
-    end, { repeating = true })
+	-- Needs to exit after the action otherwise we end up in the same submap
+	hl.bind("L", function()
+		hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
+		hl.dispatch(hl.dsp.exec_cmd("pidof hyprlock | hyprlock"))
+		hl.dispatch(hl.dsp.submap("reset"))
+	end, { repeating = true })
+	hl.bind("S", function()
+		hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
+		hl.dispatch(hl.dsp.exec_cmd("systemctl suspend"))
+		hl.dispatch(hl.dsp.submap("reset"))
+	end, { repeating = true })
 
-    -- use reset to go back to the global submap
-    hl.bind("escape", function()
-        hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
-        hl.dispatch(hl.dsp.submap("reset"))
-    end)
+	-- use reset to go back to the global submap
+	hl.bind("escape", function()
+		hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
+		hl.dispatch(hl.dsp.submap("reset"))
+	end)
 end)
 
 -- Pin floating windows
@@ -356,9 +375,9 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pin())
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-    local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-    hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
@@ -374,10 +393,26 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl s 10%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl s 10%-"), { locked = true, repeating = true })
 
@@ -398,8 +433,8 @@ hl.window_rule({ match = { class = ".*" }, suppress_event = "maximize" })
 
 -- Fix some dragging issues with XWayland
 hl.window_rule({
-    match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
-    no_initial_focus = true,
+	match = { class = "^$", title = "^$", xwayland = true, float = true, fullscreen = false, pin = false },
+	no_initial_focus = true,
 })
 
 ------------------
@@ -411,78 +446,78 @@ hl.window_rule({ match = { class = "^(com.gabm.satty)$" }, float = true })
 
 -- Open spotify on the special workspace (scratchpad) without notifying
 hl.window_rule({
-    name = "spotify",
-    match = { class = "^(spotify)$" },
-    float = true,
-    center = true,
-    size = { 1260, 1024 },
-    workspace = "special silent",
+	name = "spotify",
+	match = { class = "^(spotify)$" },
+	float = true,
+	center = true,
+	size = { 1260, 1024 },
+	workspace = "special silent",
 })
 
 hl.window_rule({
-    name = "terminals",
-    match = { class = "^(rio|kitty|com.mitchellh.ghostty)$" },
-    size = { 800, 600 },
-    focus_on_activate = true,
-    float = true,
-    animation = "gnomed",
-    center = true,
+	name = "terminals",
+	match = { class = "^(rio|kitty|com.mitchellh.ghostty)$" },
+	size = { 800, 600 },
+	focus_on_activate = true,
+	float = true,
+	animation = "gnomed",
+	center = true,
 })
 
 -- 1P quick access
 hl.window_rule({
-    name = "1password",
-    match = { class = "^(1password)$" },
-    center = true,
-    float = true,
-    pin = true,
-    size = { 800, 600 },
-    animation = "gnomed",
+	name = "1password",
+	match = { class = "^(1password)$" },
+	center = true,
+	float = true,
+	pin = true,
+	size = { 800, 600 },
+	animation = "gnomed",
 })
 
 hl.window_rule({ match = { class = "^(virt-manager)$" }, float = true })
 
 hl.window_rule({
-    name = "pip",
-    match = { title = "^([Pp]icture-[iI]n-[Pp]icture)$" },
-    float = true,
-    center = true,
-    size = { 800, 600 },
+	name = "pip",
+	match = { title = "^([Pp]icture-[iI]n-[Pp]icture)$" },
+	float = true,
+	center = true,
+	size = { 800, 600 },
 })
 
 hl.window_rule({
-    name = "copyq",
-    match = { class = "^(com.github.hluk.copyq)$" },
-    float = true,
-    pin = true,
-    size = { 550, 600 },
-    center = true,
+	name = "copyq",
+	match = { class = "^(com.github.hluk.copyq)$" },
+	float = true,
+	pin = true,
+	size = { 550, 600 },
+	center = true,
 })
 
 -- Bring the polkit agent up to the top layer
 hl.window_rule({
-    name = "hyprpolkitagent",
-    match = { class = "^(hyprpolkitagent)$" },
-    pin = true,
-    center = true,
-    float = true,
-    focus_on_activate = true,
-    stay_focused = true,
-    animation = "popin",
-    dim_around = true,
+	name = "hyprpolkitagent",
+	match = { class = "^(hyprpolkitagent)$" },
+	pin = true,
+	center = true,
+	float = true,
+	focus_on_activate = true,
+	stay_focused = true,
+	animation = "popin",
+	dim_around = true,
 })
 
 -- Gnome calculator
 hl.window_rule({
-    name = "calculator",
-    match = { class = "^(org.gnome.Calculator)$" },
-    center = true,
-    float = true,
-    focus_on_activate = true,
-    size = { "window_w/6", "window_h*0.5" },
-    -- min_size / max_size take a plain vec2 ({ 800, 600 }), not expressions, so
-    -- the old `(window_w/6) (window_h*0.5)` values are dropped rather than
-    -- kept as a permanent type error. Put concrete pixels here to pin the size.
+	name = "calculator",
+	match = { class = "^(org.gnome.Calculator)$" },
+	center = true,
+	float = true,
+	focus_on_activate = true,
+	size = { "window_w/6", "window_h*0.5" },
+	-- min_size / max_size take a plain vec2 ({ 800, 600 }), not expressions, so
+	-- the old `(window_w/6) (window_h*0.5)` values are dropped rather than
+	-- kept as a permanent type error. Put concrete pixels here to pin the size.
 })
 
 ------------------
@@ -512,32 +547,32 @@ hl.window_rule({ match = { class = "^(exiled-exchange-2)$" }, no_blur = true })
 -- Floating based on roles/types
 ------------------
 hl.window_rule({
-    match = { title = "^(File Operation Progress)$" },
-    float = true,
-    border_color = "rgb(000000)", -- closest to border pixel 1
-    pin = true,
-    size = { "monitor_w*0.4", "monitor_h*0.3" },
+	match = { title = "^(File Operation Progress)$" },
+	float = true,
+	border_color = "rgb(000000)", -- closest to border pixel 1
+	pin = true,
+	size = { "monitor_w*0.4", "monitor_h*0.3" },
 })
 hl.window_rule({
-    match = { title = "^(File Upload)$" },
-    float = true,
-    border_color = "rgb(000000)", -- closest to border pixel 1
-    pin = true,
-    size = { "monitor_w*0.4", "monitor_h*0.3" },
+	match = { title = "^(File Upload)$" },
+	float = true,
+	border_color = "rgb(000000)", -- closest to border pixel 1
+	pin = true,
+	size = { "monitor_w*0.4", "monitor_h*0.3" },
 })
 hl.window_rule({
-    name = "center-floating-windows",
-    match = { float = true, xwayland = false, title = "negative:^(menu)$" },
-    center = true,
+	name = "center-floating-windows",
+	match = { float = true, xwayland = false, title = "negative:^(menu)$" },
+	center = true,
 })
 
 -- Portal dialogs (GTK file chooser used by Vivaldi downloads/uploads, etc).
 -- These report as xwayland so center-floating-windows above skips them.
 hl.window_rule({
-    name = "portal-dialogs",
-    match = { class = "^([Xx]dg-desktop-portal-gtk)$" },
-    float = true,
-    center = true,
+	name = "portal-dialogs",
+	match = { class = "^([Xx]dg-desktop-portal-gtk)$" },
+	float = true,
+	center = true,
 })
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
@@ -545,15 +580,15 @@ hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
 -- VICINAE
 hl.layer_rule({
-    name = "vicinae-blur",
-    match = { namespace = "vicinae" },
-    blur = true,
-    ignore_alpha = 0,
+	name = "vicinae-blur",
+	match = { namespace = "vicinae" },
+	blur = true,
+	ignore_alpha = 0,
 })
 
 -- disable animation for vicinae only
 hl.layer_rule({
-    name = "vicinae-no-animation",
-    match = { namespace = "vicinae" },
-    no_anim = true,
+	name = "vicinae-no-animation",
+	match = { namespace = "vicinae" },
+	no_anim = true,
 })
