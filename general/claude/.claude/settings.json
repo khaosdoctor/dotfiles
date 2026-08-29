@@ -165,17 +165,6 @@
             "statusMessage": "Checking branch freshness before push..."
           }
         ]
-      },
-      {
-        "matcher": "Write|Edit|NotebookEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$HOME/.claude/bin/ban-words.py\"",
-            "timeout": 10,
-            "statusMessage": "Checking for banned words..."
-          }
-        ]
       }
     ],
     "SessionStart": [
