@@ -61,25 +61,26 @@ hl.on("hyprland.start", function()
 		"systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS"
 	)
 
+	hl.exec_cmd("systemctl --user start hyprpolkitagent")
+
 	-- Start Fcitx5 input method daemon
 	hl.exec_cmd("fcitx5 -d")
 
 	-- Overall app drawer launchpad
 	hl.exec_cmd("nwg-drawer -r")
 
-	-- Start 1P
-	hl.exec_cmd("1password")
-
 	-- Start easyEffects for EQ
 	hl.exec_cmd("flatpak run com.github.wwmm.easyeffects -w --service-mode")
 
 	hl.exec_cmd("tailscale-systray")
-	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("systemctl --user start graphical-session-apps.target")
 	hl.exec_cmd("uwsm app -- copyq --start-server")
 	-- Slideshow for wallpapers
 	hl.exec_cmd(os.getenv("HOME") .. "/.config/waypaper/slideshow.sh")
 	hl.exec_cmd("handy --start-hidden")
+
+	-- Start 1P last, after polkit + keyring prompt are done
+	hl.exec_cmd("1password")
 end)
 
 -------------------------------
@@ -332,7 +333,8 @@ hl.define_submap("system", function()
 	-- `poweroff -ff` because the normal path crashes the CPU during device teardown and the
 	-- board resets instead of entering S5. See the 2026-08-30 devlog in AI Brainz.
 	-- -ff never signals a process, never unmounts and never syncs, so do those by hand first.
-	-- Each step is a separate sudo call so /etc/sudoers.d/50-poweroff can match simple commands.
+	-- sudo is fine here: /etc/sudoers.d/00_khaosdoctor grants NOPASSWD:ALL, and Hyprland's exec
+	-- runs the string through a shell, so the `;` chain works with no tty and no askpass.
 	-- Network and NTFS mounts go by type, since none of those can ever be the root filesystem.
 	-- The two local data volumes go by path: `-a -t ext4` would try `/` and just fail.
 	-- Root stays mounted; it is ext4, so it replays its journal on the next boot.
@@ -341,7 +343,7 @@ hl.define_submap("system", function()
 		"Q",
 		hl.dsp.exec_cmd(
 			"sudo sync; "
-				.. "sudo umount -a -t nfs4,fuse.sshfs,fuse.rclone,fuseblk; "
+				.. "sudo umount -a -t nfs4,fuse.sshfs,fuse.rclone,fuseblk,ext4; "
 				.. "sudo sync; "
 				.. "sudo systemctl poweroff -ff"
 		),
