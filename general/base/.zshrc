@@ -140,3 +140,6 @@ fi
 
 fpath+=~/.zfunc
 
+
+# bun completions
+[ -s "/Users/khaosdoctor/.bun/_bun" ] && source "/Users/khaosdoctor/.bun/_bun"
