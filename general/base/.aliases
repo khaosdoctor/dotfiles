@@ -109,7 +109,7 @@ fi
 
 # Darwin only
 if [[ "$(uname -s)" == "Darwin" ]]; then
-
+    alias sudoedit='sudo -e'
     if [ -x "$(command -v log)" ]; then
         alias tmlogs="log show --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
         alias tmstream="log stream --predicate 'subsystem == \"com.apple.TimeMachine\"' --info"
