@@ -108,7 +108,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -195,6 +195,16 @@
             "timeout": 10
           }
         ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=\"$HOME/.claude/skills/avoid-tropes/SKILL.md\"; [ -f \"$f\" ] && { echo \"AVOID-TROPES ACTIVE - these writing rules apply to every response this session, including replies to the user:\"; cat \"$f\"; } || true",
+            "timeout": 10
+          }
+        ]
       }
     ]
   },
@@ -215,7 +225,8 @@
     "teach-me@hemnet": false,
     "playwright@claude-plugins-official": true,
     "obsidian-second-brain@obsidian-second-brain": true,
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "cloudflare@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
