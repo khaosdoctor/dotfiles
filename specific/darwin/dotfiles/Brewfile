@@ -212,12 +212,12 @@ brew "yamllint"
 brew "yazi"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-# The AI coding agent built for the terminal.
-brew "anomalyco/tap/opencode", trusted: true
-# A TUI tool to explore container images
-brew "knqyf263/sou/sou", trusted: true
-# Lightweight AI assistant for your terminal
-brew "matheusml/zsh-ai/zsh-ai"
+# Agent for Beszel, a lightweight server monitoring platform.
+brew "henrygd/beszel/beszel-agent"
+# Everything you need to get started with Heroku
+brew "heroku/brew/heroku", trusted: true
+# Command line tool for displaying images in the terminal
+brew "hilli/tap/icat", trusted: true
 # Pluggable tool to enforce Protocol Buffer style and conventions
 brew "yoheimuta/protolint/protolint", trusted: true
 # Command-line interface for 1Password
@@ -270,8 +270,9 @@ cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
-mas "Keynote", id: 409183694
-mas "Slack", id: 803453959
+mas "Numbers", id: 409203825
+mas "Tailscale", id: 1475387142
+mas "Xcode", id: 497799835
 vscode "albymor.increment-selection"
 vscode "alefragnani.bookmarks"
 vscode "alexcvzz.vscode-sqlite"
