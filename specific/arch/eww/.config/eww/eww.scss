@@ -1,0 +1,117 @@
+// ── Global ───────────────────────────────────────────────
+
+* {
+  all: unset;
+}
+
+window {
+  background-color: transparent;
+}
+
+
+// ── Weather widget ────────────────────────────────────────
+
+$shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 0, 0, 0.2);
+
+.weather {
+  margin-top: 8px;
+}
+
+.weather-icon {
+  font-size: 36px;
+  text-shadow: $shadow;
+}
+
+.weather-temp {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+}
+
+.weather-freezing { color: #93c5fd; }
+.weather-cold    { color: #7dd3fc; }
+.weather-mild    { color: #fde68a; }
+.weather-warm    { color: #fdba74; }
+.weather-hot     { color: #fca5a5; }
+
+.weather-feels {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+}
+
+.weather-desc {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+}
+
+.weather-location {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+  margin-bottom: 4px;
+}
+
+.weather-pill {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 0px 8px;
+  text-shadow: $shadow;
+}
+
+.weather-pill-cold {
+  color: #93c5fd;
+}
+
+.weather-pill-hot {
+  color: #fca5a5;
+}
+
+// ── Cava visualizer ────────────────────────────────────────
+
+.cava-container {
+}
+
+.cava-bar {
+  border-radius: 1px;
+  min-height: 2px;
+}
+
+
+// ── Clock widget ──────────────────────────────────────────
+
+.clock-container {
+  background-color: transparent;
+}
+
+.clock-time {
+  font-size: 280px;
+  font-weight: 700;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+  margin-top: -70px;
+}
+
+.clock-date {
+  font-size: 45px;
+  font-weight: 400;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  font-style: italic;
+  margin-top: -40px;
+  text-shadow: $shadow;
+}

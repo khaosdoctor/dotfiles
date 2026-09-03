@@ -1,0 +1,132 @@
+; ── Weather widget ────────────────────────────────────────
+; Poll frequency: change "900s" below to adjust (e.g. "300s" for 5 min)
+
+(defpoll weather-icon     :interval "900s" `~/.config/eww/scripts/weather.sh icon`)
+(defpoll weather-temp     :interval "900s" `~/.config/eww/scripts/weather.sh temp`)
+(defpoll weather-min      :interval "900s" `~/.config/eww/scripts/weather.sh min`)
+(defpoll weather-max      :interval "900s" `~/.config/eww/scripts/weather.sh max`)
+(defpoll weather-feels    :interval "900s" `~/.config/eww/scripts/weather.sh feels`)
+(defpoll weather-humidity :interval "900s" `~/.config/eww/scripts/weather.sh humidity`)
+(defpoll weather-wind     :interval "900s" `~/.config/eww/scripts/weather.sh wind`)
+(defpoll weather-desc     :interval "900s" `~/.config/eww/scripts/weather.sh desc`)
+(defpoll weather-color    :interval "900s" `~/.config/eww/scripts/weather.sh color`)
+
+(defwidget weather-inline []
+  (box
+    :class "weather"
+    :orientation "h"
+    :space-evenly false
+    :halign "center"
+    :spacing 12
+    :valign "center"
+    (box
+      :orientation "v"
+      :space-evenly false
+      (label
+        :class "weather-icon"
+        :valign "end"
+        :text weather-icon)
+      (label
+        :class "weather-desc"
+        :text weather-desc))
+    (box
+      :orientation "v"
+      :space-evenly false
+      (label
+        :class "weather-temp weather-${weather-color}"
+        :valign "end"
+        :text weather-temp)
+      (label
+        :class "weather-feels"
+        :text {"feels ${weather-feels}"}))
+    (box
+      :class "weather-pill"
+      :orientation "h"
+      :space-evenly false
+      :spacing 6
+      :valign "center"
+      (label
+        :class "weather-pill-cold"
+        :text {"❄️ ${weather-min}"})
+      (label
+        :text "/")
+      (label
+        :class "weather-pill-hot"
+        :text {"🔥 ${weather-max}"}))
+    (label
+      :class "weather-pill"
+      :valign "center"
+      :text {"💧 ${weather-humidity}"})
+    (label
+      :class "weather-pill"
+      :valign "center"
+      :text {"💨 ${weather-wind}"})))
+
+; ── Clock widget ──────────────────────────────────────────
+
+(defpoll clock-time
+  :interval "1s"
+  `date '+%H:%M'`)
+
+(defpoll clock-date
+  :interval "60s"
+  `date '+%A, %d of %B %Y'`)
+
+(defwidget cava-vis []
+  (box
+    :class "cava-container"
+    :orientation "h"
+    :space-evenly true
+    :halign "center"
+    :width 700
+    :height 21
+    (for val in {cava-data ?: "[]"}
+      (box
+        :class "cava-bar"
+        :style "background-color: rgba(${cava-color},${val.o ?: '0.70'});"
+        :width 8
+        :height {val.v == 0 ? 2 : val.v * 3}
+        :valign "end"))))
+
+(defwidget clock []
+  (box
+    :class "clock-container"
+    :orientation "v"
+    :space-evenly false
+    :hexpand true
+    :valign "start"
+    (box :hexpand true (cava-vis))
+    (label
+      :class "clock-time"
+      :halign "center"
+      :hexpand true
+      :text clock-time)
+    (label
+      :class "clock-date"
+      :halign "center"
+      :hexpand true
+      :text clock-date)
+    (weather-inline)))
+
+(defwindow clock
+  :monitor 0
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :geometry (geometry
+    :x "0%"
+    :y "40px"
+    :width "100%"
+    :height "600px"
+    :anchor "top center")
+  (clock))
+
+; ── Cava visualizer ────────────────────────────────────────
+
+(deflisten cava-data
+  `~/.config/eww/scripts/cava-eww.sh`)
+
+(defpoll cava-color
+  :interval "900s"
+  :initial "194,194,197"
+  `~/.config/eww/scripts/cava-color.sh`)

@@ -1,0 +1,13 @@
+[Unit]
+Description=Eww desktop widgets
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=%h/.config/eww/launch.sh
+ExecStop=eww kill
+
+[Install]
+WantedBy=graphical-session.target
