@@ -22,20 +22,22 @@
     (box
       :orientation "v"
       :space-evenly false
-      (label
-        :class "weather-icon"
-        :valign "end"
-        :text weather-icon)
+      (box :height 54
+        (label
+          :class "weather-icon"
+          :valign "end"
+          :text weather-icon))
       (label
         :class "weather-desc"
         :text weather-desc))
     (box
       :orientation "v"
       :space-evenly false
-      (label
-        :class "weather-temp weather-${weather-color}"
-        :valign "end"
-        :text weather-temp)
+      (box :height 54
+        (label
+          :class "weather-temp weather-${weather-color}"
+          :valign "end"
+          :text weather-temp))
       (label
         :class "weather-feels"
         :text {"feels ${weather-feels}"}))
