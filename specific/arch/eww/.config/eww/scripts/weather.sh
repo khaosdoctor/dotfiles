@@ -51,4 +51,10 @@ case "$field" in
     elif [ "$t" -le 30 ] 2>/dev/null; then echo "warm"
     else echo "hot"
     fi ;;
+  humidity-icon)
+    h=$(jq -r '.current_condition[0].humidity' "$CACHE" 2>/dev/null)
+    if   [ "$h" -le 25 ] 2>/dev/null; then echo "🌵"
+    elif [ "$h" -le 60 ] 2>/dev/null; then echo "😊"
+    else echo "🥵"
+    fi ;;
 esac
