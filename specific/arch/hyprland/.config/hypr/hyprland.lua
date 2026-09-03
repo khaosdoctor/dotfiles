@@ -252,15 +252,15 @@ hl.config({
 -- See https://wiki.hypr.land/Configuring/Basics/Binds/
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
--- Clipboard Screenshots
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
-hl.bind(mainMod .. " + ALT + 3", hl.dsp.exec_cmd("hyprshot -z -m active -m output --clipboard-only"))
-hl.bind(mainMod .. " + ALT + 4", hl.dsp.exec_cmd("hyprshot -z -m region --clipboard-only"))
+-- Clipboard Screenshots (grimshot = grimblast wrapper with focus-restore workaround)
+hl.bind("PRINT", hl.dsp.exec_cmd("grimshot --freeze copy output"))
+hl.bind(mainMod .. " + ALT + 3", hl.dsp.exec_cmd("grimshot --freeze copy active"))
+hl.bind(mainMod .. " + ALT + 4", hl.dsp.exec_cmd("grimshot --freeze copy area"))
 
 -- File Screenshots
-hl.bind("CTRL + PRINT", hl.dsp.exec_cmd("hyprshot -z -m output -o ~/Pictures/Screenshots"))
-hl.bind(mainMod .. " + CTRL + 3", hl.dsp.exec_cmd("hyprshot -z -m active -m output -o ~/Pictures/Screenshots"))
-hl.bind(mainMod .. " + CTRL + 4", hl.dsp.exec_cmd("hyprshot -z -m region -o ~/Pictures/Screenshots"))
+hl.bind("CTRL + PRINT", hl.dsp.exec_cmd("grimshot --freeze copysave output ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
+hl.bind(mainMod .. " + CTRL + 3", hl.dsp.exec_cmd("grimshot --freeze copysave active ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
+hl.bind(mainMod .. " + CTRL + 4", hl.dsp.exec_cmd("grimshot --freeze copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
 
 -- SwayNC Notification center
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
@@ -578,6 +578,12 @@ hl.window_rule({
 })
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
+
+-- eww widgets: no focus, no input
+hl.layer_rule({
+	match = { namespace = "eww*" },
+	no_anim = true,
+})
 -- hl.layer_rule({ match = { namespace = "nwg-drawer" }, blur = true })  -- disabled: causes freeze when searching
 
 -- VICINAE

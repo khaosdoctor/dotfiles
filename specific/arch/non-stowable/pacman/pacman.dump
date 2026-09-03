@@ -19,6 +19,7 @@ btop
 btrfs-assistant
 btrfs-heatmap
 btrfs-progs
+cava
 ccache
 clang
 claude-code
@@ -65,6 +66,7 @@ elephant-windows
 entr
 ethtool
 evince
+eww
 eza
 fastfetch
 fcitx5
@@ -94,6 +96,7 @@ gnome-logs
 gnome-text-editor
 gparted
 grim
+grimblast-git
 grub
 gst-plugin-pipewire
 gvfs
@@ -116,7 +119,6 @@ hyprlock
 hyprls-git
 hyprpaper
 hyprpolkitagent
-hyprshot
 hyprutils
 ibus
 icoutils
@@ -305,6 +307,7 @@ xdg-utils
 xorg-xhost
 yay
 yazi
+ydotool
 zapzap
 zed
 zellij
