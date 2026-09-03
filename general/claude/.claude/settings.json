@@ -110,19 +110,7 @@
   },
   "model": "claude-opus-4-6",
   "hooks": {
-    "UserPromptSubmit": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "python3 \"$HOME/.claude/bin/ban-words.py\"",
-            "timeout": 10,
-            "statusMessage": "Loading banned words..."
-          }
-        ]
-      }
-    ],
+    "UserPromptSubmit": [],
     "PostCompact": [
       {
         "matcher": "",
