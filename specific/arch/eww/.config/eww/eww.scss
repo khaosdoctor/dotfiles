@@ -14,11 +14,11 @@ window {
 $shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 0, 0, 0.2);
 
 .weather {
-  margin-top: 8px;
+  margin-top: 32px;
 }
 
 .weather-icon {
-  font-size: 36px;
+  font-size: 32px;
   text-shadow: $shadow;
 }
 
@@ -27,6 +27,7 @@ $shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 0, 0, 0.2);
   font-weight: 700;
   font-family: "Inter", "Cantarell", sans-serif;
   color: #ffffff;
+  min-height: 54px;
   text-shadow: $shadow;
 }
 
@@ -66,7 +67,7 @@ $shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 16px rgba(0, 0, 0, 0.2);
   font-weight: 600;
   font-family: "Inter", "Cantarell", sans-serif;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   padding: 0px 8px;
   text-shadow: $shadow;
