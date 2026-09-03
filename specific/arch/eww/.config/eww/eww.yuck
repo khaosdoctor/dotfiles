@@ -10,6 +10,7 @@
 (defpoll weather-wind     :interval "900s" `~/.config/eww/scripts/weather.sh wind`)
 (defpoll weather-desc     :interval "900s" `~/.config/eww/scripts/weather.sh desc`)
 (defpoll weather-color    :interval "900s" `~/.config/eww/scripts/weather.sh color`)
+(defpoll weather-hicon   :interval "900s" `~/.config/eww/scripts/weather.sh humidity-icon`)
 
 (defwidget weather-inline []
   (box
@@ -42,27 +43,29 @@
         :class "weather-feels"
         :text {"feels ${weather-feels}"}))
     (box
-      :class "weather-pill"
-      :orientation "h"
+      :orientation "v"
       :space-evenly false
-      :spacing 6
-      :valign "center"
+      :spacing 4
+      :valign "end"
+      (box
+        :class "weather-pill"
+        :orientation "h"
+        :space-evenly false
+        :spacing 6
+        (label
+          :class "weather-pill-cold"
+          :text {"❄️ ${weather-min}"})
+        (label
+          :text "/")
+        (label
+          :class "weather-pill-hot"
+          :text {"🔥 ${weather-max}"}))
       (label
-        :class "weather-pill-cold"
-        :text {"❄️ ${weather-min}"})
+        :class "weather-pill"
+        :text {"💧 ${weather-humidity}   |   ${weather-hicon}"})
       (label
-        :text "/")
-      (label
-        :class "weather-pill-hot"
-        :text {"🔥 ${weather-max}"}))
-    (label
-      :class "weather-pill"
-      :valign "center"
-      :text {"💧 ${weather-humidity}"})
-    (label
-      :class "weather-pill"
-      :valign "center"
-      :text {"💨 ${weather-wind}"})))
+        :class "weather-pill"
+        :text {"💨 ${weather-wind}"}))))
 
 ; ── Clock widget ──────────────────────────────────────────
 
