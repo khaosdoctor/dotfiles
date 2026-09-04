@@ -118,6 +118,31 @@ $shadow-heavy: 0 1px 4px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.7), 0 0 14p
   text-shadow: $shadow;
 }
 
+// ── Clock + Date (DP-2) ──────────────────────────────────
+
+.clock-dp2-container {
+  background-color: transparent;
+}
+
+.clock-dp2-time {
+  font-size: 160px;
+  font-weight: 700;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  text-shadow: $shadow;
+  margin-top: -40px;
+}
+
+.clock-dp2-date {
+  font-size: 28px;
+  font-weight: 400;
+  font-family: "Inter", "Cantarell", sans-serif;
+  color: #ffffff;
+  font-style: italic;
+  margin-top: -24px;
+  text-shadow: $shadow;
+}
+
 // ── Now Playing ──────────────────────────────────────────
 
 .np {

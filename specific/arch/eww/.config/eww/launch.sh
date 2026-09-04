@@ -4,3 +4,6 @@ sleep 0.5
 eww daemon
 sleep 1
 eww open clock
+eww open clock-dp2
+eww open now-playing
+eww open sysmon

@@ -125,6 +125,39 @@
     :anchor "top center")
   (clock))
 
+; ── Clock + Date (DP-2) ───────────────────────────────────
+
+(defwidget clock-dp2 []
+  (box
+    :class "clock-dp2-container"
+    :orientation "v"
+    :space-evenly false
+    :hexpand true
+    :valign "start"
+    (label
+      :class "clock-dp2-time"
+      :halign "center"
+      :hexpand true
+      :text clock-time)
+    (label
+      :class "clock-dp2-date"
+      :halign "center"
+      :hexpand true
+      :text clock-date)))
+
+(defwindow clock-dp2
+  :monitor 1
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :geometry (geometry
+    :x "0%"
+    :y "40px"
+    :width "100%"
+    :height "500px"
+    :anchor "top center")
+  (clock-dp2))
+
 ; ── Cava visualizer ────────────────────────────────────────
 
 (deflisten cava-data
@@ -211,7 +244,7 @@
   :focusable false
   :geometry (geometry
     :x "0%"
-    :y "60px"
+    :y "-90px"
     :width "500px"
     :height "200px"
     :anchor "bottom center")
@@ -321,8 +354,8 @@
   :exclusive false
   :focusable false
   :geometry (geometry
-    :x "-45px"
-    :y "-20px"
+    :x "-70px"
+    :y "-15px"
     :width "400px"
     :height "170px"
     :anchor "bottom right")
