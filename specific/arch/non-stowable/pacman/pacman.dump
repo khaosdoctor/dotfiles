@@ -87,6 +87,7 @@ ghostty
 git
 git-lfs
 github-cli
+glab
 gnome-calculator
 gnome-characters
 gnome-disk-utility
@@ -151,7 +152,6 @@ lshw
 lsix
 luarocks
 makedumpfile
-mako
 man-db
 mangohud
 mdformat
