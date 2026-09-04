@@ -83,14 +83,14 @@
     :orientation "h"
     :space-evenly true
     :halign "center"
-    :width 700
-    :height 21
+    :hexpand true
+    :height 28
     (for val in {cava-data ?: "[]"}
       (box
         :class "cava-bar"
         :style "background-color: rgba(${cava-color},${val.o ?: '0.70'});"
         :width 8
-        :height {val.v == 0 ? 2 : val.v * 3}
+        :height {val.v == 0 ? 2 : val.v * 4}
         :valign "end"))))
 
 (defwidget clock []
@@ -100,7 +100,6 @@
     :space-evenly false
     :hexpand true
     :valign "start"
-    (box :hexpand true (cava-vis))
     (label
       :class "clock-time"
       :halign "center"
@@ -135,3 +134,196 @@
   :interval "900s"
   :initial "194,194,197"
   `~/.config/eww/scripts/cava-color.sh`)
+
+; ── Now Playing ───────────────────────────────────────────
+
+(defpoll np-status :interval "2s" :initial "Stopped" `playerctl status 2>/dev/null || echo "Stopped"`)
+(defpoll np-title  :interval "2s" `~/.config/eww/scripts/now-playing.sh title`)
+(defpoll np-artist :interval "2s" `~/.config/eww/scripts/now-playing.sh artist`)
+(defpoll np-album  :interval "2s" `~/.config/eww/scripts/now-playing.sh album`)
+(defpoll np-icon   :interval "2s" `~/.config/eww/scripts/now-playing.sh icon`)
+(defpoll np-art      :interval "5s"  `~/.config/eww/scripts/now-playing.sh art-path`)
+(defpoll np-progress :interval "2s" :initial "0" `~/.config/eww/scripts/now-playing.sh progress`)
+(defpoll np-time     :interval "2s" `~/.config/eww/scripts/now-playing.sh time-str`)
+
+(defwidget now-playing []
+  (box
+    :class "np"
+    :orientation "v"
+    :space-evenly false
+    :halign "center"
+    :visible {np-title != ""}
+    (box :width 420 :height 21 (cava-vis))
+    (box
+      :orientation "h"
+      :space-evenly false
+      :spacing 10
+      (box
+        :width 48
+        :height 48
+        :class "np-art-container"
+        (image
+          :visible {np-art != ""}
+          :path {np-art != "" ? np-art : "/home/khaosdoctor/.cache/eww-np-placeholder.png"}
+          :image-width 48
+          :image-height 48)
+        (label
+          :visible {np-art == ""}
+          :class "np-icon"
+          :text np-icon))
+      (box
+        :orientation "v"
+        :space-evenly false
+        :valign "center"
+        :width 350
+        (label
+          :class "np-title"
+          :halign "start"
+          :limit-width 45
+          :text np-title)
+        (box
+          :orientation "h"
+          :space-evenly false
+          (label
+            :class "np-artist"
+            :halign "start"
+            :limit-width 38
+            :text {np-album != "" ? "${np-artist} - ${np-album}" : np-artist})
+          (box :hexpand true)
+          (label
+            :class "np-time"
+            :halign "end"
+            :text np-time))
+        (overlay
+          :width 350
+          :height 4
+          (box :class "np-progress-bg" :width 350 :height 4)
+          (box
+            :class "np-progress-fill"
+            :halign "start"
+            :width {round((np-progress ?: 0) * 350 / 100, 0)}
+            :height 4))))))
+
+(defwindow now-playing
+  :monitor 0
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :geometry (geometry
+    :x "0%"
+    :y "60px"
+    :width "500px"
+    :height "200px"
+    :anchor "bottom center")
+  (now-playing))
+
+; ── System Monitor ────────────────────────────────────────
+
+(defpoll sys-cpu       :interval "3s"  :initial "0" `~/.config/eww/scripts/sysmon.sh cpu`)
+(defpoll sys-cpu-temp  :interval "5s"  :initial "0" `~/.config/eww/scripts/sysmon.sh cpu-temp-num`)
+(defpoll sys-ram       :interval "5s"  :initial "0" `~/.config/eww/scripts/sysmon.sh ram`)
+(defpoll sys-gpu       :interval "3s"  :initial "0" `~/.config/eww/scripts/sysmon.sh gpu`)
+(defpoll sys-gpu-temp  :interval "5s"  :initial "0" `~/.config/eww/scripts/sysmon.sh gpu-temp-num`)
+(defpoll sys-disk      :interval "30s" :initial "0" `~/.config/eww/scripts/sysmon.sh disk`)
+(defpoll sys-net-name  :interval "10s" `~/.config/eww/scripts/sysmon.sh net-name`)
+(defpoll sys-net-down  :interval "3s"  `~/.config/eww/scripts/sysmon.sh net-down`)
+(defpoll sys-net-up    :interval "3s"  `~/.config/eww/scripts/sysmon.sh net-up`)
+
+(defwidget sysmon-bar [label value ?temp]
+  (box
+    :class "sysmon-row"
+    :orientation "h"
+    :space-evenly false
+    :spacing 6
+    (label
+      :class "sysmon-label"
+      :width 70
+      :halign "start"
+      :text label)
+    (overlay
+      :width 140
+      :height 14
+      (box
+        :class "sysmon-bar-bg"
+        :width 140
+        :height 14)
+      (box
+        :class "sysmon-bar-fill"
+        :halign "start"
+        :width {round((value ?: 0) * 140 / 100, 0)}
+        :height 14
+        :style {"background-color: ${(value ?: 0) < 30 ? 'rgba(134,239,172,0.7)' : (value ?: 0) < 60 ? 'rgba(253,224,71,0.7)' : (value ?: 0) < 85 ? 'rgba(251,146,60,0.7)' : 'rgba(248,113,113,0.8)'};"})
+      (label
+        :class "sysmon-bar-text"
+        :text {"${value ?: 0}%"}))
+    (box
+      :visible {temp != ""}
+      :width 50
+      :height 14
+      (overlay
+        :width 50
+        :height 14
+        (box
+          :class "sysmon-bar-bg"
+          :width 50
+          :height 14)
+        (box
+          :class "sysmon-bar-fill"
+          :halign "start"
+          :width {round((temp ?: 0) * 50 / 100, 0)}
+          :height 14
+          :style {"background-color: ${(temp ?: 0) < 50 ? 'rgba(147,197,253,0.7)' : (temp ?: 0) < 70 ? 'rgba(134,239,172,0.7)' : (temp ?: 0) < 85 ? 'rgba(251,146,60,0.7)' : 'rgba(248,113,113,0.8)'};"})
+        (label
+          :class "sysmon-bar-text"
+          :text {"🌡️${temp ?: 0}°"})))))
+
+(defwidget sysmon []
+  (box
+    :class "sysmon"
+    :orientation "v"
+    :space-evenly false
+    :spacing 6
+    :halign "start"
+    (sysmon-bar
+      :label "🖥️ CPU"
+      :value sys-cpu
+      :temp sys-cpu-temp)
+    (sysmon-bar
+      :label "🧠 RAM"
+      :value sys-ram)
+    (sysmon-bar
+      :label "🎮 GPU"
+      :value sys-gpu
+      :temp sys-gpu-temp)
+    (sysmon-bar
+      :label "💾 Disk"
+      :value sys-disk)
+    (box
+      :class "sysmon-net"
+      :orientation "h"
+      :space-evenly false
+      :spacing 6
+      (label
+        :class "sysmon-label"
+        :width 70
+        :halign "start"
+        :text {"🌐 ${sys-net-name}"})
+      (label
+        :class "sysmon-net-down sysmon-net-pill"
+        :text {"↓ ${sys-net-down == '0 KB/s' ? '-' : sys-net-down}"})
+      (label
+        :class "sysmon-net-up sysmon-net-pill"
+        :text {"↑ ${sys-net-up == '0 KB/s' ? '-' : sys-net-up}"}))))
+
+(defwindow sysmon
+  :monitor 0
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :geometry (geometry
+    :x "-45px"
+    :y "-20px"
+    :width "400px"
+    :height "170px"
+    :anchor "bottom right")
+  (sysmon))
