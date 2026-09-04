@@ -268,7 +268,7 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd('hyprctl reload && notify-send "Notice" "Hyprland was reloaded"'))
-hl.bind(mainMod .. " + ALT + SPACE", hl.dsp.exec_cmd(fileManager))
+hl.bind("CTRL + ALT + SPACE", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float())
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit")) -- dwindle
@@ -278,7 +278,7 @@ hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("vicinae vicinae://launch/clipb
 hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.exec_cmd("walker --maxheight 300 --width 800 -m windows"))
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("copyq show"))
 hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
-hl.bind("ALT + CTRL + SPACE", hl.dsp.exec_cmd("1password --quick-access"))
+hl.bind("ALT + " .. mainMod .. " + SPACE", hl.dsp.exec_cmd("1password --quick-access"))
 hl.bind("ALT + SHIFT + D", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/handy-toggle"))
 hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("nwg-drawer"))
 

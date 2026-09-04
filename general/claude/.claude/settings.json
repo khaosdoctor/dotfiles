@@ -214,7 +214,8 @@
     "playwright@claude-plugins-official": true,
     "obsidian-second-brain@obsidian-second-brain": true,
     "i-have-adhd@i-have-adhd": true,
-    "cloudflare@claude-plugins-official": true
+    "cloudflare@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
