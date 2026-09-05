@@ -188,7 +188,6 @@ onnxruntime-rocm
 opencode
 openrazer-daemon
 openrgb
-orca-slicer-bin
 os-prober
 overskride
 pacman-contrib
@@ -272,7 +271,6 @@ usbutils
 uv
 uwsm
 v4l-utils-git
-vesktop-bin
 vicinae-bin
 vim
 virt-manager
