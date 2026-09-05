@@ -459,7 +459,7 @@ hl.window_rule({
 hl.window_rule({
 	name = "terminals",
 	match = { class = "^(rio|kitty|com.mitchellh.ghostty)$" },
-	size = { 800, 600 },
+	size = { 1200, 830 },
 	focus_on_activate = true,
 	float = true,
 	animation = "gnomed",
@@ -478,6 +478,27 @@ hl.window_rule({
 })
 
 hl.window_rule({ match = { class = "^(virt-manager)$" }, float = true })
+
+-- App categories: add a class to a list below to apply that category's rule to it.
+local app_categories = {
+	float_center = {
+		"nemo",
+		"org.pulseaudio.pavucontrol",
+		"nm-connection-editor",
+		"gparted",
+		"io.missioncenter.MissionCenter",
+		"btrfs-assistant",
+		"org.qbittorrent.qBittorrent",
+		"FreeFileSync",
+		"com.github.wwmm.easyeffects",
+	},
+}
+
+hl.window_rule({
+	match = { class = "^(" .. table.concat(app_categories.float_center, "|") .. ")$" },
+	float = true,
+	center = true,
+})
 
 hl.window_rule({
 	name = "pip",
@@ -529,6 +550,15 @@ hl.window_rule({ match = { class = "^(com.rtosta.zapzap)$" }, workspace = "2" })
 hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, workspace = "2" })
 hl.window_rule({ match = { class = "^(discord)$" }, workspace = "2" })
 hl.window_rule({ match = { class = "^(vivaldi-stable)$" }, workspace = "1" })
+hl.window_rule({ match = { class = "^(BambuStudio)$" }, workspace = "1" })
+hl.window_rule({ match = { class = "^(com.tibia.Tibia)$" }, workspace = "3" })
+
+hl.window_rule({
+	name = "steam",
+	match = { class = "^(steam)$" },
+	float = true,
+	workspace = "special silent",
+})
 
 ---------------
 -- STEAM GAMES
