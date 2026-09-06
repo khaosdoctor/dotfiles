@@ -108,7 +108,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-opus-4-6",
+  "model": "opus",
   "hooks": {
     "UserPromptSubmit": [],
     "PostCompact": [
@@ -215,7 +215,12 @@
     "obsidian-second-brain@obsidian-second-brain": true,
     "i-have-adhd@i-have-adhd": true,
     "cloudflare@claude-plugins-official": true,
-    "gitlab@claude-plugins-official": true
+    "gitlab@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "serena@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
