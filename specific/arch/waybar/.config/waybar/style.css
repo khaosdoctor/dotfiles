@@ -20,6 +20,17 @@
   font-weight: bold;
 }
 
+menu {
+  min-width: 150px;
+  padding: 4px 0;
+  background-color: @background;
+}
+
+menu menuitem {
+  min-height: 24px;
+  padding: 4px 12px;
+}
+
 #custom-notification {
   font-family: "NotoSansMono Nerd Font";
 }
