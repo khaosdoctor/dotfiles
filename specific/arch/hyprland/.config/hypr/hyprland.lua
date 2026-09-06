@@ -258,9 +258,18 @@ hl.bind(mainMod .. " + ALT + 3", hl.dsp.exec_cmd("grimshot --freeze copy active"
 hl.bind(mainMod .. " + ALT + 4", hl.dsp.exec_cmd("grimshot --freeze copy area"))
 
 -- File Screenshots
-hl.bind("CTRL + PRINT", hl.dsp.exec_cmd("grimshot --freeze copysave output ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
-hl.bind(mainMod .. " + CTRL + 3", hl.dsp.exec_cmd("grimshot --freeze copysave active ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
-hl.bind(mainMod .. " + CTRL + 4", hl.dsp.exec_cmd("grimshot --freeze copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png"))
+hl.bind(
+	"CTRL + PRINT",
+	hl.dsp.exec_cmd("grimshot --freeze copysave output ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png")
+)
+hl.bind(
+	mainMod .. " + CTRL + 3",
+	hl.dsp.exec_cmd("grimshot --freeze copysave active ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png")
+)
+hl.bind(
+	mainMod .. " + CTRL + 4",
+	hl.dsp.exec_cmd("grimshot --freeze copysave area ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H%M%S).png")
+)
 
 -- SwayNC Notification center
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
@@ -498,6 +507,7 @@ hl.window_rule({
 	match = { class = "^(" .. table.concat(app_categories.float_center, "|") .. ")$" },
 	float = true,
 	center = true,
+	size = { 1200, 830 },
 })
 
 hl.window_rule({
@@ -552,13 +562,6 @@ hl.window_rule({ match = { class = "^(discord)$" }, workspace = "2" })
 hl.window_rule({ match = { class = "^(vivaldi-stable)$" }, workspace = "1" })
 hl.window_rule({ match = { class = "^(BambuStudio)$" }, workspace = "1" })
 hl.window_rule({ match = { class = "^(com.tibia.Tibia)$" }, workspace = "3" })
-
-hl.window_rule({
-	name = "steam",
-	match = { class = "^(steam)$" },
-	float = true,
-	workspace = "special silent",
-})
 
 ---------------
 -- STEAM GAMES
