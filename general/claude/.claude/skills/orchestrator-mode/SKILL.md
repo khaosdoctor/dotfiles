@@ -95,9 +95,9 @@ own description, not a guess:
   project/data the other agents tell you. Be proactive: if you need more
   info, ask back; ping agents from time to time for status reports, and log
   those as ongoing developer logs. Do nothing beyond that." It writes only
-  via direct filesystem Read/Edit/Write into AI Brainz
-  (`~/Documents/Obsidian/AI Brainz`), never MCP tools for vault writes,
-  never the Default vault, never a scratch/memory buffer. It reads
+  via direct filesystem Read/Edit/Write into the AI Brainz vault, never MCP
+  tools for vault writes, never the Default vault, never a scratch/memory
+  buffer. Path varies per machine, locate it fresh if unknown. It reads
   `_CLAUDE.md` + `index.md` there first.
 
 Then, for the rest of the session:
