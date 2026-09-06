@@ -85,6 +85,9 @@
     :halign "center"
     :hexpand true
     :height 28
+    ; cava-color is otherwise only read inside the for-loop below, and eww does not
+    ; count that as demand, so its deflisten never starts. Naming it here does.
+    :style "color: rgba(${cava-color},1);"
     (for val in {cava-data ?: "[]"}
       (box
         :class "cava-bar"
@@ -163,21 +166,25 @@
 (deflisten cava-data
   `~/.config/eww/scripts/cava-eww.sh`)
 
-(defpoll cava-color
-  :interval "900s"
+; deflisten, not defpoll: defpoll holds :initial until the first tick, so a 900s
+; interval meant 15 minutes of the fallback grey after every restart.
+(deflisten cava-color
   :initial "194,194,197"
-  `~/.config/eww/scripts/cava-color.sh`)
+  `~/.config/eww/scripts/cava-color.sh watch`)
 
 ; ── Now Playing ───────────────────────────────────────────
 
-(defpoll np-status :interval "2s" :initial "Stopped" `playerctl status 2>/dev/null || echo "Stopped"`)
-(defpoll np-title  :interval "2s" `~/.config/eww/scripts/now-playing.sh title`)
-(defpoll np-artist :interval "2s" `~/.config/eww/scripts/now-playing.sh artist`)
-(defpoll np-album  :interval "2s" `~/.config/eww/scripts/now-playing.sh album`)
-(defpoll np-icon   :interval "2s" `~/.config/eww/scripts/now-playing.sh icon`)
-(defpoll np-art      :interval "5s"  `~/.config/eww/scripts/now-playing.sh art-path`)
-(defpoll np-progress :interval "2s" :initial "0" `~/.config/eww/scripts/now-playing.sh progress`)
-(defpoll np-time     :interval "2s" `~/.config/eww/scripts/now-playing.sh time-str`)
+; playerctl --follow pushes a line on every metadata change, so the track fields
+; need no polling and no cache, they are correct the moment the daemon starts.
+(deflisten np
+  :initial '{"status":"Stopped","title":"","artist":"","album":"","icon":"⏹","art":""}'
+  `~/.config/eww/scripts/now-playing.sh listen`)
+
+; position is the one thing nothing pushes an event for, it moves with the clock
+(defpoll np-pos
+  :interval "2s"
+  :initial '{"progress":0,"time":""}'
+  `~/.config/eww/scripts/now-playing.sh position`)
 
 (defwidget now-playing []
   (box
@@ -185,7 +192,7 @@
     :orientation "v"
     :space-evenly false
     :halign "center"
-    :visible {np-title != ""}
+    :visible {np.title != ""}
     (box :width 420 :height 21 (cava-vis))
     (box
       :orientation "h"
@@ -196,14 +203,14 @@
         :height 48
         :class "np-art-container"
         (image
-          :visible {np-art != ""}
-          :path {np-art != "" ? np-art : "/home/khaosdoctor/.cache/eww-np-placeholder.png"}
+          :visible {np.art != ""}
+          :path {np.art != "" ? np.art : "/home/khaosdoctor/.cache/eww-np-placeholder.png"}
           :image-width 48
           :image-height 48)
         (label
-          :visible {np-art == ""}
+          :visible {np.art == ""}
           :class "np-icon"
-          :text np-icon))
+          :text {np.icon}))
       (box
         :orientation "v"
         :space-evenly false
@@ -213,7 +220,7 @@
           :class "np-title"
           :halign "start"
           :limit-width 45
-          :text np-title)
+          :text {np.title})
         (box
           :orientation "h"
           :space-evenly false
@@ -221,12 +228,12 @@
             :class "np-artist"
             :halign "start"
             :limit-width 38
-            :text {np-album != "" ? "${np-artist} - ${np-album}" : np-artist})
+            :text {np.album != "" ? "${np.artist} - ${np.album}" : np.artist})
           (box :hexpand true)
           (label
             :class "np-time"
             :halign "end"
-            :text np-time))
+            :text {np-pos.time}))
         (overlay
           :width 350
           :height 4
@@ -234,11 +241,24 @@
           (box
             :class "np-progress-fill"
             :halign "start"
-            :width {round((np-progress ?: 0) * 350 / 100, 0)}
+            :width {round((np-pos.progress ?: 0) * 350 / 100, 0)}
             :height 4))))))
 
 (defwindow now-playing
   :monitor 0
+  :stacking "bottom"
+  :exclusive false
+  :focusable false
+  :geometry (geometry
+    :x "0%"
+    :y "-90px"
+    :width "500px"
+    :height "200px"
+    :anchor "bottom center")
+  (now-playing))
+
+(defwindow now-playing-dp2
+  :monitor 1
   :stacking "bottom"
   :exclusive false
   :focusable false
