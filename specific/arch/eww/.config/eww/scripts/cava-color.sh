@@ -1,6 +1,11 @@
 #!/bin/bash
 # Pick the pywal accent color (1-6) with highest contrast against background
 # Outputs comma-separated RGB: "R,G,B"
+# "watch" re-prints every 15 min, for eww to deflisten on
+if [[ "$1" == "watch" ]]; then
+  while :; do "$0"; sleep 900; done
+fi
+
 COLORS_FILE="$HOME/.cache/wal/colors.json"
 [[ ! -f "$COLORS_FILE" ]] && echo "194,194,197" && exit
 
