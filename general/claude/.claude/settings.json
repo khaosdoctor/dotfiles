@@ -108,7 +108,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "claude-opus-4-6",
   "hooks": {
     "UserPromptSubmit": [],
     "PostCompact": [
