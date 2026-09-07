@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+reveal=false
+app=""
+editor=false
+
+while getopts "Ra:te" opt; do
+    case $opt in
+    R) reveal=true ;;
+    a) app="$OPTARG" ;;
+    t) editor=true ;;
+    e) editor=true ;;
+    *) ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+for target in "${@:-.}"; do
+    if $reveal; then
+        # Open the parent directory with the file manager
+        xdg-open "$(dirname "$target")"
+    elif $editor; then
+        ${EDITOR:-xdg-open} "$target"
+    elif [[ -n "$app" ]]; then
+        "$app" "$target" &>/dev/null &
+    else
+        xdg-open "$target" &>/dev/null &
+    fi
+done
