@@ -188,6 +188,7 @@ onnxruntime-rocm
 opencode
 openrazer-daemon
 openrgb
+orca-slicer-bin
 os-prober
 overskride
 pacman-contrib
@@ -202,6 +203,7 @@ pipewire-jack
 pipewire-pulse
 playerctl
 posting
+proton-drive-fs-bin
 proton-vpn-cli
 proton-vpn-gtk-app
 pv
@@ -234,6 +236,7 @@ spotifyd
 sshfs
 steam
 stow
+strace
 swaync
 sws
 systemctl-tui
