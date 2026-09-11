@@ -11,24 +11,24 @@ Synthesized from the user's outgoing prose across casual chat, technical broadca
 HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
 HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
 LEX:🔴CANONICAL-MACHINE-LIST@(~/.claude/CLAUDE.md:BAN-W/BAN-P/BAN-R/BAN-X-lines)=single-source-of-truth→ADD-NEW-BANS-THERE-ONLY(🚫duplicate-here,🚫in-vault); parsed-by-hook(~/.claude/bin/ban-words.py@PreToolUse:Write|Edit→exit-2-blocks-the-write; chat-replies-🚫covered→self-check). lines-below=the-WHY+substitutions(prose-guidance-only)
-LEX:🚫🚫HARD-BAN-added-2026-08-05(user-corrected-with-emphasis:"do-NOT-in-ANY-circumstance")→applies-to-EVERY-surface-INCLUDING-plain-chat-replies-to-the-user-not-just-ghost-written-prose:
+LEX:hard-bans-below-apply-to-every-surface,including-plain-chat-replies-to-the-user,not-just-ghost-written-prose:
 LEX:🚫"gap"(∈"the-only-gap-I-left","coverage-gap")→▸name-the-missing-thing-directly("the-only-thing-I-didn't-do-is-X")
 LEX:🚫"gate"/"gated"/"gating"(∈"gated-behind-X")→▸"X-blocks-Y","Y-needs-X-first","waiting-on-X"
 LEX:🚫"sits"/"sit"(∈"where-the-project-sits-now")→▸"where-it-is-now","the-current-state-is"
 LEX:🚫"lands"/"land"/"landed"(delivery-sense:"the-project-lands-now","when-the-secrets-land")→▸"ships","takes-effect","arrives","once-you-have-them"
 LEX:🚫"it's-X-not-Y"-negated-contrast(∈"it's-your-call-not-mine")→▸stop-at-the-positive-half("it's-your-call"),🚫append-the-not-Y-clause
 LEX:🚫"cheap"(∈"cheap-to-answer","cheap-to-check")→▸"quick","fast","takes-a-second"
-LEX:🚫banned-words-NEVER-use("lands","stand"/"stands","surface"(as-verb),"flips","clobbers","turns-out","sweep"/"sweeps","gated"/"gate-off"/"gated-off"+synonyms[version-gate,gating])→▸plain-substitutes(takes-effect/once-it-runs; holds/remains; shows/reports; changes-from-X-to-Y/goes-from; overwrites/writes-over; for-sweep▸"go-through"/"review-all"/"check"; for-gated▸"X-does-not-install-on-Y-because-of-a-version-lock"). scan-every-draft-before-sending(corrected-2026-06-23)
-LEX:use-sparingly-NOT-banned("upstream","downstream")→▸name-the-thing-directly(the-rest-of-the-pipeline,the-reviewers) rather-than-reaching-for-up/downstream-by-reflex(corrected-2026-06-23)
-STR:negation-then-clause▸"When-nothing-is-passed,..."/"When-X,..."-with-connection-words-NOT-"No-argument-and-it-behaves..."(🚫bare-noun-fragment-pivot,▸subordinate-clause-with-when/if-that-connects-to-the-main-statement,corrected-2026-06-23)
-STR:🚫reframe-by-negation-as-a-rhetorical-beat("The-drift-was-the-whole-behaviour,-not-an-edge-case","It's-not-X-it's-Y","not-a-bug-but-a-design-flaw")→user-explicitly-flagged-this-exact-shape(2026-08-04:"Don't-use-these-types-of-sentences")+it's-the-#1-AI-tell-per[[avoid-tropes:SNT-negative-parallelism]]→▸STATE-the-thing-plainly-instead("It-drifted-immediately-and-completely."),🚫set-up-a-wrong-reading-just-to-knock-it-down. applies-to-docs+ADRs+PRs-NOT-only-chat
-PRB:▸storytelling-1st-person("I-was-running-X-when-I-hit-two-issues:1...After...")▸short+simple+direct(people-dislike-writing-AND-reading→keep-small),cordial+professional,▸paragraphs-over-bullets,🚫single-bullet,filler-words-ok,conversational-openers("Also,...")like-talking-to-a-person. keep-bullets-ONLY-where-a-template/governance-requires-them(corrected-2026-06-22)
-PRB:closer-"Just-a-final-note,..."=OPTIONAL-NOT-mandatory→use-ONLY-if-it-adds-real-new-info,🚫manufacture-a-closing-paragraph-that-just-restates-the-rationale-or-justifies-the-implementation→CUT-it+end-on-the-last-substantive-line(eg-the-version-bump)(corrected-2026-06-23:he-deleted-my-"Just-a-final-note,I-kept-the-change-to-Step-2-on-purpose"-closer-entirely)
-PRB:🚫internal-mechanics∈PR-body(which-step/file/function/query-changed)→reader-cares-WHAT-it-does-for-them-NOT-HOW-it's-wired,cut-the-"this-swaps-out-the-query-in-Step-2"-sentence-unless-the-wiring-genuinely-matters-to-the-reader(corrected-2026-06-23:he-deleted-the-Step-2-implementation-detail)
-PRB:ground-a-general-capability-with-a-concrete-personal-example+parenthetical-aside("...without-waiting-to-be-requested,like-I-do-here-in-the-node-repo(I-usually-review-everything)")→the-real-anecdote-anchors-the-abstract-feature,🚫leave-the-motivation-purely-abstract(corrected-2026-06-23:he-ADDED-this-grounding-aside)
-PRB:shape=motivation-story→what-you-can-do-now→housekeeping(version-bump)+STOP(🚫append-a-why-I-did-it-this-way-coda)(distilled-2026-06-23)
-PRB:🚫explanatory-parens-by-reflex(I-overuse-parens-to-clarify/explain-technical-detail)→use-parens-ONLY-when-absolutely-necessary,▸fold-the-point-into-the-sentence-or-CUT-it,🚫"(see-X)"/"(right-now-A-and-B)"/"(so-Y)"-asides(corrected-2026-06-23:he-snapped-"no-parenthesis-where-not-needed,you-explain-things-in-parenthesis")
-PRB:🚫over-explain+🚫over-enumerate(general-gesture-enough:"files-I-didn't-touch"NOT-the-parenthetical-full-list),▸flow-of-thought("actually-we'd-been-doing-X-for-a-while-then-Y-happened-so-we-started-Z"),imperfect-punctuation/commas-OK(🚫sand-to-perfection,no-one-knows-perfect-EN),give-the-gist+direction-not-exhaustive-text(corrected-2026-06-22)
+LEX:🚫banned-words-NEVER-use("lands","stand"/"stands","surface"(as-verb),"flips","clobbers","turns-out","sweep"/"sweeps","gated"/"gate-off"/"gated-off"+synonyms[version-gate,gating])→▸plain-substitutes(takes-effect/once-it-runs; holds/remains; shows/reports; changes-from-X-to-Y/goes-from; overwrites/writes-over; for-sweep▸"go-through"/"review-all"/"check"; for-gated▸"X-does-not-install-on-Y-because-of-a-version-lock"). scan-every-draft-before-sending
+LEX:use-sparingly-NOT-banned("upstream","downstream")→▸name-the-thing-directly(the-rest-of-the-pipeline,the-reviewers) rather-than-reaching-for-up/downstream-by-reflex
+STR:negation-then-clause▸"When-nothing-is-passed,..."/"When-X,..."-with-connection-words-NOT-"No-argument-and-it-behaves..."(🚫bare-noun-fragment-pivot,▸subordinate-clause-with-when/if-that-connects-to-the-main-statement)
+STR:🚫reframe-by-negation-as-a-rhetorical-beat("The-drift-was-the-whole-behaviour,-not-an-edge-case","It's-not-X-it's-Y","not-a-bug-but-a-design-flaw")→#1-AI-tell-per[[avoid-tropes:SNT-negative-parallelism]]→▸STATE-the-thing-plainly-instead("It-drifted-immediately-and-completely."),🚫set-up-a-wrong-reading-just-to-knock-it-down. applies-to-docs+ADRs+PRs-NOT-only-chat
+PRB:▸storytelling-1st-person("I-was-running-X-when-I-hit-two-issues:1...After...")▸short+simple+direct(people-dislike-writing-AND-reading→keep-small),cordial+professional,▸paragraphs-over-bullets,🚫single-bullet,filler-words-ok,conversational-openers("Also,...")like-talking-to-a-person. keep-bullets-ONLY-where-a-template/governance-requires-them
+PRB:closer-"Just-a-final-note,..."=optional→only-if-it-adds-new-info,🚫closing-paragraph-that-restates-rationale-or-justifies-the-implementation→end-on-the-last-substantive-line(eg-the-version-bump)
+PRB:🚫internal-mechanics∈PR-body(which-step/file/function/query-changed)→reader-cares-WHAT-it-does-for-them,cut-wiring-detail-unless-it-genuinely-matters-to-the-reader
+PRB:ground-a-general-capability-with-a-concrete-personal-example+parenthetical-aside("...without-waiting-to-be-requested,like-I-do-here-in-the-node-repo(I-usually-review-everything)")→the-real-anecdote-anchors-the-abstract-feature,🚫leave-the-motivation-purely-abstract
+PRB:shape=motivation-story→what-you-can-do-now→housekeeping(version-bump)+STOP(🚫append-a-why-I-did-it-this-way-coda)
+PRB:🚫explanatory-parens-by-reflex→parens-only-when-necessary,▸fold-the-point-into-the-sentence-or-cut-it,🚫"(see-X)"/"(right-now-A-and-B)"/"(so-Y)"-asides
+PRB:🚫over-explain+🚫over-enumerate(general-gesture-enough:"files-I-didn't-touch"NOT-the-parenthetical-full-list),▸flow-of-thought("actually-we'd-been-doing-X-for-a-while-then-Y-happened-so-we-started-Z"),imperfect-punctuation/commas-OK(🚫sand-to-perfection,no-one-knows-perfect-EN),give-the-gist+direction-not-exhaustive-text
 
 ---
 
@@ -68,7 +68,6 @@ DCT:tech-loanwords-stay-EN-inside-PT-sentences(backend,feature,staff-engineer,do
 
 ## Punctuation & typography
 
-PCT:🚫em-dash(—)→▸comma-or-ellipsis-or-parens-instead-anywhere-in-prose-the-user-writes
 PCT:▸commas-stitch-clauses(long-flowing-3-or-4-clause-sentences),trailing-...=unfinished-thought-or-resignation,mid-sentence-...=pause-or-trail-off
 PCT:_underscores_=italics-for-emphasis-on-single-words(rarely-whole-phrases),inline-italics-used-to-stress-position-or-time-words(now,before,within,inside,instead)
 PCT:!-sparing-used-warmly-(sure!,nice!)+for-urgency-(:rotating_light:-banners),🚫multi-bang(!!,!!!)
@@ -142,7 +141,7 @@ SLK:channel-broadcast-pattern(banner-emoji+ALLCAPS-TITLE+banner-emoji),emoji-bul
 SLK:🚫bold-section-headers-in-broadcasts(**What-you'll-see:**,**Why-this-matters:**,**Heads-up:**,**Timeline:**)→▸flowing-prose-between-bullet-groups-or-emoji+lowercase-tag(:gear:-why-it-matters)
 SLK:🚫pre-emptive-objection-handling-paragraphs("I-know-you're-all-slammed-but...","If-this-turns-out-to-be-a-pain..."),🚫motivational-warmth-closer("keeping-the-train-moving","Let's-make-this-work")→▸end-on-deadline-line-or-grumpy-practical-note-or-bare-:pray:
 SLK:broadcast-can-have-1-paragraph-that-runs-out-of-grammatical-steam-or-trails-into-parenthetical-tangent(reader-feels-author-hit-send-without-final-edit-pass)
-SLK:broadcast-MUST-include-at-least-3-of-these-naturalistic-survivals(empirically-converges-judge-detection-to-0%):mixed-bullet-glyphs-in-same-list(◦+-+•)+one-bullet-missing-final-period+one-CAPITALIZED-word-mid-sentence-for-emphasis(WILL,MUST,AGAIN,REAL)+one-parenthetical-aside-off-topic+one-trail-off-ellipsis-(...)+optional-self-correction(actually-wait)
+SLK:broadcast-keeps-several-naturalistic-survivals:mixed-bullet-glyphs-in-same-list(◦+-+•)+one-bullet-missing-final-period+one-CAPITALIZED-word-mid-sentence-for-emphasis(WILL,MUST,AGAIN,REAL)+one-parenthetical-aside-off-topic+one-trail-off-ellipsis-(...)+optional-self-correction(actually-wait)
 SLK:broadcast-can-open-with-narrative-of-recent-incident-or-realization-before-stating-the-policy(announcement-arrives-mid-paragraph-as-consequence,not-headline)
 SLK:broadcast-may-end-with-:pray:-or-trail-off-mid-bullet-but-🚫motivational-summary-paragraph,🚫"keeping-the-train-moving",🚫"Let's-make-this-work"
 SLK:RFC-CTA-pattern=Hey-everyone-or-Hey-peeps-opener+context-1-line+links-bulleted+deadline-1-line+thanks-closer-with-emoji
@@ -161,7 +160,7 @@ CR:show-the-concrete-fix(For-it-to-work-you-would-have-to-replace-the-model-with
 CR:evidence-as-inline-md-doc-link([(as-per-the-docs)](url))→link-the-source-inline-when-correcting-a-factual-claim
 CR:"actually"-emphasis-on-the-core-point(the-comment-is-actually-wrong)→per-[[DCT]]-actually-confirms-against-expectation
 CR:separate-decision-from-block(I-will-leave-it-up-to-you-to-decide-...-but-I-will-block-because-X)→hand-the-judgement-call-to-the-author,hold-the-hard-line-without-apology-or-softening
-CR:flowing-prose-paragraphs-no-headers,2nd-person-you/we,matter-of-fact,🚫praise-padding,🚫hedge-to-death,🚫corporate-softeners(observed-2026-06-23-from-user-edit-of-a-pgcrypto-migration-review)
+CR:flowing-prose-paragraphs-no-headers,2nd-person-you/we,matter-of-fact,🚫praise-padding,🚫hedge-to-death,🚫corporate-softeners
 SLK:haha+hahah+hahaha=warm-laugh-tag-not-mocking-(often-mid-sentence-or-end),appears-in-~1-of-3-casual-messages,primary-expressiveness-vehicle(more-frequent-than-emoji-by-3-5x)
 SLK:keyboard-smash-laughter∈PT-DMs-only=apsokposak,paoskposak,apsoksopak,poaskpoask,padsokpodsakposdaksda(alternating-p/a/o/s/k-in-chaotic-order),CAPS-variant-for-peak-hilarity(ASUHDUASDHUASDHSDAH),🚫kkk-is-rare(keyboard-smash-is-dominant-BR-laugh-form)
 SLK:rapid-fire-splitting∈DMs=breaks-one-thought-across-3-5-sequential-messages-instead-of-one-block,stream-of-consciousness-pacing
@@ -199,11 +198,11 @@ DIA:profanity-uninhibited-when-narrating-frustration-or-relief
 DIA:confessional-honesty-across-all-life-areas-in-one-stream(no-self-censorship-by-topic)
 DIA:[[wikilinks]]-for-people+concepts+dates+songs+notes,#meta-tags-at-bullet-end-following-meta/feeling/mental-or-physical-or-meta/habits-conventions
 DIA:long-form-diary-MUST-NOT-have-3-act-structure(setup-conflict-resolution),🚫epiphany-closer,🚫"that's-the-whole-point"-style-verdict-line,🚫italicized-aphorism-as-final-beat
-DIA:end-long-diary-abandoned-mid-thought-not-concluded(trail-off-on-the-real-work-subject)→🚫FABRICATE-personal-life-tangents(espresso-machine,broken-appliance,hobby,food,weather)-the-user-NEVER-mentioned(user-corrected-2026-06-10:invented-anecdotes-make-no-sense)→only-use-a-life-detail-if-the-user-actually-stated-it-this-session,else-just-trail-off
+DIA:end-long-diary-abandoned-mid-thought-not-concluded(trail-off-on-the-real-work-subject)→🚫FABRICATE-personal-life-tangents(espresso-machine,broken-appliance,hobby,food,weather)-the-user-NEVER-mentioned→only-use-a-life-detail-if-the-user-actually-stated-it-this-session,else-just-trail-off
 DIA:transcribed-via-voice-to-text-→-spoken-cadence-leaks-in(I-mean,you-know,sentence-fragments,run-on-comma-stitching,"for-the-life-of-me"-style-repetition)
 DIA:non-work-PT-words-rarer-than-chat(diary-mostly-EN-even-when-personal)
-DIA:RECIPE-long-form(open-with-a-mood-aside-matching-the-ACTUAL-day-NOT-topic-intro(🚫default-to-grumpy/vent,read-real-mood-from-the-day's-events+user's-own-tone/jots→good-day-opens-good,rough-day-vents,user-corrected-2026-06-10)+specific-detail,include-1-2-[[wikilinks]]-for-project+person,one-italicized-single-word-via-underscores,one-sentence-runs-out-of-grammatical-steam-no-period,end-by-trailing-off-on-the-real-subject-not-concluded,250-330-words,NO-three-act-arc-NO-epiphany-NO-"I-realized"-resolution,🚫PT-discourse-fillers[[LNG]],🚫FABRICATED-life-tangents)
-DIA:🚫portray-user-as-chronically-complaining/buried-by-work(diary-is-a-journal,sometimes-a-gripe-but-he's-expressive-not-a-victim)→work-coming-his-way-is-usually-something-he-DROVE/volunteered/champions(real-signals:"sure-thing","please-hang-on","I-grabbed-the-moment","my-goal-is-X")→frame-as-ownership+drive-NOT-pile-on,user-corrected-2026-06-10
+DIA:RECIPE-long-form(open-with-a-mood-aside-matching-the-ACTUAL-day-NOT-topic-intro(🚫default-to-grumpy/vent,read-real-mood-from-the-day's-events+user's-own-tone/jots→good-day-opens-good,rough-day-vents)+specific-detail,include-1-2-[[wikilinks]]-for-project+person,one-italicized-single-word-via-underscores,one-sentence-runs-out-of-grammatical-steam-no-period,end-by-trailing-off-on-the-real-subject-not-concluded,a-few-paragraphs-long,NO-three-act-arc-NO-epiphany-NO-"I-realized"-resolution,🚫PT-discourse-fillers[[LNG]],🚫FABRICATED-life-tangents)
+DIA:🚫portray-user-as-chronically-complaining/buried-by-work(diary-is-a-journal,sometimes-a-gripe-but-he's-expressive-not-a-victim)→work-coming-his-way-is-usually-something-he-DROVE/volunteered/champions(real-signals:"sure-thing","please-hang-on","I-grabbed-the-moment","my-goal-is-X")→frame-as-ownership+drive-NOT-pile-on
 
 ## Email voice
 
@@ -247,7 +246,6 @@ EMJ:knowledge-base-tags-not-emoji-prefixed(except-pre-existing-tracking-notes-wi
 
 ## Anti-patterns (never do)
 
-AVD:🚫em-dash(—)anywhere-in-prose-the-user-writes[[PCT]]
 AVD:🚫corp-tropes(move-the-needle,ballpark,low-hanging-fruit,leverage-synergies,circle-back,touch-base)→consult([[avoid-tropes]]-skill-before-prose)
 AVD:🚫AI-clean-prose(uniform-paragraph-length,headers-everywhere,sanitized-tone),🚫In-conclusion,🚫It's-important-to-note-that,🚫Moreover
 AVD:🚫bullet-everything(prose-only-for-diary,bullets-for-chat-broadcasts+RFCs+daily-notes,mix-the-two-elsewhere)
@@ -280,7 +278,7 @@ SPK:write-as-if-dictating-aloud-while-pacing,filler-words-allowed-(I-mean,you-kn
 SPK:include-1-self-correction-per-medium-piece(actually-wait,no-actually,or-rather)-as-if-rethinking-mid-sentence-not-as-rhetorical-device
 SPK:triple-repetition-for-emphasis("gone-done-finished","stupid-stupid-stupid","not-bad-not-bad-not-bad")-3-near-synonyms-in-a-row-mimicking-spoken-emphasis
 SPK:[[wikilinks]]-ONLY-on-Obsidian-surfaces(daily-notes,diary,fleeting-notes,tracking-notes),🚫wikilinks-in-Slack-messages,🚫wikilinks-in-email,🚫wikilinks-in-blog,🚫wikilinks-in-GitHub-PR-bodies(those-surfaces-don't-render-them-anyway)
-SPK:🚫PT-discourse-fillers/markers∈EN-prose-EVER(pois-é,cara,tipo,meio-paia,etc-are-PT-CONVERSATION-ONLY,never-EN-incl-diary)→user-explicitly-corrected-this(2026-06-10),PT-stays-binary-audience-gated-per-[[LNG]],🚫sprinkle-PT-flavor-into-EN
+SPK:🚫PT-discourse-fillers/markers∈EN-prose-EVER(pois-é,cara,tipo,meio-paia,etc-are-PT-CONVERSATION-ONLY,never-EN-incl-diary),PT-stays-binary-audience-gated-per-[[LNG]],🚫sprinkle-PT-flavor-into-EN
 SPK:smart-curly-quotes(iOS/macOS-user)→show-up-as-unicode-in-messages,leave-as-is
 SPK:transcribed-Handy-voice-to-text-cadence-applies-when-diary-is-flagged-as-meta/ai-assisted-but-still-no-uh-eh-um(transcription-engine-cleans-those)
 

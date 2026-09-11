@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git commit:*)
+allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git diff:*), Bash(git log:*), Bash(git rev-parse:*), Bash(git commit:*)
 description: Create a new git commit
 ---
 # Create a Git Commit
@@ -24,7 +24,9 @@ Automate the creation of well-structured commits by analyzing code changes and f
 - **For monorepos**: 
   - Separate commits by package when changes span multiple packages
   - Use package name as scope: `feat(workflow): add new step validation`
-  - Include context in commit body if needed for complex changes
+  - Commit body: one or two short lines at most; longer explanation goes in the PR body (see CLAUDE.md GIT)
+
+Before committing, check the branch with `git rev-parse --abbrev-ref HEAD`. On main, branch first unless the user named main and asked directly.
 
 - **Multi-commit strategy**: Group related changes logically
   - Separate by functionality, not just by file

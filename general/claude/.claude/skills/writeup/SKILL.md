@@ -9,9 +9,10 @@ allowed-tools:
   - mcp__obsidian-mcp-tools__search_vault_smart
   - mcp__obsidian-mcp-tools__search_vault_simple
   - mcp__obsidian-mcp-tools__get_vault_file
-  - mcp__obsidian-mcp-tools__create_vault_file
-  - mcp__obsidian-mcp-tools__patch_vault_file
   - mcp__obsidian-mcp-tools__list_vault_files
+  - Read
+  - Edit
+  - Write
 ---
 
 # /writeup — Session Knowledge Writeup
@@ -186,7 +187,7 @@ date +%Y-%m-%d
 
 Look for `notes/daily notes/YYYY-MM-DD.md` in the vault.
 
-**If it exists**: patch the `## TIL` section by appending new wikilinks.
+**If it exists**: Read the note, then Edit the `## TIL` section to append new wikilinks.
 
 **If it does not exist**: create it from the template at `internal/templates/Daily Note.md`:
 1. Read the template
@@ -202,7 +203,7 @@ For each note created or updated, add a line under `## TIL`:
 - [[Note Title]]
 ```
 
-Use `patch_vault_file` with `targetType: heading`, `target: TIL`, `operation: append` to add entries without overwriting existing ones.
+Use Read then Edit on the file directly (MCP write tools produce duplicate headers). Do not overwrite existing entries.
 
 Do NOT add duplicate entries if the note is already listed in TIL.
 

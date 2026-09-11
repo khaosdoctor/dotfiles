@@ -3,7 +3,7 @@ disable-model-invocation: false
 user-invocable: false
 allowed-tools:
   - Read
-model: claude-haiku-4-5
+model: sonnet
 description: "Write as the user — their voice, mannerisms, tropes, register switches, and language code-switching. Auto-load when the assistant is asked to draft prose the user themselves will send: Slack messages, RFC posts, emails, daily-note jots, diary entries, doc paragraphs, GitHub PR descriptions, manifesto copy, or any text where the output represents the user speaking in first person."
 ---
 
