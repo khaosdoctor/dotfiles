@@ -143,7 +143,7 @@ updatedAt: 2026-02-10T10:30:00Z
 ---
 ```
 
-**CRITICAL**: The `title` field must always match the filename exactly (minus the `.md` extension). If the file is named `RAID 0.md`, the title must be `title: RAID 0`.
+The `title` field must match the filename exactly (minus `.md`), because aliases and Dataview key on it. `RAID 0.md` gets `title: RAID 0`.
 
 ### 8. Tags
 - **PREFER** frontmatter tags over inline tags
@@ -164,27 +164,10 @@ updatedAt: 2026-02-10T10:30:00Z
 - Examples: `Heinrich Hertz.md`, `RAID 0.md`, `Ancient Egypt.md`
 - For daily notes: Always use `yyyy-mm-dd.md` format in `notes/daily notes/`
 
-### 10. Suggestions and Autonomy
-- **ASK** before implementing new organizational ideas
-- **ASK** before adding curiosities or fun facts to notes
-- **ASK** before adding inline tags
-- **ASK** before deleting any notes
-- Feel free to suggest:
-  - New notes to create
-  - New organizational methods
-  - Interesting connections between notes
-  - Improvements to existing notes
-- But always get approval before implementing suggestions
+### 10. Autonomy
+Propose, then wait for approval before: reorganizing, deleting notes, adding inline tags, or adding curiosities and fun facts. When researching a note, look for one curiosity worth offering; present it, do not insert it, and skip it if nothing is interesting. Suggestions for new notes, connections, or improvements are always welcome as suggestions.
 
-### 11. Curiosities and Fun Facts
-- **ALWAYS** search for interesting curiosities or fun facts when working on notes
-- These add value and make notes more engaging
-- **NEVER** add them directly without asking
-- If you find a good one, present it and ask if it should be included
-- If you don't find anything interesting, that's okay - don't force it
-- If unsure whether a fact is "curious enough", ask
-
-### 12. AI Content Tracking
+### 11. AI Content Tracking
 When you add, modify, or change the actual content of a note (not just formatting/structure):
 
 **ALWAYS add these to the frontmatter:**
@@ -219,12 +202,7 @@ lastEditedByAI: 2026-02-10T12:34:56Z  # ← Added/updated with full timestamp
 ---
 ```
 
-**CRITICAL**:
-- If `lastEditedByAI` already exists → UPDATE it with current timestamp
-- If `lastEditedByAI` does NOT exist → ADD it with current timestamp
-- Same for `meta/ai-assisted` tag → add if missing, keep if present
-
-**Never skip these tracking fields when making content changes!**
+On every content change, add or refresh `lastEditedByAI` and add `meta/ai-assisted` if missing.
 
 ## Vault Structure Reference
 
@@ -275,14 +253,4 @@ See `cheatsheet.md` for quick reference of common patterns and conventions.
 
 **Rule of thumb**: You can change HOW the note is structured, but NEVER WHAT the note says.
 
-**Before editing any daily note**:
-1. **DOUBLE CHECK** if you're changing content vs structure
-2. If touching any text content or meaning, **STOP and ASK**
-3. Only proceed with structural/metadata changes
-
-### General Safety
-- Never delete notes without explicit user confirmation
-- Always preserve existing formatting conventions
-- Don't make organizational changes without approval
-- Respect the existing tag hierarchy and structure
-- Ask before adding new types of content (inline tags, callouts, etc.)
+If an edit would touch the text or meaning of a daily-note entry, ask first; structure and metadata edits proceed.
