@@ -561,6 +561,7 @@ hl.window_rule({ match = { class = "^(org.telegram.desktop)$" }, workspace = "2"
 hl.window_rule({ match = { class = "^(discord)$" }, workspace = "2" })
 hl.window_rule({ match = { class = "^(vivaldi-stable)$" }, workspace = "1" })
 hl.window_rule({ match = { class = "^(BambuStudio)$" }, workspace = "1" })
+hl.window_rule({ match = { class = "^(OrcaSlicer)$" }, monitor = "DP-1" })
 hl.window_rule({ match = { class = "^(com.tibia.Tibia)$" }, workspace = "3" })
 
 ---------------
