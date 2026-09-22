@@ -5,26 +5,9 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
 end
 
--- TEMPORARY: auto copy files to the google drive folder after save
--- because it has a huge delay in the save
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "/home/khaosdoctor/Documents/Packt/*" },
-  callback = function()
-    local local_file = vim.fn.expand("%:p")
-    local google_drive_path = "/home/khaosdoctor/mnt/Google Drive/Projetos/Livro Packt/Offline Chapters/"
-      .. vim.fn.fnamemodify(local_file, ":t")
-
-    vim.fn.jobstart({ "cp", local_file, google_drive_path }, {
-      detach = true,
-      on_exit = function()
-        vim.notify("File copied to Google Drive", vim.log.levels.INFO)
-      end,
-    })
-  end,
-})
-
 -- auto formats Caddyfile after save if caddy is installed
 vim.api.nvim_create_autocmd("BufWritePost", {
+  group = augroup("caddyfile_fmt"),
   pattern = { "Caddyfile", "Caddyfile.*" },
   callback = function()
     if vim.fn.executable("caddy") == 1 then
@@ -43,6 +26,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- Set 2-space indentation for web development filetypes
 vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("web_indent"),
   pattern = {
     "javascript",
     "typescript",
@@ -67,14 +51,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- auto set markdown filetype
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
-  pattern = { "*.md" },
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("markdown_keys"),
+  pattern = "markdown",
   callback = function()
-    -- set markdown file type
-    vim.cmd("set filetype=markdown")
-
-    -- add local command to insert TOC
     vim.keymap.set("n", "<leader>cT", "<cmd>Mtoc i<CR>", {
       buffer = 0,
       noremap = true,
@@ -86,36 +66,28 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
 
 -- Autocmd for breaking lines at column 80 in commit messages
 vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("gitcommit_wrap"),
   pattern = "gitcommit",
   callback = function()
-    -- Enable text wrapping
     vim.opt_local.textwidth = 80
-    vim.opt_local.colorcolumn = "80" -- Highlight column 80
-    vim.opt_local.formatoptions:append("t") -- Enable auto-formatting of text
+    vim.opt_local.colorcolumn = "80"
+    vim.opt_local.formatoptions:append("t")
   end,
 })
 
--- Auto set markdown to break at 80 chars and highlight the 80th column
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = { "*.md" },
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("md_trailing_ws"),
+  pattern = "*.md",
   callback = function()
-    vim.opt.colorcolumn = "80"
-    vim.opt.textwidth = 80
-  end,
-})
-
--- On leaving markdown files, reset the colorcolumn and textwidth
-vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-  pattern = { "*.md" },
-  callback = function()
-    vim.opt.colorcolumn = "120"
-    -- disabled textwidth
-    vim.opt.textwidth = 0
+    local pos = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[%s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, pos)
   end,
 })
 
 -- auto set i3config filetype
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufFilePre", "BufRead" }, {
+  group = augroup("i3config_ft"),
   pattern = { "*.i3config" },
   callback = function()
     vim.cmd("set filetype=i3config")
