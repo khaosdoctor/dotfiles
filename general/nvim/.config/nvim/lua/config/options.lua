@@ -21,8 +21,7 @@ vim.opt.termguicolors = true
 
 -- Highlights for cursor column
 vim.cmd.set("cursorcolumn")
-vim.cmd("highlight CursorColumn ctermbg=Blue")
-vim.cmd("highlight CursorColumn ctermfg=Black")
+vim.cmd("highlight CursorColumn guibg=#1a1a2e guifg=NONE")
 
 -- Vim does not recognize the alt key in Mac
 -- https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
