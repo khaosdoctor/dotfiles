@@ -10,10 +10,9 @@ only produces a second message.
 
 Exit 2 blocks and sends stderr back to Claude, which then has to rewrite.
 
-The list lives in the voice skill at skills/voice/references/banned-words.md and is
-read on every run, so adding a word there needs no code change. Same file the voice
-skill reads when ghost-writing. Everything is in the dotfiles repo, so every machine
-gets it (~/.claude/bin and ~/.claude/skills are dir symlinks into the repo).
+The list lives in the BAN-W/BAN-P/BAN-R lines of ~/.claude/CLAUDE.md and is
+read on every run, so adding a word there needs no code change. Everything
+is in the dotfiles repo, so every machine gets it.
 """
 
 import json
