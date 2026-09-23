@@ -193,6 +193,7 @@ os-prober
 overskride
 pacman-contrib
 pandoc-cli
+patchelf
 pavucontrol
 perl-anyevent
 phinger-cursors
