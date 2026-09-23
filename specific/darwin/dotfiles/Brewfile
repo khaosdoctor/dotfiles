@@ -226,8 +226,6 @@ cask "1password-cli"
 cask "alt-tab"
 # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
-# Utility that prevents the system from going to sleep
-cask "caffeine"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
@@ -238,7 +236,12 @@ cask "font-cascadia-code-nf"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
+cask "font-lato"
 cask "font-monocraft"
+cask "font-montserrat"
+cask "font-roboto"
+cask "font-ubuntu"
+cask "font-ubuntu-nerd-font"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
 # Terminal emulator that uses platform-native UI and GPU acceleration
