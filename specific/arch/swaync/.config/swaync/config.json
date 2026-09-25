@@ -35,17 +35,17 @@
   "scripts": {
     "focus-telegram": {
       "desktop-entry": "org.telegram.desktop",
-      "exec": "hyprctl eval 'hl.dsp.focus({ window = \"class:org.telegram.desktop\" })'",
+      "exec": "/home/khaosdoctor/.config/swaync/focus-class.sh org.telegram.desktop",
       "run-on": "action"
     },
     "focus-whatsapp": {
       "desktop-entry": "com.rtosta.zapzap",
-      "exec": "hyprctl eval 'hl.dsp.focus({ window = \"class:com.rtosta.zapzap\" })'",
+      "exec": "/home/khaosdoctor/.config/swaync/focus-class.sh com.rtosta.zapzap",
       "run-on": "action"
     },
     "focus-discord": {
       "desktop-entry": "discord",
-      "exec": "hyprctl eval 'hl.dsp.focus({ window = \"class:discord\" })'",
+      "exec": "/home/khaosdoctor/.config/swaync/focus-class.sh discord",
       "run-on": "action"
     }
   },
