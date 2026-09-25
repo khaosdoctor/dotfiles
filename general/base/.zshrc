@@ -68,6 +68,9 @@ zinit light-mode for \
 # Loads powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
+# Keeps network mounts out of zsh-z (a dead mount hangs every `z`)
+ZSHZ_EXCLUDE_DIRS=(~/mnt)
+
 # Loads plugins
 zinit wait lucid for \
   atinit'ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay' \
