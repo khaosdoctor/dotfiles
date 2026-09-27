@@ -90,7 +90,7 @@ Resolve any natural-language dates ("since last Monday", "in the past week") to 
 
 ## Tool Usage
 
-- **Source MCP tools** (Slack / Gmail / Calendar / Drive) are pre-approved — use them freely, read-only. GitHub goes through the `gh` CLI (and `git`).
+- **Source MCP tools** (Gmail / Calendar / Drive) are pre-approved — use them freely, read-only. GitHub goes through the `gh` CLI (and `git`). Note: Slack is not connected in opencode (no Slack MCP server), so Slack buckets return empty until a Slack MCP is added to `~/.config/opencode/opencode.jsonc`.
 - **All shell commands must be prefixed with `rtk`** per the user's global RTK rule (e.g. `rtk gh pr list`, `rtk date -u +%Y-%m-%dT%H:%M:%SZ`).
 - **Vault files**: MCP tools only for searching/fetching/reading; **filesystem tools** (Read, Edit, Write) for all edits and file creation — this keeps changes visible in diffs.
 
@@ -185,7 +185,7 @@ New entries add a new `## [[YYYY-MM-DD]]` section at the bottom with bullet poin
 
 First check for a shortcut: list `notes/work notes/automated summaries/` for an `up-to-speed` digest whose `range_end` is at or after `range_start`. If one covers the range, **read it and use its findings as the evidence base** — do not re-run the sweep. Tell the user you're reusing it.
 
-Otherwise, run the fan-out. Launch parallel `Agent` calls (subagent_type `general-purpose`), one per bucket, each given `range_start`/`range_end` and the skip/include lists from `state.json`. Each agent pulls from **all relevant sources**, not just one.
+Otherwise, run the fan-out. Launch parallel `task` subagents (general), one per bucket, each given `range_start`/`range_end` and the skip/include lists from `state.json`. Each agent pulls from **all relevant sources**, not just one.
 
 Buckets:
 

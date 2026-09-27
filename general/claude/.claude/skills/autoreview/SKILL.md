@@ -1,4 +1,6 @@
 ---
+name: autoreview
+description: "Comprehensive pre-commit code quality and security review. Use when asked to review changes before committing or opening a PR."
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:

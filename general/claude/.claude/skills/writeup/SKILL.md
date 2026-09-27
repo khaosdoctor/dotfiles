@@ -1,4 +1,6 @@
 ---
+name: writeup
+description: "Synthesize session learnings, fixes, and discoveries into structured Obsidian notes linked from today's daily note. Use when asked to write up or save session knowledge."
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:
@@ -6,10 +8,10 @@ allowed-tools:
       - date
       - find
       - ls
-  - mcp__obsidian-mcp-tools__search_vault_smart
-  - mcp__obsidian-mcp-tools__search_vault_simple
-  - mcp__obsidian-mcp-tools__get_vault_file
-  - mcp__obsidian-mcp-tools__list_vault_files
+  - mcp__obsidian__search_vault_smart
+  - mcp__obsidian__search_vault_simple
+  - mcp__obsidian__get_vault_file
+  - mcp__obsidian__list_vault_files
   - Read
   - Edit
   - Write
@@ -61,8 +63,8 @@ Group the extracted knowledge into **topics**. A topic is a coherent unit that a
 
 For **each topic**, search the vault using the MCP tools:
 
-1. Use `search_vault_smart` with the topic as a semantic query
-2. Also use `search_vault_simple` with key terms from the topic
+1. Use `mcp__obsidian__search_vault_smart` with the topic as a semantic query
+2. Also use `mcp__obsidian__search_vault_simple` with key terms from the topic
 3. Look for notes with `type/til` or `type/insight` tags that cover the same ground
 
 ### Merge decision

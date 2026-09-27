@@ -1,4 +1,6 @@
 ---
+name: autotest
+description: "Smart test runner with automatic framework detection and intelligent execution. Use when asked to run tests."
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:

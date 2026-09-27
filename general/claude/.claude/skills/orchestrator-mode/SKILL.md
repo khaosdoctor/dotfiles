@@ -26,7 +26,7 @@ delegation immediately after.
 ## What counts as delegation-only
 
 The orchestrator may: read files, grep/search, inspect subagent output,
-ask clarifying questions, use Agent/SendMessage/ListAgents, and write its own
+ask clarifying questions, use the `task` tool, and write its own
 plan or scratch notes. It does not: write or edit project files, run builds
 or tests, implement features, or fix bugs, even a one-line one. Any of that
 goes to a subagent.
@@ -41,6 +41,8 @@ Figure out the orchestrator's own model from the session context (the
 | Fable | Opus, Sonnet, Haiku |
 | Opus | Sonnet, Haiku |
 | Sonnet | Sonnet, Haiku |
+
+Note for opencode: model IDs are `provider/model` (e.g. `anthropic/claude-sonnet-4-5`), not the Claude tier names above. Map the cascade to the providers/models available in your opencode config; delegate to a lower-cost model for mechanical work.
 
 Default to haiku for mechanical or narrowly-scoped work; escalate to the
 next tier only when the task needs more judgment than haiku reliably gives.
@@ -63,7 +65,7 @@ Before spawning anything, break the task into subagent-sized units and
 decide, per unit: which model tier, what exact scope, and what it must
 return. Optimize the plan for total token spend, not for thoroughness: fewer,
 better-briefed agents beat many small ones re-deriving the same context.
-Batch independent units into parallel Agent calls in one message.
+Batch independent units into parallel `task` calls in one message.
 
 ## Compressed inter-agent traffic
 
@@ -83,9 +85,16 @@ directly on an existing peer session running the same role (self-named
 "scriba"), queried live for this skill — its mandate below is that agent's
 own description, not a guess:
 
-- Spawn via Agent (not a fork: it must start with a clean, minimal context;
+- Spawn via the `task` tool (not a fork: it must start with a clean, minimal context;
   a fork would drag in the orchestrator's full conversation, which defeats
   the point of an offload agent).
+
+Note: the live-messaging coordination below (SendMessage, ListAgents,
+ScheduleWakeup, notify_when_idle) is Claude Code-specific and has no opencode
+equivalent. In opencode, subagents report back through the `task` tool's
+returned results and the orchestrator relays status to the user. The Scribe
+note-taker pattern still works, but coordination is pull-based (orchestrator
+asks) rather than push-based (Scribe pings).
 - Model: sonnet, always, regardless of the cascade table above.
 - Set its `description` to exactly `Scribe` so it can be addressed later by
   that name with SendMessage/ListAgents.
@@ -97,8 +106,8 @@ own description, not a guess:
   those as ongoing developer logs. Do nothing beyond that." It writes only
   via direct filesystem Read/Edit/Write into the AI Brainz vault, never MCP
   tools for vault writes, never the Default vault, never a scratch/memory
-  buffer. Path varies per machine, locate it fresh if unknown. It reads
-  `_CLAUDE.md` + `index.md` there first.
+  buffer. Path varies per machine, locate it fresh if unknown. It reads the
+  vault's `index.md` (and `_CLAUDE.md` if present) there first.
 
 Then, for the rest of the session:
 

@@ -1,4 +1,6 @@
 ---
+name: explain
+description: "Deep code analysis and explanation for understanding complex codebases, algorithms, and architectural patterns. Use when asked to explain how code works."
 disable-model-invocation: false
 user-invocable: false
 allowed-tools:

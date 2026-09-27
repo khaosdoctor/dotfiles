@@ -1,4 +1,6 @@
 ---
+name: autocommit
+description: "Create git commits following strict conventional commit standards with granular change separation. Use when asked to commit changes."
 disable-model-invocation: false
 user-invocable: true
 allowed-tools:
