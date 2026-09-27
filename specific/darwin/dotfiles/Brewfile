@@ -229,12 +229,8 @@ brew "heroku/brew/heroku", trusted: true
 brew "hilli/tap/icat", trusted: true
 # Pluggable tool to enforce Protocol Buffer style and conventions
 brew "yoheimuta/protolint/protolint", trusted: true
-# Command-line interface for 1Password
-cask "1password-cli"
-# Enable Windows-like alt-tab
-cask "alt-tab"
-# Compact TeX distribution as alternative to the full TeX Live / MacTeX
-cask "basictex"
+# 3D model slicing software for 3D printers, maintained by Bambu Lab
+cask "bambu-studio"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Terminal-based AI coding assistant
@@ -243,14 +239,9 @@ cask "font-cascadia-code-nf"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
-cask "font-lato"
 cask "font-monocraft"
-cask "font-montserrat"
-cask "font-roboto"
-cask "font-ubuntu"
-cask "font-ubuntu-nerd-font"
-# Set of tools to manage resources and applications hosted on Google Cloud
-cask "gcloud-cli"
+# 3D parametric modeller
+cask "freecad"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Speech to text application
