@@ -52,7 +52,7 @@ allowed-tools:
 
 Catch the user up on activity since the last run (or since a given date) across **Slack, Gmail, Google Calendar, Google Drive, and GitHub**, cross-check findings against their Obsidian work tracker, and produce a concise digest note in the vault.
 
-All Slack / Gmail / Calendar / Drive MCP tools are pre-approved for the user — use them freely. GitHub is accessed through the `gh` CLI (and `git` where useful).
+All Gmail / Calendar / Drive MCP tools are pre-approved for the user — use them freely. GitHub is accessed through the `gh` CLI (and `git` where useful). Note: Slack is not connected in opencode (no Slack MCP server), so Slack buckets return empty until a Slack MCP is added to `~/.config/opencode/opencode.jsonc`.
 
 All shell commands must be prefixed with `rtk` per the user's global RTK rule (e.g. `rtk gh pr list`, `rtk date -u +%Y-%m-%dT%H:%M:%SZ`).
 
@@ -125,7 +125,7 @@ Within the vault:
 
 ### 2. Fan-out collection
 
-Launch parallel `Agent` calls (subagent_type `general-purpose`) — one per topic bucket. Each agent gets the same `range_start`/`range_end` and the skip / include lists from `state.json`. Each agent should pull from **all relevant sources**, not just one.
+Launch parallel `task` subagents (general) — one per topic bucket. Each agent gets the same `range_start`/`range_end` and the skip / include lists from `state.json`. Each agent should pull from **all relevant sources**, not just one.
 
 Buckets:
 

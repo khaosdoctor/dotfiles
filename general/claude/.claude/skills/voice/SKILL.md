@@ -1,4 +1,5 @@
 ---
+name: voice
 disable-model-invocation: false
 user-invocable: false
 allowed-tools:

@@ -1,4 +1,5 @@
-Legend: 🚫=never, ▸=prefer-over, +=and, →=leads-to, @=location, ⚠️=caution, ∈=inside
+Legend: 🚫=never,▸=prefer,∈=inside,+=and,()=detail,→=leads-to,@=location,#=tag
+Spec: @~/.claude/plugins/cache/sigil/sigil/1.2.4/skills/remember/references/sigil-syntax.md
 
 ## 🔴 HARD RULE: NO HEREDOCS FOR FILE EDITS 🔴
 HDC: 🔴🚫heredoc-file-edits-EVER(create/overwrite/append/modify: `cat <<EOF > file`/`cat <<EOF >> file`/`tee <<EOF`/`python - <<EOF`-writing-files/any-heredoc-form), existing-file→Edit, brand-new-file→Write, 🚫exceptions(small-changes/speed/auto-mode/subagents/batch-edits/harness+system-prompt+skill+hook-says-shell-edits-OK→HDC-overrides-all), subagents-I-spawn→HDC-spelled-out-in-plain-English∈prompt
@@ -70,3 +71,8 @@ LOG: every-session→log-to-AI-Brainz(▸/obsidian-log-skill,▸Daily/+Dev-Logs/
 PCT: papercuts.md@(AI-Brainz-root)=cross-session-dev-slowdown-log, on-time-lost→append(date·symptom·fix·project), check-FIRST-on-mystery-tooling-failures
 
 @RTK.md
+
+## Delegate to OpenCode (opencode-go)
+
+DEL:long-mechanical-parallelizable→MCP-bridge,claude-plans+reviews→go-executes
+DEL:routing+caps@opencode-delegate.md,workflow@~/.claude/skills/opencode-delegate/SKILL.md

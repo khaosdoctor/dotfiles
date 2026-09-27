@@ -161,3 +161,59 @@ if [ -x "$(command -v trash-put)" ]; then
         trash-put "$@"
     }
 fi
+
+# Claude Code against the OpenCode Go gateway. The key comes from opencode's
+# own auth store, the model catalog is fetched live (cached for offline runs)
+# and injected into the /model picker via --settings, so no Claude config
+# file is touched. behavesAs maps the Go ids onto a catalog model, which
+# silences the unrecognized_model warning. Pass a model id to preselect it:
+# `openclaude qwen3.8-max`. Default is the free space-bunny-free.
+openclaude() {
+    local auth="$HOME/.local/share/opencode/auth.json"
+    local base="https://opencode.ai/zen/go"
+    local cache="$HOME/.cache/opencode-go-models.json"
+    local key
+
+    key=$(jq -r '."opencode-go".key // empty' "$auth" 2>/dev/null)
+    if [[ -z "$key" ]]; then
+        echo "openclaude: no opencode-go key in $auth, run /connect in opencode first" >&2
+        return 1
+    fi
+
+    mkdir -p "${cache:h}"
+    if curl -fsS -H "Authorization: Bearer $key" "$base/v1/models" -o "$cache.new" 2>/dev/null; then
+        mv "$cache.new" "$cache"
+    else
+        rm -f "$cache.new"
+        if [[ ! -f "$cache" ]]; then
+            echo "openclaude: model list fetch failed and no cache at $cache" >&2
+            return 1
+        fi
+        echo "openclaude: using cached model list" >&2
+    fi
+
+    # Only a non-flag first arg is a model, so `openclaude -p "..."` passes
+    # the flag through to claude instead of treating it as a model id.
+    local model="space-bunny-free"
+    if [[ $# -gt 0 && "$1" != -* ]]; then
+        model="$1"
+        shift
+    fi
+
+    local settings
+    settings=$(jq -n \
+        --arg base "$base" \
+        --arg key "$key" \
+        --slurpfile models "$cache" \
+        '{
+            env: {
+                ANTHROPIC_BASE_URL: $base,
+                ANTHROPIC_API_KEY: $key
+            },
+            modelPicker: {
+                options: ($models[0].data | map({model: .id, label: .id, behavesAs: "claude-sonnet-4-5"}))
+            }
+        }')
+
+    command claude --model "$model" --settings "$settings" "$@"
+}

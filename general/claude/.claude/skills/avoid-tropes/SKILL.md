@@ -1,5 +1,5 @@
 ---
-name: the writing whip
+name: avoid-tropes
 description: >-
   Kill all AI writing tropes and behaviours at the source: generation. Focus on quelling
   behaviour-driven triggers. Load before writing, especially for anything longer than a
