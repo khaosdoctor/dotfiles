@@ -232,6 +232,8 @@ brew "heroku/brew/heroku", trusted: true
 brew "hilli/tap/icat", trusted: true
 # Pluggable tool to enforce Protocol Buffer style and conventions
 brew "yoheimuta/protolint/protolint", trusted: true
+# Command-line interface for 1Password
+cask "1password-cli"
 # 3D model slicing software for 3D printers, maintained by Bambu Lab
 cask "bambu-studio"
 # Anthropic's official Claude AI desktop app
