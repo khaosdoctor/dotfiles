@@ -49,6 +49,54 @@ cat() {
   done
 }
 
+totmp() {
+    if [[ "$1" == "-h" ]]; then
+        echo "Usage: totmp [-d]"
+        echo "  Writes stdin to a new temp file and prints its path"
+        echo "  -d  create an empty temp dir instead"
+        echo "Examples:"
+        echo "  pbpaste | totmp"
+        echo "  vim \$(pbpaste | totmp)"
+        echo "  cp a.txt b/ \$(totmp -d)"
+        return
+    fi
+    if [[ "$1" == "-d" ]]; then
+        mktemp -d
+        return
+    fi
+    local tmp
+    tmp=$(mktemp) || return 1
+    command cat >"$tmp" && echo "$tmp"
+}
+
+cptmp() {
+    if [[ "$1" == "-h" ]]; then
+        echo "Usage: cptmp <files...>"
+        echo "  Copies files (recursively) into a new temp dir and prints its path"
+        echo "Examples:"
+        echo "  cptmp a.txt some/dir"
+        echo "  cd \$(cptmp a.txt some/dir)"
+        return
+    fi
+    local dir
+    dir=$(totmp -d) || return 1
+    cp -R "$@" "$dir" && echo "$dir"
+}
+
+mvtmp() {
+    if [[ "$1" == "-h" ]]; then
+        echo "Usage: mvtmp <files...>"
+        echo "  Moves files into a new temp dir and prints its path"
+        echo "Examples:"
+        echo "  mvtmp *.log"
+        echo "  cd \$(mvtmp a.txt some/dir)"
+        return
+    fi
+    local dir
+    dir=$(totmp -d) || return 1
+    mv "$@" "$dir" && echo "$dir"
+}
+
 git_goto() {
     find . -name .git -type d -execdir git checkout "$1" ";"
 }
