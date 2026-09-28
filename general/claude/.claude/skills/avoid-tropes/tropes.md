@@ -146,6 +146,31 @@ Stating a minor or uncontroversial point just to defend it as if anticipating an
 
 ---
 
+## Over-explaining
+
+`new` · Composition
+
+Humans are lazy writers and underexplain. The model covers every edge case, caveat and rationale in the same breath as the point, so a two-line instruction grows into a paragraph of qualifications. Say the thing and stop; the reader asks if they need more.
+
+**Avoid patterns like:**
+- "Package installs ship this unit in /usr/lib and autostart enables it; other installs get it written to ~/.config, pointing at the binary you ran autostart from, so package upgrades keep the packaged one current."
+- "This runs on every boot (unless the condition file is missing, in which case systemd skips it silently, which is expected on a fresh install before login)."
+
+---
+
+## Impersonal spec voice
+
+`new` · Tone
+
+Docs written as a detached spec: subjectless fragments and passive statements where a person would talk to the reader. People write docs in terms of "you", "we" and "this": "you can X", "this will Y", "we don't Z because...".
+
+**Avoid patterns like:**
+- "Sets up the unit, enables it, and (re)starts it."
+- "A packaged unit stays installed, just disabled."
+- "Lingering stays on, since other user units may depend on it."
+
+---
+
 ## "Quietly" and other magic adverbs
 
 `consistent` · Word Choice
