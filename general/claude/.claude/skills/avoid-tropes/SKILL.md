@@ -36,6 +36,7 @@ DO NOT, UNDER ANY CIRCUMSTANCE, FALL INTO THE FOLLOWING BEHAVIOURS. THESE ARE TH
 - Preamble (announce-then-answer): Do not open by announcing what the output is about to do, prefacing the point, or restating the prompt. Includes announcers that name the shape of what follows. Example: "Two constraints shape the design."
 - Compulsive counting: Do not state the number of items before listing them. Do not enumerate or count anything explicitly: no "five things", no "four reasons", no "for two reasons". Example: "One endpoint, rather than four, for two reasons."
 - Belaboring the unnecessary: Do not defend a minor or uncontroversial point against an objection nobody raised. State it and move on. Example: "I don't mean any of that as cynicism about players."
+- Over-explaining: Humans underexplain. Say the thing and stop, and do not cover every edge case, caveat and rationale up front. The reader asks if they need more. Example: "Package installs ship this unit in /usr/lib and autostart enables it; other installs get it written to ~/.config, pointing at the binary you ran autostart from, so package upgrades keep the packaged one current."
 - The Tie-Back: Do not close by restating the answer or looping it back to the original question. Stop once the answer is given. Example: "So, to answer your question: yes, the employee can be added to the app."
 - Fractal summaries: Do not summarise at every level of the document. No subsection recaps, no section recaps, no closing restatement of what was already said.
 - "The X? A Y.": Do not ask a question nobody asked and then answer it yourself. Example: "The result? Devastating."
@@ -64,7 +65,8 @@ DO NOT (UNLESS FOR GOOD REASON) FALL INTO ANY OF THE FOLLOWING TROPES, BEHAVIOUR
 - Promotional language: Do not write marketing copy. Describe the subject, do not sell it.
 - "Where / What / Why" Headers: Do not build headings on a Wh-word, in an article or on a slide. Example: "What we do differently"
 - "Where it actually lives": Do not frame the true source of something as a place it inhabits. Example: "where the complexity actually lives"
-- Collaborative communication: Do not switch to "we" in a document you did not author or in personal material. Keep the author's voice.
+- Collaborative communication: Do not switch to "we" in a document you did not author or in personal material. Keep the author's voice. When the author owns the thing being described (their project's docs, their PR), "we" for the project is the author's voice.
+- Impersonal spec voice: In docs, guides and READMEs, talk to the reader and speak as the owner: "you can X", "this will Y", "we don't Z because...", "if you installed X, ...". Do not write subjectless spec fragments or detached passive statements. Example: "Sets up the unit, enables it, and (re)starts it. A packaged unit stays installed, just disabled."
 - "Not X. Not Y. Just Z.": Do not negate two or more things before revealing the point. Example: "Not a bug. Not a feature. A fundamental design flaw."
 - "Here's the kicker": Do not set up a reveal. No "Here's the thing", "Here's the kicker", "Here's what most people miss", "But here's the catch".
 - Excessive enumeration: Do not disguise a list as prose by opening successive paragraphs with "The first...", "The second...", "The third...". Write the list or write the prose.

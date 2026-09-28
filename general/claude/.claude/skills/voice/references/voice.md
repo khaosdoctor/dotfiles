@@ -10,6 +10,7 @@ Synthesized from the user's outgoing prose across casual chat, technical broadca
 
 HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
 HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
+HRD:🔴underexplain▸overexplain(humans-are-lazy→say-the-thing+stop,🚫cover-every-edge/caveat/why,reader-asks-if-they-need-more),personal-framing-ALWAYS(▸"you-can-X","this-will-Y","we-do/don't-Z-because...","if-you-installed-X,..."),🚫impersonal-spec-voice("Sets-up-X","A-packaged-unit-stays-installed","Lingering-stays-on,since...")→every-surface-incl-docs+READMEs+PRs
 LEX:🔴CANONICAL-MACHINE-LIST@(~/.claude/CLAUDE.md:BAN-W/BAN-P/BAN-R/BAN-X-lines)=single-source-of-truth→ADD-NEW-BANS-THERE-ONLY(🚫duplicate-here,🚫in-vault); parsed-by-hook(~/.claude/bin/ban-words.py@PreToolUse:Write|Edit→exit-2-blocks-the-write; chat-replies-🚫covered→self-check). lines-below=the-WHY+substitutions(prose-guidance-only)
 LEX:hard-bans-below-apply-to-every-surface,including-plain-chat-replies-to-the-user,not-just-ghost-written-prose:
 LEX:🚫"gap"(∈"the-only-gap-I-left","coverage-gap")→▸name-the-missing-thing-directly("the-only-thing-I-didn't-do-is-X")
