@@ -1,6 +1,6 @@
-When a task is long, mechanical, or parallelizable, delegate to opencode-go via the MCP bridge instead of doing it inline. Claude plans and reviews; Go executes.
+When a task is long, mechanical, or parallelizable, delegate to opencode-go via the MCP bridge instead of doing it inline. Where the bridge is unavailable (no `mcp__opencode__*` tools, OpenCode 2.x), use `opencode run` from Bash instead. Claude plans and reviews; Go executes.
 
-Full MCP tool workflow: `@~/.claude/skills/opencode-delegate/SKILL.md`
+Full MCP and CLI workflows: `@~/.claude/skills/opencode-delegate/SKILL.md`
 
 ## Model routing
 

@@ -74,5 +74,5 @@ PCT: papercuts.md@(AI-Brainz-root)=cross-session-dev-slowdown-log, on-time-lost�
 
 ## Delegate to OpenCode (opencode-go)
 
-DEL:long-mechanical-parallelizable→MCP-bridge,claude-plans+reviews→go-executes
+DEL:long-mechanical-parallelizable→MCP-bridge▸`opencode run`-CLI(when-no-mcp__opencode-tools/OpenCode-2.x),claude-plans+reviews→go-executes
 DEL:routing+caps@opencode-delegate.md,workflow@~/.claude/skills/opencode-delegate/SKILL.md
