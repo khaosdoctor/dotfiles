@@ -161,6 +161,7 @@ general/claude/.claude/shell-snapshots
 general/claude/.claude/sessions
 general/claude/.claude/projects/-home-multivac
 general/claude/.claude/plugins/install-counts-cache.json
+general/claude/.claude/plugins/blocklist.json
 general/claude/.claude/plugins/marketplaces
 general/claude/.claude/plugins/cache
 general/claude/.claude/context-mode/sessions
