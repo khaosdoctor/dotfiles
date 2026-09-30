@@ -238,8 +238,6 @@ cask "1password-cli"
 cask "bambu-studio"
 # Anthropic's official Claude AI desktop app
 cask "claude"
-# Terminal-based AI coding assistant
-cask "claude-code"
 cask "font-cascadia-code-nf"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-fira-code-nerd-font"
@@ -261,6 +259,8 @@ cask "macfuse"
 cask "ngrok"
 # Get up and running with large language models locally
 cask "ollama-app"
+# G-code generator for 3D printers
+cask "orcaslicer"
 # Client for Proton Drive
 cask "proton-drive"
 # Client for Proton Mail and Proton Calendar
@@ -408,3 +408,4 @@ vscode "yoavbls.pretty-ts-errors"
 vscode "zignd.html-css-class-completion"
 go "cmd/go"
 go "cmd/gofmt"
+npm "@brutalsystems/tincan"
