@@ -1,0 +1,1 @@
+../../../../../../../../../../.claude/plugins/marketplaces/i-have-adhd/.opencode/command/i-have-adhd.md

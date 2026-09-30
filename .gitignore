@@ -216,3 +216,13 @@ general/claude/.claude/remote-settings.json
 specific/arch/beszel/etc/beszel-agent.conf
 /general/claude/.claude/skills/synced
 /.serena
+
+# OpenCode: per-machine installs and herdr-managed integration files
+general/ai-agents/.config/opencode/node_modules/
+general/ai-agents/.config/opencode/package.json
+general/ai-agents/.config/opencode/package-lock.json
+general/ai-agents/.config/opencode/bun.lock
+general/ai-agents/.config/opencode/.caveman-active
+general/ai-agents/.config/opencode/tui.jsonc
+general/ai-agents/.config/opencode/herdr-tui-session.js
+general/ai-agents/.config/opencode/plugins/herdr-agent-state.js

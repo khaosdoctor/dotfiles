@@ -1,0 +1,1 @@
+../../../../../../../../../../.claude/plugins/marketplaces/caveman/src/plugins/opencode/commands/caveman-help.md

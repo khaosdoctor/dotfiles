@@ -1,0 +1,1 @@
+../../../../../../../../../../.claude/plugins/marketplaces/ponytail/.opencode/command/ponytail-audit.md

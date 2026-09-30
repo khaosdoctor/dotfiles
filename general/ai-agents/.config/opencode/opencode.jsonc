@@ -1,0 +1,213 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "lsp": true,
+
+  // Always-on writing rules (Claude Code SessionStart hook equivalent)
+  "instructions": [
+    "{env:HOME}/.claude/skills/avoid-tropes/SKILL.md"
+  ],
+
+  // Skills shipped inside Claude Code plugin marketplaces (stable git-checkout paths)
+  "skills": {
+    "paths": [
+      "{env:HOME}/.claude/plugins/marketplaces/sigil/plugins/sigil/skills",
+      "{env:HOME}/.claude/plugins/marketplaces/hemnet/plugins/pr-review/skills",
+      "{env:HOME}/.claude/plugins/marketplaces/claude-plugins-official/plugins/frontend-design/skills",
+      "{env:HOME}/.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-md-management/skills",
+      "{env:HOME}/.claude/plugins/marketplaces/claude-plugins-official/plugins/claude-code-setup/skills"
+    ]
+  },
+
+  // ponytail and i-have-adhd ship native opencode plugins in their repos;
+  // they self-register their skills dirs and system-prompt rulesets.
+  // Local hook ports live in ~/.config/opencode/plugins/ (auto-loaded).
+  //
+  // tincan-opencode is the receive half of Tin Can, by npm specifier so
+  // opencode keeps it current. A hand-copied plugin goes stale silently, and a
+  // stale one posts to a route that no longer runs messages.
+  "plugin": [
+    "@brutalsystems/tincan-opencode",
+    "file://{env:HOME}/.claude/plugins/marketplaces/ponytail/.opencode/plugins/ponytail.mjs",
+    "file://{env:HOME}/.claude/plugins/marketplaces/i-have-adhd/.opencode/plugins/i-have-adhd.mjs"
+  ],
+
+  "mcp": {
+  "cloudflare-api": {
+      "type": "remote",
+      "url": "https://mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-docs": {
+      "type": "remote",
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-bindings": {
+      "type": "remote",
+      "url": "https://bindings.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-builds": {
+      "type": "remote",
+      "url": "https://builds.mcp.cloudflare.com/mcp"
+    },
+    "cloudflare-observability": {
+      "type": "remote",
+      "url": "https://observability.mcp.cloudflare.com/mcp"
+    },
+    "coolify": {
+      "type": "remote",
+      "url": "https://homelab.lsantos.me/mcp",
+      "headers": {
+        "Authorization": "Bearer REPLACED_AT_STARTUP_BY_SECRETS_PLUGIN"
+      }
+    },
+    "freecad": {
+      "type": "remote",
+      "url": "http://127.0.0.1:9876/mcp"
+    },
+    "obsidian": {
+      "type": "local",
+      "command": ["sh", "-c", "$HOME/.claude/bin/find-obsidian --mcp"]
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "-y", "@playwright/mcp@latest", "--headless"]
+    },
+    "gitlab": {
+      "type": "remote",
+      "url": "https://gitlab.com/api/v4/mcp",
+      "oauth": {}
+    },
+    // Google Workspace official MCPs (Developer Preview).
+    // Requires a Google Cloud project with the Gmail/Drive/Calendar APIs + MCP
+    // services enabled and an OAuth client whose redirect URI is
+    // http://127.0.0.1:19876/mcp/oauth/callback
+    "gmail": {
+      "type": "remote",
+      "url": "https://gmailmcp.googleapis.com/mcp/v1",
+      "oauth": {
+        "clientId": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_ID}",
+        "clientSecret": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_SECRET}"
+      }
+    },
+    "gdrive": {
+      "type": "remote",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "oauth": {
+        "clientId": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_ID}",
+        "clientSecret": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_SECRET}"
+      }
+    },
+    "gcalendar": {
+      "type": "remote",
+      "url": "https://calendarmcp.googleapis.com/mcp/v1",
+      "oauth": {
+        "clientId": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_ID}",
+        "clientSecret": "{env:GOOGLE_WORKSPACE_MCP_CLIENT_SECRET}"
+      }
+    },
+    // Tin Can send half. Gives this session `peers`, `send_peer` and
+    // `message_log`. Needs the tincan-opencode plugin above to be reachable
+    // from other runtimes; without the MCP entry a session can listen but not
+    // speak, and neither failure is reported anywhere.
+    "tincan": {
+      "type": "local",
+      "command": ["tincan"],
+      "enabled": true
+    }
+  },
+
+  // Ported from ~/.claude/settings.json permissions.allow.
+  // opencode evaluates the LAST matching rule, so broad rules come first.
+  "permission": {
+    "read": "allow",
+    "edit": "allow",
+    "websearch": "allow",
+    "webfetch": "allow",
+    "external_directory": {
+      "*": "ask",
+      "~/.claude/**": "allow",
+      "~/.agents/**": "allow",
+      "~/Documents/Obsidian Default Vault/**": "allow",
+      "~/Documents/AI Brainz Vault/**": "allow",
+      "~/Documents/Obsidian/Vaults/**": "allow"
+    },
+    "skill": {
+      "*": "ask",
+      "sigil*": "allow",
+      "update-config": "allow",
+      "followup": "allow",
+      "avoid-tropes": "allow",
+      "writeup": "allow"
+    },
+    "bash": {
+      "*": "ask",
+      "find *": "allow",
+      "nvim *": "allow",
+      "grep *": "allow",
+      "ps *": "allow",
+      "cat *": "allow",
+      "ls *": "allow",
+      "git status *": "allow",
+      "git log *": "allow",
+      "git diff *": "allow",
+      "git show *": "allow",
+      "git branch *": "allow",
+      "git fetch *": "allow",
+      "git remote *": "allow",
+      "git stash list *": "allow",
+      "git tag *": "allow",
+      "docker ps *": "allow",
+      "docker logs *": "allow",
+      "docker images *": "allow",
+      "docker inspect *": "allow",
+      "docker stats *": "allow",
+      "docker compose ps *": "allow",
+      "docker compose logs *": "allow",
+      "npm list *": "allow",
+      "npm ls *": "allow",
+      "npm outdated *": "allow",
+      "npm info *": "allow",
+      "npm view *": "allow",
+      "npm test *": "allow",
+      "rtk find *": "allow",
+      "rtk grep *": "allow",
+      "rtk ps *": "allow",
+      "rtk cat *": "allow",
+      "rtk ls *": "allow",
+      "rtk head *": "allow",
+      "rtk tail *": "allow",
+      "rtk git status *": "allow",
+      "rtk git log *": "allow",
+      "rtk git diff *": "allow",
+      "rtk git show *": "allow",
+      "rtk git branch *": "allow",
+      "rtk git fetch *": "allow",
+      "rtk git remote *": "allow",
+      "rtk git stash list *": "allow",
+      "rtk git tag *": "allow",
+      "rtk docker ps *": "allow",
+      "rtk docker logs *": "allow",
+      "rtk docker images *": "allow",
+      "rtk docker inspect *": "allow",
+      "rtk docker stats *": "allow",
+      "rtk docker compose ps *": "allow",
+      "rtk docker compose logs *": "allow",
+      "rtk npm list *": "allow",
+      "rtk npm ls *": "allow",
+      "rtk npm outdated *": "allow",
+      "rtk npm info *": "allow",
+      "rtk npm view *": "allow",
+      "rtk gain *": "allow",
+      "rtk discover *": "allow",
+      "rtk date *": "allow",
+      "rtk gh *": "allow",
+      "rtk jq *": "allow",
+      "rtk mkdir *": "allow",
+      "rtk echo *": "allow",
+      "rtk du *": "allow",
+      "rtk which *": "allow",
+      "rtk ghostty *": "allow",
+      "~/.claude/bin/find-obsidian --vault*": "allow",
+      "atuin daemon *": "allow"
+    }
+  }
+}
