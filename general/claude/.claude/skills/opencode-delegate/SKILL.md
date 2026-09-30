@@ -1,11 +1,16 @@
 ---
 name: opencode-delegate
-description: Use when delegating coding tasks to OpenCode via the MCP bridge, or when the user says "delegate", "fan out", "use opencode", "run this in parallel", "spawn agents", or asks to offload work to the Go provider. Routes tasks to the right opencode-go model and explains the MCP tool workflow.
+description: Use when delegating coding tasks to OpenCode via the MCP bridge or the `opencode run` CLI, or when the user says "delegate", "fan out", "use opencode", "run this in parallel", "spawn agents", or asks to offload work to the Go provider. Routes tasks to the right opencode-go model and explains the MCP and CLI workflows.
 ---
 
 # Delegate to OpenCode
 
-Use the `mcp-server-opencode` MCP tools to offload coding work to the opencode-go provider. Claude plans and reviews; Go executes.
+Offload coding work to the opencode-go provider. Claude plans and reviews; Go executes.
+
+Pick the workflow by what this machine has:
+
+- **`mcp__opencode__*` tools are available** (OpenCode 1.x, e.g. the Mac): use the [MCP tool workflow](#mcp-tool-workflow).
+- **No `mcp__opencode__*` tools, or `opencode --version` is 2.x** (e.g. neumann-arch): use the [CLI workflow](#cli-workflow). `mcp-server-opencode` 1.2.0 cannot drive an OpenCode 2.x server (the 2.x API replaced the one the SDK speaks), so the bridge is not registered there.
 
 ## When to delegate
 
@@ -67,6 +72,24 @@ Use this when tasks are independent: writing tests for different modules, codemo
 
 Pass the `model` parameter as `opencode-go/<id>`. If omitted, the server uses its default. Always pass it explicitly.
 
+## CLI workflow
+
+Run each task as a one-shot `opencode run` from the Bash tool:
+
+```sh
+cd <project dir> && timeout 1800 opencode run -m opencode-go/<id> --auto --title "<short title>" "<prompt>"
+```
+
+- `-m` takes the same `opencode-go/<id>` ids as the routing table.
+- `--auto` approves permission prompts that the config does not explicitly deny, so the task does not stall waiting on a prompt nobody answers. Run it from the project directory so edits stay inside it.
+- The final answer prints to stdout. Add `--format json` when you need to parse it.
+- Put the rails in the prompt itself: which files it may touch, what it must not do (no push, no installs outside the project, no heredocs for file edits), and what to report back.
+- Wrap it in `timeout` so a stuck task cannot run forever.
+
+For a single task, run it in the foreground. For parallel fan-out, start each task as its own Bash call with `run_in_background: true` in one message; you are notified as each one finishes. Read the output files, then review the combined result yourself.
+
+Starting OpenCode can make 1Password ask the user to approve SSH. Do not start OpenCode tasks when the user is away, because an unanswered prompt hangs the run.
+
 ## Cap budget
 
 Each Go model has a monthly request cap. Pin one agent type per model so a runaway task cannot eat the month.
@@ -83,7 +106,7 @@ Each Go model has a monthly request cap. Pin one agent type per model so a runaw
 ## Rules
 
 1. Always pass `model` explicitly. Never rely on the server default.
-2. For parallel tasks, fire all `opencode_start_task` calls in one message, then wait.
+2. For parallel tasks, fire all `opencode_start_task` calls (or background `opencode run` calls) in one message, then wait.
 3. If a task fails, read the error, fix the prompt, and retry with the same model before switching.
 4. Do not delegate to a blocked model. The list above is exhaustive.
 5. `space-bunny-free` and `longcat-2.5-preview-free` have no published benchmarks. Use them only for low-stakes work.
