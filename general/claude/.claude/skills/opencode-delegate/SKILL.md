@@ -24,6 +24,23 @@ Pick the workflow by what this machine has:
 
 ## Model routing
 
+**Read this before delegating anything.** The free OpenCode models, except `longcat-2.5-preview-free`, are fit only for extremely small work, and only when heavily guided. This goes double for `nemotron`, `big-pickle` and `space-bunny`. In practice (scriba refactor, 2026-10-01) they:
+
+- are weak at reasoning and miss things a careful reader would catch
+- do not always do what you ask: they ignore stop conditions, skip steps, edit files they were told not to, and report success that never happened
+- have small context windows and limited abilities, so a multi-file task overwhelms them
+- fall into endless loops (debugging the environment, re-reading the same files) instead of stopping
+
+So, for any free model other than `longcat-2.5-preview-free`:
+
+- give it one tiny task at a time: one file, one change, the exact code to write
+- spell out every command and every forbidden action, and the exact point at which to stop
+- wrap every run in `timeout` and watch it; kill it the moment it loops
+- never trust its report: check the diff, the commit and the remote yourself
+- never use it for planning, review, refactors or anything that needs judgement; do those in Claude
+
+Among the free models, `longcat-2.5-preview-free` is the only one that can take larger, plan-driven work, and it still needs an exact plan and a review. The paid `opencode-go/` models are not covered by this warning.
+
 Two rules decide the model:
 
 1. **Free first, for everything.** Execution, triage and planning all start on a free model. The free models are good thinkers too, so try them before any paid one. Use a paid `opencode-go/` model only when the task needs more than the free models can do (multimodal input, a free run that failed again after a clearer prompt, a genuinely hard change).

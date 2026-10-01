@@ -4,6 +4,8 @@ Full MCP and CLI workflows: `@~/.claude/skills/opencode-delegate/SKILL.md`
 
 ## Model routing
 
+**The free models, except `longcat-2.5-preview-free`, are only for extremely small work, heavily guided; above all `nemotron`, `big-pickle` and `space-bunny`.** They are weak at reasoning, rebellious (ignore instructions and stop conditions, report success that never happened), have small context and limited abilities, and fall into endless loops. Give them one tiny task with the exact code, every command and the exact stop point; wrap runs in `timeout`, kill loops, and verify every claim yourself. Never use them for planning, review or refactors. Among the free models, `longcat-2.5-preview-free` alone can take larger plan-driven work, still with an exact plan and a review. Paid `opencode-go/` models are not covered by this warning.
+
 - **Free first, for everything:** execution, triage and planning all start on a free model. The free models are good thinkers too, so try them before any paid one. Use a paid `opencode-go/` model only when the task needs more than the free models can do.
 - **`glm-5.3` and `kimi-k3` never execute.** They are for planning only, and only as a last resort when neither Claude nor a free model can plan the task.
 - **Never use** any `*contributor*` model, any `nemotron` model, any `*-fin-*` (finance-tuned) model, or the free `mimo` (`mimo-v2.6-flash-free`).
