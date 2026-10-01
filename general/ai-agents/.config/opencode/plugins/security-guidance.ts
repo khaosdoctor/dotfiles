@@ -8,6 +8,9 @@
 // opencode has no Stop hook), the claude_agent_sdk bootstrap, and
 // additionalContext injection (opencode's tool.execute.after has no
 // model-visible context-injection channel). Warnings go to the log.
+//
+// Dual format: OpenCode 2.x reads `id` + `setup(ctx)` (warnings go to the
+// server log via console.warn); OpenCode 1.x (>= 1.18.29) calls `server()`.
 
 type Pattern = {
   ruleName: string;
@@ -35,7 +38,7 @@ const UNSAFE_TORCH_LOAD_REMINDER =
 const SECURITY_PATTERNS: Pattern[] = [
   {
     ruleName: "github_actions_workflow",
-    pathCheck: (path) => ".github/workflows/" in path && (path.endsWith(".yml") || path.endsWith(".yaml")),
+    pathCheck: (path) => path.includes(".github/workflows/") && (path.endsWith(".yml") || path.endsWith(".yaml")),
     reminder:
       "⚠️ Security Warning: You are editing a GitHub Actions workflow file. Be aware of these security risks:\n\n1. **Command Injection**: Never use untrusted input (like issue titles, PR descriptions, commit messages) directly in run: commands without proper escaping\n2. **Use environment variables**: Instead of ${{ github.event.issue.title }}, use env: with proper quoting\n3. **Review the guide**: https://github.blog/security/vulnerability-research/how-to-catch-github-actions-workflow-injections-before-attackers-do/\n\nExample of UNSAFE pattern to avoid:\nrun: echo \"${{ github.event.issue.title }}\"\n\nExample of SAFE pattern:\nenv:\n  TITLE: ${{ github.event.issue.title }}\nrun: echo \"$TITLE\"\n\nOther risky inputs to be careful with:\n- github.event.issue.body\n- github.event.pull_request.title\n- github.event.pull_request.body\n- github.event.comment.body\n- github.event.review.body\n- github.event.review_comment.body\n- github.event.pages.*.page_name\n- github.event.commits.*.message\n- github.event.head_commit.message\n- github.event.head_commit.author.email\n- github.event.head_commit.author.name\n- github.event.commits.*.author.email\n- github.event.commits.*.author.name\n- github.event.pull_request.head.ref\n- github.event.pull_request.head.label\n- github.event.pull_request.head.repo.default_branch\n- github.event.client_payload.* (repository_dispatch events — attacker can set any field)\n\n4. **Ref injection**: Never use untrusted input in `ref:` parameters of `actions/checkout`. For `client_payload.pr_number`, validate it matches `^[0-9]+$` before using in `ref: refs/pull/${{ ... }}/head`\n- github.head_ref",
   },
@@ -202,24 +205,44 @@ function checkPatterns(path: string, content: string): string[] {
   return warnings;
 }
 
-export default async ({ client }: any) => {
-  return {
-    "tool.execute.after": async (input: any, _output: any) => {
-      if (input.tool !== "edit" && input.tool !== "write") return;
-      const path = input.args?.filePath || input.args?.file_path || input.args?.path;
+function editedPath(tool: string, input: any): string | undefined {
+  if (tool !== "edit" && tool !== "write") return undefined;
+  return input?.filePath || input?.file_path || input?.path;
+}
+
+async function warningsFor(path: string): Promise<string[]> {
+  try {
+    return checkPatterns(path, await Bun.file(path).text());
+  } catch {
+    // file unreadable or missing — skip
+    return [];
+  }
+}
+
+export default {
+  id: "security-guidance",
+
+  async setup(ctx: any) {
+    await ctx.tool.hook("execute.after", async (event: any) => {
+      if (event.status !== "completed") return;
+      const path = editedPath(event.tool, event.input);
       if (!path) return;
-      try {
-        const content = await Bun.file(path).text();
-        const warnings = checkPatterns(path, content);
-        for (const w of warnings) {
+      for (const w of await warningsFor(path)) console.warn(`security-guidance: ${w}`);
+    });
+  },
+
+  async server({ client }: any = {}) {
+    return {
+      "tool.execute.after": async (input: any, _output: any) => {
+        const path = editedPath(input.tool, input.args);
+        if (!path) return;
+        for (const w of await warningsFor(path)) {
           console.warn(w);
-          await client.app.log({
+          await client?.app?.log({
             body: { service: "security-guidance", level: "warn", message: w },
           });
         }
-      } catch {
-        // file unreadable or missing — skip
-      }
-    },
-  };
+      },
+    };
+  },
 };
