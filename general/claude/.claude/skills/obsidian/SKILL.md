@@ -1,4 +1,19 @@
 ---
+name: obsidian
+description: >
+  Vault conventions and guardrails for the user's Obsidian vault (Default vault at
+  ~/Documents/Obsidian/Vaults/Default). Use whenever reading, writing, creating,
+  renaming, or reorganizing notes in a vault, and whenever triggered by a .obsidian/
+  folder, a "notes/daily notes/" tree, or any path under ~/Documents/Obsidian.
+  Covers required frontmatter (title, tags, aliases, createdAt, oneliner, updatedAt),
+  the deepest-child-only hierarchical tag rule, wikilink and alias link formats, file
+  naming, the filesystem-tools-over-MCP write rule, AI edit tracking
+  (meta/ai-assisted plus lastEditedByAI), image and asset handling, Templater
+  templates in internal/templates/, and the absolute prohibition on writing or
+  rewording journal content in daily notes. Companion references in this skill
+  directory: vault-structure.md, cheatsheet.md, image-handling.md, vault-analysis.md.
+  Not for autonomous vault-wide rewriting or scheduled self-maintenance, use the
+  obsidian-second-brain skill for that.
 disable-model-invocation: false
 user-invocable: false
 allowed-tools:
