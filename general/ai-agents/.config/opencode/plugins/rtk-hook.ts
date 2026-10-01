@@ -6,6 +6,10 @@
 //    so mise/shell hooks can't hang the call (from settings.json hook #1).
 // 3. Branch freshness before `git push`: run fetch + status -sb first so the
 //    output lands in the same tool result (from settings.json hook #3).
+//
+// Dual format: OpenCode 2.x reads `id` + `setup(ctx)` and rewrites through the
+// shell `create.before` hook; OpenCode 1.x (>= 1.18.29) calls `server()` and
+// rewrites the bash tool input.
 
 import { existsSync } from "node:fs"
 
@@ -42,31 +46,42 @@ async function rtkRewrite(command: string): Promise<string | null> {
   return Promise.race([result, timeout])
 }
 
-export default async () => {
-  return {
-    "tool.execute.before": async (input: any, output: any) => {
-      if (input.tool !== "bash") return
+async function rewrite(original: string): Promise<string> {
+  let command = original
 
-      let command: string = output.args.command
+  // 1. rtk rewrite (adds `rtk ` prefix where it saves tokens)
+  const rewritten = await rtkRewrite(command)
+  if (rewritten && rewritten !== command) command = rewritten
 
-      // 1. rtk rewrite (adds `rtk ` prefix where it saves tokens)
-      const rewritten = await rtkRewrite(command)
-      if (rewritten && rewritten !== command) command = rewritten
-
-      // 2. bare leading `git` -> clean-env git (rtk-prefixed git doesn't hang)
-      if (/^\s*(git\s|git$|\/usr\/bin\/git\s)/.test(command)) {
-        command = command.replace(
-          /^\s*(?:\/usr\/bin\/)?git\s?/,
-          `${CLEAN_GIT} `,
-        )
-      }
-
-      // 3. branch freshness before any git push
-      if (/\bgit\s+push\b/.test(command)) {
-        command = `${CLEAN_GIT} fetch 2>&1; ${CLEAN_GIT} status -sb 2>&1; ${command}`
-      }
-
-      output.args.command = command
-    },
+  // 2. bare leading `git` -> clean-env git (rtk-prefixed git doesn't hang)
+  if (/^\s*(git\s|git$|\/usr\/bin\/git\s)/.test(command)) {
+    command = command.replace(/^\s*(?:\/usr\/bin\/)?git\s?/, `${CLEAN_GIT} `)
   }
+
+  // 3. branch freshness before any git push
+  if (/\bgit\s+push\b/.test(command)) {
+    command = `${CLEAN_GIT} fetch 2>&1; ${CLEAN_GIT} status -sb 2>&1; ${command}`
+  }
+
+  return command
+}
+
+export default {
+  id: "rtk-hook",
+
+  async setup(ctx: any) {
+    await ctx.shell.hook("create.before", async (event: any) => {
+      if (typeof event.command !== "string") return
+      event.command = await rewrite(event.command)
+    })
+  },
+
+  async server() {
+    return {
+      "tool.execute.before": async (input: any, output: any) => {
+        if (input.tool !== "bash") return
+        output.args.command = await rewrite(output.args.command)
+      },
+    }
+  },
 }
