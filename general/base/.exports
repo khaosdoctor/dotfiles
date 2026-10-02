@@ -7,7 +7,6 @@ export GPG_TTY=$(tty)
 typeset -U path PATH
 
 # These must be exported before the `path` array below since it references them
-export DENO_DIR=$HOME/Library/Caches/deno
 export DENO_INSTALL_ROOT=$HOME/.deno
 export GOPATH=$HOME/go
 
