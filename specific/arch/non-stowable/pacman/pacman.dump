@@ -207,6 +207,7 @@ rmlint
 rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
+rootapp-bin
 rsync
 rusty-path-of-building
 satty
