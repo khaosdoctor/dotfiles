@@ -136,4 +136,7 @@ keybind = alt+down=goto_split:down
 
 # Reload config — kitty_mod+f5 (kitty_mod = ctrl+shift)
 keybind = ctrl+shift+f5=reload_config
+
+# Free ctrl+enter for apps (default is toggle_fullscreen)
+keybind = ctrl+enter=unbind
 gtk-single-instance = false
