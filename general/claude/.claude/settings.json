@@ -207,7 +207,8 @@
     "frontend-design@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "gitlab@claude-plugins-official": true
+    "gitlab@claude-plugins-official": true,
+    "cc-plugin-you-should-know@builtin": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
