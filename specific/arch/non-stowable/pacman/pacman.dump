@@ -19,6 +19,7 @@ btop
 btrfs-assistant
 btrfs-heatmap
 btrfs-progs
+catch2
 cava
 ccache
 clang
@@ -211,6 +212,7 @@ rootapp-bin
 rsync
 rusty-path-of-building
 satty
+scdoc
 sddm
 sddm-astronaut-theme
 selectdefaultapplication-git
