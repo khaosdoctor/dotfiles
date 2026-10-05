@@ -148,7 +148,8 @@ general/base/.local/bin/*
 /general/base/.local/share/
 /general/base/.local/state/
 /general/base/.local/pipx
-/specific/arch/waybar/.config/waybar/.audio-sinks
+/specific/arch/waybar/.config/waybar/.audio-outputs
+/specific/arch/waybar/.config/waybar/.audio-inputs
 /specific/arch/waybar/.config/waybar/audio_menu.xml
 /specific/arch/base/.config/systemd/user/timers.target.wants
 /specific/arch/base/.config/systemd/user/graphical-session.target.wants
