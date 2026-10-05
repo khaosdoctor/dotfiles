@@ -1,0 +1,13 @@
+[Unit]
+Description=Regenerate the waybar audio menu when audio devices change
+PartOf=graphical-session.target
+After=graphical-session.target pipewire-pulse.service
+
+[Service]
+ExecStart=%h/.config/waybar/audio-menu-watch.sh
+# pactl subscribe exits when pipewire-pulse restarts
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target
