@@ -612,17 +612,12 @@ func (c *Config) runDarwinOneTime() {
 // ─── Systemd units ─────────────────────────────────────────────────────────────
 
 func (c *Config) enableSystemdUnits() {
-	unitDir := filepath.Join(c.DotfilesDir, "specific/arch/base/.config/systemd/user")
-	entries, err := os.ReadDir(unitDir)
-	if err != nil {
-		return
-	}
-
+	// Units live next to the package that owns them (base, waybar, eww, ...)
 	var units []string
-	for _, e := range entries {
-		name := e.Name()
-		if strings.HasSuffix(name, ".service") || strings.HasSuffix(name, ".timer") {
-			units = append(units, name)
+	for _, ext := range []string{"service", "timer"} {
+		matches, _ := filepath.Glob(filepath.Join(c.DotfilesDir, "specific/arch/*/.config/systemd/user/*."+ext))
+		for _, m := range matches {
+			units = append(units, filepath.Base(m))
 		}
 	}
 	if len(units) == 0 {
