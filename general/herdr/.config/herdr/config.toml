@@ -1,0 +1,57 @@
+onboarding = false
+
+[experimental]
+pane_history = true
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = false
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+agent_panel_sort = "spaces"
+show_agent_labels_on_pane_borders = true
+status_indicators = "symbols"
+hide_tab_bar_when_single_tab = true
+prompt_new_tab_name = true
+tab_bar_right = [{ type = "datetime", format = "%H:%M" }]
+
+# Direct chords stack on top of the prefix bindings. zellij (outer) owns
+# alt+[ / ], alt+f/n and alt+h/j/k/l, so herdr uses ctrl+alt chords.
+[keys]
+focus_pane_left = ["prefix+shift+h", "ctrl+alt+h"]
+focus_pane_down = ["prefix+shift+j", "ctrl+alt+j"]
+focus_pane_up = ["prefix+shift+k", "ctrl+alt+k"]
+focus_pane_right = ["prefix+shift+l", "ctrl+alt+l"]
+new_workspace = ["prefix+shift+n", "ctrl+alt+n"]
+rename_workspace = ["prefix+shift+w", "ctrl+alt+r"]
+new_tab = ["prefix+c", "ctrl+alt+t"]
+split_vertical = ["prefix+v", "ctrl+alt+d"]
+split_horizontal = ["prefix+h", "ctrl+alt+shift+d"]
+zoom = ["prefix+z", "ctrl+alt+z"]
+goto = ["prefix+g", "ctrl+alt+g"]
+previous_agent = "ctrl+alt+["
+next_agent = "ctrl+alt+]"
+focus_agent = "ctrl+alt+1..9"
+previous_workspace = "ctrl+alt+shift+["
+next_workspace = "ctrl+alt+shift+]"
+resize_pane_left = "ctrl+alt+shift+h"
+resize_pane_down = "ctrl+alt+shift+j"
+resize_pane_up = "ctrl+alt+shift+k"
+resize_pane_right = "ctrl+alt+shift+l"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+navigate_pane_up = "shift+k"
+navigate_pane_down = "shift+j"
+
+[[keys.command]]
+key = "alt+g"
+type = "popup"
+command = "lazygit"
+width = "80%"
+height = "80%"
