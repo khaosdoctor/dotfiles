@@ -78,15 +78,21 @@ if [ -n "$model" ]; then
 fi
 
 # Pricing per 1M tokens [input, output] by model ID prefix.
-# Source: platform.claude.com/docs/en/docs/about-claude/pricing (verified 2026-07-02).
-# Naive estimate: ignores prompt-cache reads (0.1x) and /fast mode (6x), so this
-# is a worst-case ceiling rather than actual spend.
+# Source: platform.claude.com/docs/en/docs/about-claude/pricing (verified 2026-10-09).
+# Naive estimate: ignores prompt-cache reads (0.025x-0.1x of input) and /fast mode (2x),
+# and Haiku 5.5 uses its up-to-100K-token price, so this is a worst-case ceiling
+# rather than actual spend. Order matters: opus-5-5 before opus-5.
 cost_str=""
 if [ -n "$model_id" ] && { [ "$total_tokens" -gt 0 ] || [ "$total_out_tokens" -gt 0 ]; } 2>/dev/null; then
   case "$model_id" in
-    claude-fable-5*)                                                     price_in=10.00; price_out=50.00 ;;
+    claude-fable-5*|claude-mythos-5*)                                    price_in=10.00; price_out=50.00 ;;
+    claude-opus-5-5*)                                                    price_in=4.00;  price_out=20.00 ;;
+    claude-opus-5*)                                                      price_in=5.00;  price_out=25.00 ;;
     claude-opus-4-8*|claude-opus-4-7*|claude-opus-4-6*|claude-opus-4-5*) price_in=5.00;  price_out=25.00 ;;
+    claude-opus-4*)                                                      price_in=15.00; price_out=75.00 ;;
     claude-sonnet-5*)                                                    price_in=2.00;  price_out=10.00 ;;
+    claude-sonnet-4*)                                                    price_in=3.00;  price_out=15.00 ;;
+    claude-haiku-5*)                                                     price_in=0.10;  price_out=0.50  ;;
     claude-haiku-4*)                                                     price_in=1.00;  price_out=5.00  ;;
     *)                                                                   price_in=2.00;  price_out=10.00 ;;
   esac
