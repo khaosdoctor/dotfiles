@@ -210,7 +210,11 @@
     "ralph-loop@claude-plugins-official": true,
     "gitlab@claude-plugins-official": true,
     "cc-plugin-you-should-know@builtin": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "image-view@claude-image-view": true,
+    "prismantis@prismantis": true,
+    "flightdeck@claude-flightdeck": true,
+    "filetree@claude-code-filetree": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
@@ -249,6 +253,30 @@
         "source": "github",
         "repo": "ayghri/i-have-adhd"
       }
+    },
+    "claude-image-view": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-image-view"
+      }
+    },
+    "prismantis": {
+      "source": {
+        "source": "github",
+        "repo": "NahumLitvin/prismantis"
+      }
+    },
+    "claude-flightdeck": {
+      "source": {
+        "source": "github",
+        "repo": "scasella/claude-flightdeck"
+      }
+    },
+    "claude-code-filetree": {
+      "source": {
+        "source": "github",
+        "repo": "data-goblin/claude-code-filetree"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
@@ -258,12 +286,61 @@
     }
   },
   "promptSuggestionEnabled": false,
+  "pluginConfigs": {
+    "prismantis@prismantis": {
+      "options": {
+        "enabled": true,
+        "theme": "catppuccin-mocha",
+        "headingStyle": "banner",
+        "tableStyle": "box",
+        "promptStyle": "chevron",
+        "clock": "24h",
+        "toolStyle": "chat",
+        "toolOutput": "quiet",
+        "taskStyle": "ticks",
+        "rtl": "auto",
+        "highlightNumbers": true,
+        "highlightPaths": true,
+        "mermaidAscii": false,
+        "toolRows": true,
+        "mermaid": true,
+        "copyButtons": true,
+        "diagramHints": true,
+        "latex": true
+      }
+    },
+    "flightdeck@claude-flightdeck": {
+      "options": {
+        "architectPattern": "architect|reviewer|advisor|nanny|orchestrator",
+        "architectLabel": "Orchestrator",
+        "gateLabel": "Permissions",
+        "motion": "while-active",
+        "moments": true,
+        "matchDescriptions": true,
+        "layout": "auto",
+        "palette": "theme",
+        "openOnStart": true,
+        "statusLine": true
+      }
+    },
+    "filetree@claude-code-filetree": {
+      "options": {
+        "activity": "reads and writes",
+        "glyphs": "auto",
+        "follow": "on",
+        "start": "on",
+        "column": "date",
+        "hints": "on"
+      }
+    }
+  },
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
   "verbose": true,
   "preferredNotifChannel": "notifications_disabled",
   "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
