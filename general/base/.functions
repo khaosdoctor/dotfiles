@@ -125,6 +125,31 @@ ssh() {
     TERM=xterm-256color command ssh "$@"
 }
 
+# herdr loses the mouse under zellij, so a bare `herdr` typed inside zellij opens
+# it in its own Ghostty window instead. Subcommands (herdr status, ...) run here.
+herdr() {
+    if [[ -z "$ZELLIJ" || $# -gt 0 ]]; then
+        command herdr "$@"
+        return
+    fi
+    herdr-window
+}
+
+# Opens herdr in its own Ghostty window, outside zellij. Also what Herdr.app (macOS)
+# and dev.herdr.Herdr.desktop (Linux) run, through `zsh -ic herdr-window`.
+herdr-window() {
+    local bin
+    bin=$(whence -p herdr)
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        # No --macos-icon here: Ghostty keeps a custom icon for every Ghostty window,
+        # so the herdr icon belongs to Herdr.app only
+        open -na Ghostty --args --title=herdr --command="$bin"
+        return
+    fi
+    # The class is the Wayland app id; dev.herdr.Herdr.desktop maps it to the herdr icon
+    ghostty --class=dev.herdr.Herdr --title=herdr -e "$bin" &!
+}
+
 function systemLog() {
     local input
 

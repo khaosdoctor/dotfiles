@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=herdr
+GenericName=Terminal workspace for AI agents
+Comment=herdr in its own Ghostty window
+Exec=zsh -ic herdr-window
+Icon=herdr
+Terminal=false
+Categories=Development;TerminalEmulator;
+StartupWMClass=dev.herdr.Herdr
