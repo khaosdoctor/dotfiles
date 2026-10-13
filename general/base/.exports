@@ -43,6 +43,7 @@ fi
 [ -S "$HOME/.1password/agent.sock" ] && export SSH_AUTH_SOCK=$HOME/.1password/agent.sock
 export TERMINAL=ghostty
 # TERM is left to the terminal itself, the ssh wrapper in .functions downgrades it for remote hosts
+export COLORTERM=truecolor
 export POSTING_THEME_DIRECTORY=$HOME/.config/posting/themes
 export PIPX_BIN_DIR=$HOME/.local/bin
 export KUBE_EDITOR='vim'
