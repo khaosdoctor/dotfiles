@@ -228,3 +228,4 @@ general/ai-agents/.config/opencode/.caveman-active
 general/ai-agents/.config/opencode/tui.jsonc
 general/ai-agents/.config/opencode/herdr-tui-session.js
 general/ai-agents/.config/opencode/plugins/herdr-agent-state.js
+/installer/main
