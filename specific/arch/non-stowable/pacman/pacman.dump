@@ -129,7 +129,6 @@ lib32-mesa
 lib32-vulkan-radeon
 libgit2
 libpulse
-libreoffice-fresh
 libva-utils
 linux
 linux-firmware
@@ -170,6 +169,7 @@ nwg-drawer
 nwg-look
 obsidian
 ollama-rocm
+onlyoffice-bin
 onnxruntime-rocm
 opencode
 openrazer-daemon
