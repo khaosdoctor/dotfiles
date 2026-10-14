@@ -293,7 +293,7 @@
         "theme": "catppuccin-mocha",
         "headingStyle": "banner",
         "tableStyle": "box",
-        "promptStyle": "chevron",
+        "promptStyle": "bar",
         "clock": "24h",
         "toolStyle": "chat",
         "toolOutput": "quiet",
@@ -320,7 +320,7 @@
         "layout": "auto",
         "palette": "theme",
         "openOnStart": true,
-        "statusLine": true
+        "statusLine": false
       }
     },
     "filetree@claude-code-filetree": {
@@ -339,6 +339,7 @@
   "editorMode": "vim",
   "verbose": true,
   "preferredNotifChannel": "notifications_disabled",
+  "autoCompactEnabled": false,
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
