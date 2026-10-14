@@ -6,6 +6,7 @@ echo "The screen will flash a few times and you'll need to type your sudo passwo
 
 "$DIRNAME/default-screenshots-jpg.sh"
 "$DIRNAME/disable-disk-warning.sh"
+"$DIRNAME/link-1password-agent-socket.sh"
 "$DIRNAME/make-dock-instant-appear.sh"
 "$DIRNAME/make-hidden-transparent.sh"
 
