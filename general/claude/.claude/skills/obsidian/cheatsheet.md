@@ -15,7 +15,6 @@ Is this an Obsidian vault?
 
 ```yaml
 ---
-title: Exact Filename Without Extension
 tags:
   - topic/category
   - type/notetype
@@ -28,7 +27,6 @@ updatedAt: 2026-02-10T10:30:00Z
 ```
 
 ### Required Fields
-- `title` - MUST match filename (without .md)
 - `tags` - Array of hierarchical tags
 - `aliases` - Array (can be empty `[]`)
 - `createdAt` - ISO timestamp
@@ -218,7 +216,6 @@ NEVER use MCP for creating/updating notes!
 ### Person Note (Wikipedia-sourced)
 ```yaml
 ---
-title: Heinrich Hertz
 tags:
   - meta/wikipedia
   - type/person
@@ -235,7 +232,6 @@ updatedAt: 2026-01-05T19:31:15Z
 ### Technical Concept Note
 ```yaml
 ---
-title: RAID 0
 tags:
   - topic/computing/hardware/storage  # Only deepest child!
   - topic/computing/infrastructure    # Separate hierarchy
@@ -295,7 +291,7 @@ When creating/updating notes:
 5. 🔗 **Link** relevant names, years, concepts
 6. 🖼️ **Add** images if relevant (to `internal/assets/`)
 7. 🏷️ **Tag** appropriately (use hierarchical tags)
-8. ✅ **Check** that title matches filename
+8. ✅ **Check** there is no `title` property (the filename is the title)
 
 ## Directory Quick Reference
 
@@ -324,7 +320,7 @@ updatedAt: 2026-02-10T15:45:00Z
 Before creating a note:
 - [ ] Checked for similar existing notes?
 - [ ] Have the right template?
-- [ ] Title matches filename?
+- [ ] No `title` property, filename in sentence case?
 - [ ] Required frontmatter fields present?
 - [ ] Tags use modern format (only deepest child)?
 - [ ] Images stored in correct `internal/assets/` subdirectory?

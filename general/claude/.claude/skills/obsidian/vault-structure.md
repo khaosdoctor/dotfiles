@@ -176,7 +176,6 @@ Subject matter hierarchy:
 ### Standard Frontmatter (Required)
 ```yaml
 ---
-title: Exact Filename Without Extension
 tags:
   - topic/category
   - type/notetype
@@ -190,7 +189,6 @@ updatedAt: 2026-02-10T10:30:00Z
 ### Wikipedia-Sourced Notes
 ```yaml
 ---
-title: Heinrich Hertz
 tags:
   - meta/wikipedia
   - type/person

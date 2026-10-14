@@ -5,7 +5,7 @@ description: >
   ~/Documents/Obsidian/Vaults/Default). Use whenever reading, writing, creating,
   renaming, or reorganizing notes in a vault, and whenever triggered by a .obsidian/
   folder, a "notes/daily notes/" tree, or any path under ~/Documents/Obsidian.
-  Covers required frontmatter (title, tags, aliases, createdAt, oneliner, updatedAt),
+  Covers required frontmatter (tags, aliases, createdAt, oneliner, updatedAt; no title),
   the deepest-child-only hierarchical tag rule, wikilink and alias link formats, file
   naming, the filesystem-tools-over-MCP write rule, AI edit tracking
   (meta/ai-assisted plus lastEditedByAI), image and asset handling, Templater
@@ -129,7 +129,6 @@ This is idempotent and safe to run multiple times. It requires the `claude` CLI 
 
 ### 7. Frontmatter
 All notes must have YAML frontmatter with these **required** fields:
-- `title:` - Title of the note, must be EXACTLY the same as the filename (without .md extension)
 - `tags:` - Array of hierarchical tags (e.g., `meta/incomplete`, `type/person`, `topic/physics`)
 - `aliases:` - Array of alternative names for the note (can be empty: `[]`)
 - `createdAt:` - ISO timestamp of creation
@@ -146,7 +145,6 @@ Optional frontmatter fields:
 Example for a file named `Heinrich Hertz.md`:
 ```yaml
 ---
-title: Heinrich Hertz
 tags:
   - topic/physics
   - type/person
@@ -158,7 +156,7 @@ updatedAt: 2026-02-10T10:30:00Z
 ---
 ```
 
-The `title` field must match the filename exactly (minus `.md`), because aliases and Dataview key on it. `RAID 0.md` gets `title: RAID 0`.
+**NEVER** add a `title` property. The file name is the title, and the property was removed from the whole Default vault on 2026-10-14. Bases and Dataview use `file.name`; templates use `{{title}}` (QuickAdd) or `tp.file.title` (Templater) in the body only.
 
 ### 8. Tags
 - **PREFER** frontmatter tags over inline tags
@@ -174,7 +172,8 @@ The `title` field must match the filename exactly (minus `.md`), because aliases
 - **ASK** before adding inline tags
 
 ### 9. File Naming
-- Use human-readable filenames with spaces
+- Use human-readable filenames with spaces; the filename is the note's title
+- Sentence case (`Public key.md`), keeping official tool and product spellings (`fstab`, `systemd`, `iPhone`)
 - Follow the naming convention of other notes in the same folder
 - Examples: `Heinrich Hertz.md`, `RAID 0.md`, `Ancient Egypt.md`
 - For daily notes: Always use `yyyy-mm-dd.md` format in `notes/daily notes/`
@@ -205,7 +204,6 @@ When you add, modify, or change the actual content of a note (not just formattin
 **Example:**
 ```yaml
 ---
-title: Example Note
 tags:
   - topic/computing
   - meta/ai-assisted  # ← Added this

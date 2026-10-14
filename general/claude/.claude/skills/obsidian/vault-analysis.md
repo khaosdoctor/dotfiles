@@ -17,7 +17,6 @@ coverUrl: https://upload.wikimedia.org/wikipedia/commons/3/30/HEINRICH_HERTZ.JPG
 oneliner: "German physicist (1857–1894)"
 reference: https://en.wikipedia.org/wiki/Heinrich_Hertz
 tags: [meta/wikipedia, type/person, topic/physics, topic/math]
-title: "Heinrich Hertz"
 updatedAt: 2026-01-05T19:31:15Z
 url: https://en.wikipedia.org/wiki/Heinrich_Hertz
 ```
@@ -48,7 +47,7 @@ aliases: []
 ```
 
 **Observations**:
-- Missing required fields: `title`, `createdAt`, `oneliner`, `updatedAt` ⚠️
+- Missing required fields: `createdAt`, `oneliner`, `updatedAt` ⚠️
 - Uses OLD tag format with both parent and child tags
   - Modern format should only use deepest child: `topic/computing/hardware/storage`
   - Obsidian automatically links hierarchical tags
@@ -341,8 +340,8 @@ Note: Uses regular en-dash between wikilinked years (not EM dash)
 Based on existing note analysis:
 
 ### Must Have
-- [ ] Title field matches filename exactly
-- [ ] All 6 required frontmatter fields present
+- [ ] No `title` property (the filename is the title)
+- [ ] All 5 required frontmatter fields present
 - [ ] Tags use modern format (only deepest child tags)
 - [ ] Oneliner is concise and descriptive
 - [ ] Timestamps in ISO 8601 format
@@ -371,7 +370,7 @@ Based on existing note analysis:
 ## Common Mistakes to Avoid
 
 1. **Frontmatter**
-   - ❌ `title: Heinrich-Hertz` (should match filename: `Heinrich Hertz`)
+   - ❌ Any `title:` property (removed vault-wide on 2026-10-14; the filename is the title)
    - ❌ Missing required fields
    - ❌ Using EM dash in oneliner: `German physicist (1857—1894)`
    - ✅ Use regular dash: `German physicist (1857–1894)`
@@ -415,7 +414,7 @@ Based on existing note analysis:
 6. **Add frontmatter** → All required fields, modern hierarchical tags (only deepest child)
 7. **Add wikilinks** → Names, years, concepts
 8. **Add images** → Store in appropriate `internal/assets/` subdirectory, use full paths, add captions
-9. **Review** → No EM dashes, no text between dashes, title matches filename, natural writing style
+9. **Review** → No EM dashes, no text between dashes, no `title` property, natural writing style
 
 ### Updating an Existing Note
 
@@ -444,7 +443,6 @@ When creating notes about people, places, or concepts:
 ### Person Note
 ```markdown
 ---
-title: Heinrich Hertz
 tags:
   - meta/wikipedia
   - type/person
@@ -472,7 +470,6 @@ Heinrich Rudolf Hertz was a German physicist who first conclusively proved the e
 ### Technical Concept Note (Modern Format)
 ```markdown
 ---
-title: RAID 0
 tags:
   - topic/computing/hardware/storage
   - topic/computing/infrastructure
@@ -506,7 +503,7 @@ Note: Uses only the deepest child tags. Obsidian automatically links to parents.
 4. **Research thoroughly** - Wikipedia + web search
 5. **Ask before adding** - Curiosities, inline tags, structural changes
 6. **Filesystem over MCP** - For creating/updating (better diffs)
-7. **Title = Filename** - Always match exactly
+7. **Filename = Title** - No `title` property, the filename carries it
 8. **No EM dashes** - Ever! Use regular hyphens
 9. **No dashed explanations** - Avoid text between dashes (AI pattern)
 10. **Templates are your friend** - Check `internal/templates/` first
