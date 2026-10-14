@@ -3,7 +3,8 @@
 [user]
 	name = Lucas Santos
 	email = hello@lsantos.dev
-	signingkey = ~/.ssh/id_ed25519.pub
+	# Public key held in 1Password, signed through SSH_AUTH_SOCK (see .exports)
+	signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMSSp62yJyQZmcxDI6cTsHugkXzTDZaC6qNIeDaPDWZd
 [core]
   autocrlf = false
   eol = lf
@@ -83,14 +84,14 @@
 	ui = auto
 [branch]
 	sort = -committerdate
-[include]
-  # MUST ALWAYS BE LAST
-  # Includes local configuration on a per-system basis
-  # This config is not versioned
-  path = ~/.gitconfig.local
 [gpg]
 	format = ssh
 [commit]
 	gpgsign = true
 [gpg "ssh"]
-	allowedSignersFile = /home/khaosdoctor/.ssh/allowed_signers
+	allowedSignersFile = ~/.ssh/allowed_signers
+[include]
+  # MUST ALWAYS BE LAST
+  # Includes local configuration on a per-system basis
+  # This config is not versioned
+  path = ~/.gitconfig.local
