@@ -10,6 +10,7 @@ These set macOS defaults you only need once per machine. `run-one-time-commands.
 | --- | --- |
 | `default-screenshots-jpg.sh` | Saves screenshots as JPG instead of PNG |
 | `disable-disk-warning.sh` | Turns off the "disk not ejected properly" notification (needs `sudo`) |
+| `link-1password-agent-socket.sh` | Symlinks the 1Password SSH agent socket to `~/.1password/agent.sock`, the path `.exports` uses for `SSH_AUTH_SOCK` and git signing |
 | `make-dock-instant-appear.sh` | Removes the Dock autohide delay and speeds up its animation |
 | `make-hidden-transparent.sh` | Shows hidden apps as translucent icons in the Dock |
 
