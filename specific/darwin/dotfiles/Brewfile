@@ -269,8 +269,6 @@ cask "spotify"
 cask "tailscale-app"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# Open-source code editor
-cask "visual-studio-code"
 # Multiplayer code editor
 cask "zed"
 mas "1Password for Safari", id: 1569813296
