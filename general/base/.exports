@@ -85,7 +85,7 @@ if [[ "$(uname -s)" == "Linux" ]]; then
     if [[ "$XDG_SESSION_TYPE" == "wayland" ]] || [[ -n "$WAYLAND_DISPLAY" ]]; then
         export SDL_VIDEODRIVER=wayland
         export _JAVA_AWT_WM_NONREPARENTING=1
-        export QT_QPA_PLATFORM=wayland
+        export QT_QPA_PLATFORM="wayland;xcb"
         export XDG_CURRENT_DESKTOP=wayland
         export XDG_SESSION_DESKTOP=wayland
 
