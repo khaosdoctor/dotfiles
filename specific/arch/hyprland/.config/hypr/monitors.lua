@@ -2,7 +2,7 @@
 
 hl.monitor({
     output = "desc:Samsung Electric Company Odyssey G80SD H1AK500000",
-    mode = "3840x2160@120",
+    mode = "highres@highrr",
     position = "3680x735",
     scale = 1.2000000000000002
 })

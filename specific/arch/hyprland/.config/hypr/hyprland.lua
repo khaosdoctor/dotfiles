@@ -53,30 +53,18 @@ hl.permission({ binary = "/usr/(bin|local/bin)/hyprpm", type = "plugin", mode = 
 -------------------
 
 hl.on("hyprland.start", function()
-	-- Export dbus variables to systemd so it knows when wayland has started
-	hl.exec_cmd(
-		"dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS"
-	)
-	hl.exec_cmd(
-		"systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE GTK_IM_MODULE QT_IM_MODULE XMODIFIERS"
-	)
+	-- uwsm already exports the session env to systemd/dbus
+
+	-- XWayland primary output: Steam draws its notification toasts there
+	hl.exec_cmd("xrandr --output DP-1 --primary")
 
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-
-	-- Start Fcitx5 input method daemon
-	hl.exec_cmd("fcitx5 -d")
-
-	-- Overall app drawer launchpad
-	hl.exec_cmd("nwg-drawer -r")
 
 	-- Start easyEffects for EQ
 	hl.exec_cmd("flatpak run com.github.wwmm.easyeffects -w --service-mode")
 
 	hl.exec_cmd("tailscale-systray")
 	hl.exec_cmd("systemctl --user start graphical-session-apps.target")
-	hl.exec_cmd("uwsm app -- copyq --start-server")
-	-- Slideshow for wallpapers
-	hl.exec_cmd(os.getenv("HOME") .. "/.config/waypaper/slideshow.sh")
 	hl.exec_cmd("handy --start-hidden")
 
 	-- Start 1P last, after polkit + keyring prompt are done
@@ -88,12 +76,11 @@ end)
 -------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
--- hl.env("XCURSOR_THEME", "Colloid Cursors")
-hl.env("XCURSOR_THEME", "phinger-cursors-light")
-hl.env("XCURSOR_SIZE", "32")
--- hl.env("HYPRCURSOR_THEME", "Colloid Cursors")
-hl.env("HYPRCURSOR_THEME", "phinger-cursors-light")
-hl.env("HYPRCURSOR_SIZE", "32")
+-- Theme name is the icon dir name (/usr/share/icons/Colloid-cursors), not index.theme's Name=
+hl.env("XCURSOR_THEME", "Colloid-cursors")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_THEME", "Colloid-cursors")
+hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
 -- Input method (Fcitx5) for proper dead key compose on Wayland
@@ -127,10 +114,6 @@ hl.config({
 		allow_tearing = false,
 
 		layout = "dwindle",
-	},
-
-	cursor = {
-		no_hardware_cursors = 1,
 	},
 
 	decoration = {
@@ -179,6 +162,11 @@ hl.config({
 		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
 		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
 		disable_splash_rendering = true,
+		vrr = 2, -- fullscreen only; 1 = always on
+	},
+
+	ecosystem = {
+		no_donation_nag = true,
 	},
 
 	debug = {
@@ -284,12 +272,10 @@ hl.bind(mainMod .. " + E", hl.dsp.layout("togglesplit")) -- dwindle
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" })) -- Real fullscreen
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "maximized" })) -- Maintains top bar
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("vicinae vicinae://launch/clipboard/history"))
-hl.bind(mainMod .. " + SHIFT + TAB", hl.dsp.exec_cmd("walker --maxheight 300 --width 800 -m windows"))
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("copyq show"))
 hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
 hl.bind("ALT + " .. mainMod .. " + SPACE", hl.dsp.exec_cmd("1password --quick-access"))
 hl.bind("ALT + SHIFT + D", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/handy-toggle"))
-hl.bind(mainMod .. " + ESCAPE", hl.dsp.exec_cmd("nwg-drawer"))
 
 -- Behaves like tabbed i3 containers
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
@@ -364,7 +350,7 @@ hl.define_submap("system", function()
 	-- Needs to exit after the action otherwise we end up in the same submap
 	hl.bind("L", function()
 		hl.dispatch(hl.dsp.exec_cmd("pkill nwg-bar"))
-		hl.dispatch(hl.dsp.exec_cmd("pidof hyprlock | hyprlock"))
+		hl.dispatch(hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 		hl.dispatch(hl.dsp.submap("reset"))
 	end, { repeating = true })
 	hl.bind("S", function()
@@ -452,7 +438,7 @@ hl.window_rule({
 -- Floating apps + custom
 ------------------
 
-hl.window_rule({ match = { class = "^(vlc)$" }, float = true })
+hl.window_rule({ match = { class = "^(vlc)$" }, float = true, center = true })
 hl.window_rule({ match = { class = "^(com.gabm.satty)$" }, float = true })
 
 -- Open spotify on the special workspace (scratchpad) without notifying
@@ -486,6 +472,15 @@ hl.window_rule({
 	animation = "gnomed",
 })
 
+-- Hidden from screen shares (shows as a black box)
+hl.window_rule({
+	name = "no-screen-share",
+	match = {
+		class = "^(1password|com.onepassword.OnePassword|protonvpn-app|proton.vpn.app.gtk|md.obsidian.Obsidian|com.rtosta.zapzap|org.telegram.desktop)$",
+	},
+	no_screen_share = true,
+})
+
 hl.window_rule({ match = { class = "^(virt-manager)$" }, float = true })
 
 -- App categories: add a class to a list below to apply that category's rule to it.
@@ -500,6 +495,29 @@ local app_categories = {
 		"org.qbittorrent.qBittorrent",
 		"FreeFileSync",
 		"com.github.wwmm.easyeffects",
+		"io.github.ilya_zlobintsev.LACT",
+		"io.github.thetumultuousunicornofdarkness.cpu-x",
+		"hardinfo2",
+		"nwg-displays",
+		"openrgb",
+		"org.gnome.World.PikaBackup",
+		"protonvpn-app",
+		"proton.vpn.app.gtk",
+		"org.gnome.DiskUtility",
+		"org.gnome.baobab",
+		"org.gnome.FileRoller",
+		"org.gnome.Logs",
+		"org.gnome.Evince",
+		"org.gnome.TextEditor",
+	},
+	float_center_small = {
+		"io.github.kaii_lb.Overskride",
+		"nwg-look",
+		"qt6ct",
+		"org.fcitx.fcitx5-config-qt",
+		"waypaper",
+		"org.gnome.Characters",
+		"org.gnome.font-viewer",
 	},
 }
 
@@ -511,12 +529,48 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	name = "pip",
-	match = { title = "^([Pp]icture-[iI]n-[Pp]icture)$" },
+	match = { class = "^(" .. table.concat(app_categories.float_center_small, "|") .. ")$" },
 	float = true,
 	center = true,
-	size = { 800, 600 },
+	size = { 900, 650 },
 })
+
+-- Remember last floating size for apps that get resized by hand
+hl.window_rule({
+	match = { class = "^(io.github.ilya_zlobintsev.LACT|io.github.kaii_lb.Overskride)$" },
+	persistent_size = true,
+})
+
+-- Telegram media viewer (title from tdesktop lng_mediaview_title)
+hl.window_rule({
+	name = "telegram-media-viewer",
+	match = { class = "^(org.telegram.desktop)$", title = "^(Media viewer)$" },
+	float = true,
+	center = true,
+	no_anim = true,
+	persistent_size = true,
+	size = { "monitor_w*0.8", "monitor_h*0.85" },
+})
+
+hl.window_rule({
+	name = "pip",
+	-- Vivaldi titles it "Picture in picture" (spaces), Firefox "Picture-in-Picture"
+	match = { title = "^([Pp]icture[- ][Ii]n[- ][Pp]icture)$" },
+	float = true,
+	center = true,
+	pin = true,
+	keep_aspect_ratio = true,
+	size = { 800, 450 },
+	idle_inhibit = "always",
+})
+
+-- Keep hypridle from locking during fullscreen video/games
+hl.window_rule({
+	name = "idle-fullscreen",
+	match = { class = "^(vivaldi-stable|steam_app_.*)$" },
+	idle_inhibit = "fullscreen",
+})
+hl.window_rule({ name = "idle-media", match = { class = "^(mpv|vlc)$" }, idle_inhibit = "focus" })
 
 hl.window_rule({
 	name = "copyq",
@@ -572,6 +626,33 @@ hl.window_rule({ match = { content = "game" }, monitor = "DP-1" })
 hl.window_rule({ match = { class = "^(steam_app_)(.*)" }, workspace = "3" })
 hl.window_rule({ match = { content = "game" }, workspace = "3" })
 
+---------------
+-- STEAM CLIENT (titles from ~/.steam/steam/logs/webhelper.txt; main window "Steam" stays tiled)
+---------------
+hl.window_rule({
+	name = "steam-friends",
+	match = { class = "^(steam)$", title = "^(Friends List)$" },
+	float = true,
+	center = true,
+	size = { 400, 700 },
+})
+hl.window_rule({
+	name = "steam-login",
+	match = { class = "^(steam)$", title = "^(Sign in to Steam)$" },
+	float = true,
+	center = true,
+})
+-- XWayland toasts can't be moved by rules; DP-1 placement comes from xrandr --primary in autostart
+hl.window_rule({
+	name = "steam-toasts",
+	match = { class = "^(steam)$", title = "^(notificationtoasts_.*)$" },
+	float = true,
+	pin = true,
+	no_initial_focus = true,
+	no_focus = true,
+	no_anim = true,
+})
+
 ------------------
 -- Exiled Exchange 2 (PoE2 price overlay, XWayland)
 -- Its transparent fullscreen overlay otherwise makes Hyprland blur the
@@ -596,6 +677,14 @@ hl.window_rule({
 	pin = true,
 	size = { "monitor_w*0.4", "monitor_h*0.3" },
 })
+-- Nemo's multi-file rename (bulk-rename-tool = thunar --bulk-rename)
+hl.window_rule({
+	name = "thunar-bulk-rename",
+	match = { class = "^(thunar)$", title = "^(Bulk Rename).*" },
+	float = true,
+	center = true,
+	size = { 928, 690 },
+})
 hl.window_rule({
 	name = "center-floating-windows",
 	match = { float = true, xwayland = false, title = "negative:^(menu)$" },
@@ -613,12 +702,17 @@ hl.window_rule({
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
--- eww widgets: no focus, no input
+-- eww widgets + Handy recording overlay: neither sets a namespace, so both use gtk-layer-shell's default
 hl.layer_rule({
-	match = { namespace = "eww*" },
+	match = { namespace = "^gtk-layer-shell$" },
 	no_anim = true,
 })
--- hl.layer_rule({ match = { namespace = "nwg-drawer" }, blur = true })  -- disabled: causes freeze when searching
+
+-- swaync popups + control center hidden from screen shares
+hl.layer_rule({
+	match = { namespace = "^swaync-(notification-window|control-center)$" },
+	no_screen_share = true,
+})
 
 -- VICINAE
 hl.layer_rule({
