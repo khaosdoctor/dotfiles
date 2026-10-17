@@ -4,6 +4,9 @@ After=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/udiskie --no-tray
+Restart=on-failure
+# Gives the compositor time to come back after a crash
+RestartSec=5
 
 [Install]
 WantedBy=graphical-session.target

@@ -1,0 +1,19 @@
+[Unit]
+Description=Fcitx5 input method daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+# Prevents eternal restarting
+StartLimitIntervalSec=60
+StartLimitBurst=3
+# Only starts if Wayland is available
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+ExecStart=/usr/bin/fcitx5
+Restart=always
+# Gives the compositor time to come back after a crash
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

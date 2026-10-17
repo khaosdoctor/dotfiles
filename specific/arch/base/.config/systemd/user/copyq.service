@@ -1,0 +1,20 @@
+[Unit]
+Description=CopyQ clipboard manager server
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+# Prevents eternal restarting
+StartLimitIntervalSec=60
+StartLimitBurst=3
+# Only starts if Wayland is available
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+# No arguments runs the server in the foreground
+ExecStart=/usr/bin/copyq
+Restart=always
+# Gives the compositor time to come back after a crash
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

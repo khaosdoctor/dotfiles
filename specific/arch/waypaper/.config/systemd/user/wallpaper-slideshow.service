@@ -1,0 +1,13 @@
+[Unit]
+Description=Rotate wallpapers with waypaper
+# Follow hyprpaper: stops with it, starts again when it comes back (crash, restart)
+PartOf=hyprpaper.service
+After=hyprpaper.service
+
+[Service]
+# hyprpaper is Type=simple, give its IPC socket a moment before the first waypaper call
+ExecStartPre=/usr/bin/sleep 1
+ExecStart=%h/.config/waypaper/slideshow.sh
+
+[Install]
+WantedBy=hyprpaper.service
