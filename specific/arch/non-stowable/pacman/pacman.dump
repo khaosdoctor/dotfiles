@@ -97,6 +97,7 @@ gvfs-wsdd
 handy
 hardinfo2
 herdr-bin
+hivex
 huenicorn
 hyprgraphics
 hypridle
@@ -105,6 +106,7 @@ hyprlang
 hyprlock
 hyprls-git
 hyprpaper
+hyprpicker
 hyprpolkitagent
 hyprutils
 ibus
@@ -165,7 +167,6 @@ noto-fonts-cjk
 ntfs-3g
 nwg-bar
 nwg-displays
-nwg-drawer
 nwg-look
 obsidian
 ollama-rocm

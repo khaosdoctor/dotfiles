@@ -109,7 +109,6 @@ var packageDescriptions = map[string]string{
 	"keyd-app-remapper": "Per-app key remapping",
 	"mako":              "Notification daemon (mako)",
 	"nwg-bar":           "Logout/power bar (nwg-bar)",
-	"nwg-drawer":        "Application drawer (nwg-drawer)",
 	"pacman":            "Pacman config and hooks [sudo]",
 	"pipewire":          "PipeWire/WirePlumber audio config",
 	"pywal":             "Color scheme templates (pywal)",
