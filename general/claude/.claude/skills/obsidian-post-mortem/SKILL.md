@@ -44,7 +44,7 @@ Same job as the `post-mortem` skill, with one fixed destination: the AI Brainz v
 6. **Verdicts and blame.** This is a blame-assigning note (Lucas's instruction 2026-10-02): name the responsible agent, session, model and person for each root cause, with the act and the evidence, and fill the Blame summary table. Lucas's verdict is his own: attribute it. Unknown actor is `TBD`, never a guess; blame without a source is `speculation`. Include the orchestrator and your own session when involved. Refer to agents by their session name and model, e.g. `second-brain-analyser-main (opus-5.5)`.
 7. **Propagate.** One pass, each with the signature:
    - `Postmortems/index.md`: add one line at the top of Entries (newest first): link, date, severity, one-sentence summary, guard count. The index is hand-maintained.
-   - `papercuts.md` at the vault root: one line per guard group, format `YYYY-MM-DD | symptom | guard | project`, linking the post-mortem.
+   - `papercuts.md` at the vault root: one `### <guard topic> (YYYY-MM-DD)` block per guard group under `## Standing guards`, with `- **Incident:**` (linking the post-mortem), `- **Guards:**` as a numbered sub-list, and `- **Where:**` (project link plus signature). Copy the shape of the existing blocks.
    - Today's `Daily/YYYY-MM-DD.md` Work section: one bullet linking the note.
    - `Logs/YYYY-MM-DD.md`: a `knowledge-create | [[note]]: root causes, costs, N guards` line.
    - The project note's Recent Activity gets a link; add person-note links only when a source ties them to it.
