@@ -65,7 +65,9 @@ hl.on("hyprland.start", function()
 
 	hl.exec_cmd("tailscale-systray")
 	hl.exec_cmd("systemctl --user start graphical-session-apps.target")
-	hl.exec_cmd("handy --start-hidden")
+	-- Overlay flickers on WebKitGTK 2.54 with DMA-BUF off (Handy #2166). 0.9.8 overrides this var;
+	-- the release after it honours it (PR #2249), so this takes effect on that update.
+	hl.exec_cmd("env WEBKIT_DISABLE_DMABUF_RENDERER=0 handy --start-hidden")
 
 	-- Start 1P last, after polkit + keyring prompt are done
 	hl.exec_cmd("1password")
@@ -702,9 +704,9 @@ hl.window_rule({
 
 hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
 
--- eww widgets + Handy recording overlay: neither sets a namespace, so both use gtk-layer-shell's default
+-- eww widgets: no focus, no input
 hl.layer_rule({
-	match = { namespace = "^gtk-layer-shell$" },
+	match = { namespace = "eww*" },
 	no_anim = true,
 })
 
