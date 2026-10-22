@@ -1,4 +1,5 @@
 tap "anomalyco/tap"
+tap "charmbracelet/tap"
 tap "cloudflare/cloudflare", trusted: true
 tap "henrygd/beszel", trusted: true
 tap "homebrew/cask"
@@ -6,7 +7,7 @@ tap "knqyf263/sou"
 tap "matheusml/zsh-ai", trusted: true
 tap "spacelift-io/spacelift", trusted: true
 tap "yoheimuta/protolint"
-tap "zerobrewhq/zerobrew"
+tap "zerobrewhq/tap", "https://github.com/zerobrewhq/homebrew-tap.git"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Tool for generating GNU Standards-compliant Makefiles
@@ -121,6 +122,8 @@ brew "leptonica"
 brew "lftp"
 # Multi-format archive and compression library
 brew "libarchive"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # YAML Parser
 brew "libyaml"
 # Tool for linting and static analysis of Lua code
@@ -193,6 +196,8 @@ brew "tailscale"
 brew "terraform"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
+# Terminal multiplexer
+brew "tmux"
 # Command-line interface to the freedesktop.org trashcan
 brew "trash-cli"
 # Display directories as trees (with optional color/HTML output)
@@ -215,6 +220,8 @@ brew "yazi"
 brew "zellij"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode", trusted: true
+# Generate images of code and terminal output.
+brew "charmbracelet/tap/freeze", trusted: true
 # A TUI tool to explore container images
 brew "knqyf263/sou/sou", trusted: true
 # Lightweight AI assistant for your terminal
