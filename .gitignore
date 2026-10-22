@@ -231,3 +231,4 @@ general/ai-agents/.config/opencode/plugins/herdr-agent-state.js
 /installer/main
 /general/herdr/.config/herdr/.plugins.lock
 /general/herdr/.config/herdr/session.json
+/general/claude/.claude/skills/up-to-speed/state.json
