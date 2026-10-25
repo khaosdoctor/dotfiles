@@ -83,7 +83,7 @@
       "menu": "on-click",
       "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
       "menu-actions": {
-        "shutdown": "systemctl poweroff",
+        "shutdown": "systemctl poweroff -ff",
         "reboot": "systemctl reboot",
         "suspend": "systemctl suspend",
         "logout": "hyprctl dispatch 'hl.dsp.exit()'",
