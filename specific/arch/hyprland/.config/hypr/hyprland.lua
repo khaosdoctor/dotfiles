@@ -663,6 +663,21 @@ hl.window_rule({
 hl.window_rule({ match = { class = "^(exiled-exchange-2)$" }, no_blur = true })
 
 ------------------
+-- Frameless Chromium/CEF popups (Spotify mini player) paint a transparent
+-- shadow margin inside their surface, so Hyprland blurs and borders it.
+-- Add more classes to the list when another app shows the same halo.
+------------------
+local transparent_margin = { "chromium-browser" }
+hl.window_rule({
+	name = "transparent-margin",
+	match = { class = "^(" .. table.concat(transparent_margin, "|") .. ")$", float = true },
+	no_blur = true,
+	no_shadow = true,
+	border_size = 0,
+	rounding = 0,
+})
+
+------------------
 -- Floating based on roles/types
 ------------------
 hl.window_rule({
