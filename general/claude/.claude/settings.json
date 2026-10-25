@@ -214,7 +214,8 @@
     "image-view@claude-image-view": true,
     "prismantis@prismantis": true,
     "flightdeck@claude-flightdeck": true,
-    "filetree@claude-code-filetree": true
+    "filetree@claude-code-filetree": true,
+    "pr-deck@claude-pr-list-mod": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
@@ -277,12 +278,19 @@
         "source": "github",
         "repo": "data-goblin/claude-code-filetree"
       }
+    },
+    "claude-pr-list-mod": {
+      "source": {
+        "source": "github",
+        "repo": "khaosdoctor/claude-pr-list-mod"
+      }
     }
   },
+  "feedbackDrafts": "notify",
   "alwaysThinkingEnabled": true,
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "high"
+      "effortLevel": "medium"
     }
   },
   "promptSuggestionEnabled": false,
@@ -332,6 +340,30 @@
         "column": "date",
         "hints": "on"
       }
+    },
+    "pr-deck@claude-pr-list-mod": {
+      "options": {
+        "openOnStart": true,
+        "startCollapsed": true,
+        "alwaysShowAll": false,
+        "cardColors": "attention",
+        "pinYourMove": true,
+        "buttonStyle": "both",
+        "defaultGroup": "status",
+        "refreshMinutes": "2",
+        "showSummary": true,
+        "summaryLength": "200",
+        "showFableButton": true,
+        "showCopilotPass": true,
+        "providers": "github,gitlab",
+        "tracker": "none",
+        "openCommand": "open {url}",
+        "editorCommand": "vim {path}",
+        "cloneDir": "~/Documents/Repositories/{host}/{owner}/{repo}",
+        "autoRename": true,
+        "sessionName": "{cli}-{pr}-{branch}",
+        "stateFile": "~/.cache/claude-pr-deck.state"
+      }
     }
   },
   "tui": "fullscreen",
@@ -339,8 +371,10 @@
   "editorMode": "vim",
   "verbose": true,
   "preferredNotifChannel": "notifications_disabled",
-  "autoCompactEnabled": false,
+  "autoCompactEnabled": true,
+  "switchModelsOnFlag": true,
   "remoteControlAtStartup": true,
+  "crossSessionInbound": "accept",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
