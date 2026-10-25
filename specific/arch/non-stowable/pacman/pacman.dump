@@ -48,6 +48,7 @@ docker-credential-pass
 dosfstools
 ducker
 dysk
+earlyoom
 efibootmgr
 entr
 ethtool
@@ -99,6 +100,7 @@ hardinfo2
 herdr-bin
 hivex
 huenicorn
+hydra-launcher-bin
 hyprgraphics
 hypridle
 hyprland
@@ -298,4 +300,5 @@ zed
 zellij
 zip
 zoxide
+zram-generator
 zsh
