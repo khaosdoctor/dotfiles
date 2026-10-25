@@ -129,8 +129,8 @@ program = "nvim"
 width = 600
 height = 400
 # mode = "windowed"
-opacity = 0.95
-blur = true
+opacity = 1.0
+blur = false
 decorations = "enabled"
 
 # Renderer
@@ -295,6 +295,12 @@ hide-if-single = true
 # [shell]
 # program = "/opt/homebrew/bin/tmux"
 # args = ["new-session", "-c", "/var/www"]
+#
+# Same zellij wrapper Ghostty uses. Rio does not expand $HOME, so zsh resolves the path
+# (home differs between Linux and macOS).
+[shell]
+program = "zsh"
+args = ["-c", "exec $HOME/.local/bin/zellij-terminal.sh"]
 
 # Colors
 #
@@ -312,6 +318,8 @@ hide-if-single = true
 # red = '#ED203D'
 # blue = '#12B5E5'
 # yellow = '#FCBA28'
+[colors]
+cursor = '#fc03e3'
 
 # Bindings
 #
@@ -323,6 +331,16 @@ hide-if-single = true
 keys = [
     { key = "]", with = "alt", action = "SelectNextSplit" },
     { key = "[", with = "alt", action = "SelectPrevSplit" },
+    # Matched from Ghostty
+    { key = "t", with = "control", action = "CreateTab" },
+    { key = "f5", action = "SplitDown" },
+    { key = "f6", action = "SplitRight" },
+    { key = "f4", action = "SplitRight" },
+    # ponytail: Rio has no directional split focus, only next/prev
+    { key = "left", with = "alt", action = "SelectPrevSplit" },
+    { key = "up", with = "alt", action = "SelectPrevSplit" },
+    { key = "right", with = "alt", action = "SelectNextSplit" },
+    { key = "down", with = "alt", action = "SelectNextSplit" },
 ]
 # keys = [
 #   { key = "q", with = "super", action = "Quit" },
@@ -350,9 +368,10 @@ keys = [
 # # Linux overwrite
 # linux.shell.program = "tmux"
 # linux.shell.args = ["new-session", "-c", "/var/www"]
+[platform]
 linux.theme = "wal"
-windows.theme = ""
-macos.theme = ""
+windows.theme = "catppuccin-mocha"
+macos.theme = "catppuccin-mocha"
 
 # Log level
 #

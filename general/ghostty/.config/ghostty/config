@@ -73,7 +73,7 @@ shell-integration-features = no-cursor
 scrollback-limit = 20000000
 
 # Background (kitty: background_opacity 0.90, background_blur 30)
-background-opacity = 0.90
+background-opacity = 1.0
 background-blur = 30
 
 # macOS

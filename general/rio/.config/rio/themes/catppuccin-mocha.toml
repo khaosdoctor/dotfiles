@@ -1,0 +1,28 @@
+# Catppuccin Mocha, copied from Ghostty's built-in theme so both terminals match.
+[colors]
+background = '#1e1e2e'
+foreground = '#cdd6f4'
+cursor = '#f5e0dc'
+vi-cursor = '#f5e0dc'
+selection-background = '#585b70'
+selection-foreground = '#cdd6f4'
+tabs = '#1e1e2e'
+tabs-active = '#89b4fa'
+
+black = '#45475a'
+red = '#f38ba8'
+green = '#a6e3a1'
+yellow = '#f9e2af'
+blue = '#89b4fa'
+magenta = '#f5c2e7'
+cyan = '#94e2d5'
+white = '#a6adc8'
+
+light-black = '#585b70'
+light-red = '#f37799'
+light-green = '#89d88b'
+light-yellow = '#ebd391'
+light-blue = '#74a8fc'
+light-magenta = '#f2aede'
+light-cyan = '#6bd7ca'
+light-white = '#bac2de'
