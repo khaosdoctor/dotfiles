@@ -32,4 +32,19 @@ export STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM_ROOT"
 
 echo "Executing proton at $PROTON_BIN with $EXE"
 
-"$PROTON_BIN/proton" run "$1" >/dev/null 2>&1
+if [ ! -x "$PROTON_BIN/proton" ]; then
+    echo "Proton not found at $PROTON_BIN/proton, install \"$PROTON_VER\" in Steam or fix STEAM_ROOT" >&2
+    exit 1
+fi
+
+LOG="$STEAM_COMPAT_DATA_PATH/run.log"
+echo "Logging to $LOG"
+
+"$PROTON_BIN/proton" run "$EXE" 2>&1 | tee "$LOG"
+STATUS="${PIPESTATUS[0]}"
+
+if [ "$STATUS" -ne 0 ]; then
+    echo "Proton exited with code $STATUS, see $LOG" >&2
+fi
+
+exit "$STATUS"
