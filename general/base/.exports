@@ -86,8 +86,6 @@ if [[ "$(uname -s)" == "Linux" ]]; then
         export SDL_VIDEODRIVER=wayland
         export _JAVA_AWT_WM_NONREPARENTING=1
         export QT_QPA_PLATFORM="wayland;xcb"
-        export XDG_CURRENT_DESKTOP=wayland
-        export XDG_SESSION_DESKTOP=wayland
 
         # This fixes some bugs where electron applications won't work in secondary monitors
         # NOTE: this still doesn't fix the issues where Electron apps will behave like X11 apps
