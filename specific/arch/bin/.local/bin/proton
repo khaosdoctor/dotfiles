@@ -1,14 +1,40 @@
 #!/usr/bin/env bash
 
 # This script launches a Windows executable using Proton within a Linux environment.
-# It requires exactly one argument: the path to the executable to run.
-# It sets up a separate Proton prefix for each executable to avoid conflicts.
-# Usage: proton <path-to-executable>
+# It requires one argument: the path to the executable to run.
+# It sets up a separate Proton prefix for each executable to avoid conflicts,
+# named after the exe's ProductName (or its file name when it has none).
+# -n/--name overrides the prefix name, -p/--prefix overrides the whole prefix directory.
+# Usage: proton [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <path-to-executable>
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <executable-path>"
+usage() {
+    echo "Usage: $0 [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <executable-path>"
     exit 1
-fi
+}
+
+PREFIX=""
+NAME=""
+EXE_PATH=""
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        -p|--prefix)
+            [ -n "$2" ] || usage
+            PREFIX="$2"
+            shift 2
+            ;;
+        -n|--name)
+            [ -n "$2" ] || usage
+            NAME="$2"
+            shift 2
+            ;;
+        *)
+            [ -z "$EXE_PATH" ] || usage
+            EXE_PATH="$1"
+            shift
+            ;;
+    esac
+done
+[ -n "$EXE_PATH" ] || usage
 
 # Location of the compatdata for proton when the exe is created, this is where the prefix will be created
 PROTON_ROOT="$HOME/mnt/Games/.proton"
@@ -16,18 +42,28 @@ PROTON_ROOT="$HOME/mnt/Games/.proton"
 STEAM_ROOT="$HOME/mnt/Games/SteamLibrary"
 # This binary must exist in the $STEAM_ROOT/steamapps/common/<name>/proton
 PROTON_VER="Proton - Experimental"
-EXE_ROOT="$(dirname "$1")"
-EXE="$(basename "$1")"
+EXE_ROOT="$(dirname "$EXE_PATH")"
+EXE="$(basename "$EXE_PATH")"
 PROTON_BIN="$STEAM_ROOT/steamapps/common/$PROTON_VER"
 
-echo "Running $EXE with Proton in prefix $PROTON_ROOT/$EXE"
+# ProductName from the exe's version info (needs wrestool from icoutils), so setup.exe gets the game's name
+if [ -z "$NAME" ] && command -v wrestool >/dev/null; then
+    NAME="$(wrestool -x --raw -t16 "$EXE_PATH" 2>/dev/null | strings -el | grep -A1 '^ProductName$' | tail -n +2 | head -1)"
+    NAME="$(echo "$NAME" | tr '/' '_' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+fi
+NAME="${NAME:-$EXE}"
+
+# Resolve before the cd below so relative prefixes point where the user meant
+PREFIX="$(realpath -m "${PREFIX:-$PROTON_ROOT/$NAME}")"
+
+echo "Running $EXE with Proton in prefix $PREFIX"
 
 cd "$EXE_ROOT" || exit
 
-echo "Creating Proton prefix for $EXE at $PROTON_ROOT/$EXE"
+echo "Creating Proton prefix for $EXE at $PREFIX"
 
-mkdir -p "$PROTON_ROOT/$EXE"
-export STEAM_COMPAT_DATA_PATH="$PROTON_ROOT/$EXE"
+mkdir -p "$PREFIX" || exit
+export STEAM_COMPAT_DATA_PATH="$PREFIX"
 export STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM_ROOT"
 
 echo "Executing proton at $PROTON_BIN with $EXE"
