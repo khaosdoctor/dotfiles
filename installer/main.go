@@ -100,7 +100,7 @@ var packageDescriptions = map[string]string{
 	"yazi":      "Terminal file manager (yazi)",
 	"zellij":    "Terminal multiplexer (zellij)",
 	// Arch
-	"bin":               "Custom scripts (fix-desktop-icons, run-exe)",
+	"bin":               "Custom scripts (fix-desktop-icons, proton)",
 	"clipcat":           "Clipboard manager daemon",
 	"elephant":          "App launcher (elephant)",
 	"gtk":               "GTK 2/3 theme settings",
