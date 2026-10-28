@@ -112,6 +112,19 @@
       "type": "local",
       "command": ["tincan"],
       "enabled": true
+    },
+    "rea": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "rea-agents@6.7.0",
+        "mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "HOPPER_LAUNCHER_PATH": "/opt/hopper/bin/Hopper"
+      }
     }
   },
 
