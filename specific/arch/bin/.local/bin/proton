@@ -5,11 +5,26 @@
 # It sets up a separate Proton prefix for each executable to avoid conflicts,
 # named after the exe's ProductName (or its file name when it has none).
 # -n/--name overrides the prefix name, -p/--prefix overrides the whole prefix directory.
-# Usage: proton [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <path-to-executable>
+# Usage: proton [-h] [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <path-to-executable>
 
 usage() {
-    echo "Usage: $0 [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <executable-path>"
+    echo "Usage: $0 [-h] [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <executable-path>"
     exit 1
+}
+
+help() {
+    cat <<HELP
+Usage: $0 [-h] [-n|--name <prefix-name>] [-p|--prefix <prefix-dir>] <executable-path>
+
+Runs a Windows executable with Proton, in a prefix of its own.
+
+Options:
+  -n, --name <prefix-name>  Prefix folder name under the Proton root
+                            (default: the exe's ProductName, or its file name)
+  -p, --prefix <prefix-dir> Full prefix directory, overrides --name
+  -h, --help                Show this help
+HELP
+    exit 0
 }
 
 PREFIX=""
@@ -17,6 +32,9 @@ NAME=""
 EXE_PATH=""
 while [ "$#" -gt 0 ]; do
     case "$1" in
+        -h|--help)
+            help
+            ;;
         -p|--prefix)
             [ -n "$2" ] || usage
             PREFIX="$2"
