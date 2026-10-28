@@ -3,6 +3,8 @@ Description=A simple notification daemon with a GTK GUI for notification center
 Documentation=man:swaync(1)
 PartOf=graphical-session.target
 After=graphical-session.target
+# Only starts on Hyprland, other DEs own org.freedesktop.Notifications
+ConditionEnvironment=XDG_CURRENT_DESKTOP=Hyprland
 
 [Service]
 Type=dbus

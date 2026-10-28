@@ -2,6 +2,7 @@
 Description=Restore apps after Hyprland restarts from a crash
 PartOf=graphical-session.target
 After=graphical-session.target
+ConditionEnvironment=XDG_CURRENT_DESKTOP=Hyprland
 
 [Service]
 ExecStart=%h/.config/hypr/crash-watchdog.sh

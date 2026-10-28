@@ -9,6 +9,8 @@ StartLimitIntervalSec=60
 StartLimitBurst=3
 # Only starts if Wayland is available
 ConditionEnvironment=WAYLAND_DISPLAY
+# Only starts on Hyprland, other DEs have their own bar
+ConditionEnvironment=XDG_CURRENT_DESKTOP=Hyprland
 
 [Service]
 ExecStart=/usr/bin/waybar -c /home/khaosdoctor/.config/waybar/config-hyprland.jsonc

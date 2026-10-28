@@ -2,6 +2,7 @@
 Description=Regenerate the waybar audio menu when audio devices change
 PartOf=graphical-session.target
 After=graphical-session.target pipewire-pulse.service
+ConditionEnvironment=XDG_CURRENT_DESKTOP=Hyprland
 
 [Service]
 ExecStart=%h/.config/waybar/audio-menu-watch.sh
