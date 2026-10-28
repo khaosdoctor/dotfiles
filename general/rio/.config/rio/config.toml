@@ -208,7 +208,7 @@ use-kitty-keyboard-protocol = true
 [fonts]
 family = "CaskaydiaCove Nerd Font Mono"
 style = "normal"
-size = 16
+size = 17
 
 [fonts.regular]
 family = "CaskaydiaCove Nerd Font Mono"
@@ -329,13 +329,6 @@ cursor = '#fc03e3'
 # Example:
 [bindings]
 keys = [
-    { key = "]", with = "alt", action = "SelectNextSplit" },
-    { key = "[", with = "alt", action = "SelectPrevSplit" },
-    # Matched from Ghostty
-    { key = "t", with = "control", action = "CreateTab" },
-    { key = "f5", action = "SplitDown" },
-    { key = "f6", action = "SplitRight" },
-    { key = "f4", action = "SplitRight" },
     # ponytail: Rio has no directional split focus, only next/prev
     { key = "left", with = "alt", action = "SelectPrevSplit" },
     { key = "up", with = "alt", action = "SelectPrevSplit" },
