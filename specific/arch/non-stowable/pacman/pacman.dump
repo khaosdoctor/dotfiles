@@ -27,6 +27,7 @@ claude-desktop-appimage
 cmake
 compsize
 copyq
+cosmic-session
 cpu-x
 cpupower
 crash
