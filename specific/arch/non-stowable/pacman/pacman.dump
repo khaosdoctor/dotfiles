@@ -99,6 +99,7 @@ handy
 hardinfo2
 herdr-bin
 hivex
+hopper
 huenicorn
 hydra-launcher-bin
 hyprgraphics
@@ -291,6 +292,7 @@ xclip
 xdg-desktop-portal-hyprland
 xdg-user-dirs-gtk
 xdg-utils
+xorg-server-xvfb
 xorg-xhost
 yay
 yazi
