@@ -4,7 +4,6 @@ adobe-base-14-fonts
 age
 amd-ucode
 aquamarine
-asdf-vm-git
 atac
 atuin
 bambustudio-bin
@@ -48,7 +47,6 @@ docker-buildx
 docker-compose
 docker-credential-pass
 dosfstools
-ducker
 dysk
 earlyoom
 efibootmgr
@@ -72,7 +70,6 @@ fuse-overlayfs
 fzf
 gcc-fortran
 gdlauncher-carbon-bin
-ghostty
 git
 git-lfs
 github-cli
@@ -115,7 +112,6 @@ hyprpaper
 hyprpicker
 hyprpolkitagent
 hyprutils
-ibus
 icoutils
 iftop
 iotop
@@ -154,7 +150,6 @@ mise
 mission-center
 mkcert
 moreutils
-mpv
 mtr
 ncdu
 nemo
@@ -189,7 +184,6 @@ pacman-contrib
 pandoc-cli
 pavucontrol
 perl-anyevent
-phinger-cursors
 pika-backup
 pipewire
 pipewire-alsa
@@ -206,9 +200,7 @@ python-pip
 python-pipx
 python-pywal16
 python-pywalfox
-python312
 qbittorrent
-qemu-full
 qt6ct
 rclone
 rio
@@ -221,11 +213,9 @@ rustup
 rusty-path-of-building
 satty
 sddm
-sddm-astronaut-theme
 selectdefaultapplication-git
 slurp
 smartmontools
-spotifyd
 sshfs
 steam
 stl-thumb
@@ -237,7 +227,6 @@ tailscale
 tailscale-systray-git
 telegram-desktop
 texlive-binextra
-texlive-fontsextra
 texlive-fontsrecommended
 texlive-langportuguese
 texlive-latex
@@ -269,7 +258,6 @@ uwsm
 v4l-utils-git
 vicinae-bin
 vim
-virt-manager
 vivaldi
 vlc
 vlc-plugin-mpeg2
@@ -286,7 +274,6 @@ wev
 wf-recorder
 wget
 where-is-my-sddm-theme-git
-whitesur-cursor-theme-git
 wireplumber
 wireshark-qt
 wl-clip-persist
