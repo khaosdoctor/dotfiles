@@ -108,7 +108,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "hooks": {
     "PostCompact": [
       {
@@ -290,7 +290,7 @@
   "alwaysThinkingEnabled": true,
   "modelSettings": {
     "claude-opus-5-5": {
-      "effortLevel": "medium"
+      "effortLevel": "high"
     }
   },
   "promptSuggestionEnabled": false,
