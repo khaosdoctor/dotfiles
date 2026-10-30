@@ -129,7 +129,7 @@ hl.config({
 		shadow = {
 			enabled = false,
 			range = 4,
-			render_power = 10,
+			render_power = 4,
 			color = wal.foreground or "rgba(1a1a1aee)",
 		},
 
