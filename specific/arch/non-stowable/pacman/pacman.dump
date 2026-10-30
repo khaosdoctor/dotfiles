@@ -19,6 +19,7 @@ btop
 btrfs-assistant
 btrfs-heatmap
 btrfs-progs
+bun
 cava
 ccache
 clang
@@ -83,6 +84,7 @@ gnome-font-viewer
 gnome-keyring
 gnome-logs
 gnome-text-editor
+go
 gparted
 grim
 grimblast-git
@@ -139,6 +141,7 @@ libva-utils
 linux
 linux-firmware
 linux-headers
+localsend-bin
 lshw
 lsix
 luarocks
@@ -214,6 +217,7 @@ rocm-hip-runtime
 rocm-hip-sdk
 rocm-opencl-sdk
 rsync
+rustup
 rusty-path-of-building
 satty
 sddm
