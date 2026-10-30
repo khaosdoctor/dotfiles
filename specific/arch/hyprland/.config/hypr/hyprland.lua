@@ -38,7 +38,7 @@ hl.config({
 
 -- hl.dsp.exec_cmd spawns from Hyprland itself, so the child gets the full
 -- wayland env (this is what the old `hyprctl dispatch exec` hop was for).
-local terminal = "ghostty"
+local terminal = "rio"
 local fileManager = "nemo"
 local menu = "vicinae toggle"
 
