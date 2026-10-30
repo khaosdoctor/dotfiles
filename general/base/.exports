@@ -58,7 +58,8 @@ if command -v ccache >/dev/null 2>&1; then
 fi
 export NODE_OPTIONS="--no-warnings"
 export XCURSOR_SIZE=24
-export XCURSOR_THEME="Colloid Cursors"
+# Icon dir name (/usr/share/icons/Colloid-cursors), not index.theme's Name=
+export XCURSOR_THEME="Colloid-cursors"
 
 # This is here because of compatibility
 # In general, we would expect that most *nix systems would have XDG_CONFIG_HOME set
