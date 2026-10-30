@@ -146,8 +146,8 @@ herdr-window() {
         open -na Ghostty --args --title=herdr --command="$bin"
         return
     fi
-    # The class is the Wayland app id; dev.herdr.Herdr.desktop maps it to the herdr icon
-    ghostty --class=dev.herdr.Herdr --title=herdr -e "$bin" &!
+    # The app id is the Wayland class; dev.herdr.Herdr.desktop maps it to the herdr icon
+    rio --app-id dev.herdr.Herdr --title-placeholder herdr -e "$bin" &!
 }
 
 function systemLog() {
