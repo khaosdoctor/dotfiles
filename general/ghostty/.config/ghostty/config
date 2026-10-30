@@ -92,8 +92,8 @@ auto-update = check
 keybind = cmd+alt+s=toggle_secure_input
 
 # Rendering
-# Native alpha blending — correct color rendering with transparent backgrounds on macOS.
-alpha-blending = native
+# linear-corrected: native washes the whole background out on Linux (#1e1e2e renders as #606076).
+alpha-blending = linear-corrected
 # Bump per-cell contrast just enough to keep low-contrast text readable
 # without overriding the theme. 1.0 = off, 21.0 = max (WCAG ratio).
 minimum-contrast = 1.1
