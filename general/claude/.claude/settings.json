@@ -215,7 +215,8 @@
     "prismantis@prismantis": true,
     "flightdeck@claude-flightdeck": true,
     "filetree@claude-code-filetree": true,
-    "pr-deck@claude-pr-list-mod": true
+    "pr-deck@claude-pr-list-mod": true,
+    "clangd-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "hemnet": {
