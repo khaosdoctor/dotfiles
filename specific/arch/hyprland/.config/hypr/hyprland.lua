@@ -383,6 +383,24 @@ end
 hl.bind(mainMod .. " + MINUS", hl.dsp.workspace.toggle_special())
 hl.bind(mainMod .. " + SHIFT + MINUS", hl.dsp.window.move({ workspace = "special" }))
 
+-- Minimize: park the window on workspace 99, waybar cffi/tasks shows it dimmed and restores it
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.config/waybar/cffi/tasks/tasks.sh hide"))
+-- Keep the taskbar in sync (icons, active, minimized, tooltips, menu state)
+for _, event in ipairs({
+	"window.open",
+	"window.destroy",
+	"window.active",
+	"window.move_to_workspace",
+	"window.title",
+	"window.fullscreen",
+	"window.pin",
+	"window.update_state",
+}) do
+	hl.on(event, function()
+		hl.exec_cmd("pkill -RTMIN+8 waybar")
+	end)
+end
+
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))

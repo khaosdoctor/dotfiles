@@ -1,0 +1,10 @@
+[Unit]
+Description=Rebuild the waybar cffi/tasks module when its sources change
+
+[Path]
+PathChanged=%h/.config/waybar/cffi/tasks/tasks.c
+PathChanged=%h/.config/waybar/cffi/tasks/waybar_cffi_module.h
+PathChanged=%h/.config/waybar/cffi/tasks/Makefile
+
+[Install]
+WantedBy=default.target

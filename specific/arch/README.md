@@ -144,6 +144,17 @@ For specific versions of Electron, you can add `electron<version>-flags.conf` in
 
 However, this seems not to work in applications that bundle their own electron version, which is pretty hard to figure out.
 
+## Waybar taskbar (minimize support)
+
+The waybar taskbar is a custom CFFI module that has to be compiled. Enable its build units once after stowing; they rebuild it whenever the C source changes:
+
+```sh
+systemctl --user enable --now waybar-tasks-build.path waybar-tasks-build.service
+```
+
+Details, usage and limits are in
+[waybar/.config/waybar/cffi/tasks/README.md](./waybar/.config/waybar/cffi/tasks/README.md).
+
 ## Systemd Units
 
 There are a few Systemd units in

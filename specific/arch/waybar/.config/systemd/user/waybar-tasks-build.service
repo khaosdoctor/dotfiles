@@ -1,0 +1,11 @@
+[Unit]
+Description=Build the waybar cffi/tasks module (restarts waybar when tasks.so changes)
+# Also runs at login so a fresh stow gets tasks.so without a manual make
+
+[Service]
+Type=oneshot
+# make -q exits 0 when tasks.so is up to date, so waybar only restarts after a real rebuild
+ExecStart=/bin/sh -c 'make -q -C %h/.config/waybar/cffi/tasks && exit 0; make -C %h/.config/waybar/cffi/tasks && systemctl --user restart waybar.service'
+
+[Install]
+WantedBy=default.target

@@ -205,7 +205,7 @@ button:hover {
   transition-duration: .5s;
 }
 
-#taskbar,
+#tasks,
 #workspaces {
   margin: 0 4px;
 }
@@ -281,7 +281,9 @@ label:focus {
   background-color: transparent;
 }
 
-#taskbar button {
+/* Taskbar (cffi/tasks) */
+#tasks button {
+  background: none;
   transition-property: all;
   transition-duration: 0.5s;
   color: @foreground;
@@ -290,11 +292,27 @@ label:focus {
   padding-right: 9px;
 }
 
-#taskbar button.active {
+#tasks button.active {
   border-top: 3px solid @cyan;
 }
 
-#taskbar {
+#tasks button.minimized {
+  opacity: 0.35;
+}
+
+/* After .active so a pinned window keeps its red line when focused */
+#tasks button.pinned {
+  background: alpha(@foreground, 0.08);
+  border-top: 3px solid @red;
+}
+
+#tasks .pin-badge {
+  font-family: "Symbols Nerd Font";
+  color: @red;
+  font-size: 10px;
+}
+
+#tasks {
   border-left: 3px solid @foreground;
   padding-left: 10px;
 }
