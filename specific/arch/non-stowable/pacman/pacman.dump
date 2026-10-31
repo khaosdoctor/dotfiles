@@ -97,6 +97,9 @@ gvfs-smb
 gvfs-wsdd
 handy
 hardinfo2
+hc-bin
+hdparm
+herdr-app-desktop-bin
 herdr-bin
 hivex
 hopper
@@ -195,9 +198,11 @@ proton-drive-fs-bin
 proton-vpn-cli
 proton-vpn-gtk-app
 pv
+python-curl_cffi
 python-distutils-extra
 python-pip
 python-pipx
+python-pycryptodomex
 python-pywal16
 python-pywalfox
 qbittorrent
@@ -214,6 +219,7 @@ rusty-path-of-building
 satty
 sddm
 selectdefaultapplication-git
+sg3_utils
 slurp
 smartmontools
 sshfs
@@ -289,6 +295,7 @@ xorg-xhost
 yay
 yazi
 ydotool
+yt-dlp
 zapzap
 zed
 zellij
