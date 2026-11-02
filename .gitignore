@@ -231,3 +231,7 @@ general/ai-agents/.config/opencode/plugins/herdr-agent-state.js
 /installer/main
 /general/herdr/.config/herdr/.plugins.lock
 /general/herdr/.config/herdr/session.json
+/general/herdr/.config/herdr/session-snapshots
+/general/herdr/.config/herdr/release-notes.json
+/general/herdr/.config/herdr/session-history.json
+/general/herdr/.config/herdr/herdr.sock.agent
