@@ -283,7 +283,7 @@ cask "zed"
 mas "1Password for Safari", id: 1569813296
 mas "Gradi", id: 6804513228
 mas "Numbers", id: 409203825
+mas "Tailscale", id: 1475387142
 mas "Xcode", id: 497799835
 go "cmd/go"
 go "cmd/gofmt"
-npm "@brutalsystems/tincan"
