@@ -208,6 +208,7 @@ hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 
 hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, rounding = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, rounding = 0 })
+hl.window_rule({ match = { class = "^com\\.tmog\\.taskmanager$" }, float = true, center = true, size = "1400 806" })
 
 ---------------
 ---- INPUT ----
@@ -277,7 +278,8 @@ hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("vicinae vicinae://launch/clipb
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("copyq show"))
 hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
 hl.bind("ALT + " .. mainMod .. " + SPACE", hl.dsp.exec_cmd("1password --quick-access"))
-hl.bind("ALT + SHIFT + D", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/handy-toggle"))
+hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd("tmog-task-manager"))
+hl.bind("ALT + SHIFT + D",hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/handy-toggle"))
 
 -- Behaves like tabbed i3 containers
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
@@ -510,7 +512,6 @@ local app_categories = {
 		"org.pulseaudio.pavucontrol",
 		"nm-connection-editor",
 		"gparted",
-		"io.missioncenter.MissionCenter",
 		"btrfs-assistant",
 		"org.qbittorrent.qBittorrent",
 		"FreeFileSync",

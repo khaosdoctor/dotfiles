@@ -19,6 +19,7 @@ btrfs-assistant
 btrfs-heatmap
 btrfs-progs
 bun
+catch2
 cava
 ccache
 clang
@@ -149,8 +150,8 @@ man-db
 mangohud
 mdformat
 mesa-utils
+meson
 mise
-mission-center
 mkcert
 moreutils
 mtr
@@ -185,6 +186,7 @@ os-prober
 overskride
 pacman-contrib
 pandoc-cli
+patchelf
 pavucontrol
 perl-anyevent
 pika-backup
@@ -217,11 +219,13 @@ rsync
 rustup
 rusty-path-of-building
 satty
+scdoc
 sddm
 selectdefaultapplication-git
 sg3_utils
 slurp
 smartmontools
+spotatui-bin
 sshfs
 steam
 stl-thumb
@@ -241,6 +245,7 @@ texlive-latexrecommended
 texlive-plaingeneric
 thunar
 tigervnc
+tmog-bin
 tmux
 traceroute
 trash-cli
