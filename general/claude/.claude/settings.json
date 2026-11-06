@@ -129,6 +129,16 @@
         "hooks": [
           {
             "type": "command",
+            "command": "~/.claude/bin/redact-proc-guard.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
             "command": "jq -r '.tool_input.command' | grep -qE '^\\s*(git |git$|/usr/bin/git )' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"additionalContext\":\"IMPORTANT: git commands hang due to mise/shell hooks. You MUST prefix git commands with: env -i HOME=$HOME PATH=/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin /usr/bin/git --no-pager\"}}' || true",
             "statusMessage": "Checking git command..."
           }
