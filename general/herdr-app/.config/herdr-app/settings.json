@@ -1,0 +1,11 @@
+{
+  "zoom": 1.2,
+  "sounds": {
+    "enabled": false
+  },
+  "font": "CaskaydiaCove Nerd Font Mono",
+  "font_ligatures": false,
+  "minimum_contrast": 1.1,
+  "option_as_alt": "on",
+  "theme": "catppuccin-mocha"
+}
