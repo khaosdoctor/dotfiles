@@ -71,6 +71,8 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 # Same thing for all the other XDG variables
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+# Tailscale SSH skips pam_systemd and leaves this unset; prefer systemd's dir so hc finds the core
+[ -z "$XDG_RUNTIME_DIR" ] && [ -d "/run/user/$(id -u)" ] && XDG_RUNTIME_DIR="/run/user/$(id -u)"
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-$HOME/.run}"
 # Only create it when missing, this file runs on every zsh invocation including `zsh -c`
 [ -d "$XDG_RUNTIME_DIR" ] || mkdir -p "$XDG_RUNTIME_DIR"

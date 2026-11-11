@@ -2,6 +2,8 @@
 
 # Darwin only
 if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS core listens here, not under XDG_RUNTIME_DIR
+    export HC_SOCKET="$HOME/.local/state/herdr-core/default/default.sock"
     # Exports homebrew paths
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
