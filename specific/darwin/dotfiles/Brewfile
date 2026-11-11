@@ -251,6 +251,8 @@ cask "freecad"
 cask "ghostty"
 # Speech to text application
 cask "handy"
+# Desktop app for terminals and coding agents
+cask "herdr-app"
 # GPU-based terminal emulator
 cask "kitty"
 # File system integration
