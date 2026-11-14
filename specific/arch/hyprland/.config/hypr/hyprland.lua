@@ -278,7 +278,7 @@ hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd("vicinae vicinae://launch/clipb
 hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd("copyq show"))
 hl.bind(mainMod .. " + CTRL + SPACE", hl.dsp.exec_cmd("vicinae vicinae://launch/core/search-emojis"))
 hl.bind("ALT + " .. mainMod .. " + SPACE", hl.dsp.exec_cmd("1password --quick-access"))
-hl.bind("CTRL + SHIFT + escape", hl.dsp.exec_cmd("tmog-task-manager"))
+hl.bind("CTRL + SUPER + Delete",hl.dsp.exec_cmd("tmog-task-manager"))
 hl.bind("ALT + SHIFT + D",hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/handy-toggle"))
 
 -- Behaves like tabbed i3 containers
@@ -472,6 +472,9 @@ hl.window_rule({
 	size = { 1260, 1024 },
 	workspace = "special silent",
 })
+
+-- opensynapse always opens on workspace 4 without taking focus
+hl.window_rule({ match = { class = "^(opensynapse)$" }, workspace = "4 silent", no_initial_focus = true })
 
 hl.window_rule({
 	name = "terminals",

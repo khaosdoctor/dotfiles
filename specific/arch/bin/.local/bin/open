@@ -19,11 +19,22 @@ for target in "${@:-.}"; do
     if $reveal; then
         # Open the parent directory with the file manager
         xdg-open "$(dirname "$target")"
-    elif $editor; then
-        ${EDITOR:-xdg-open} "$target"
     elif [[ -n "$app" ]]; then
         "$app" "$target" &>/dev/null &
+    # in a terminal and the file is empty (no app maps to empty files) or its default app is nvim: edit in place
+    # gio over xdg-mime: it sniffs Google Docs on the rclone mount, which report 0 bytes but have content
+    elif [[ -t 1 && -f "$target" ]] && { [[ -z $(head -c1 "$target") ]] ||
+        [[ $(xdg-mime query default "$(gio info -a standard::content-type "$target" | sed -n 's/.*content-type: //p')") == nvim.desktop ]]; }; then
+        ${EDITOR:-nvim} "$target"
+    elif $editor; then
+        # no terminal (launcher, xdg-open from GUI): spawn the user's preferred one
+        # foreground on purpose: launchers kill the scope when this script exits
+        if command -v xdg-terminal-exec >/dev/null; then
+            xdg-terminal-exec ${EDITOR:-nvim} "$target"
+        else
+            "${TERMINAL:-xterm}" -e ${EDITOR:-nvim} "$target"
+        fi
     else
-        xdg-open "$target" &>/dev/null &
+        gio open "$target" &>/dev/null &
     fi
 done

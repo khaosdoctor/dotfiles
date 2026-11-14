@@ -19,7 +19,6 @@ btrfs-assistant
 btrfs-heatmap
 btrfs-progs
 bun
-catch2
 cava
 ccache
 clang
@@ -37,6 +36,7 @@ darktable
 deepcool-digital-linux-git
 devtools
 dex
+dioxus-cli
 direnv
 discord
 diskonaut
@@ -63,8 +63,10 @@ fcitx5-gtk
 fcitx5-qt
 fd
 ffmpegthumbnailer
+fingwit
 firefox-developer-edition
 flatpak
+fprintd
 freecad
 freefilesync-bin
 fuse-overlayfs
@@ -135,6 +137,7 @@ lazygit
 ldns
 lib32-mesa
 lib32-vulkan-radeon
+libfprint-elan-0c28-patch
 libgit2
 libpulse
 libva-utils
@@ -150,7 +153,6 @@ man-db
 mangohud
 mdformat
 mesa-utils
-meson
 mise
 mkcert
 moreutils
@@ -181,12 +183,12 @@ onnxruntime-rocm
 opencode
 openrazer-daemon
 openrgb
+opensynapse-bin
 orca-slicer-bin
 os-prober
 overskride
 pacman-contrib
 pandoc-cli
-patchelf
 pavucontrol
 perl-anyevent
 pika-backup
@@ -219,7 +221,6 @@ rsync
 rustup
 rusty-path-of-building
 satty
-scdoc
 sddm
 selectdefaultapplication-git
 sg3_utils
@@ -293,6 +294,7 @@ woff2-font-awesome
 wtype
 xclip
 xdg-desktop-portal-hyprland
+xdg-terminal-exec
 xdg-user-dirs-gtk
 xdg-utils
 xorg-server-xvfb
