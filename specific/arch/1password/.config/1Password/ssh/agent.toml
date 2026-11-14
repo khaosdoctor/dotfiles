@@ -9,6 +9,12 @@ item = "Newmann Arch ED25519"
 item = "Neumann RSA"
 
 [[ssh-keys]]
+item = "Toth SSH key"
+
+[[ssh-keys]]
+item = "Heimdall - RPI 4"
+
+[[ssh-keys]]
 item = "AUR libfprint-elan"
 
 [[ssh-keys]]

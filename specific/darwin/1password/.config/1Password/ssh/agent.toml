@@ -7,3 +7,9 @@ item = "Turing ED25"
 
 [[ssh-keys]]
 item = "Turing SSH RSA/ECDSA"
+
+[[ssh-keys]]
+item = "Toth SSH key"
+
+[[ssh-keys]]
+item = "Heimdall - RPI 4"
