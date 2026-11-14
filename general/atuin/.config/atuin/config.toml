@@ -29,7 +29,7 @@ auto_sync = true
 # update_check = true
 
 ## address of the sync server
-sync_address = "https://atuin.lsantos.me"
+sync_address = "https://atuin.lsantos.me/"
 
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
@@ -153,7 +153,7 @@ show_tabs = true
 ## Defaults to true. If enabled, upon hitting enter Atuin will immediately execute the command. Press tab to return to the shell and edit.
 # This applies for new installs. Old installs will keep the old behaviour unless configured otherwise.
 enter_accept = true
-search_mode = "fuzzy"
+search_mode = "daemon-fuzzy"
 
 ## Defaults to false. If enabled, when triggered after && or ||, Atuin will complete commands to chain rather than replace the current line.
 command_chaining = true
@@ -278,8 +278,12 @@ sync_frequency = 30
 [search]
 
 [ai]
+enabled = true
 #enabled = true
 ## The list of enabled filter modes, in order of priority.
 ## The "workspace" mode is skipped when not in a workspace or workspaces = false.
 ## Default filter mode can be overridden with the filter_mode setting.
 # filters = [ "global", "host", "session", "workspace", "directory" ]
+
+[threads]
+capture = true
