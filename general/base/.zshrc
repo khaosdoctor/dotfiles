@@ -88,8 +88,7 @@ zinit wait lucid for \
   atload'bindkey "^[[A" history-substring-search-up; bindkey "^[[B" history-substring-search-down;' zsh-users/zsh-history-substring-search \
   Tarrasch/zsh-colors \
   agkozak/zsh-z \
-  wfxr/forgit \
-  matheusml/zsh-ai
+  wfxr/forgit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
