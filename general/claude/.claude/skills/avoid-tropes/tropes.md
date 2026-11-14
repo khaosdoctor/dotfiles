@@ -644,6 +644,19 @@ Explicitly announcing the conclusion with "In conclusion", "To sum up", or "In s
 
 ---
 
+## Launch-copy pitch
+
+`consistent` · Composition
+
+Writing a "share my project" post like a product page: a tidy feature list in bullets, a laundry list of where to install it ("AUR, apt, Homebrew, .deb, AppImage, you name it"), a "The catch is..." reveal, then a call for contributors. A person sharing their own project tells the story of what annoyed them, how they got there and what it does for now, in plain paragraphs, and drops the links at the end. The pitch shape reads as marketing even when every sentence is true.
+
+**Avoid patterns like:**
+- "Right now you can:" followed by four feature bullets
+- "The catch is that I only have one..."
+- "If you have X and a bit of patience I'd super appreciate the help."
+
+---
+
 Remember: any of these patterns used once might be fine. The problem is when
 multiple tropes appear together or when a single trope is used repeatedly.
 Write like a human: varied, imperfect, specific.

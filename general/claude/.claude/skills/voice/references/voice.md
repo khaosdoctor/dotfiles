@@ -10,6 +10,7 @@ Synthesized from the user's outgoing prose across casual chat, technical broadca
 
 HRD:🚫em-dash(—)ANYWHERE,EVER(the-user-NEVER-types-them)→▸comma,▸ellipsis(...),▸parens,▸period+new-sentence,▸colon. This includes PR comments, Slack, email, docs, code comments written in the user's voice. Before sending ANY draft, scan for — and replace it. No exceptions, no "but it reads better here".
 HRD:🚫en-dash(–)in-prose-too(only-acceptable-in-numeric-ranges-like-pages-3–5-and-even-then-▸hyphen)
+HRD:🔴🚫over-specific-qualifiers(humans-are-lazy-to-WRITE-too→"tested-with-only-this-sensor"▸"tested-with-one-person-and-one-sensor,so-take-these-as-a-rough-idea-rather-than-a-benchmark",▸drop-exact-counts/scores/thresholds/byte-values-unless-the-reader-acts-on-them),EXCEPTION:explaining-how-something-works(how-it-works-docs,internals,mechanisms)→be-less-lazy,include-specifics(numbers,thresholds,mechanism-detail)+ALWAYS-exact-error-messages+codes(▸`enroll-unknown-error`,`unknown-public-key-40F65066AD7C16DB`▸vague"key-error")
 HRD:🔴underexplain▸overexplain(humans-are-lazy→say-the-thing+stop,🚫cover-every-edge/caveat/why,reader-asks-if-they-need-more),personal-framing-ALWAYS(▸"you-can-X","this-will-Y","we-do/don't-Z-because...","if-you-installed-X,..."),🚫impersonal-spec-voice("Sets-up-X","A-packaged-unit-stays-installed","Lingering-stays-on,since...")→every-surface-incl-docs+READMEs+PRs
 LEX:🔴CANONICAL-MACHINE-LIST@(~/.claude/CLAUDE.md:BAN-W/BAN-P/BAN-R/BAN-X-lines)=single-source-of-truth→ADD-NEW-BANS-THERE-ONLY(🚫duplicate-here,🚫in-vault); parsed-by-hook(~/.claude/bin/ban-words.py@PreToolUse:Write|Edit→exit-2-blocks-the-write; chat-replies-🚫covered→self-check). lines-below=the-WHY+substitutions(prose-guidance-only)
 LEX:hard-bans-below-apply-to-every-surface,including-plain-chat-replies-to-the-user,not-just-ghost-written-prose:
@@ -28,6 +29,7 @@ PRB:closer-"Just-a-final-note,..."=optional→only-if-it-adds-new-info,🚫closi
 PRB:🚫internal-mechanics∈PR-body(which-step/file/function/query-changed)→reader-cares-WHAT-it-does-for-them,cut-wiring-detail-unless-it-genuinely-matters-to-the-reader
 PRB:ground-a-general-capability-with-a-concrete-personal-example+parenthetical-aside("...without-waiting-to-be-requested,like-I-do-here-in-the-node-repo(I-usually-review-everything)")→the-real-anecdote-anchors-the-abstract-feature,🚫leave-the-motivation-purely-abstract
 PRB:shape=motivation-story→what-you-can-do-now→housekeeping(version-bump)+STOP(🚫append-a-why-I-did-it-this-way-coda)
+PRB:🔴docs+READMEs+CONTRIBUTING(2026-11-10,asked-3x-in-a-row)→🚫colon-as-sentence-joiner("X:-Y"▸"X.-Y"or"X,-Y"),🚫parenthetical-asides("(JSON-with-comments)","(read-only,...)")▸fold-into-the-sentence-or-cut,applies-to-every-sentence-written-in-his-voice
 PRB:🚫explanatory-parens-by-reflex→parens-only-when-necessary,▸fold-the-point-into-the-sentence-or-cut-it,🚫"(see-X)"/"(right-now-A-and-B)"/"(so-Y)"-asides
 PRB:🚫over-explain+🚫over-enumerate(general-gesture-enough:"files-I-didn't-touch"NOT-the-parenthetical-full-list),▸flow-of-thought("actually-we'd-been-doing-X-for-a-while-then-Y-happened-so-we-started-Z"),imperfect-punctuation/commas-OK(🚫sand-to-perfection,no-one-knows-perfect-EN),give-the-gist+direction-not-exhaustive-text
 
@@ -45,6 +47,10 @@ VCE:rapid-fire-message-splitting=sends-3-5-short-messages-instead-of-one-block�
 ## Register switching (top-level)
 
 REG:chat-DM=lowercase-start+terse+1-line+rapid-fire-splitting(3-5-msgs-per-thought),chat-channel-post=emoji-banner+ALLCAPS-title+structured-bullets+warm-emoji-close,technical-thread=stream-of-consciousness-comma-spliced-run-ons-when-architecting+telegraphic-when-reporting-status,RFC-or-formal-doc=hierarchical-headers+rationale-first-then-decision+honest-uncertainty,sent-email=mostly-cal-invite-replies(short+functional)+Hey-[Name]-greeting+no-sign-off,cal-decline=boundary-setting+direct+ALL-CAPS-emphasis,PR-body=numbered-process+links+matter-of-fact,diary=long-prose+expletives+stream-of-consciousness,daily-note-jot=timestamped-bullets+confessional+#meta-tags
+
+REG:public-forum-post(Reddit/HN-style-launch)=Hey-peeps-opener+"Hope-you-like-it!"+motivation-story-of-personal-annoyance(years-looking-for-X,"the-actual-X-sucks-a-lot")+mild-public-profanity-ok("got-really-pissed")+playful-AI-tool-credit("my-trusty-Claude-robot")+honest-AI-disclosure-tied-to-own-limits("not-a-Rust-developer","no-idea-how-to-RE-X")+trails-off-without-final-period,▸flowing-paragraphs-over-feature-bullets,🚫polished-launch-copy
+REG:launch-post-shape(from-his-own-rewrite-2026-11-10)=warm-1-line-intro→years-of-annoyance-story→failed-workaround+why(ellipsis-trail,"Or-I-had-to..."-afterthought-sentence)→"So-I-got-really-pissed-and..."→what-it-does-in-1-sentence-scoped-"for-now"→"Full-disclosure,"-AI-note-tied-to-own-limits→"But-I-tested-it..."-trail-off. 🚫feature-bullets,🚫packaging-laundry-list(AUR,apt,Homebrew,you-name-it),🚫"The-catch-is..."-setup,🚫contributor-CTA-paragraph,🚫inline-link-block(links-appended-after-by-him)
+REG:launch-post-PT-BR=same-story-shape,casual-public(Fala-pessoal!,fiquei-puto,meu-fiel-robô-Claude,tô,pra),🚫DM-slang(mano,vei,krl)+🚫keyboard-smash-laughs∈public-posts
 
 ## Diction & vocabulary
 

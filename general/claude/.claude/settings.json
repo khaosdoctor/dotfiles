@@ -162,6 +162,15 @@
             "statusMessage": "Checking branch freshness before push..."
           }
         ]
+      },
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/atuin hook claude-code"
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -191,6 +200,28 @@
             "type": "command",
             "command": "f=\"$HOME/.claude/skills/avoid-tropes/SKILL.md\"; [ -f \"$f\" ] && { echo \"AVOID-TROPES ACTIVE - these writing rules apply to every response this session, including replies to the user:\"; cat \"$f\"; } || true",
             "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/atuin hook claude-code"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "^Bash$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/atuin hook claude-code"
           }
         ]
       }
