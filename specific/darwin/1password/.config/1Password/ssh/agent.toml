@@ -1,0 +1,9 @@
+# Keys the 1Password SSH agent offers, in this order. Login keys first:
+# sshd gives up after ~6 attempts, so offering every key breaks logins.
+# Keys not listed stay in the vault, the agent just doesn't offer them.
+
+[[ssh-keys]]
+item = "Turing ED25"
+
+[[ssh-keys]]
+item = "Turing SSH RSA/ECDSA"
