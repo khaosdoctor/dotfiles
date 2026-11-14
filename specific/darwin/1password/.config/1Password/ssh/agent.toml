@@ -8,6 +8,10 @@ item = "Turing ED25"
 [[ssh-keys]]
 item = "Turing SSH RSA/ECDSA"
 
+# git commit signing key (user.signingkey), shared with neumann
+[[ssh-keys]]
+item = "Newmann Arch ED25519"
+
 [[ssh-keys]]
 item = "Toth SSH key"
 
