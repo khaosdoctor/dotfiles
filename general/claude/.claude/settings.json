@@ -168,7 +168,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/atuin hook claude-code"
+            "command": "command -v atuin >/dev/null && atuin hook claude-code || true"
           }
         ]
       }
@@ -210,7 +210,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/atuin hook claude-code"
+            "command": "command -v atuin >/dev/null && atuin hook claude-code || true"
           }
         ]
       }
@@ -221,7 +221,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/atuin hook claude-code"
+            "command": "command -v atuin >/dev/null && atuin hook claude-code || true"
           }
         ]
       }
