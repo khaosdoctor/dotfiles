@@ -11,7 +11,8 @@
   editor = nvim
   ignorecase = false
 [credential]
-  helper = /usr/lib/git-core/git-credential-libsecret
+  # libsecret on Linux only; macOS falls through to osxkeychain from the Homebrew system gitconfig
+  helper = "!f() { h=/usr/lib/git-core/git-credential-libsecret; [ -x \"$h\" ] && exec \"$h\" \"$@\"; true; }; f"
 [alias]
   st = status
   s = switch
